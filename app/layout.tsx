@@ -1,64 +1,54 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Bricolage_Grotesque, Geist, Geist_Mono } from 'next/font/google'
-import { SITE_NAME, SITE_URL } from '@/lib/site'
+import { Inter, Space_Grotesk } from 'next/font/google'
+import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const inter = Inter({
   subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
 })
-const display = Bricolage_Grotesque({
-  variable: '--font-display',
+
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  weight: ['600', '700', '800'],
+  variable: '--font-space-grotesk',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: `${SITE_NAME} — Nordic Recipes, Video-First`,
+  title: 'Nordisk — The Cultural Guide to Norway Through Food',
   description:
-    'The anti-blog Nordic recipe platform. 77 dishes across Sápmi, Vestlandet, Sørlandet, Østlandet, and modern Nordic bakery — swipe a vertical feed of cooking videos with synced steps, macros, and one-click shopping.',
+    'A premium cultural guide exploring Norway through 77 regional recipes — from Sápmi in the Arctic north to the viral bakes of modern Oslo.',
   generator: 'v0.app',
-  keywords: [
-    'Nordic recipes',
-    'Norwegian food',
-    'Sami cooking',
-    'Scandinavian recipes',
-    'cardamom buns',
-    'lutefisk',
-    'gravlaks',
-    'fårikål',
-    'Nordic baking',
-  ],
-  metadataBase: new URL(SITE_URL),
-  openGraph: {
-    title: `${SITE_NAME} — Nordic Recipes, Video-First`,
-    description:
-      '77 dishes across Sápmi, Vestlandet, Sørlandet, Østlandet, and modern Nordic bakery — synced steps, macros, and one-click shopping.',
-    type: 'website',
-    siteName: SITE_NAME,
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: `${SITE_NAME} — Nordic Recipes, Video-First` }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: `${SITE_NAME} — Nordic Recipes, Video-First`,
-    description:
-      '77 dishes across Sápmi, Vestlandet, Sørlandet, Østlandet, and modern Nordic bakery — synced steps, macros, and one-click shopping.',
-    images: ['/og-image.png'],
-  },
   icons: {
-    icon: [{ url: '/icon.png', type: 'image/png' }],
-    apple: '/icon.png',
+    icon: [
+      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
+      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-icon.png',
   },
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'dark',
-  themeColor: '#1a1410',
-  maximumScale: 1,
-  userScalable: false,
+  colorScheme: 'light dark',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f7f5f0' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f1622' },
+  ],
 }
+
+const themeScript = `
+(function() {
+  try {
+    var stored = localStorage.getItem('nordisk-theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = stored ? stored === 'dark' : prefersDark;
+    if (isDark) document.documentElement.classList.add('dark');
+  } catch (e) {}
+})();
+`
 
 export default function RootLayout({
   children,
@@ -68,10 +58,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark bg-background ${geistSans.variable} ${geistMono.variable} ${display.variable}`}
+      className={`${inter.variable} ${spaceGrotesk.variable} bg-background`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="font-sans antialiased">
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
