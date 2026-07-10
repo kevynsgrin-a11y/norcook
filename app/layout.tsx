@@ -1,18 +1,20 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Bricolage_Grotesque, Geist, Geist_Mono } from 'next/font/google'
+import { Inter, Space_Grotesk } from 'next/font/google'
+import { ThemeProvider } from '@/components/theme-provider'
 import { SITE_NAME, SITE_URL } from '@/lib/site'
 import './globals.css'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const inter = Inter({
   subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
 })
-const display = Bricolage_Grotesque({
-  variable: '--font-display',
+
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  weight: ['600', '700', '800'],
+  variable: '--font-space-grotesk',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -54,11 +56,23 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'dark',
-  themeColor: '#1a1410',
-  maximumScale: 1,
-  userScalable: false,
+  colorScheme: 'light dark',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f7f5f0' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f1622' },
+  ],
 }
+
+const themeScript = `
+(function() {
+  try {
+    var stored = localStorage.getItem('nordisk-theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = stored ? stored === 'dark' : prefersDark;
+    if (isDark) document.documentElement.classList.add('dark');
+  } catch (e) {}
+})();
+`
 
 export default function RootLayout({
   children,
@@ -68,10 +82,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark bg-background ${geistSans.variable} ${geistMono.variable} ${display.variable}`}
+      className={`${inter.variable} ${spaceGrotesk.variable} bg-background`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="font-sans antialiased">
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

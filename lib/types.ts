@@ -1,10 +1,13 @@
 /**
- * Core domain types for the Shoreburst platform.
+ * Core domain types for the Norcook catalog data layer.
  *
- * These mirror the normalized PostgreSQL schema in `lib/data/schema.sql`.
- * In production these would be the row shapes returned by the database layer.
+ * These model the shape consumed by `lib/data/recipe-builder.ts` and
+ * `lib/data/creators.ts`. In production these map to the `creators` and
+ * `recipes` tables (plus their related `ingredients`, `steps`, and
+ * `affiliate_links` rows).
  */
 
+/** A content creator whose recipes appear in the feed. Maps to a Stripe Connect account for payouts. */
 export interface Creator {
   id: string
   handle: string
@@ -13,68 +16,67 @@ export interface Creator {
   bio: string
   verified: boolean
   followers: number
-  /** Stripe Connect account id (mocked) — used for payout routing. */
+  /** Stripe Connect account id used for payout routing. */
   stripeAccountId: string
 }
 
-export interface Macros {
-  /** grams of protein per serving */
-  protein: number
-  /** grams of carbohydrates per serving */
-  carbs: number
-  /** grams of fat per serving */
-  fats: number
-  /** total kilocalories per serving */
-  calories: number
-}
-
+/** A single measured ingredient line for a recipe. */
 export interface Ingredient {
   id: string
   name: string
-  /** display quantity, e.g. "2 tbsp" */
+  /** Human-readable quantity as displayed, e.g. "2 tbsp" or "to taste". */
   quantity: string
-  /** Instacart-friendly measurement unit, e.g. "tablespoon" */
+  /** Canonical unit, e.g. "gram", "deciliter", "each". */
   unit: string
-  /** numeric amount for the Instacart line item */
+  /** Numeric amount used for scaling and shopping-list math. */
   amount: number
 }
 
+/** An ordered, video-timed instruction step. */
 export interface InstructionStep {
   id: string
   order: number
   text: string
-  /** seconds into the video where this step begins (maps to JSON-LD startOffset) */
+  /** Start time (seconds) within the recipe video, for JSON-LD clips. */
   startOffset: number
-  /** seconds into the video where this step ends (maps to JSON-LD endOffset) */
+  /** End time (seconds) within the recipe video, for JSON-LD clips. */
   endOffset: number
 }
 
+/** A shoppable affiliate link tied to a specific ingredient. */
 export interface AffiliateLink {
   id: string
   ingredientId: string
   retailer: string
   url: string
-  /** commission rate as a fraction, e.g. 0.08 = 8% */
+  /** Fractional commission rate, e.g. 0.05 for 5%. */
   commissionRate: number
 }
 
+/** Per-serving macronutrient breakdown. */
+export interface Macros {
+  protein: number
+  carbs: number
+  fats: number
+  calories: number
+}
+
+/** Recipe difficulty tiers. */
+export type Difficulty = 'easy' | 'medium' | 'hard'
+
+/** A fully-expanded, schema-valid recipe as produced by `buildRecipe`. */
 export interface Recipe {
   id: string
   slug: string
   title: string
   description: string
   cuisine: string
-  /** total time in minutes */
   totalTimeMinutes: number
   servings: number
-  difficulty: 'easy' | 'medium' | 'hard'
-  /** HLS (.m3u8) or mp4 fallback source used until a Mux asset exists. */
+  difficulty: Difficulty
+  /** HLS/MP4 source for the recipe video. */
   videoSrc: string
-  /**
-   * Mux playback id. When present, playback is served from Mux
-   * (https://stream.mux.com/<id>.m3u8) instead of `videoSrc`. Populate this
-   * from an uploaded Mux asset (see lib/mux.ts) to go fully live.
-   */
+  /** Optional Mux playback id; when set, use in place of `videoSrc`. */
   muxPlaybackId?: string
   posterUrl: string
   durationSeconds: number
@@ -83,17 +85,12 @@ export interface Recipe {
   ingredients: Ingredient[]
   steps: InstructionStep[]
   affiliateLinks: AffiliateLink[]
-  /**
-   * Viral Coefficient Score — the primary weighting metric used to rank the
-   * feed. Higher = more viral. Computed from engagement velocity, shares,
-   * completion rate, and recency. Stored as a sorted-set score in Redis.
-   */
+  /** Viral Coefficient Score — primary feed ranking weight. */
   viralCoefficientScore: number
   likes: number
   shares: number
   saves: number
+  /** ISO published date. */
   publishedAt: string
   tags: string[]
 }
-
-export type AbVariant = 'A' | 'B'
