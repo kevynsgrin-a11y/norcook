@@ -2,7 +2,6 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Inter, Space_Grotesk } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
-import { SITE_NAME, SITE_URL } from '@/lib/site'
 import './globals.css'
 
 const inter = Inter({
@@ -18,40 +17,17 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: `${SITE_NAME} — Nordic Recipes, Video-First`,
+  title: 'Nordisk — The Cultural Guide to Norway Through Food',
   description:
-    'The anti-blog Nordic recipe platform. 77 dishes across Sápmi, Vestlandet, Sørlandet, Østlandet, and modern Nordic bakery — swipe a vertical feed of cooking videos with synced steps, macros, and one-click shopping.',
+    'A premium cultural guide exploring Norway through 77 regional recipes — from Sápmi in the Arctic north to the viral bakes of modern Oslo.',
   generator: 'v0.app',
-  keywords: [
-    'Nordic recipes',
-    'Norwegian food',
-    'Sami cooking',
-    'Scandinavian recipes',
-    'cardamom buns',
-    'lutefisk',
-    'gravlaks',
-    'fårikål',
-    'Nordic baking',
-  ],
-  metadataBase: new URL(SITE_URL),
-  openGraph: {
-    title: `${SITE_NAME} — Nordic Recipes, Video-First`,
-    description:
-      '77 dishes across Sápmi, Vestlandet, Sørlandet, Østlandet, and modern Nordic bakery — synced steps, macros, and one-click shopping.',
-    type: 'website',
-    siteName: SITE_NAME,
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: `${SITE_NAME} — Nordic Recipes, Video-First` }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: `${SITE_NAME} — Nordic Recipes, Video-First`,
-    description:
-      '77 dishes across Sápmi, Vestlandet, Sørlandet, Østlandet, and modern Nordic bakery — synced steps, macros, and one-click shopping.',
-    images: ['/og-image.png'],
-  },
   icons: {
-    icon: [{ url: '/icon.png', type: 'image/png' }],
-    apple: '/icon.png',
+    icon: [
+      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
+      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-icon.png',
   },
 }
 
