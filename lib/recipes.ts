@@ -1,3 +1,5 @@
+import { RECIPE_DETAILS } from './recipe-details'
+
 export type RegionSlug =
   | 'sapmi'
   | 'vestlandet'
@@ -66,13 +68,14 @@ export type Recipe = {
 
 /**
  * The 77-recipe index.
- * The first 6 entries are fully fleshed out as reference implementations
- * (history, ingredients, steps, tips, tools). The remaining entries carry
- * the full card data plus a cultural-history intro; plug in ingredients and
- * steps as they are finalised. The grid, cards and detail template all read
- * from this single source of truth.
+ * The first 6 entries carry their detail (history, ingredients, steps, tips,
+ * tools) inline as the original reference implementations. The remaining 71
+ * carry card data plus a cultural-history intro here, with their finalised
+ * ingredients, method, tips and tools merged in by slug from
+ * `recipe-details.ts`. The grid, cards and detail template all read from the
+ * merged `RECIPES` export as a single source of truth.
  */
-export const RECIPES: Recipe[] = [
+const BASE_RECIPES: Recipe[] = [
   {
     slug: 'skillingsboller',
     name: 'Skillingsboller',
@@ -1463,6 +1466,11 @@ export const RECIPES: Recipe[] = [
     ],
   },
 ]
+
+export const RECIPES: Recipe[] = BASE_RECIPES.map((recipe) => {
+  const detail = RECIPE_DETAILS[recipe.slug]
+  return detail ? { ...recipe, ...detail } : recipe
+})
 
 export function getRecipe(slug: string): Recipe | undefined {
   return RECIPES.find((r) => r.slug === slug)
