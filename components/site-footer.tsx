@@ -1,13 +1,6 @@
 import Link from 'next/link'
-import { AtSign, Camera, Play, Rss } from 'lucide-react'
+import { CookieSettingsButton } from '@/components/analytics/cookie-settings-button'
 import { REGIONS } from '@/lib/recipes'
-
-const socials = [
-  { icon: Camera, label: 'Instagram' },
-  { icon: AtSign, label: 'Twitter' },
-  { icon: Play, label: 'YouTube' },
-  { icon: Rss, label: 'Newsletter feed' },
-]
 
 export function SiteFooter() {
   return (
@@ -16,30 +9,22 @@ export function SiteFooter() {
         <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr_1fr]">
           <div>
             <span className="font-display text-lg font-bold tracking-tight text-foreground">
-              NORDISK
+              NORCOOK
             </span>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
               A cultural guide to Norway through food — 77 recipes across five
               regions, documented with care.
             </p>
-            <div className="mt-5 flex gap-2">
-              {socials.map(({ icon: Icon, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  aria-label={label}
-                  className="inline-flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
-                >
-                  <Icon className="size-4" />
-                </a>
-              ))}
-            </div>
+            <p className="mt-4 max-w-xs text-xs leading-relaxed text-muted-foreground">
+              Ratings, readership claims, advertising, and subscription capture
+              remain disabled until their evidence and legal owners are documented.
+            </p>
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-foreground">
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-foreground">
               Regions
-            </h4>
+            </h2>
             <ul className="mt-4 flex flex-col gap-2.5">
               {REGIONS.map((region) => (
                 <li key={region.slug}>
@@ -55,18 +40,23 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-foreground">
-              Company
-            </h4>
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-foreground">
+              Standards
+            </h2>
             <ul className="mt-4 flex flex-col gap-2.5">
-              {['About', 'Our Contributors', 'Advertise', 'Contact'].map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
+              {[
+                { label: 'Editorial & Safety', href: '/editorial-policy' },
+                { label: 'Affiliate Disclosure', href: '/affiliate-disclosure' },
+                { label: 'Privacy', href: '/privacy' },
+                { label: 'Terms', href: '/terms' },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
                     className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                   >
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -75,18 +65,22 @@ export function SiteFooter() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Nordisk Media AS. All rights reserved.
+            © {new Date().getFullYear()} Norcook. Legal operator details pending.
           </p>
           <div className="flex gap-5">
-            {['Privacy Policy', 'Terms of Use', 'Cookie Settings'].map((item) => (
-              <a
-                key={item}
-                href="#"
+            <Link
+                href="/privacy"
                 className="text-xs text-muted-foreground transition-colors hover:text-foreground"
               >
-                {item}
-              </a>
-            ))}
+                Privacy Policy
+            </Link>
+            <Link
+                href="/terms"
+                className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Terms of Use
+            </Link>
+            <CookieSettingsButton />
           </div>
         </div>
       </div>

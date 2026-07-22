@@ -23,6 +23,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const isDark = document.documentElement.classList.contains('dark')
+    // The inline pre-hydration theme script owns the initial DOM class; mirror
+    // that browser-only state once React mounts.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(isDark ? 'dark' : 'light')
     setMounted(true)
   }, [])

@@ -1,26 +1,40 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { ConsentProvider } from '@/components/analytics/consent-provider'
 import { ThemeProvider } from '@/components/theme-provider'
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site'
 import './globals.css'
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
-  display: 'swap',
-})
-
 export const metadata: Metadata = {
-  title: 'Nordisk — The Cultural Guide to Norway Through Food',
-  description:
-    'A premium cultural guide exploring Norway through 77 regional recipes — from Sápmi in the Arctic north to the viral bakes of modern Oslo.',
-  generator: 'v0.app',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} — Norway Through Food`,
+    template: `%s — ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: '/',
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} — Norway Through Food`,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: '/images/hero-fjord.webp',
+        width: 1600,
+        height: 1067,
+        alt: 'A Norwegian fjord at golden hour',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${SITE_NAME} — Norway Through Food`,
+    description: SITE_DESCRIPTION,
+    images: ['/images/hero-fjord.webp'],
+  },
   icons: {
     icon: [
       { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
@@ -58,15 +72,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} bg-background`}
+      className="bg-background"
       suppressHydrationWarning
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="font-sans antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <ConsentProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </ConsentProvider>
       </body>
     </html>
   )

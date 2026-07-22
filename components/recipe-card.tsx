@@ -2,34 +2,41 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
-import { ArrowRight, Bookmark, Clock, Star } from 'lucide-react'
+import { useLayoutEffect, useReducer } from 'react'
+import { ArrowRight, Bookmark, Clock, Gauge } from 'lucide-react'
+import { useConsent } from '@/components/analytics/consent-provider'
 import type { Recipe } from '@/lib/recipes'
 import { getRegion } from '@/lib/recipes'
 
-function Rating({ value }: { value: number }) {
-  return (
-    <div className="flex items-center gap-0.5" aria-label={`Rated ${value} out of 5`}>
-      {Array.from({ length: 5 }).map((_, i) => (
-        <Star
-          key={i}
-          className={`size-3.5 ${
-            i < Math.round(value)
-              ? 'fill-accent text-accent'
-              : 'fill-transparent text-muted-foreground/40'
-          }`}
-        />
-      ))}
-      <span className="ml-1 text-xs font-medium text-muted-foreground">
-        {value.toFixed(1)}
-      </span>
-    </div>
-  )
-}
-
 export function RecipeCard({ recipe }: { recipe: Recipe }) {
-  const [saved, setSaved] = useState(false)
+  const [hydrated, markHydrated] = useReducer(() => true, false)
   const region = getRegion(recipe.region)
+  const { trackEvent } = useConsent()
+  const favoriteKey = `norcook-favorite:${recipe.slug}`
+  const saved =
+    hydrated && window.localStorage.getItem(favoriteKey) === 'true'
+
+  useLayoutEffect(() => {
+    markHydrated()
+  }, [])
+
+  function toggleFavorite(event: React.MouseEvent<HTMLButtonElement>) {
+    const nextSaved =
+      window.localStorage.getItem(favoriteKey) !== 'true'
+    window.localStorage.setItem(favoriteKey, String(nextSaved))
+    event.currentTarget.setAttribute('aria-pressed', String(nextSaved))
+    event.currentTarget.setAttribute(
+      'aria-label',
+      nextSaved ? 'Remove from favorites' : 'Save to favorites',
+    )
+    const icon = event.currentTarget.querySelector('svg')
+    icon?.classList.toggle('fill-accent', nextSaved)
+    icon?.classList.toggle('text-accent', nextSaved)
+    trackEvent('favorite_toggle', {
+      recipe_slug: recipe.slug,
+      saved: nextSaved,
+    })
+  }
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/40">
@@ -39,6 +46,7 @@ export function RecipeCard({ recipe }: { recipe: Recipe }) {
           alt={recipe.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          quality={75}
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -51,7 +59,7 @@ export function RecipeCard({ recipe }: { recipe: Recipe }) {
 
         <button
           type="button"
-          onClick={() => setSaved((s) => !s)}
+          onClick={toggleFavorite}
           aria-pressed={saved}
           aria-label={saved ? 'Remove from favorites' : 'Save to favorites'}
           className="absolute right-3 top-3 inline-flex size-9 items-center justify-center rounded-full bg-white/85 text-slate-900 backdrop-blur-md transition-transform hover:scale-110 active:scale-95 dark:bg-black/50 dark:text-white"
@@ -64,7 +72,10 @@ export function RecipeCard({ recipe }: { recipe: Recipe }) {
 
       <div className="flex flex-1 flex-col p-5">
         <div className="mb-2 flex items-center justify-between gap-2">
-          <Rating value={recipe.rating} />
+          <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+            <Gauge aria-hidden="true" className="size-3.5" />
+            {recipe.difficulty}
+          </span>
           <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
             <Clock className="size-3.5" />
             {recipe.cookingTime}
