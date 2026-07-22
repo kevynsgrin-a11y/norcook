@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { Menu, Search, X } from 'lucide-react'
+import { Bookmark, Menu, Search, X } from 'lucide-react'
 import { REGIONS } from '@/lib/recipes'
 import { ThemeToggle } from '@/components/theme-toggle'
 
@@ -51,13 +51,20 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <button
-            type="button"
+          <Link
+            href="/search"
             aria-label="Search recipes"
             className="hidden size-9 items-center justify-center rounded-full border border-border/70 text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:inline-flex"
           >
             <Search className="size-4" />
-          </button>
+          </Link>
+          <Link
+            href="/saved"
+            aria-label="Saved recipes"
+            className="hidden size-9 items-center justify-center rounded-full border border-border/70 text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:inline-flex"
+          >
+            <Bookmark className="size-4" />
+          </Link>
           <ThemeToggle />
           <button
             type="button"
@@ -87,6 +94,22 @@ export function SiteHeader() {
                 </span>
               </Link>
             ))}
+            <Link
+              href="/search"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 border-b border-border/50 py-3 text-sm font-medium text-foreground/90"
+            >
+              <Search className="size-4" />
+              Search recipes
+            </Link>
+            <Link
+              href="/saved"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 py-3 text-sm font-medium text-foreground/90"
+            >
+              <Bookmark className="size-4" />
+              Saved recipes
+            </Link>
           </nav>
         </div>
       )}

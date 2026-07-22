@@ -2,10 +2,10 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
 import { ArrowRight, Bookmark, Clock, Star } from 'lucide-react'
 import type { Recipe } from '@/lib/recipes'
 import { getRegion } from '@/lib/recipes'
+import { useFavorites } from '@/components/favorites-provider'
 
 function Rating({ value }: { value: number }) {
   return (
@@ -28,7 +28,8 @@ function Rating({ value }: { value: number }) {
 }
 
 export function RecipeCard({ recipe }: { recipe: Recipe }) {
-  const [saved, setSaved] = useState(false)
+  const { isSaved, toggle } = useFavorites()
+  const saved = isSaved(recipe.slug)
   const region = getRegion(recipe.region)
 
   return (
@@ -51,7 +52,7 @@ export function RecipeCard({ recipe }: { recipe: Recipe }) {
 
         <button
           type="button"
-          onClick={() => setSaved((s) => !s)}
+          onClick={() => toggle(recipe.slug)}
           aria-pressed={saved}
           aria-label={saved ? 'Remove from favorites' : 'Save to favorites'}
           className="absolute right-3 top-3 inline-flex size-9 items-center justify-center rounded-full bg-white/85 text-slate-900 backdrop-blur-md transition-transform hover:scale-110 active:scale-95 dark:bg-black/50 dark:text-white"

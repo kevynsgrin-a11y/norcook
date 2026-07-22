@@ -14,6 +14,7 @@ import { RECIPES, getRecipe, getRegion } from '@/lib/recipes'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { RecommendedTools } from '@/components/recommended-tools'
+import { RecipeJsonLd } from '@/components/recipe-json-ld'
 import { InContentAd, StickyFooterAd } from '@/components/ad-slot'
 
 export function generateStaticParams() {
@@ -27,10 +28,24 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const recipe = getRecipe(slug)
-  if (!recipe) return { title: 'Recipe not found — Nordisk' }
+  if (!recipe) return { title: 'Recipe not found' }
   return {
-    title: `${recipe.name} — Nordisk`,
+    title: recipe.name,
     description: recipe.description,
+    alternates: { canonical: `/recipes/${recipe.slug}` },
+    openGraph: {
+      type: 'article',
+      title: recipe.name,
+      description: recipe.description,
+      url: `/recipes/${recipe.slug}`,
+      images: [{ url: recipe.image, width: 1024, height: 1024, alt: recipe.name }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: recipe.name,
+      description: recipe.description,
+      images: [recipe.image],
+    },
   }
 }
 
@@ -48,6 +63,7 @@ export default async function RecipePage({
 
   return (
     <>
+      <RecipeJsonLd recipe={recipe} />
       <SiteHeader />
       <main>
         {/* Massive header image */}
@@ -201,8 +217,8 @@ export default async function RecipePage({
               Keep exploring
             </h3>
             <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
-              There are {RECIPES.length} more stories waiting in the index — from
-              Arctic cures to viral bakes.
+              There are {RECIPES.length - 1} more stories waiting in the index —
+              from Arctic cures to viral bakes.
             </p>
             <Link
               href="/#recipes"

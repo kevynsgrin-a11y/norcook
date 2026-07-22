@@ -27,8 +27,8 @@ export function Newsletter() {
             The Nordic Baking Guide
           </h2>
           <p className="mt-3 max-w-md text-pretty leading-relaxed text-white/80">
-            Join 40,000 readers and get our 30-page guide to cardamom, rye and
-            the art of the perfect bun — plus a new regional recipe each week.
+            Get our 30-page guide to cardamom, rye and the art of the perfect
+            bun — plus a new regional recipe each week.
           </p>
         </div>
 

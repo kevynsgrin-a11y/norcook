@@ -32,12 +32,15 @@ export function Hero() {
 
         {/* Frosted-glass search bar */}
         <form
+          action="/search"
+          method="get"
           className="mt-10 flex w-full max-w-xl items-center gap-2 rounded-full border border-white/25 bg-white/10 p-2 pl-5 backdrop-blur-xl transition-shadow focus-within:ring-2 focus-within:ring-white/40"
           role="search"
         >
           <Search className="size-5 shrink-0 text-white/70" />
           <input
             type="search"
+            name="q"
             placeholder="Search fjord seafood, cured meats, cardamom bakes…"
             aria-label="Search recipes"
             className="w-full bg-transparent text-sm text-white placeholder:text-white/60 focus:outline-none"
