@@ -41,7 +41,11 @@ export function RecipeJsonLd({ recipe }: { recipe: Recipe }) {
     <script
       type="application/ld+json"
       // Structured data is built from our own static dataset, not user input.
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      // Escape '<' so a stray '</script>' in any field can't break out of the
+      // script element (defence-in-depth for future, less-trusted data).
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(data).replace(/</g, '\\u003c'),
+      }}
     />
   )
 }

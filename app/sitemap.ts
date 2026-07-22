@@ -5,18 +5,14 @@ import { SITE_URL } from '@/lib/site'
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date()
 
+  // Only indexable routes belong here. /search and /saved are intentionally
+  // noindex, so they are excluded to avoid a contradictory sitemap signal.
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,
       lastModified,
       changeFrequency: 'weekly',
       priority: 1,
-    },
-    {
-      url: `${SITE_URL}/search`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.4,
     },
   ]
 

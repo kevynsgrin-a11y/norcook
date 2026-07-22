@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { Search } from 'lucide-react'
 import { searchRecipes } from '@/lib/search'
 import { RecipeCard } from '@/components/recipe-card'
@@ -17,10 +18,12 @@ export const metadata: Metadata = {
 export default async function SearchPage({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string }>
+  searchParams: Promise<{ q?: string | string[] }>
 }) {
-  const { q = '' } = await searchParams
-  const query = q.trim()
+  const { q } = await searchParams
+  // The App Router yields string[] for a repeated ?q= param — take the first.
+  const raw = Array.isArray(q) ? (q[0] ?? '') : (q ?? '')
+  const query = raw.trim()
   const results = query ? searchRecipes(query) : []
 
   return (
@@ -42,7 +45,6 @@ export default async function SearchPage({
             type="search"
             name="q"
             defaultValue={query}
-            autoFocus
             placeholder="Search fjord seafood, cured meats, cardamom bakes…"
             aria-label="Search recipes"
             className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
@@ -56,7 +58,7 @@ export default async function SearchPage({
         </form>
 
         {query ? (
-          <p className="mt-6 text-sm text-muted-foreground" aria-live="polite">
+          <p className="mt-6 text-sm text-muted-foreground">
             {results.length === 0
               ? 'No recipes matched '
               : `${results.length} ${
@@ -84,9 +86,14 @@ export default async function SearchPage({
         {query && results.length === 0 && (
           <div className="mt-10 rounded-2xl border border-dashed border-border bg-card px-6 py-16 text-center">
             <p className="text-sm text-muted-foreground">
-              Nothing here yet. Check the spelling, or browse the full index
-              instead.
+              Nothing here yet. Check the spelling, or browse the full index.
             </p>
+            <Link
+              href="/#recipes"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
+            >
+              Browse all recipes
+            </Link>
           </div>
         )}
       </main>

@@ -43,9 +43,10 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
     setFavorites(read())
     setHydrated(true)
 
-    // Keep multiple tabs in sync.
+    // Keep multiple tabs in sync. A null key means the other tab called
+    // localStorage.clear(), which should also reset our copy.
     const onStorage = (e: StorageEvent) => {
-      if (e.key === STORAGE_KEY) setFavorites(read())
+      if (e.key === STORAGE_KEY || e.key === null) setFavorites(read())
     }
     window.addEventListener('storage', onStorage)
     return () => window.removeEventListener('storage', onStorage)

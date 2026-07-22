@@ -11,6 +11,19 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nordisk.example'
 ).replace(/\/$/, '')
 
+// Loud warning at build time if the production origin was never configured —
+// otherwise canonical, OG, sitemap and robots URLs silently ship the placeholder.
+if (
+  process.env.NODE_ENV === 'production' &&
+  !process.env.NEXT_PUBLIC_SITE_URL
+) {
+  console.warn(
+    '[nordisk] NEXT_PUBLIC_SITE_URL is not set — canonical, Open Graph, ' +
+      'sitemap and robots URLs will use the placeholder origin ' +
+      `(${SITE_URL}). Set it in the deployment environment before launch.`,
+  )
+}
+
 export const SITE_NAME = 'Nordisk'
 
 export const SITE_TAGLINE = 'The Cultural Guide to Norway Through Food'

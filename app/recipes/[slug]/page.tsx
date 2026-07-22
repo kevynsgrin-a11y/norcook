@@ -11,6 +11,7 @@ import {
   Star,
 } from 'lucide-react'
 import { RECIPES, getRecipe, getRegion } from '@/lib/recipes'
+import { SITE_NAME } from '@/lib/site'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { RecommendedTools } from '@/components/recommended-tools'
@@ -35,6 +36,10 @@ export async function generateMetadata({
     alternates: { canonical: `/recipes/${recipe.slug}` },
     openGraph: {
       type: 'article',
+      // Next.js replaces (does not deep-merge) the root openGraph, so siteName
+      // and locale must be repeated here or recipe pages lose them.
+      siteName: SITE_NAME,
+      locale: 'en_US',
       title: recipe.name,
       description: recipe.description,
       url: `/recipes/${recipe.slug}`,

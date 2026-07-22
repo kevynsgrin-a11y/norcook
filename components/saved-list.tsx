@@ -28,9 +28,14 @@ export function SavedList() {
         </p>
       </div>
 
-      {/* Before hydration we don't yet know what's saved — render nothing to
-          avoid an empty-state flash for readers who do have saved recipes. */}
-      {!hydrated ? null : saved.length === 0 ? (
+      {/* Before hydration we don't yet know what's saved — show a neutral
+          placeholder (not the empty state) to avoid a misleading "nothing
+          saved" flash for readers who do have saved recipes. */}
+      {!hydrated ? (
+        <div className="rounded-2xl border border-dashed border-border bg-card px-6 py-20 text-center text-sm text-muted-foreground">
+          Loading your saved recipes…
+        </div>
+      ) : saved.length === 0 ? (
         <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-card px-6 py-20 text-center">
           <Bookmark className="size-8 text-muted-foreground/50" />
           <h2 className="mt-4 font-display text-xl font-semibold text-foreground">
