@@ -28,7 +28,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <span className="font-display text-lg font-bold tracking-tight text-foreground">
-            NORDISK
+            NORCOOK
           </span>
           <span className="hidden text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground sm:inline">
             Norway · Through Food
@@ -52,7 +52,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <Link
-            href="/search"
+            href="/#recipes"
             aria-label="Search recipes"
             className="hidden size-9 items-center justify-center rounded-full border border-border/70 text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:inline-flex"
           >
@@ -94,14 +94,6 @@ export function SiteHeader() {
                 </span>
               </Link>
             ))}
-            <Link
-              href="/search"
-              onClick={() => setOpen(false)}
-              className="flex items-center gap-2 border-b border-border/50 py-3 text-sm font-medium text-foreground/90"
-            >
-              <Search className="size-4" />
-              Search recipes
-            </Link>
             <Link
               href="/saved"
               onClick={() => setOpen(false)}

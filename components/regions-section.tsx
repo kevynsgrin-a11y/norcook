@@ -29,7 +29,7 @@ export function RegionsSection() {
               }`}
             >
               <div className="flex items-start justify-between">
-                <span className="font-display text-4xl font-bold text-muted-foreground/25">
+                <span className="font-display text-4xl font-bold text-muted-foreground">
                   0{i + 1}
                 </span>
                 <ArrowUpRight className="size-5 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />

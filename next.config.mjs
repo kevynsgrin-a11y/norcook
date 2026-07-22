@@ -1,59 +1,41 @@
-/** @type {import('next').NextConfig} */
+const isDevelopment = process.env.NODE_ENV === 'development'
 
-// A pragmatic, Next.js-compatible CSP. 'unsafe-inline' is required for the
-// theme bootstrap script in the root layout and Next's hydration inline
-// scripts/styles; tightening this to a nonce-based policy via middleware is a
-// sensible follow-up. next/font self-hosts fonts, so no external font host is
-// needed. Vercel Analytics is allow-listed for the non-Vercel fallback host.
-const isProd = process.env.NODE_ENV === 'production'
-
-const cspDirectives = [
+const contentSecurityPolicy = [
   "default-src 'self'",
-  "base-uri 'self'",
-  "object-src 'none'",
-  "frame-ancestors 'none'",
-  "form-action 'self'",
-  "img-src 'self' data: blob:",
-  "font-src 'self'",
+  `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
-  "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
-  "connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com",
-]
-
-// Only force HTTPS in production — upgrading insecure requests over plain-http
-// `next dev` on localhost would break local development.
-if (isProd) cspDirectives.push('upgrade-insecure-requests')
+  "img-src 'self' data: blob:",
+  "font-src 'self' data:",
+  "connect-src 'self' https://vitals.vercel-insights.com",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  'upgrade-insecure-requests',
+].join('; ')
 
 const securityHeaders = [
-  { key: 'Content-Security-Policy', value: cspDirectives.join('; ') },
+  { key: 'Content-Security-Policy', value: contentSecurityPolicy },
   { key: 'X-Content-Type-Options', value: 'nosniff' },
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
   {
     key: 'Permissions-Policy',
-    value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()',
+    value: 'camera=(), geolocation=(), microphone=(), payment=(), usb=()',
   },
   { key: 'X-Frame-Options', value: 'DENY' },
+  { key: 'Strict-Transport-Security', value: 'max-age=63072000' },
 ]
 
-// HSTS is meaningless (and undesirable) over local http — production only.
-if (isProd) {
-  securityHeaders.push({
-    key: 'Strict-Transport-Security',
-    value: 'max-age=63072000; includeSubDomains; preload',
-  })
-}
-
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 31_536_000,
+    deviceSizes: [360, 640, 768, 1024, 1280, 1536, 1920],
+    imageSizes: [96, 160, 240, 320, 480],
   },
   async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: securityHeaders,
-      },
-    ]
+    return [{ source: '/(.*)', headers: securityHeaders }]
   },
 }
 

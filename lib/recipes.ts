@@ -55,15 +55,13 @@ export type Recipe = {
   image: string
   cookingTime: string
   difficulty: 'Easy' | 'Moderate' | 'Advanced'
-  rating: number
-  reviews: number
   mainIngredients: string[]
   // Detail-page fields (optional for cards that are data-plugged later)
   history?: string[]
   ingredients?: string[]
   steps?: string[]
   chefTips?: string[]
-  tools?: { name: string; note: string }[]
+  tools?: { name: string; note: string; href?: string }[]
 }
 
 /**
@@ -85,8 +83,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/dish-skillingsbolle.png',
     cookingTime: '2 hr 30 min',
     difficulty: 'Moderate',
-    rating: 4.9,
-    reviews: 2140,
     mainIngredients: ['Wheat flour', 'Cardamom', 'Butter', 'Cinnamon', 'Pearl sugar'],
     history: [
       'The skillingsbolle — literally the "shilling bun" — takes its name from the copper coin it once cost on the wharfs of Bergen. For generations it was the everyday indulgence of a rain-soaked harbour city, sold warm from bakeries lining the Bryggen waterfront.',
@@ -127,36 +123,33 @@ const BASE_RECIPES: Recipe[] = [
     name: 'Fenalår',
     region: 'sapmi',
     description:
-      'Salt-cured, air-dried leg of lamb from the far north — sliced paper-thin and served with crisp flatbread and juniper.',
+      'Professionally salt-cured, air-dried leg of lamb from the far north — sliced paper-thin and served with crisp flatbread and juniper.',
     image: '/images/dish-fenalar.png',
-    cookingTime: '3 months cure',
-    difficulty: 'Advanced',
-    rating: 4.7,
-    reviews: 412,
+    cookingTime: '20 min',
+    difficulty: 'Easy',
     mainIngredients: ['Lamb leg', 'Sea salt', 'Juniper', 'Brown sugar', 'Black pepper'],
     history: [
       'Fenalår is one of Norway\'s oldest preserved foods, with roots reaching back more than a thousand years to a time when curing meat through the endless Arctic winter meant survival.',
       'In Sápmi and the northern valleys, the cured leg became a centrepiece of celebration — reserved for weddings, Christmas and the return of the light. It carries Protected Geographical Indication status today, a mark of how tightly it is bound to place and craft.',
     ],
     ingredients: [
-      '1 leg of lamb (2.5–3 kg), bone in',
-      '500 g coarse sea salt',
-      '100 g brown sugar',
-      '2 tbsp crushed juniper berries',
-      '1 tbsp cracked black pepper',
+      '500 g professionally produced, ready-to-eat fenalår',
+      'Crisp flatbread, to serve',
+      'Sour cream, to serve',
+      'Crushed juniper berries and black pepper, optional',
     ],
     steps: [
-      'Trim the leg and rub thoroughly with the combined salt, sugar and spices. Cure in a cool place, turning daily, for two to three weeks.',
-      'Rinse, pat dry, and hang in a cool, well-ventilated space at 6–10°C.',
-      'Air-dry for two to three months, until the leg has lost roughly a third of its weight and the exterior is firm and dry.',
-      'Slice as thinly as possible against the grain to serve.',
+      'Keep the sealed fenalår refrigerated and follow the producer’s use-by and storage instructions.',
+      'Remove only the amount you plan to serve, trim any exterior rind as directed by the producer, and slice paper-thin against the grain.',
+      'Arrange with crisp flatbread and sour cream. Add a restrained pinch of crushed juniper or black pepper if desired.',
+      'Return unused meat to refrigeration promptly; do not leave it on the serving table for more than two hours.',
     ],
     chefTips: [
-      'Humidity is everything. Too damp and it spoils; too dry and the surface hardens before the centre matures. A wine fridge set to 8°C is the modern shortcut.',
+      'This is intentionally a serving guide, not a home-curing recipe. Dry-curing meat safely requires a validated process and a qualified owner.',
     ],
     tools: [
       { name: 'Long slicing knife', note: 'A flexible blade for translucent, even slices.' },
-      { name: 'Curing chamber thermometer', note: 'Monitors the 6–10°C sweet spot for safe drying.' },
+      { name: 'Chilled serving platter', note: 'Helps keep ready-to-eat slices cold at the table.' },
     ],
   },
   {
@@ -168,8 +161,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/dish-gravlaks.png',
     cookingTime: '48 hr cure',
     difficulty: 'Easy',
-    rating: 4.8,
-    reviews: 1780,
     mainIngredients: ['Salmon fillet', 'Fresh dill', 'Sea salt', 'Sugar', 'White pepper'],
     history: [
       'The name gravlaks means "buried salmon" — medieval fishermen along the western fjords fermented salmon in the sand above the tide line. The modern version swaps burial for a gentle salt-and-sugar cure, but the principle of transforming raw fish through time and salt endures.',
@@ -190,7 +181,7 @@ const BASE_RECIPES: Recipe[] = [
       'Whisk the mustard sauce ingredients until emulsified and serve alongside.',
     ],
     chefTips: [
-      'Freeze the fillet for 24 hours first if using previously unfrozen fish — it guarantees safety without affecting the silky texture.',
+      'Use salmon sold for raw consumption with documented parasite controls. Otherwise follow an authority-validated freezing schedule; 24 hours in a typical home freezer is not a safe general rule.',
     ],
     tools: [
       { name: 'Fish tweezers', note: 'Removes pin bones cleanly before curing.' },
@@ -206,8 +197,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/dish-fiskesuppe.png',
     cookingTime: '55 min',
     difficulty: 'Moderate',
-    rating: 4.6,
-    reviews: 934,
     mainIngredients: ['White fish', 'Shrimp', 'Carrot', 'Cream', 'Leek'],
     history: [
       'Bergen\'s fish soup is a product of the city\'s Hanseatic trading past, where German merchants and Norwegian fishermen shaped a cuisine of thrift and richness. Its faintly sweet-sour edge — from a splash of vinegar and sugar — is the fingerprint of the western coast.',
@@ -245,8 +234,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/dish-kjottkaker.png',
     cookingTime: '1 hr 10 min',
     difficulty: 'Easy',
-    rating: 4.7,
-    reviews: 1265,
     mainIngredients: ['Ground beef', 'Onion', 'Nutmeg', 'Beef stock', 'Lingonberry'],
     history: [
       'If any dish is the taste of a weekday childhood in the eastern valleys, it is kjøttkaker — larger and coarser than a meatball, bound with milk-soaked breadcrumb and warmed with nutmeg and ginger. It is comfort food elevated to national institution.',
@@ -283,8 +270,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/dish-kransekake.png',
     cookingTime: '1 hr 40 min',
     difficulty: 'Advanced',
-    rating: 4.8,
-    reviews: 587,
     mainIngredients: ['Ground almonds', 'Icing sugar', 'Egg whites', 'Marzipan', 'Royal icing'],
     history: [
       'No Norwegian wedding, christening or 17th of May is complete without the kransekake — a spiralling tower of eighteen concentric almond rings. Along the southern coast it is often filled with a small bottle of wine or wrapped sweets, a gift hidden inside the architecture of the cake.',
@@ -322,8 +307,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/bidos.png',
     cookingTime: '2 hr 30 min',
     difficulty: 'Moderate',
-    rating: 4.8,
-    reviews: 318,
     mainIngredients: ['Reindeer meat', 'Potato', 'Carrot', 'Onion', 'Bone stock'],
     history: [
       'Bidos is the ceremonial dish of Sápmi, ladled out at weddings, confirmations and midwinter gatherings. Built from a single reindeer and the roots that survive the Arctic cellar, it is a stew that carries the whole community around one pot.',
@@ -338,8 +321,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/finnbiff.png',
     cookingTime: '45 min',
     difficulty: 'Easy',
-    rating: 4.7,
-    reviews: 642,
     mainIngredients: ['Reindeer', 'Mushrooms', 'Brunost', 'Cream', 'Juniper'],
     history: [
       'Sautéed reindeer — finnbiff — is the everyday face of northern cooking, traditionally sliced from a frozen block and seared fast in a hot pan. A knob of brown cheese melted into the sauce gives it the caramel depth that defines the north.',
@@ -354,8 +335,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/reinsdyrstek.png',
     cookingTime: '1 hr 50 min',
     difficulty: 'Advanced',
-    rating: 4.9,
-    reviews: 274,
     mainIngredients: ['Reindeer saddle', 'Juniper', 'Thyme', 'Game stock', 'Butter'],
     history: [
       'The roast reindeer that crowns a northern Christmas table is a study in restraint: lean, dark meat cooked barely past rare, its wild-herb sweetness carried by a sauce reduced from bones and forest berries.',
@@ -370,8 +349,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/multekrem.png',
     cookingTime: '15 min',
     difficulty: 'Easy',
-    rating: 4.9,
-    reviews: 903,
     mainIngredients: ['Cloudberries', 'Cream', 'Sugar', 'Vanilla'],
     history: [
       'Cloudberries ripen for only a few weeks across the northern bogs, and their harvest is guarded like treasure. Whipped into cream, they become multekrem — the dessert that closes almost every festive Arctic meal.',
@@ -386,8 +363,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/rokt-roye.png',
     cookingTime: '4 hr smoke',
     difficulty: 'Moderate',
-    rating: 4.7,
-    reviews: 221,
     mainIngredients: ['Arctic char', 'Alderwood', 'Sea salt', 'Dill', 'Sour cream'],
     history: [
       'Char thrives in the cold, clear lakes of the far north, and smoking over alder was the surest way to hold summer\'s catch through winter. The result is a fish of rose-gold flesh and gentle woodsmoke.',
@@ -402,8 +377,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/gahkku.png',
     cookingTime: '1 hr 20 min',
     difficulty: 'Easy',
-    rating: 4.6,
-    reviews: 187,
     mainIngredients: ['Wheat flour', 'Milk', 'Fennel', 'Yeast', 'Butter'],
     history: [
       'Gáhkku is the pillow-soft flatbread of Sápmi, once baked directly on hot hearthstones. Pricked all over and griddled until freckled, it is the daily bread that accompanies smoked fish and reindeer alike.',
@@ -418,8 +391,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/reinsdyrpolse.png',
     cookingTime: '2 week cure',
     difficulty: 'Advanced',
-    rating: 4.6,
-    reviews: 156,
     mainIngredients: ['Reindeer', 'Pork fat', 'Juniper', 'Pepper', 'Salt'],
     history: [
       'Every part of the reindeer is honoured in the north, and the sausage is where trimmings meet spice. Cured and gently smoked, reinsdyrpølse is the pocketable provision of herders and skiers.',
@@ -434,8 +405,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/blodklubb.png',
     cookingTime: '2 hr',
     difficulty: 'Moderate',
-    rating: 4.3,
-    reviews: 98,
     mainIngredients: ['Barley flour', 'Blood', 'Suet', 'Syrup', 'Salt'],
     history: [
       'A frugal winter dish born of nothing wasted, blood dumplings turn the harvest into a compact, iron-rich staple. Sliced and fried the next day, they are humble northern comfort.',
@@ -450,8 +419,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/fjellorret.png',
     cookingTime: '30 min',
     difficulty: 'Easy',
-    rating: 4.8,
-    reviews: 264,
     mainIngredients: ['Mountain trout', 'Brown butter', 'Almonds', 'Lemon', 'Parsley'],
     history: [
       'Pulled from high, glacial lakes, mountain trout needs almost nothing — a hot pan, foaming butter and a squeeze of lemon. It is the taste of a fishing trip above the treeline.',
@@ -466,8 +433,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/suovas.png',
     cookingTime: '35 min',
     difficulty: 'Moderate',
-    rating: 4.8,
-    reviews: 331,
     mainIngredients: ['Smoked reindeer', 'Gáhkku bread', 'Lingonberry', 'Butter', 'Onion'],
     history: [
       'Suovas — from the Sami word for smoke — is reindeer salted and smoked over birch, then fried and folded into warm flatbread. It is the great street food of Sápmi\'s winter markets.',
@@ -482,8 +447,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/rypestek.png',
     cookingTime: '1 hr 15 min',
     difficulty: 'Advanced',
-    rating: 4.7,
-    reviews: 142,
     mainIngredients: ['Ptarmigan', 'Bacon', 'Cream', 'Game stock', 'Juniper'],
     history: [
       'Ptarmigan, the white grouse of the high tundra, is the aristocrat of Norwegian game birds. Barded with bacon and roasted, it appears on the most treasured Christmas tables of the north.',
@@ -498,8 +461,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/kaffeost.png',
     cookingTime: '20 min',
     difficulty: 'Easy',
-    rating: 4.5,
-    reviews: 176,
     mainIngredients: ['Leipäjuusto cheese', 'Coffee', 'Cream'],
     history: [
       'A tradition shared across the northern Sami and Kven communities, kaffeost drops firm curd cheese into hot coffee, where it softens and squeaks. Equal parts drink and snack, it is hospitality in a cup.',
@@ -514,8 +475,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/hjortestek.png',
     cookingTime: '2 hr',
     difficulty: 'Advanced',
-    rating: 4.7,
-    reviews: 209,
     mainIngredients: ['Venison', 'Root vegetables', 'Redcurrant', 'Game stock', 'Butter'],
     history: [
       'Where reindeer gives way to red deer in the northern forests, hjortestek takes the festive stage — dark, lean and mineral, finished with a jus sharpened by wild berries.',
@@ -534,8 +493,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/kokt-torsk.png',
     cookingTime: '40 min',
     difficulty: 'Easy',
-    rating: 4.6,
-    reviews: 388,
     mainIngredients: ['Fresh cod', 'Cod roe', 'Cod liver', 'Potatoes', 'Butter'],
     history: [
       'When the skrei cod run into the western fjords each winter, the classic reward is kokt torsk: fish poached whole in salted water and served with its own roe and liver — nothing wasted, everything celebrated.',
@@ -550,8 +507,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/klippfisk.png',
     cookingTime: '1 hr 30 min',
     difficulty: 'Moderate',
-    rating: 4.7,
-    reviews: 512,
     mainIngredients: ['Salt cod', 'Tomato', 'Potato', 'Onion', 'Olive oil'],
     history: [
       'Kristiansund built its fortune on klippfisk — cod split, salted and dried on the coastal rocks. Trade with Spain and Portugal sent the ships home with tomatoes and olive oil, and bacalao became a Norwegian dish in a Mediterranean accent.',
@@ -566,8 +521,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/lutefisk.png',
     cookingTime: '3 day soak',
     difficulty: 'Advanced',
-    rating: 4.2,
-    reviews: 447,
     mainIngredients: ['Stockfish', 'Lye', 'Bacon', 'Green peas', 'Mustard'],
     history: [
       'Few dishes divide a table like lutefisk — dried cod rehydrated in a lye bath until glassy and trembling. Loved and feared in equal measure, it is the great ritual food of the Norwegian Advent.',
@@ -582,8 +535,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/fiskeboller.png',
     cookingTime: '50 min',
     difficulty: 'Moderate',
-    rating: 4.5,
-    reviews: 623,
     mainIngredients: ['White fish', 'Milk', 'Potato starch', 'Nutmeg', 'Butter'],
     history: [
       'Homemade fish balls are a world away from the tinned version — whipped from fresh haddock and milk until airy, then poached and cloaked in a nutmeg-scented béchamel. Coastal comfort at its gentlest.',
@@ -598,8 +549,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/plukkfisk.png',
     cookingTime: '35 min',
     difficulty: 'Easy',
-    rating: 4.4,
-    reviews: 271,
     mainIngredients: ['Cooked cod', 'Potato', 'Cream', 'Onion', 'Bacon'],
     history: [
       'Thrift turned delicious: plukkfisk is what yesterday\'s boiled fish and potatoes become, folded together with cream and topped with bacon. Every fjord village guards its own version.',
@@ -614,8 +563,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/smalahove.png',
     cookingTime: '3 hr',
     difficulty: 'Advanced',
-    rating: 4.1,
-    reviews: 134,
     mainIngredients: ['Sheep\'s head', 'Salt', 'Birch smoke', 'Rutabaga', 'Potato'],
     history: [
       'Smalahove is Voss\'s most notorious tradition — a smoked sheep\'s head served whole, eyes and all, eaten from the ear inward. Once peasant survival food, it is now a badge of regional pride.',
@@ -630,8 +577,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/pinnekjott.png',
     cookingTime: '5 hr',
     difficulty: 'Moderate',
-    rating: 4.9,
-    reviews: 718,
     mainIngredients: ['Lamb ribs', 'Salt', 'Birch sticks', 'Rutabaga', 'Potato'],
     history: [
       'Pinnekjøtt — "stick meat" — is the Christmas Eve centrepiece of western Norway. Salted, sometimes smoked ribs are steamed over a rack of peeled birch branches that perfume the meat as it softens.',
@@ -646,8 +591,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/raspeballer.png',
     cookingTime: '1 hr 40 min',
     difficulty: 'Moderate',
-    rating: 4.6,
-    reviews: 402,
     mainIngredients: ['Raw potato', 'Barley flour', 'Salted meat', 'Rutabaga', 'Bacon'],
     history: [
       'Known by a dozen names across the coast, the potato dumpling is so beloved that many workplaces still break for komle every Thursday. Grated raw potato binds with flour into a filling, frugal parcel.',
@@ -662,8 +605,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/spekemat.png',
     cookingTime: '20 min',
     difficulty: 'Easy',
-    rating: 4.7,
-    reviews: 356,
     mainIngredients: ['Cured lamb', 'Cured ham', 'Flatbread', 'Sour cream', 'Scrambled egg'],
     history: [
       'The mountain farms of the west built a whole cuisine on air and salt. A spekemat board — cured lamb, ham and sausage with crisp flatbread — is the taste of high summer pasture and long, slow drying.',
@@ -678,8 +619,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/kveite.png',
     cookingTime: '30 min',
     difficulty: 'Moderate',
-    rating: 4.8,
-    reviews: 289,
     mainIngredients: ['Halibut', 'Brown butter', 'Capers', 'Lemon', 'Parsley'],
     history: [
       'Halibut is the king of the fjord\'s white fish — firm, sweet and prized. Grilled simply and dressed in caper brown butter, it needs no embellishment beyond a squeeze of lemon.',
@@ -694,8 +633,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/blaaskjell.png',
     cookingTime: '25 min',
     difficulty: 'Easy',
-    rating: 4.7,
-    reviews: 431,
     mainIngredients: ['Blue mussels', 'White wine', 'Leek', 'Cream', 'Parsley'],
     history: [
       'The cold, clean fjords grow some of the world\'s finest blue mussels. Steamed open in minutes with wine and cream, they are the fjord\'s most generous fast food.',
@@ -710,8 +647,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/torrfisk.png',
     cookingTime: '2 day soak',
     difficulty: 'Advanced',
-    rating: 4.4,
-    reviews: 167,
     mainIngredients: ['Stockfish', 'Rutabaga', 'Potato', 'Butter', 'Pepper'],
     history: [
       'Stockfish — cod dried on wooden racks in the Arctic wind — is Norway\'s oldest export, unchanged since the Viking age. Rehydrated and cooked, it delivers a concentrated taste of the sea and the cold.',
@@ -726,8 +661,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/vossakorv.png',
     cookingTime: '1 hr',
     difficulty: 'Moderate',
-    rating: 4.5,
-    reviews: 198,
     mainIngredients: ['Lamb', 'Beef', 'Syrup', 'Birch smoke', 'Potato'],
     history: [
       'The Voss valley\'s smoked sausage is faintly sweet with syrup and deeply perfumed by birch smoke. It anchors the everyday western dinner alongside boiled potatoes and mashed swede.',
@@ -742,8 +675,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/persetorsk.png',
     cookingTime: '1 day cure',
     difficulty: 'Moderate',
-    rating: 4.5,
-    reviews: 143,
     mainIngredients: ['Cod', 'Salt', 'Bacon', 'Butter', 'Green peas'],
     history: [
       'A gentler cousin of lutefisk, pressed cod is salted and weighted for a day to firm the flesh. The result is a clean, dense fillet that western families favour for a special Sunday.',
@@ -762,8 +693,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/reker.png',
     cookingTime: '20 min',
     difficulty: 'Easy',
-    rating: 4.8,
-    reviews: 674,
     mainIngredients: ['Fjord shrimp', 'White bread', 'Mayonnaise', 'Lemon', 'Dill'],
     history: [
       'On the white-painted quays of the south coast, summer means a bucket of just-boiled shrimp, a loaf of bread and hours of leisurely peeling. Reker på brød is less a recipe than a way of life.',
@@ -778,8 +707,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/kokt-krabbe.png',
     cookingTime: '35 min',
     difficulty: 'Moderate',
-    rating: 4.7,
-    reviews: 312,
     mainIngredients: ['Brown crab', 'Sea salt', 'Mayonnaise', 'Lemon', 'Bread'],
     history: [
       'As the water cools in early autumn, the crab pots come up heavy along the skerries. Boiled in seawater and cracked at a garden table, crab is the south coast\'s unhurried feast.',
@@ -794,8 +721,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/sorlandshummer.png',
     cookingTime: '40 min',
     difficulty: 'Advanced',
-    rating: 4.9,
-    reviews: 208,
     mainIngredients: ['Lobster', 'Herb butter', 'Lemon', 'Garlic', 'Parsley'],
     history: [
       'The opening of lobster season in October is a near-sacred date on the south coast. Sweet, firm and deeply flavoured, the cold-water lobster is the region\'s most coveted catch.',
@@ -810,8 +735,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/fiskegrateng.png',
     cookingTime: '1 hr',
     difficulty: 'Easy',
-    rating: 4.4,
-    reviews: 389,
     mainIngredients: ['White fish', 'Macaroni', 'Milk', 'Cheese', 'Breadcrumbs'],
     history: [
       'The weeknight hero of coastal kitchens, fish gratin stretches a modest fillet with pasta and a cheesy white sauce. It is the taste of a thousand school-day dinners.',
@@ -826,8 +749,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/sursild.png',
     cookingTime: '2 day cure',
     difficulty: 'Easy',
-    rating: 4.5,
-    reviews: 254,
     mainIngredients: ['Salt herring', 'Vinegar', 'Sugar', 'Onion', 'Bay leaf'],
     history: [
       'Herring built and fed the Norwegian coast for centuries. Cured then steeped in a spiced vinegar brine, sursild is the tangy cornerstone of every festive cold table.',
@@ -842,8 +763,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/sildesalat.png',
     cookingTime: '30 min',
     difficulty: 'Easy',
-    rating: 4.3,
-    reviews: 176,
     mainIngredients: ['Pickled herring', 'Beetroot', 'Apple', 'Potato', 'Sour cream'],
     history: [
       'The pink herring salad is a fixture of Christmas and Easter tables alike, its colour from beetroot and its balance from tart apple. Cool, sweet and sharp, it cuts through a rich spread.',
@@ -858,8 +777,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/stekt-makrell.png',
     cookingTime: '25 min',
     difficulty: 'Easy',
-    rating: 4.6,
-    reviews: 297,
     mainIngredients: ['Mackerel', 'Rhubarb', 'Sour cream', 'Chives', 'Butter'],
     history: [
       'Oily, glittering mackerel arrives with the warm south-coast summer. Fried crisp and served with tart rhubarb compote, it is the flavour of a July evening by the sea.',
@@ -874,8 +791,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/eplekake.png',
     cookingTime: '1 hr 5 min',
     difficulty: 'Easy',
-    rating: 4.7,
-    reviews: 468,
     mainIngredients: ['Apples', 'Butter', 'Cinnamon', 'Flour', 'Sugar'],
     history: [
       'The orchards of the south fill autumn kitchens with apples, and the simplest reward is eplekake — a buttery sponge crowded with fruit, served warm with cold cream or vanilla sauce.',
@@ -890,8 +805,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/kokosboller.png',
     cookingTime: '1 hr',
     difficulty: 'Moderate',
-    rating: 4.6,
-    reviews: 521,
     mainIngredients: ['Egg whites', 'Sugar', 'Dark chocolate', 'Coconut', 'Biscuit base'],
     history: [
       'The chocolate-coated marshmallow ball is a Norwegian kiosk classic and a fierce object of national loyalty. Homemade, with a whipped meringue centre, it is a genuine treat.',
@@ -906,8 +819,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/kavring.png',
     cookingTime: '2 hr',
     difficulty: 'Moderate',
-    rating: 4.4,
-    reviews: 143,
     mainIngredients: ['Wheat flour', 'Cardamom', 'Butter', 'Sugar', 'Milk'],
     history: [
       'Sailors needed bread that would not spoil, and the answer was kavring — sweet rolls dried slowly until crisp. Dunked in coffee, they carry the frugal ingenuity of the seafaring south.',
@@ -922,8 +833,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/blotkake.png',
     cookingTime: '1 hr 30 min',
     difficulty: 'Moderate',
-    rating: 4.8,
-    reviews: 812,
     mainIngredients: ['Sponge', 'Cream', 'Vanilla custard', 'Strawberries', 'Fruit juice'],
     history: [
       'No birthday, graduation or 17th of May passes without bløtkake — a cloud-soft layer cake crowned with cream and summer berries, often flagged with tiny Norwegian banners.',
@@ -938,8 +847,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/fyrstekake.png',
     cookingTime: '1 hr 20 min',
     difficulty: 'Moderate',
-    rating: 4.7,
-    reviews: 356,
     mainIngredients: ['Almonds', 'Butter pastry', 'Icing sugar', 'Egg', 'Cardamom'],
     history: [
       'Rich with almonds and latticed on top, fyrstekake is the elegant end to a coastal coffee table. Dense yet delicate, it keeps for days and only improves with them.',
@@ -954,8 +861,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/verdens-beste.png',
     cookingTime: '1 hr 40 min',
     difficulty: 'Advanced',
-    rating: 4.9,
-    reviews: 604,
     mainIngredients: ['Sponge', 'Meringue', 'Almonds', 'Vanilla cream', 'Butter'],
     history: [
       'Voted the national cake of Norway, kvæfjordkake — better known as "the world\'s best" — layers airy sponge, crackling almond meringue and vanilla cream into pure celebration.',
@@ -974,8 +879,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/farikal.png',
     cookingTime: '2 hr 30 min',
     difficulty: 'Easy',
-    rating: 4.8,
-    reviews: 731,
     mainIngredients: ['Mutton', 'Cabbage', 'Black peppercorns', 'Flour', 'Salt'],
     history: [
       'Crowned the national dish by popular vote, fårikål is autumn in a pot: bone-in mutton and cabbage stacked with peppercorns and left to braise until the meat slides from the bone. Its own dedicated Thursday marks the start of the season.',
@@ -990,8 +893,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/lapskaus.png',
     cookingTime: '2 hr',
     difficulty: 'Easy',
-    rating: 4.6,
-    reviews: 423,
     mainIngredients: ['Beef', 'Potato', 'Carrot', 'Rutabaga', 'Leek'],
     history: [
       'Every valley kitchen has a pot of lapskaus in its memory — a catch-all stew that turns the week\'s meat and roots into something greater. Brown or pale, thick or brothy, it is pure everyday nourishment.',
@@ -1006,8 +907,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/rakfisk.png',
     cookingTime: '3 month cure',
     difficulty: 'Advanced',
-    rating: 4.3,
-    reviews: 187,
     mainIngredients: ['Trout', 'Salt', 'Red onion', 'Flatbread', 'Sour cream'],
     history: [
       'From the mountain lakes of Valdres comes rakfisk, trout brined and fermented cold for two to three months. Pungent and prized, it is the daring highlight of the pre-Christmas season.',
@@ -1022,8 +921,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/rommegrot.png',
     cookingTime: '40 min',
     difficulty: 'Moderate',
-    rating: 4.5,
-    reviews: 298,
     mainIngredients: ['Sour cream', 'Flour', 'Milk', 'Butter', 'Cinnamon'],
     history: [
       'Served at summer farm festivals and to new mothers alike, rømmegrøt is sour cream cooked with flour until the butter separates into golden pools. Ancient, indulgent and unmistakably rural.',
@@ -1038,8 +935,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/sodd.png',
     cookingTime: '2 hr',
     difficulty: 'Moderate',
-    rating: 4.6,
-    reviews: 214,
     mainIngredients: ['Mutton', 'Beef meatballs', 'Carrot', 'Potato', 'Broth'],
     history: [
       'Sodd is the ceremonial soup of confirmations and weddings in the inland regions — a clear, carefully clarified broth carrying delicate meatballs and neat cubes of root vegetable.',
@@ -1054,8 +949,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/medisterkaker.png',
     cookingTime: '1 hr',
     difficulty: 'Easy',
-    rating: 4.6,
-    reviews: 341,
     mainIngredients: ['Ground pork', 'Ginger', 'Nutmeg', 'Potato starch', 'Milk'],
     history: [
       'Alongside the Christmas ribbe you will always find medisterkaker — plump pork patties spiced with ginger and nutmeg. Fried and gravied, they are the season\'s reliable comfort.',
@@ -1070,8 +963,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/ribbe.png',
     cookingTime: '3 hr',
     difficulty: 'Advanced',
-    rating: 4.9,
-    reviews: 689,
     mainIngredients: ['Pork belly', 'Salt', 'Pepper', 'Caraway', 'Cloves'],
     history: [
       'For most eastern Norwegian families, Christmas simply is ribbe — a scored slab of pork belly roasted until the rind blisters into glassy crackling. The pursuit of perfect svor is a national obsession.',
@@ -1086,8 +977,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/svinestek.png',
     cookingTime: '2 hr',
     difficulty: 'Moderate',
-    rating: 4.5,
-    reviews: 267,
     mainIngredients: ['Pork loin', 'Salt', 'Bay leaf', 'Gravy', 'Lingonberry'],
     history: [
       'The roast pork loin is the archetypal Norwegian søndagsmiddag — the Sunday dinner that gathers the family. Its crackling and dark gravy are the standard against which cooks are judged.',
@@ -1102,8 +991,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/blodpudding.png',
     cookingTime: '45 min',
     difficulty: 'Moderate',
-    rating: 4.2,
-    reviews: 118,
     mainIngredients: ['Blood', 'Rye flour', 'Suet', 'Syrup', 'Lingonberry'],
     history: [
       'A dish of nothing wasted from the autumn slaughter, blood pudding is baked, sliced and fried the next day. Sweet-savoury with lingonberry, it is frugal farm cooking with a long memory.',
@@ -1118,8 +1005,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/betasuppe.png',
     cookingTime: '2 hr',
     difficulty: 'Easy',
-    rating: 4.5,
-    reviews: 176,
     mainIngredients: ['Lamb', 'Barley', 'Carrot', 'Cabbage', 'Leek'],
     history: [
       'Betasuppe is winter fuel from the eastern farms — lamb and barley simmered with whatever roots the cellar holds until the whole pot turns thick and restorative.',
@@ -1134,8 +1019,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/surkal.png',
     cookingTime: '1 hr',
     difficulty: 'Easy',
-    rating: 4.4,
-    reviews: 203,
     mainIngredients: ['White cabbage', 'Caraway', 'Vinegar', 'Sugar', 'Apple'],
     history: [
       'The bright, caraway-scented braised cabbage that partners ribbe and pinnekjøtt, surkål cuts the richness of the Christmas roast with its gentle sweet-sour edge.',
@@ -1150,8 +1033,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/tilslorte-bondepiker.png',
     cookingTime: '35 min',
     difficulty: 'Easy',
-    rating: 4.6,
-    reviews: 289,
     mainIngredients: ['Apples', 'Breadcrumbs', 'Sugar', 'Cream', 'Butter'],
     history: [
       'This whimsically named dessert layers sweet-spiced apple with toasted, caramelised breadcrumbs and cream. Thrifty and beloved, it turns stale bread and windfall apples into something graceful.',
@@ -1166,8 +1047,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/riskrem.png',
     cookingTime: '1 hr',
     difficulty: 'Easy',
-    rating: 4.7,
-    reviews: 512,
     mainIngredients: ['Rice pudding', 'Cream', 'Vanilla', 'Almond', 'Red berries'],
     history: [
       'The Christmas Eve dessert, riskrem hides a single whole almond — whoever finds it wins the marzipan pig. Made from the day\'s leftover rice porridge, it is thrift turned into ritual.',
@@ -1182,8 +1061,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/ertesuppe.png',
     cookingTime: '2 hr 15 min',
     difficulty: 'Easy',
-    rating: 4.5,
-    reviews: 198,
     mainIngredients: ['Yellow peas', 'Smoked pork', 'Carrot', 'Leek', 'Thyme'],
     history: [
       'Dried yellow peas and a smoked hock make ertesuppe, a soup so filling it once counted as a full day\'s meal for forestry and farm workers across the eastern interior.',
@@ -1198,8 +1075,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/kjottsuppe.png',
     cookingTime: '2 hr',
     difficulty: 'Easy',
-    rating: 4.5,
-    reviews: 231,
     mainIngredients: ['Lamb', 'Barley', 'Carrot', 'Rutabaga', 'Cabbage'],
     history: [
       'The clear meat soup is a gentle everyday classic — meat and roots simmered into a light, nourishing broth thickened only with a little barley. It is the taste of a well-run valley kitchen.',
@@ -1218,8 +1093,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/kanelsnurrer.png',
     cookingTime: '2 hr 20 min',
     difficulty: 'Moderate',
-    rating: 4.8,
-    reviews: 1342,
     mainIngredients: ['Wheat flour', 'Cardamom', 'Cinnamon', 'Butter', 'Pearl sugar'],
     history: [
       'The knotted cinnamon twist has become the signature bake of the new Nordic café — same cardamom dough as the classic bun, but folded and looped into an intricate knot that shows off the baker\'s hand.',
@@ -1234,8 +1107,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/kardemommeboller.png',
     cookingTime: '2 hr 15 min',
     difficulty: 'Moderate',
-    rating: 4.9,
-    reviews: 1587,
     mainIngredients: ['Wheat flour', 'Cardamom', 'Butter', 'Milk', 'Sugar'],
     history: [
       'Where cinnamon once ruled, cardamom now reigns. The pure cardamom knot — no filling, just an intense hit of freshly ground pods — has become the emblem of the internet\'s Scandinavian baking obsession.',
@@ -1250,8 +1121,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/skolebrod.png',
     cookingTime: '2 hr 20 min',
     difficulty: 'Moderate',
-    rating: 4.7,
-    reviews: 934,
     mainIngredients: ['Wheat flour', 'Vanilla custard', 'Cardamom', 'Coconut', 'Icing'],
     history: [
       'A lunchbox legend reborn as a café star, skolebrød cradles a pool of vanilla custard in a soft cardamom bun, finished with sweet glaze and a ring of coconut.',
@@ -1266,8 +1135,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/solskinnsboller.png',
     cookingTime: '2 hr 10 min',
     difficulty: 'Moderate',
-    rating: 4.6,
-    reviews: 512,
     mainIngredients: ['Wheat flour', 'Vanilla custard', 'Cardamom', 'Sugar glaze', 'Egg'],
     history: [
       'Named for the sunny disc of custard at their heart, solskinnsboller are the coconut-free cousin of skolebrød — soft, glossy and unashamedly cheerful.',
@@ -1282,8 +1149,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/hveteboller.png',
     cookingTime: '2 hr',
     difficulty: 'Easy',
-    rating: 4.6,
-    reviews: 728,
     mainIngredients: ['Wheat flour', 'Cardamom', 'Butter', 'Raisins', 'Pearl sugar'],
     history: [
       'The unfilled sweet bun is the foundation of Norwegian baking — the first thing many children learn to make. Warm from the oven with butter, it needs nothing more.',
@@ -1298,8 +1163,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/julekake.png',
     cookingTime: '3 hr',
     difficulty: 'Moderate',
-    rating: 4.7,
-    reviews: 389,
     mainIngredients: ['Wheat flour', 'Cardamom', 'Raisins', 'Candied peel', 'Butter'],
     history: [
       'The festive loaf of the season, julekake perfumes the whole house with cardamom as it bakes. Sliced and buttered, it bridges breakfast and coffee time through the Christmas weeks.',
@@ -1314,8 +1177,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/lefse.png',
     cookingTime: '1 hr 30 min',
     difficulty: 'Moderate',
-    rating: 4.7,
-    reviews: 456,
     mainIngredients: ['Potato', 'Flour', 'Butter', 'Sugar', 'Cinnamon'],
     history: [
       'Lefse spans the whole country in countless forms, but the sweet, buttery rolled version is the one that travels. Tender and faintly earthy from potato, it is comfort you can fold in your hand.',
@@ -1330,8 +1191,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/krumkake.png',
     cookingTime: '1 hr',
     difficulty: 'Advanced',
-    rating: 4.6,
-    reviews: 312,
     mainIngredients: ['Flour', 'Butter', 'Sugar', 'Cardamom', 'Egg'],
     history: [
       'Baked on an ornate iron and rolled while still hot, krumkaker are the lacy, cone-shaped cookies of the Christmas platter — one of the traditional seven sorts a proud host once baked.',
@@ -1346,8 +1205,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/goro.png',
     cookingTime: '1 hr 15 min',
     difficulty: 'Advanced',
-    rating: 4.4,
-    reviews: 148,
     mainIngredients: ['Flour', 'Cream', 'Butter', 'Cardamom', 'Sugar'],
     history: [
       'Goro is among the most refined of the Christmas cookies — a rich, faintly cardamom wafer embossed by a patterned iron and trimmed into neat rectangles. A test of patience and heritage.',
@@ -1362,8 +1219,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/sandkaker.png',
     cookingTime: '1 hr 10 min',
     difficulty: 'Moderate',
-    rating: 4.5,
-    reviews: 197,
     mainIngredients: ['Flour', 'Butter', 'Almonds', 'Sugar', 'Egg'],
     history: [
       'Pressed thin into fluted tins, sandkaker bake into crisp little almond shells with a texture like fine sand. Eaten plain or filled with cream and berries, they are Christmas-table staples.',
@@ -1378,8 +1233,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/berlinerkranser.png',
     cookingTime: '1 hr 20 min',
     difficulty: 'Advanced',
-    rating: 4.6,
-    reviews: 234,
     mainIngredients: ['Flour', 'Cooked egg yolk', 'Butter', 'Sugar', 'Pearl sugar'],
     history: [
       'Their signature comes from hard-boiled yolks mashed into the dough, giving a uniquely tender crumb. Shaped into little wreaths and sugared, berlinerkranser are among the seven sorts of Christmas.',
@@ -1394,8 +1247,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/serinakaker.png',
     cookingTime: '1 hr',
     difficulty: 'Easy',
-    rating: 4.7,
-    reviews: 421,
     mainIngredients: ['Flour', 'Butter', 'Sugar', 'Vanilla', 'Pearl sugar'],
     history: [
       'Perhaps the most beloved of the Christmas cookies, serinakaker are simple butter rounds marked with a fork and crowned with pearl sugar — short, tender and endlessly moreish.',
@@ -1410,8 +1261,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/fattigmann.png',
     cookingTime: '1 hr 30 min',
     difficulty: 'Advanced',
-    rating: 4.4,
-    reviews: 168,
     mainIngredients: ['Flour', 'Cardamom', 'Cream', 'Cognac', 'Icing sugar'],
     history: [
       'The name means "poor man," an irony given the cream, eggs and cognac inside. Rolled thin, cut into knotted diamonds and fried crisp, fattigmann is a labour-of-love Christmas classic.',
@@ -1426,8 +1275,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/smultringer.png',
     cookingTime: '1 hr 15 min',
     difficulty: 'Moderate',
-    rating: 4.5,
-    reviews: 356,
     mainIngredients: ['Flour', 'Cardamom', 'Buttermilk', 'Sugar', 'Butter'],
     history: [
       'The Norwegian doughnut is dense, cakey and warm with cardamom, traditionally fried in lard. A fixture of Christmas and country fairs, smultringer are humble nostalgia on a plate.',
@@ -1442,8 +1289,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/vafler.png',
     cookingTime: '30 min',
     difficulty: 'Easy',
-    rating: 4.8,
-    reviews: 1123,
     mainIngredients: ['Flour', 'Cardamom', 'Sour cream', 'Egg', 'Brown cheese'],
     history: [
       'The heart-shaped waffle is the warmest ritual in Norwegian life — served soft, never crisp, at cabins, church basements and offices alike. With brown cheese and jam, it is edible hospitality.',
@@ -1458,8 +1303,6 @@ const BASE_RECIPES: Recipe[] = [
     image: '/images/recipes/pepperkaker.png',
     cookingTime: '2 hr',
     difficulty: 'Easy',
-    rating: 4.7,
-    reviews: 678,
     mainIngredients: ['Flour', 'Ginger', 'Cinnamon', 'Cloves', 'Syrup'],
     history: [
       'Rolled paper-thin and cut into hearts, stars and pigs, pepperkaker fill Norwegian homes with the scent of December. Building and decorating them is a cherished ritual of the season.',
@@ -1469,7 +1312,11 @@ const BASE_RECIPES: Recipe[] = [
 
 export const RECIPES: Recipe[] = BASE_RECIPES.map((recipe) => {
   const detail = RECIPE_DETAILS[recipe.slug]
-  return detail ? { ...recipe, ...detail } : recipe
+  const optimizedRecipe = {
+    ...recipe,
+    image: recipe.image.replace(/\.png$/, '.webp'),
+  }
+  return detail ? { ...optimizedRecipe, ...detail } : optimizedRecipe
 })
 
 export function getRecipe(slug: string): Recipe | undefined {

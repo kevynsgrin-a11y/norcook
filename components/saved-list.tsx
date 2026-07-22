@@ -1,18 +1,58 @@
 'use client'
 
 import Link from 'next/link'
+import { useLayoutEffect, useReducer } from 'react'
 import { Bookmark } from 'lucide-react'
 import { RECIPES } from '@/lib/recipes'
 import { RecipeCard } from '@/components/recipe-card'
-import { useFavorites } from '@/components/favorites-provider'
+
+// Recipe cards persist favourites under this key prefix (see recipe-card.tsx).
+const FAVORITE_PREFIX = 'norcook-favorite:'
+
+function readSavedSlugs(): string[] {
+  const slugs: string[] = []
+  try {
+    for (let i = 0; i < window.localStorage.length; i += 1) {
+      const key = window.localStorage.key(i)
+      if (
+        key &&
+        key.startsWith(FAVORITE_PREFIX) &&
+        window.localStorage.getItem(key) === 'true'
+      ) {
+        slugs.push(key.slice(FAVORITE_PREFIX.length))
+      }
+    }
+  } catch {
+    /* ignore private-mode / access errors */
+  }
+  return slugs
+}
 
 export function SavedList() {
-  const { favorites, hydrated } = useFavorites()
+  // null = not yet read from localStorage (pre-hydration). A parameterless
+  // reducer + layout effect mirrors the codebase's hydration pattern and keeps
+  // the localStorage read out of an SSR render.
+  const [savedSlugs, refresh] = useReducer(
+    (): string[] | null => readSavedSlugs(),
+    null,
+  )
 
-  // Preserve the order recipes were saved in.
-  const saved = favorites
-    .map((slug) => RECIPES.find((r) => r.slug === slug))
-    .filter((r): r is (typeof RECIPES)[number] => Boolean(r))
+  useLayoutEffect(() => {
+    refresh()
+
+    // Reflect saves/removes made in other tabs (or a full clear, key === null).
+    const onStorage = (event: StorageEvent) => {
+      if (event.key === null || event.key.startsWith(FAVORITE_PREFIX)) {
+        refresh()
+      }
+    }
+    window.addEventListener('storage', onStorage)
+    return () => window.removeEventListener('storage', onStorage)
+  }, [])
+
+  const saved = (savedSlugs ?? [])
+    .map((slug) => RECIPES.find((recipe) => recipe.slug === slug))
+    .filter((recipe): recipe is (typeof RECIPES)[number] => Boolean(recipe))
 
   return (
     <section className="mx-auto min-h-[60vh] max-w-7xl px-4 pb-24 pt-28 sm:px-6 lg:px-8">
@@ -28,16 +68,14 @@ export function SavedList() {
         </p>
       </div>
 
-      {/* Before hydration we don't yet know what's saved — show a neutral
-          placeholder (not the empty state) to avoid a misleading "nothing
-          saved" flash for readers who do have saved recipes. */}
-      {!hydrated ? (
+      {savedSlugs === null ? (
+        // Pre-hydration: show a neutral placeholder, not a "nothing saved" flash.
         <div className="rounded-2xl border border-dashed border-border bg-card px-6 py-20 text-center text-sm text-muted-foreground">
           Loading your saved recipes…
         </div>
       ) : saved.length === 0 ? (
         <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-card px-6 py-20 text-center">
-          <Bookmark className="size-8 text-muted-foreground/50" />
+          <Bookmark aria-hidden="true" className="size-8 text-muted-foreground/50" />
           <h2 className="mt-4 font-display text-xl font-semibold text-foreground">
             Nothing saved yet
           </h2>

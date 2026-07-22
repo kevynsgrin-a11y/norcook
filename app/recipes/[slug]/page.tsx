@@ -8,15 +8,15 @@ import {
   Clock,
   Flame,
   Lightbulb,
-  Star,
 } from 'lucide-react'
 import { RECIPES, getRecipe, getRegion } from '@/lib/recipes'
-import { SITE_NAME } from '@/lib/site'
+import { getRecipeSafety } from '@/lib/recipe-safety'
+import { absoluteUrl } from '@/lib/site'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { RecommendedTools } from '@/components/recommended-tools'
-import { RecipeJsonLd } from '@/components/recipe-json-ld'
-import { InContentAd, StickyFooterAd } from '@/components/ad-slot'
+import { RecipeSafetyReview } from '@/components/recipe-safety-review'
+import { RecipeViewTracker } from '@/components/recipe-view-tracker'
 
 export function generateStaticParams() {
   return RECIPES.map((r) => ({ slug: r.slug }))
@@ -36,14 +36,10 @@ export async function generateMetadata({
     alternates: { canonical: `/recipes/${recipe.slug}` },
     openGraph: {
       type: 'article',
-      // Next.js replaces (does not deep-merge) the root openGraph, so siteName
-      // and locale must be repeated here or recipe pages lose them.
-      siteName: SITE_NAME,
-      locale: 'en_US',
+      url: `/recipes/${recipe.slug}`,
       title: recipe.name,
       description: recipe.description,
-      url: `/recipes/${recipe.slug}`,
-      images: [{ url: recipe.image, width: 1024, height: 1024, alt: recipe.name }],
+      images: [{ url: recipe.image, alt: recipe.name }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -65,16 +61,37 @@ export default async function RecipePage({
 
   const region = getRegion(recipe.region)
   const history = recipe.history ?? []
+  const safety = getRecipeSafety(recipe.slug)
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Recipe',
+    name: recipe.name,
+    description: recipe.description,
+    image: [absoluteUrl(recipe.image)],
+    mainEntityOfPage: absoluteUrl(`/recipes/${recipe.slug}`),
+    recipeCategory: region?.name,
+    recipeIngredient: recipe.ingredients ?? [],
+    recipeInstructions: (recipe.steps ?? []).map((text) => ({
+      '@type': 'HowToStep',
+      text,
+    })),
+  }
 
   return (
     <>
-      <RecipeJsonLd recipe={recipe} />
       <SiteHeader />
       <main>
+        <RecipeViewTracker slug={recipe.slug} region={recipe.region} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+          }}
+        />
         {/* Massive header image */}
         <section className="relative -mt-16 h-[70vh] min-h-[480px] w-full overflow-hidden">
           <Image
-            src={recipe.image || '/images/recipe-header.png'}
+            src={recipe.image || '/images/recipe-header.webp'}
             alt={recipe.name}
             fill
             priority
@@ -99,11 +116,6 @@ export default async function RecipePage({
 
               <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/90">
                 <span className="inline-flex items-center gap-1.5">
-                  <Star className="size-4 fill-accent text-accent" />
-                  {recipe.rating.toFixed(1)}
-                  <span className="text-white/60">({recipe.reviews})</span>
-                </span>
-                <span className="inline-flex items-center gap-1.5">
                   <Clock className="size-4" />
                   {recipe.cookingTime}
                 </span>
@@ -126,19 +138,19 @@ export default async function RecipePage({
           </Link>
         </div>
 
+        {safety && <RecipeSafetyReview safety={safety} />}
+
         {/* Cultural Context & History */}
         <section className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
           <h2 className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Cultural Context &amp; History
           </h2>
           <div className="mt-6 space-y-5">
-            {history.map((para, i) => (
-              <div key={i}>
+            {history.map((para) => (
+              <div key={para}>
                 <p className="text-pretty text-[17px] leading-[1.8] text-foreground/85">
                   {para}
                 </p>
-                {/* In-content ad after every 5 paragraphs */}
-                {(i + 1) % 5 === 0 && <InContentAd />}
               </div>
             ))}
           </div>
@@ -222,8 +234,8 @@ export default async function RecipePage({
               Keep exploring
             </h3>
             <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
-              There are {RECIPES.length - 1} more stories waiting in the index —
-              from Arctic cures to viral bakes.
+              There are {RECIPES.length - 1} more stories waiting in the index — from
+              Arctic cures to viral bakes.
             </p>
             <Link
               href="/#recipes"
@@ -235,7 +247,6 @@ export default async function RecipePage({
         </section>
       </main>
       <SiteFooter />
-      <StickyFooterAd />
     </>
   )
 }
