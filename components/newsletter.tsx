@@ -3,14 +3,41 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import { Check, Send } from 'lucide-react'
+import { useConsent } from '@/components/analytics/consent-provider'
 
 export function Newsletter() {
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<
+    'idle' | 'submitting' | 'success' | 'error'
+  >('idle')
+  const { trackEvent } = useConsent()
+  const newsletterEnabled =
+    process.env.NEXT_PUBLIC_NEWSLETTER_ENABLED === 'true'
+
+  async function submit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const form = event.currentTarget
+    const email = new FormData(form).get('email')
+    if (typeof email !== 'string') return
+
+    setStatus('submitting')
+    const response = await fetch('/api/newsletter', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    })
+    if (response.ok) {
+      setStatus('success')
+      form.reset()
+      trackEvent('newsletter_signup', { placement: 'homepage' })
+    } else {
+      setStatus('error')
+    }
+  }
 
   return (
     <section className="relative overflow-hidden rounded-2xl">
       <Image
-        src="/images/newsletter-tundra.png"
+        src="/images/newsletter-tundra.webp"
         alt="Arctic Norwegian tundra under a soft green aurora at twilight"
         fill
         sizes="(max-width: 1024px) 100vw, 80rem"
@@ -27,28 +54,34 @@ export function Newsletter() {
             The Nordic Baking Guide
           </h2>
           <p className="mt-3 max-w-md text-pretty leading-relaxed text-white/80">
-            Join 40,000 readers and get our 30-page guide to cardamom, rye and
-            the art of the perfect bun — plus a new regional recipe each week.
+            Get our guide to cardamom, rye and the art of the perfect bun — plus
+            a new regional recipe when the newsletter launches.
           </p>
         </div>
 
         <div className="lg:justify-self-end lg:pl-8">
-          {submitted ? (
+          {!newsletterEnabled ? (
+            <div className="rounded-xl border border-white/25 bg-white/10 p-5 text-white backdrop-blur-xl">
+              <p className="text-sm font-medium">Newsletter signups are not open yet.</p>
+              <p className="mt-1 text-xs leading-relaxed text-white/70">
+                Activation is blocked until the site operator and privacy contact
+                are published.
+              </p>
+            </div>
+          ) : status === 'success' ? (
             <div className="flex items-center gap-3 rounded-xl border border-white/25 bg-white/10 p-5 text-white backdrop-blur-xl">
               <Check className="size-5 text-accent" />
               <p className="text-sm font-medium">
-                You&apos;re in. Check your inbox for the guide.
+                You&apos;re subscribed. Check your inbox for confirmation.
               </p>
             </div>
           ) : (
             <form
-              onSubmit={(e) => {
-                e.preventDefault()
-                setSubmitted(true)
-              }}
+              onSubmit={submit}
               className="flex w-full max-w-md flex-col gap-3 sm:flex-row"
             >
               <input
+                name="email"
                 type="email"
                 required
                 placeholder="you@example.com"
@@ -57,16 +90,24 @@ export function Newsletter() {
               />
               <button
                 type="submit"
+                disabled={status === 'submitting'}
                 className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-transform hover:scale-[1.03] active:scale-95"
               >
                 <Send className="size-4" />
-                Get the guide
+                {status === 'submitting' ? 'Joining…' : 'Get the guide'}
               </button>
             </form>
           )}
-          <p className="mt-3 text-xs text-white/60">
-            No spam. Unsubscribe anytime.
-          </p>
+          {newsletterEnabled && status !== 'success' && (
+            <p className="mt-3 text-xs text-white/60">
+              No spam. Unsubscribe anytime. See our privacy notice.
+              {status === 'error' && (
+                <span className="ml-1 text-red-200" role="status">
+                  Signup failed; please try again later.
+                </span>
+              )}
+            </p>
+          )}
         </div>
       </div>
     </section>

@@ -2,12 +2,17 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { RECIPES, REGIONS, TOTAL_RECIPES, type RegionSlug } from '@/lib/recipes'
+import { useConsent } from '@/components/analytics/consent-provider'
 import { RecipeCard } from '@/components/recipe-card'
 
 type Filter = 'all' | RegionSlug
+const PAGE_SIZE = 12
 
 export function RecipeIndex() {
   const [filter, setFilter] = useState<Filter>('all')
+  const [query, setQuery] = useState('')
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
+  const { trackEvent } = useConsent()
 
   // Preselect a region when arriving via a #region hash from the nav.
   useEffect(() => {
@@ -22,13 +27,61 @@ export function RecipeIndex() {
     return () => window.removeEventListener('hashchange', applyHash)
   }, [])
 
+  useEffect(() => {
+    const applyQuery = (nextQuery: string) => {
+      setQuery(nextQuery)
+      setVisibleCount(PAGE_SIZE)
+    }
+    const initialQuery = new URL(window.location.href).searchParams.get('q') ?? ''
+    applyQuery(initialQuery)
+
+    const onSearch = (event: Event) => {
+      const searchEvent = event as CustomEvent<{ query: string }>
+      applyQuery(searchEvent.detail.query)
+    }
+    const onPopState = () => {
+      applyQuery(new URL(window.location.href).searchParams.get('q') ?? '')
+    }
+    window.addEventListener('norcook:search', onSearch)
+    window.addEventListener('popstate', onPopState)
+    return () => {
+      window.removeEventListener('norcook:search', onSearch)
+      window.removeEventListener('popstate', onPopState)
+    }
+  }, [])
+
   const filtered = useMemo(
-    () =>
-      filter === 'all'
-        ? RECIPES
-        : RECIPES.filter((r) => r.region === filter),
-    [filter],
+    () => {
+      const normalizedQuery = query.trim().toLocaleLowerCase()
+      return RECIPES.filter((recipe) => {
+        const matchesRegion = filter === 'all' || recipe.region === filter
+        const haystack = [
+          recipe.name,
+          recipe.description,
+          ...recipe.mainIngredients,
+        ]
+          .join(' ')
+          .toLocaleLowerCase()
+        return matchesRegion && (!normalizedQuery || haystack.includes(normalizedQuery))
+      })
+    },
+    [filter, query],
   )
+
+  const visibleRecipes = filtered.slice(0, visibleCount)
+
+  useEffect(() => {
+    if (!query.trim()) return
+    trackEvent('search_submit', {
+      query_length: query.trim().length,
+      result_count: filtered.length,
+    })
+  }, [filtered.length, query, trackEvent])
+
+  function selectFilter(nextFilter: Filter) {
+    setFilter(nextFilter)
+    setVisibleCount(PAGE_SIZE)
+  }
 
   return (
     <section id="recipes" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-20 sm:px-6 lg:px-8">
@@ -53,14 +106,14 @@ export function RecipeIndex() {
 
       {/* Region filter */}
       <div className="mb-10 flex flex-wrap gap-2">
-        <FilterChip active={filter === 'all'} onClick={() => setFilter('all')}>
+        <FilterChip active={filter === 'all'} onClick={() => selectFilter('all')}>
           All Regions
         </FilterChip>
         {REGIONS.map((region) => (
           <FilterChip
             key={region.slug}
             active={filter === region.slug}
-            onClick={() => setFilter(region.slug)}
+            onClick={() => selectFilter(region.slug)}
           >
             {region.name}
           </FilterChip>
@@ -72,11 +125,50 @@ export function RecipeIndex() {
         <span key={region.slug} id={region.slug} className="block scroll-mt-24" />
       ))}
 
+      {query && (
+        <p className="mb-6 text-sm text-muted-foreground" aria-live="polite">
+          {filtered.length} {filtered.length === 1 ? 'result' : 'results'} for “{query}”
+        </p>
+      )}
+
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {filtered.map((recipe) => (
+        {visibleRecipes.map((recipe) => (
           <RecipeCard key={recipe.slug} recipe={recipe} />
         ))}
       </div>
+
+      {filtered.length === 0 && (
+        <div className="rounded-xl border border-border bg-card p-8 text-center">
+          <p className="font-medium text-foreground">No matching recipes yet.</p>
+          <button
+            type="button"
+            onClick={() => {
+              setQuery('')
+              const url = new URL(window.location.href)
+              url.searchParams.delete('q')
+              window.history.replaceState({}, '', url)
+            }}
+            className="mt-3 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+          >
+            Clear search
+          </button>
+        </div>
+      )}
+
+      {visibleCount < filtered.length && (
+        <div className="mt-10 text-center">
+          <button
+            type="button"
+            onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
+            className="rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+          >
+            Show {Math.min(PAGE_SIZE, filtered.length - visibleCount)} more
+          </button>
+          <p className="mt-2 text-xs text-muted-foreground">
+            Showing {visibleRecipes.length} of {filtered.length}
+          </p>
+        </div>
+      )}
     </section>
   )
 }

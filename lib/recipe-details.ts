@@ -12,7 +12,7 @@ export type RecipeDetail = {
   ingredients: string[]
   steps: string[]
   chefTips: string[]
-  tools: { name: string; note: string }[]
+  tools: { name: string; note: string; href?: string }[]
 }
 
 export const RECIPE_DETAILS: Record<string, RecipeDetail> = {
@@ -135,11 +135,11 @@ export const RECIPE_DETAILS: Record<string, RecipeDetail> = {
       'Slice the cold-smoked char thinly across the grain, working with a long, sharp blade.',
       'Stir the sour cream together with the grated horseradish, chopped chives and a squeeze of lemon until smooth.',
       'Lay the slices in a single overlapping layer across a serving platter.',
-      'Bring to room temperature and serve with the horseradish cream, a scatter of fresh dill and flatbread or warm boiled potatoes.',
+      'Serve straight from the refrigerator with the horseradish cream, a scatter of fresh dill and flatbread or warm boiled potatoes.',
     ],
     chefTips: [
       'Make the horseradish cream an hour ahead and keep it chilled — the heat mellows and rounds out, so it flatters the delicate fish rather than overwhelming it.',
-      'Let the char lose its fridge chill before slicing; cold-smoked fish gives up its full, gentle sweetness closer to room temperature.',
+      'Set out only what will be eaten promptly and return unused fish to refrigeration within two hours.',
     ],
     tools: [
       { name: 'Long thin-bladed knife', note: 'Draws wafer-thin slices cleanly across the grain.' },
@@ -576,11 +576,11 @@ export const RECIPE_DETAILS: Record<string, RecipeDetail> = {
     steps: [
       'Slice the cured meats as thinly as you can and arrange them across a large platter, loosely overlapping so each kind stays distinct.',
       'Whisk the eggs with the water and a pinch of salt. Melt a little butter in a pan over low heat and cook gently, folding the eggs as soft curds form, until just set.',
-      'Bring the platter to room temperature before serving so the fat softens and the flavour opens up.',
+      'Let the slices soften for 10 minutes before serving, keeping the remainder refrigerated.',
       'Set everything out together — the warm scrambled eggs, bowls of sour cream and potato salad, and a stack of flatbrød — and let everyone build their own plate.',
     ],
     chefTips: [
-      'Take the meats from the fridge a good hour ahead: cured ham and fenalår only give up their full, nutty depth once the fat has warmed through.',
+      'Set out a small first platter and replenish from the refrigerator rather than warming the whole selection for an hour.',
       'Keep the eggs soft and glossy rather than dry — they are the gentle counterpoint to all that salt-cured intensity.',
     ],
     tools: [
@@ -833,7 +833,7 @@ export const RECIPE_DETAILS: Record<string, RecipeDetail> = {
       'Seal and refrigerate for at least 48 hours before eating.',
     ],
     chefTips: [
-      'The brine must be stone cold before it meets the fish — poured on warm it turns the herring soft and cloudy. Sealed and submerged it keeps happily for two to three weeks, deepening in flavour over the first few days.',
+      'The brine must be stone cold before it meets the fish. This is a refrigerated pickle, not a shelf-stable preserve; follow the herring supplier’s use-by guidance rather than assuming a long home shelf life.',
     ],
     tools: [
       { name: 'Glass preserving jar', note: 'Non-reactive and keeps the fillets fully under brine.' },

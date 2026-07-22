@@ -1,12 +1,33 @@
+'use client'
+
 import Image from 'next/image'
+import { useState } from 'react'
 import { Search } from 'lucide-react'
 import { TOTAL_RECIPES } from '@/lib/recipes'
 
 export function Hero() {
+  const [query, setQuery] = useState('')
+
+  function submitSearch(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const normalizedQuery = query.trim()
+    const url = new URL(window.location.href)
+    if (normalizedQuery) url.searchParams.set('q', normalizedQuery)
+    else url.searchParams.delete('q')
+    url.hash = 'recipes'
+    window.history.pushState({}, '', url)
+    window.dispatchEvent(
+      new CustomEvent('norcook:search', {
+        detail: { query: normalizedQuery },
+      }),
+    )
+    document.getElementById('recipes')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <section className="relative -mt-16 flex min-h-[92vh] items-center justify-center overflow-hidden">
       <Image
-        src="/images/hero-fjord.png"
+        src="/images/hero-fjord.webp"
         alt="A dramatic Norwegian fjord at golden hour, deep water winding between snow-dusted cliffs"
         fill
         priority
@@ -32,12 +53,15 @@ export function Hero() {
 
         {/* Frosted-glass search bar */}
         <form
+          onSubmit={submitSearch}
           className="mt-10 flex w-full max-w-xl items-center gap-2 rounded-full border border-white/25 bg-white/10 p-2 pl-5 backdrop-blur-xl transition-shadow focus-within:ring-2 focus-within:ring-white/40"
           role="search"
         >
           <Search className="size-5 shrink-0 text-white/70" />
           <input
             type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
             placeholder="Search fjord seafood, cured meats, cardamom bakes…"
             aria-label="Search recipes"
             className="w-full bg-transparent text-sm text-white placeholder:text-white/60 focus:outline-none"
