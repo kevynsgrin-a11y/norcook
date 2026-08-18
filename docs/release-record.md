@@ -5,7 +5,8 @@
 
 Measured by running the full gate locally: `pnpm lint`, `pnpm typecheck`,
 `pnpm check:content`, `pnpm check:images`, `pnpm build`, `pnpm test:e2e`
-(41 passing), and both Lighthouse profiles.
+(45 passing), and both Lighthouse profiles. `pnpm audit:dependencies` **fails** —
+see the last row of the table; it fails identically on `main`.
 
 | Gate | Status | Evidence | Owner | Exception note |
 | --- | --- | --- | --- | --- |
@@ -19,6 +20,7 @@ Measured by running the full gate locally: `pnpm lint`, `pnpm typecheck`,
 | `sitemapAll200=true` | PASS | `tests/e2e/site.spec.ts` fetches all 89 `<loc>` entries: every one 200, none noindex, `/saved` absent | unassigned | — |
 | `structuredDataValid=true` | PARTIAL | `tests/e2e/site.spec.ts` asserts Recipe JSON-LD shape across 5 slugs and CollectionPage on a hub; `scripts/check-content.mjs` blocks ratings and an asserted author | unassigned | Shape assertions only. No third-party schema validator runs in CI, and validators need a public URL. |
 | `thirdPartyBudgetWithinLimit=true` | PASS | `lighthouserc.{mobile,desktop}.cjs` now assert third-party count 0, total ≤ 1.5 MiB, stylesheet ≤ 100 KiB. Measured: 0 third-party requests on all three routes | unassigned | Was previously informative only — `budgetPath` reports a budget, it does not fail a run. |
+| `dependencyAudit=clean` | **FAIL** | `pnpm audit:dependencies` reports 15 high and 10 moderate advisories; the `quality` CI job fails on it | unassigned | **Pre-existing and equally red on `main`.** Nothing in this change touches `package.json` dependencies or `pnpm-lock.yaml`. Four of the highs are `next` itself (16.2.6 is below the 16.2.11 that fixes an SSRF, a middleware/proxy bypass and a Server Actions DoS) and the rest are transitive under next, playwright and lighthouse. A range-respecting `pnpm update` takes the highs from 15 to 8 but cannot clear them, because `package.json` pins `next` exactly. Clearing this needs a deliberate framework bump plus a lockfile refresh, with its own test pass — not a rider on an editorial change. **This is the single most security-relevant open item on the property.** |
 | `desktopMobileScreenshotsReviewed=true` | PARTIAL | `tests/e2e/screenshots.spec.ts` captures 8 routes × 2 viewports; CI uploads them as `release-screenshots` | unassigned | Capture is automated; the human review is not, and no reviewer is recorded for this release. Deliberately not a pixel diff — cross-runner font and GPU variance makes that a false-red generator. |
 | `policyOperatorPublished=true` | BLOCKED | `/privacy` states the legal entity, address, privacy contact and jurisdiction are unconfirmed | unassigned | Launch blocker by explicit product decision, not a defect. Must never become a per-commit CI gate: a permanently red pipeline pressures whoever is on call to invent an operator. |
 | `safetyOwnersNamed=true` | BLOCKED | `lib/recipe-safety.ts` status is `Qualified reviewer pending` on all six sensitive recipes | unassigned | Same reasoning. Note the coupling: `scripts/check-content.mjs` currently *requires* that literal and `lib/recipe-safety.ts` types it as a single literal, so naming a real reviewer means widening the type and the check in the same commit. |

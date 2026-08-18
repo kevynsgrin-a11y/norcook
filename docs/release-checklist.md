@@ -46,6 +46,7 @@ missing fact rather than wait for it.
 | `safetyOwnersNamed=true` | Safety-sensitive content names a qualified reviewer with scope, evidence, date and decision. | *(fill in)* |
 | `thirdPartyBudgetWithinLimit=true` | Third-party requests and total page weight stay inside the stated budget. | *(fill in)* |
 | `desktopMobileScreenshotsReviewed=true` | Key routes are captured at both viewports and a human has looked at them. | *(fill in)* |
+| `dependencyAudit=clean` | No high-severity advisory is outstanding against a shipped dependency. | *(fill in)* |
 
 ## Rules of use
 
