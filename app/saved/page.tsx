@@ -14,7 +14,7 @@ export default function SavedPage() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <SavedList />
       </main>
       <SiteFooter />

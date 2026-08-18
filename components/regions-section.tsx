@@ -23,7 +23,7 @@ export function RegionsSection() {
           {REGIONS.map((region, i) => (
             <Link
               key={region.slug}
-              href={`/#${region.slug}`}
+              href={`/regions/${region.slug}`}
               className={`group flex flex-col justify-between rounded-xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/40 ${
                 i === 0 ? 'lg:col-span-1' : ''
               }`}

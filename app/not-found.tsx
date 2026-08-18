@@ -14,7 +14,7 @@ export default function NotFound() {
   return (
     <>
       <SiteHeader />
-      <main className="mx-auto flex min-h-[70vh] max-w-3xl flex-col items-center justify-center px-4 py-24 text-center sm:px-6">
+      <main id="main-content" className="mx-auto flex min-h-[70vh] max-w-3xl flex-col items-center justify-center px-4 py-24 text-center sm:px-6">
         <ErrorRouteTracker status={404} routeKind="not_found" />
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
           404 · Off the map

@@ -16,7 +16,7 @@ export default function ErrorPage({
   }, [error])
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-4 text-center">
+    <main id="main-content" className="mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-4 text-center">
       <ErrorRouteTracker status={500} routeKind="runtime_error" />
       <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
         Kitchen interruption

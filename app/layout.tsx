@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { ConsentProvider } from '@/components/analytics/consent-provider'
+import { SkipLink } from '@/components/skip-link'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site'
 import './globals.css'
@@ -79,6 +80,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="font-sans antialiased">
+        <SkipLink />
         <ConsentProvider>
           <ThemeProvider>{children}</ThemeProvider>
         </ConsentProvider>

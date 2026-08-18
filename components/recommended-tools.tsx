@@ -1,13 +1,19 @@
 'use client'
 
+import Link from 'next/link'
 import { ExternalLink } from 'lucide-react'
 import { useConsent } from '@/components/analytics/consent-provider'
 
 type Tool = { name: string; note: string; href?: string }
 
 /**
- * Native-looking affiliate block. Styled to match editorial content so it
- * converts without feeling like a banner. Wire `href` to your affiliate links.
+ * Editorial tool references. A tool becomes a paid link only when it carries an
+ * `href`, and no tool carries one today.
+ *
+ * Do NOT add an href until the legal operator, jurisdiction, partner terms and
+ * consumer disclosures on /affiliate-disclosure are approved. Any href added
+ * here renders as `rel="sponsored nofollow noopener"` with a visible label and
+ * a link to that disclosure — those are the terms of using this component.
  */
 export function RecommendedTools({ tools }: { tools: Tool[] }) {
   const { trackEvent } = useConsent()
@@ -36,7 +42,7 @@ export function RecommendedTools({ tools }: { tools: Tool[] }) {
               <a
                 href={tool.href}
                 target="_blank"
-                rel="sponsored noreferrer"
+                rel="sponsored nofollow noopener"
                 onClick={() =>
                   trackEvent('affiliate_click', { tool_name: tool.name })
                 }
@@ -54,9 +60,21 @@ export function RecommendedTools({ tools }: { tools: Tool[] }) {
       </ul>
 
       <p className="mt-4 text-[11px] leading-relaxed text-muted-foreground">
-        {hasAffiliateLinks
-          ? 'Affiliate links are marked. Norcook may earn a commission at no extra cost to you.'
-          : 'Product suggestions are editorial references only; no purchase or affiliate links are currently configured.'}
+        {hasAffiliateLinks ? (
+          <>
+            Affiliate links are marked. Norcook may earn a commission at no
+            extra cost to you. See our{' '}
+            <Link
+              href="/affiliate-disclosure"
+              className="font-medium text-primary underline-offset-4 hover:underline"
+            >
+              affiliate disclosure
+            </Link>
+            .
+          </>
+        ) : (
+          'Product suggestions are editorial references only; no purchase or affiliate links are currently configured.'
+        )}
       </p>
     </section>
   )

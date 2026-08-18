@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <Hero />
         <RegionsSection />
         <RecipeIndex />

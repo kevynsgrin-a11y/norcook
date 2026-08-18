@@ -16,7 +16,7 @@ export function LegalPage({
   return (
     <>
       <SiteHeader />
-      <main className="mx-auto max-w-3xl px-4 py-20 sm:px-6">
+      <main id="main-content" className="mx-auto max-w-3xl px-4 py-20 sm:px-6">
         <Link
           href="/"
           className="text-sm font-medium text-primary underline-offset-4 hover:underline"

@@ -3,7 +3,11 @@ module.exports = {
     collect: {
       startServerCommand: 'node node_modules/next/dist/bin/next start',
       startServerReadyPattern: 'Ready',
-      url: ['http://127.0.0.1:3000/', 'http://127.0.0.1:3000/recipes/gravlaks'],
+      url: [
+        'http://127.0.0.1:3000/',
+        'http://127.0.0.1:3000/recipes/gravlaks',
+        'http://127.0.0.1:3000/regions/vestlandet',
+      ],
       numberOfRuns: 1,
       settings: {
         budgetPath: './performance-budget.json',
@@ -24,6 +28,9 @@ module.exports = {
         'total-blocking-time': ['error', { maxNumericValue: 600 }],
         'resource-summary:script:size': ['error', { maxNumericValue: 337920 }],
         'resource-summary:image:size': ['error', { maxNumericValue: 921600 }],
+        'resource-summary:stylesheet:size': ['error', { maxNumericValue: 102400 }],
+        'resource-summary:total:size': ['error', { maxNumericValue: 1536000 }],
+        'resource-summary:third-party:count': ['error', { maxNumericValue: 0 }],
       },
     },
     upload: { target: 'filesystem', outputDir: '.lighthouseci/mobile' },

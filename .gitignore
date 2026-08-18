@@ -6,10 +6,12 @@ __v0_jsx-dev-runtime.ts
 # Common ignores
 node_modules
 .next/
+.env
 .env*.local
 .DS_Store
 next-env.d.ts
 tsconfig.tsbuildinfo
 playwright-report/
 test-results/
+screenshots/
 .lighthouseci/

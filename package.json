@@ -14,11 +14,13 @@
     "typecheck": "tsc --noEmit",
     "check:content": "node scripts/check-content.mjs",
     "check:images": "node scripts/check-image-budgets.mjs",
+    "check:sitemap": "playwright test tests/e2e/site.spec.ts --grep \"sitemap\"",
     "optimize:images": "node scripts/optimize-images.mjs",
     "audit:dependencies": "pnpm audit --audit-level=high",
     "test:e2e": "playwright test",
     "test:performance:mobile": "lhci autorun --config=lighthouserc.mobile.cjs",
     "test:performance:desktop": "lhci autorun --config=lighthouserc.desktop.cjs",
+    "capture:screenshots": "playwright test tests/e2e/screenshots.spec.ts",
     "release:check": "pnpm lint && pnpm typecheck && pnpm check:content && pnpm check:images && pnpm audit:dependencies && pnpm build && pnpm test:e2e"
   },
   "dependencies": {
