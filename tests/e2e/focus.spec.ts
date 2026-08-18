@@ -48,8 +48,13 @@ test('the first-visit consent banner takes focus without trapping it', async ({
   await expect(banner).toBeVisible()
   await expect(banner).toBeFocused()
 
-  // No trap: Tab must be able to leave a banner the visitor has not answered.
+  // No trap: Tab must be able to walk out of a banner the visitor has not
+  // answered, and Escape must not dismiss a choice they have not made.
   await page.keyboard.press('Escape')
+  await expect(banner).toBeVisible()
+
+  for (let i = 0; i < 5; i += 1) await page.keyboard.press('Tab')
+  await expect(banner.locator(':focus')).toHaveCount(0)
   await expect(banner).toBeVisible()
 
   await page.getByRole('button', { name: 'Essential only' }).click()

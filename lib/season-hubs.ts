@@ -24,7 +24,7 @@ import {
   NORWAY_RAKFISK_SOURCE,
   RISK_GROUP_SOURCE,
 } from './recipe-safety'
-import { CONTENT_REVIEW_DATE } from './site'
+import { HUB_CHECKED_DATE } from './site'
 
 export const SEASON_SLUGS = ['jul', 'host'] as const
 
@@ -83,8 +83,8 @@ export const SEASON_HUBS: Record<SeasonSlug, SeasonHub> = {
         'That there should be seven is the tradition.',
       'Dessert is riskrem, and it is a leftovers dish by design. Rice porridge ' +
         'cooked earlier — traditionally with a bowl set outside for the fjøsnisse, ' +
-        'the barn spirit — is cooled and folded into whipped cream, served with a hot ' +
-        'red berry sauce. A single blanched almond is hidden in the bowl, and whoever ' +
+        'the barn spirit — is cooled and folded into whipped cream, served with a ' +
+        'chilled red berry sauce. A single blanched almond is hidden in the bowl, and whoever ' +
         'finds it wins a marzipan pig. Winning it and saying nothing until the last ' +
         'serving has been dished up is, in many families, considered the correct way ' +
         'to play.',
@@ -145,8 +145,8 @@ export const SEASON_HUBS: Record<SeasonSlug, SeasonHub> = {
       {
         term: 'Riskrem',
         definition:
-          'Cold rice porridge folded into whipped cream and served with hot berry ' +
-            'sauce. A single blanched almond is hidden in the bowl and the finder wins a ' +
+          'Cold rice porridge folded into whipped cream and served with a chilled ' +
+            'berry sauce. A single blanched almond is hidden in the bowl and the finder wins a ' +
             'marzipan pig.',
       },
       {
@@ -164,7 +164,7 @@ export const SEASON_HUBS: Record<SeasonSlug, SeasonHub> = {
       },
     ],
     sources: [fromSafetySource(NORWAY_RAKFISK_SOURCE), fromSafetySource(CDC_PRESERVATION_SOURCE), fromSafetySource(RISK_GROUP_SOURCE)],
-    checkedOn: CONTENT_REVIEW_DATE,
+    checkedOn: HUB_CHECKED_DATE,
     safetyNote:
       'The cold table is where this collection\'s risk sits. Rakfisk is raw ' +
         'fermented fish and fenalår is a cured meat; both are written around ' +
@@ -325,7 +325,7 @@ export const SEASON_HUBS: Record<SeasonSlug, SeasonHub> = {
       },
     ],
     sources: [fromSafetySource(CDC_PRESERVATION_SOURCE), fromSafetySource(NORWAY_RAKFISK_SOURCE), fromSafetySource(RISK_GROUP_SOURCE)],
-    checkedOn: CONTENT_REVIEW_DATE,
+    checkedOn: HUB_CHECKED_DATE,
     safetyNote:
       'Autumn is the preserving season, and this hub deliberately does not teach ' +
         'preserving. Fenalår, spekemat and rakfisk are each written around ' +

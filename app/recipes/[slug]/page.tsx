@@ -75,9 +75,11 @@ export default async function RecipePage({
     image: [absoluteUrl(recipe.image)],
     mainEntityOfPage: absoluteUrl(`/recipes/${recipe.slug}`),
     recipeCategory: region?.name,
-    // Freshness only. No `author` node: naming a Person or Organization here
-    // with no named operator behind it would be a machine-readable falsehood.
-    datePublished: checkedOn,
+    // Freshness only, and dateModified only: `checkedOn` moves forward on every
+    // content check, so using it as datePublished would keep rewriting the
+    // publication date. No `author` node either — naming a Person or
+    // Organization with no named operator behind it would be a
+    // machine-readable falsehood.
     dateModified: checkedOn,
     recipeIngredient: recipe.ingredients ?? [],
     recipeInstructions: (recipe.steps ?? []).map((text) => ({

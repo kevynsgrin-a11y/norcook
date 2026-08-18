@@ -19,7 +19,8 @@ export function Newsletter() {
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const form = event.currentTarget
-    const email = new FormData(form).get('email')
+    const data = new FormData(form)
+    const email = data.get('email')
     if (typeof email !== 'string') return
 
     setStatus('submitting')
@@ -27,7 +28,12 @@ export function Newsletter() {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, consentVersion: CONSENT_VERSION }),
+        body: JSON.stringify({
+          email,
+          consentVersion: CONSENT_VERSION,
+          // The trap only works if it is actually transmitted.
+          [HONEYPOT_FIELD]: data.get(HONEYPOT_FIELD) ?? '',
+        }),
       })
       if (!response.ok) {
         setStatus('error')
@@ -85,7 +91,7 @@ export function Newsletter() {
             <div className="flex items-center gap-3 rounded-xl border border-white/25 bg-white/10 p-5 text-white backdrop-blur-xl">
               <Check aria-hidden="true" className="size-5 text-accent" />
               <p className="text-sm font-medium">
-                You&apos;re subscribed. Check your inbox for confirmation.
+                Thanks — your address has been sent to our newsletter provider.
               </p>
             </div>
           ) : (

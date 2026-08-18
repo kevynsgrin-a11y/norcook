@@ -84,13 +84,66 @@ function isRateLimited(ip: string) {
   return false
 }
 
-/** Only rejects a *stated* foreign origin, so non-browser callers still work. */
+/**
+ * Only rejects a *stated* foreign origin, so non-browser callers still work.
+ *
+ * The request's own origin counts as same-origin alongside the canonical one:
+ * a browser attaches `Origin` to same-origin POSTs too, so comparing against
+ * SITE_URL alone would 403 the site's own form on localhost, on a preview
+ * deployment, and on the apex domain.
+ */
 function hasForeignOrigin(request: Request) {
   const site = request.headers.get('sec-fetch-site')
   if (site && site !== 'same-origin') return true
   const origin = request.headers.get('origin')
-  if (origin && origin !== new URL(SITE_URL).origin) return true
-  return false
+  if (!origin) return false
+
+  let originHost: string
+  try {
+    originHost = new URL(origin).host
+  } catch {
+    return true
+  }
+  // Compared by host rather than full origin, and against the Host header
+  // rather than `request.url` — behind a proxy the latter carries the internal
+  // address, not the one the browser used. Protocol is left out deliberately:
+  // a same-host http/https mismatch is a deployment problem, not a CSRF vector.
+  const servedHost =
+    request.headers.get('x-forwarded-host') ?? request.headers.get('host')
+  return originHost !== servedHost && originHost !== new URL(SITE_URL).host
+}
+
+/**
+ * Reads at most `MAX_BODY_BYTES`, then gives up. The Content-Length check is a
+ * cheap early exit only — a chunked request declares no length, so the cap has
+ * to be enforced against the bytes actually arriving or it is not a cap.
+ */
+async function readCappedBody(request: Request): Promise<string | null> {
+  const reader = request.body?.getReader()
+  if (!reader) return ''
+  const chunks: Uint8Array[] = []
+  let size = 0
+  try {
+    for (;;) {
+      const { done, value } = await reader.read()
+      if (done) break
+      size += value.byteLength
+      if (size > MAX_BODY_BYTES) {
+        await reader.cancel()
+        return null
+      }
+      chunks.push(value)
+    }
+  } catch {
+    return null
+  }
+  const buffer = new Uint8Array(size)
+  let offset = 0
+  for (const chunk of chunks) {
+    buffer.set(chunk, offset)
+    offset += chunk.byteLength
+  }
+  return new TextDecoder().decode(buffer)
 }
 
 export async function POST(request: Request) {
@@ -126,9 +179,17 @@ export async function POST(request: Request) {
     )
   }
 
-  const body = (await request.json().catch(() => null)) as
-    | Record<string, unknown>
-    | null
+  const raw = await readCappedBody(request)
+  if (raw === null) {
+    logOutcome({ outcome: 'oversized', startedAt })
+    return NextResponse.json({ error: 'Request body too large.' }, { status: 413 })
+  }
+  let body: Record<string, unknown> | null = null
+  try {
+    body = JSON.parse(raw) as Record<string, unknown>
+  } catch {
+    body = null
+  }
 
   // Answer a bot exactly as a person, so filling the trap teaches it nothing.
   if (typeof body?.[HONEYPOT_FIELD] === 'string' && body[HONEYPOT_FIELD]) {

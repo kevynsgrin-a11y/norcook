@@ -71,8 +71,10 @@ export function HubSourcePanel({
               </li>
             ))}
             <li className="mt-1 text-xs leading-relaxed text-muted-foreground">
-              These sources support the explanatory sections above. They do not
-              make this page a qualified review of any method it links to.
+              These are the public-health citations behind the safety note
+              above. The introduction and glossary are written as general
+              cultural context, not as sourced historical claims, and none of
+              this makes the page a qualified review of any method it links to.
             </li>
           </ul>
         ) : (

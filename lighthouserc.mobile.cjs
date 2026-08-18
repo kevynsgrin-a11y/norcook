@@ -8,7 +8,12 @@ module.exports = {
         'http://127.0.0.1:3000/recipes/gravlaks',
         'http://127.0.0.1:3000/regions/vestlandet',
       ],
-      numberOfRuns: 1,
+      // Mobile Lab metrics on a shared CI runner swing by well over a second
+      // run to run: the homepage measured 2.2-3.7s LCP across three runs on an
+      // unchanged tree, so a single sample against a 3.5s budget is a coin
+      // flip. Three runs asserted at the median is the cheapest way to make
+      // this gate mean something. A gate that cries wolf gets switched off.
+      numberOfRuns: 3,
       settings: {
         budgetPath: './performance-budget.json',
         chromeFlags: '--headless --no-sandbox --disable-gpu',
@@ -17,6 +22,9 @@ module.exports = {
       },
     },
     assert: {
+      // Median, not LHCI's default 'optimistic' — otherwise three runs would
+      // just be three chances to get a lucky one.
+      aggregationMethod: 'median',
       assertions: {
         'categories:performance': ['error', { minScore: 0.75 }],
         'categories:accessibility': ['error', { minScore: 0.95 }],

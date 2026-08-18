@@ -40,9 +40,11 @@ export function SiteHeader() {
             <Link
               key={region.slug}
               href={`/regions/${region.slug}`}
-              // The header is in view on every page, so eager prefetching here
-              // would pull five hub route bundles down on every single load.
-              // Next still prefetches these on hover.
+              // The header is in view on every page, so leaving prefetch on
+              // would pull five hub route bundles down on every single load —
+              // measured at roughly 10 KB of script transfer site-wide. In the
+              // App Router `false` disables viewport *and* hover prefetching,
+              // so the first click pays a navigation; that is the trade.
               prefetch={false}
               className="group flex flex-col text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
             >

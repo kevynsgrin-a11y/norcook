@@ -34,6 +34,13 @@ Lighthouse CI, `/`, `/recipes/gravlaks`, `/regions/vestlandet`.
 
 Mobile accessibility scored 1.00 on all three routes.
 
+The mobile profile now collects **three runs and asserts the median**. A single
+run was not a gate: on an unchanged tree the homepage measured 2.24 s, 2.95 s and
+3.66 s LCP against a 3.5 s budget, so roughly one build in three failed on noise
+alone regardless of what had changed. CI confirmed it — the first run of this
+branch failed on a 4.10 s homepage sample while the same commit measured 2.26 s
+median locally.
+
 **Script budget headroom is thin — about 2.6% on the recipe route.** The 77-recipe
 archive ships to the client because `components/recipe-index.tsx` and
 `components/saved-list.tsx` both import `RECIPES`; that predates this record and
@@ -59,5 +66,16 @@ to pay for it, and the durable fix is to stop shipping the whole archive.
   "Spring seafood" has zero support in the archive and "summer berries" has one
   berry-centred recipe. Both stay unbuilt rather than inventing seasonality.
 - **Per-IP rate limiting on `/api/newsletter` is in-memory.** Per-instance and
-  best-effort; see `docs/newsletter-api.md`. Must be replaced with shared state
-  before the route is switched on for real traffic.
+  best-effort; see `docs/newsletter-api.md`. It also keys on the leftmost
+  `x-forwarded-for` entry, which a caller controls unless a trusted proxy
+  rewrites it. Must be replaced with shared state, behind a trusted-proxy
+  configuration, before the route is switched on for real traffic.
+- **Two recipes contradict themselves about barley, and this change did not fix
+  it.** `betasuppe` and `kjottsuppe` both list `Barley` in `mainIngredients` and
+  describe themselves as barley soups in `lib/recipes.ts`, but neither one's
+  ingredients or method in `lib/recipe-details.ts` contains any. Building the
+  Østlandet glossary surfaced it. The glossary was written around the gap rather
+  than repeating the claim, because resolving it means either adding barley to
+  two methods — and `kjottsuppe`'s own chef tip is about keeping the broth
+  *clear*, which barley would work against — or removing it from the cards. That
+  is an editorial call for whoever owns the archive, not a drive-by edit.

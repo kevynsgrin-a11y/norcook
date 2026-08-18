@@ -25,7 +25,8 @@ export function RecipeCard({ recipe }: { recipe: Recipe }) {
           <Link
             href={`/regions/${region.slug}`}
             // Secondary to "View Recipe"; a grid of twelve cards should not
-            // prefetch five hub bundles just by being on screen.
+            // prefetch five hub bundles just by being on screen. As in the
+            // header, `false` also disables hover prefetch.
             prefetch={false}
             className="absolute left-3 top-3 rounded-full bg-black/45 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur-md transition-colors hover:bg-black/70"
           >

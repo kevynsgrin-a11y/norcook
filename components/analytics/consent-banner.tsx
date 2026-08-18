@@ -24,11 +24,13 @@ export function ConsentBanner({
 }) {
   const panelRef = useRef<HTMLElement>(null)
 
-  // Move focus into the panel when it opens — and only then, so a re-render
-  // never steals focus back off whichever button the reader has tabbed to.
+  // Move focus into the panel when it opens, and again when an already-visible
+  // first-visit banner is escalated to a dialog by the footer control — but not
+  // on every re-render, which would steal focus off whichever button the reader
+  // has tabbed to.
   useEffect(() => {
     if (open) panelRef.current?.focus()
-  }, [open])
+  }, [open, modal])
 
   useEffect(() => {
     if (!open || !modal) return
@@ -49,6 +51,14 @@ export function ConsentBanner({
       const first = focusable[0]
       const last = focusable[focusable.length - 1]
       const active = document.activeElement
+      // Focus can be outside the panel entirely — e.g. the banner was already
+      // open and something else held focus when it became a dialog. Pull it back
+      // in rather than letting Tab walk away from a modal.
+      if (!(active instanceof Node) || !panel.contains(active)) {
+        event.preventDefault()
+        ;(event.shiftKey ? last : first).focus()
+        return
+      }
       if (event.shiftKey && (active === first || active === panel)) {
         event.preventDefault()
         last.focus()

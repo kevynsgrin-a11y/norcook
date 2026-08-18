@@ -136,14 +136,48 @@ for (const [name, source] of [
     failures.push(`${name} may not claim a page was reviewed, safe or validated`)
   }
 }
+// Resolve every referenced slug against the corpus. Counting quoted strings
+// would pass a hub full of typos, and getRecipesBySlugs drops unknown slugs
+// silently, so a hub could quietly render fewer recipes than it claims.
+const corpusSlugs = new Set(
+  [...recipes.matchAll(/^\s{4}slug: '([^']+)'/gm)].map((match) => match[1]),
+)
 const seasonSlugLists = [...seasonHubs.matchAll(/recipeSlugs: \[([\s\S]*?)\]/g)]
 if (!seasonSlugLists.length) failures.push('Season hubs must link recipes')
 seasonSlugLists.forEach((match, index) => {
-  const count = (match[1].match(/'/g) ?? []).length / 2
-  if (count < 8) {
-    failures.push(`Season hub ${index + 1} links ${count} recipes; at least 8 are required`)
+  const slugs = [...match[1].matchAll(/'([^']+)'/g)].map((entry) => entry[1])
+  const unknown = slugs.filter((slug) => !corpusSlugs.has(slug))
+  if (unknown.length) {
+    failures.push(
+      `Season hub ${index + 1} references recipes that do not exist: ${unknown.join(', ')}`,
+    )
+  }
+  const resolved = slugs.length - unknown.length
+  if (resolved < 8) {
+    failures.push(
+      `Season hub ${index + 1} resolves ${resolved} recipes; at least 8 are required`,
+    )
   }
 })
+const provenanceSlugs = [...provenance.matchAll(/^  '?([a-z0-9-]+)'?: \{$/gm)].map(
+  (match) => match[1],
+)
+const unknownProvenance = provenanceSlugs.filter((slug) => !corpusSlugs.has(slug))
+if (unknownProvenance.length) {
+  failures.push(
+    `Provenance records reference recipes that do not exist: ${unknownProvenance.join(', ')}`,
+  )
+}
+for (const [name, source] of [
+  ['lib/region-hubs.ts', regionHubs],
+  ['lib/season-hubs.ts', seasonHubs],
+]) {
+  // Hubs carry HUB_CHECKED_DATE, never the recipe archive's older date: a page
+  // may not claim it was checked before it existed.
+  if (source.includes('CONTENT_REVIEW_DATE')) {
+    failures.push(`${name} must use HUB_CHECKED_DATE, not the recipe archive's date`)
+  }
+}
 if (!sitemap.includes('/regions/') || !sitemap.includes('/seasons/')) {
   failures.push('The sitemap must advertise the region and season hubs')
 }
@@ -182,8 +216,13 @@ if (!newsletterRoute.includes('emailHash')) {
 if (/console\.log\([^)]*\bemail\b[^)]*\)/.test(newsletterRoute.replace(/emailHash/g, ''))) {
   failures.push('The newsletter route must never log a raw email address')
 }
-if (!newsletter.includes('HONEYPOT_FIELD') || !newsletter.includes('CONSENT_VERSION')) {
-  failures.push('The newsletter form must send the documented contract fields')
+const newsletterBody = newsletter.match(/JSON\.stringify\(\{[\s\S]*?\}\)/)?.[0] ?? ''
+for (const field of ['HONEYPOT_FIELD', 'CONSENT_VERSION']) {
+  // Rendering the honeypot input is not the same as transmitting it — a
+  // substring match anywhere in the file would pass while the trap was inert.
+  if (!newsletterBody.includes(field)) {
+    failures.push(`The newsletter form must send ${field} in its request body`)
+  }
 }
 
 if (failures.length) {

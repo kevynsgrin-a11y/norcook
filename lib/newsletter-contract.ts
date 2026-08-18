@@ -18,7 +18,11 @@ export const PROVIDER_TIMEOUT_MS = 5_000
 /** Per-IP submissions allowed per hour. Best-effort and per-instance. */
 export const RATE_LIMIT_PER_HOUR = 5
 
-/** Requests larger than this are rejected before the body is parsed. */
+/**
+ * Requests larger than this are rejected before the body is parsed — enforced
+ * against the bytes actually read, not the declared `Content-Length`, so a
+ * chunked request cannot walk past it.
+ */
 export const MAX_BODY_BYTES = 2_048
 
 export const MAX_EMAIL_LENGTH = 254

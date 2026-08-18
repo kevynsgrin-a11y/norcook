@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { getRecipesBySlugs } from '@/lib/recipes'
+import { SITE_NAME } from '@/lib/site'
 import {
   SEASON_HUBS,
   SEASON_SLUGS,
@@ -29,13 +30,34 @@ export async function generateMetadata({
     title: hub.metaTitle,
     description: hub.metaDescription,
     alternates: { canonical: `/seasons/${seasonSlug}` },
+    // See the note in app/regions/[region]/page.tsx: Next replaces `openGraph`
+    // rather than merging it, so the inherited keys are restated here.
     openGraph: {
       type: 'article',
       url: `/seasons/${seasonSlug}`,
+      siteName: SITE_NAME,
+      locale: 'en_US',
       title: hub.metaTitle,
       description: hub.metaDescription,
+      images: seasonImages(seasonSlug),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: hub.metaTitle,
+      description: hub.metaDescription,
+      images: seasonImages(seasonSlug).map((image) => image.url),
     },
   }
+}
+
+function seasonImages(seasonSlug: SeasonSlug) {
+  const lead = getRecipesBySlugs(SEASON_HUBS[seasonSlug].recipeSlugs)[0]
+  return [
+    {
+      url: lead?.image ?? '/images/hero-fjord.webp',
+      alt: lead ? lead.name : 'A Norwegian fjord at golden hour',
+    },
+  ]
 }
 
 export default async function SeasonHubPage({

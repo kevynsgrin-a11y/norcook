@@ -23,7 +23,7 @@ import {
   RISK_GROUP_SOURCE,
 } from './recipe-safety'
 import type { RegionSlug } from './recipes'
-import { CONTENT_REVIEW_DATE } from './site'
+import { HUB_CHECKED_DATE } from './site'
 
 export const REGION_HUBS: Record<RegionSlug, Hub> = {
   sapmi: {
@@ -158,7 +158,7 @@ export const REGION_HUBS: Record<RegionSlug, Hub> = {
       },
     ],
     sources: [fromSafetySource(NORWAY_PREGNANCY_SOURCE), fromSafetySource(RISK_GROUP_SOURCE)],
-    checkedOn: CONTENT_REVIEW_DATE,
+    checkedOn: HUB_CHECKED_DATE,
     safetyNote:
       'Two recipes here — fenalår and cold-smoked røye — are written around ' +
         'professionally produced meat and fish and carry their own food-safety ' +
@@ -299,7 +299,7 @@ export const REGION_HUBS: Record<RegionSlug, Hub> = {
       },
     ],
     sources: [fromSafetySource(FDA_PARASITE_SOURCE), fromSafetySource(RISK_GROUP_SOURCE)],
-    checkedOn: CONTENT_REVIEW_DATE,
+    checkedOn: HUB_CHECKED_DATE,
     safetyNote:
       'Gravlaks is raw cured fish and spekemat is ready-to-eat cured meat. Salt and ' +
         'sugar curing does not cook fish or reliably destroy parasites, and both ' +
@@ -448,7 +448,7 @@ export const REGION_HUBS: Record<RegionSlug, Hub> = {
       },
     ],
     sources: [fromSafetySource(CDC_PRESERVATION_SOURCE), fromSafetySource(RISK_GROUP_SOURCE)],
-    checkedOn: CONTENT_REVIEW_DATE,
+    checkedOn: HUB_CHECKED_DATE,
     safetyNote:
       'Sursild is a refrigerated pickle made from commercially salted herring, not ' +
         'a shelf-stable canning method, and carries a food-safety callout on its own ' +
@@ -541,8 +541,8 @@ export const REGION_HUBS: Record<RegionSlug, Hub> = {
       {
         term: 'Bygg',
         definition:
-          'Barley, the inland grain that tolerates a short season better than wheat. It ' +
-            'thickens betasuppe and kjøttsuppe, and it stands in for wheat flour in ' +
+          'Barley, the inland grain that tolerates a short season better than wheat. ' +
+            'It gives body to the valley soups and stands in for wheat flour in ' +
             'blodpudding.',
       },
       {
@@ -569,9 +569,8 @@ export const REGION_HUBS: Record<RegionSlug, Hub> = {
       {
         term: 'Betasuppe',
         definition:
-          'A thick one-pot soup of cured lamb or ham with barley, cabbage, leek and ' +
-            'cellar roots — winter food assembled from what was already salted and ' +
-            'stored.',
+          'A thick one-pot soup of cured lamb or ham with leek and cellar roots — ' +
+            'winter food assembled from what was already salted and stored.',
       },
       {
         term: 'Sodd',
@@ -589,7 +588,7 @@ export const REGION_HUBS: Record<RegionSlug, Hub> = {
       },
     ],
     sources: [fromSafetySource(NORWAY_RAKFISK_SOURCE), fromSafetySource(NORWAY_FISH_SOURCE), fromSafetySource(CDC_PRESERVATION_SOURCE)],
-    checkedOn: CONTENT_REVIEW_DATE,
+    checkedOn: HUB_CHECKED_DATE,
     safetyNote:
       'Rakfisk is raw fermented fish and carries a food-safety callout on its own ' +
         'page, as do the cured meats that share its table. This hub points you to ' +
@@ -718,6 +717,6 @@ export const REGION_HUBS: Record<RegionSlug, Hub> = {
       },
     ],
     sources: [],
-    checkedOn: CONTENT_REVIEW_DATE,
+    checkedOn: HUB_CHECKED_DATE,
   },
 }

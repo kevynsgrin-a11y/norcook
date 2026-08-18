@@ -171,7 +171,21 @@ test('seasonal hubs are real pages', async ({ page }) => {
 
 test('a recipe links back to its region hub', async ({ page }) => {
   await page.goto('/recipes/bidos')
-  await page.getByRole('link', { name: /Sápmi/ }).first().click()
+  // Scoped to the page body: the site header carries a Sápmi link on every
+  // page, so an unscoped locator would pass without the recipe linking at all.
+  await page
+    .locator('main')
+    .getByRole('link', { name: /Sápmi/ })
+    .first()
+    .click()
+  await expect(page).toHaveURL(/\/regions\/sapmi$/)
+
+  // And the provenance block carries its own route back.
+  await page.goto('/recipes/bidos')
+  await page
+    .locator('section[aria-labelledby="provenance-heading"]')
+    .getByRole('link', { name: 'Sápmi' })
+    .click()
   await expect(page).toHaveURL(/\/regions\/sapmi$/)
 })
 

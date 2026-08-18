@@ -5,6 +5,13 @@ export const SITE_DESCRIPTION =
 export const CONTENT_REVIEW_DATE = '2026-07-21'
 
 /**
+ * The hubs were written after the recipe archive was last checked, so they
+ * carry their own date. Borrowing CONTENT_REVIEW_DATE would have stamped every
+ * hub as "checked" a month before the page existed.
+ */
+export const HUB_CHECKED_DATE = '2026-08-18'
+
+/**
  * The version of the privacy copy a reader is agreeing to. It is the
  * localStorage key for the consent choice *and* the value recorded with any
  * future newsletter signup, so a stored consent can always be traced back to

@@ -31,8 +31,8 @@ submission that fills it is answered `202` and never relayed.
 | --- | --- |
 | `202` | Accepted and relayed to the provider. Also returned to a honeypot hit. |
 | `400` | Invalid email, or a `consentVersion` that is not the current one. |
-| `403` | `Origin` or `Sec-Fetch-Site` states a cross-site request. |
-| `413` | `Content-Length` above 2048 bytes. |
+| `403` | `Origin` or `Sec-Fetch-Site` states a cross-site request. The request's own host counts as same-origin, so previews and localhost work. |
+| `413` | Body above 2048 bytes, whether or not it declares a `Content-Length`. |
 | `415` | `Content-Type` is not `application/json`. |
 | `429` | Per-IP rate limit exceeded. Carries `Retry-After`. |
 | `503` | No provider configured — the current, dormant state. |
@@ -56,8 +56,9 @@ never reports its own readiness to a caller that failed validation.
 
 ## Rate limiting — an honest caveat
 
-The limit is 5 submissions per IP per hour, held in an in-memory `Map`. It is
-**per-instance and best-effort**. On a serverless platform each instance keeps
+The limit is 5 submissions per IP per hour, held in an in-memory `Map`, keyed on
+the leftmost `x-forwarded-for` entry. It is **per-instance and best-effort**, and
+the key is caller-controlled unless a trusted proxy overwrites that header. On a serverless platform each instance keeps
 its own counter and a cold start resets it, so this is a courtesy brake against
 casual abuse, not a durable guarantee. A real limit needs shared state (an edge
 rate limiter or a KV store) and must be added before the route is switched on
@@ -85,5 +86,6 @@ is small enough to brute-force. Treat it as pseudonymous, not anonymous.
 3. Set `NEWSLETTER_WEBHOOK_URL` **and** `NEXT_PUBLIC_NEWSLETTER_ENABLED=true`
    together — setting only the public flag ships a live-looking form that 503s
    on every submission.
-4. Replace the in-memory rate limit with shared state.
+4. Replace the in-memory rate limit with shared state, and pin the trusted-proxy
+   configuration so `x-forwarded-for` cannot be chosen by the caller.
 5. Test the delivery, confirmation and unsubscribe paths end to end.

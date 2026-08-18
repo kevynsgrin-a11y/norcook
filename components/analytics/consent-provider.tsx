@@ -42,8 +42,18 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
 
   const closeSettings = useCallback(() => {
     setSettingsOpen(false)
-    openerRef.current?.focus()
-    openerRef.current = null
+    if (openerRef.current) {
+      openerRef.current.focus()
+      openerRef.current = null
+      return
+    }
+    // No opener: the first-visit banner was answered, and it held focus. Hand
+    // focus to the main landmark rather than dropping the reader on <body>.
+    const main = document.getElementById('main-content')
+    if (main) {
+      main.setAttribute('tabindex', '-1')
+      main.focus()
+    }
   }, [])
 
   const openSettings = useCallback(() => {

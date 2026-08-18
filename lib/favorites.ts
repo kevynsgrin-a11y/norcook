@@ -99,6 +99,10 @@ export function getEmptySlugs(): readonly string[] {
 }
 
 export function subscribe(onChange: () => void) {
+  // Another tab's writes are invisible while nothing is subscribed, so a cache
+  // built before that gap cannot be trusted after it. Drop it on every new
+  // subscription rather than serving a snapshot no listener was watching.
+  cachedSlugs = null
   const onSameDocument = () => onChange()
   // `event.key === null` is a whole-store clear from another tab.
   const onOtherTab = (event: StorageEvent) => {
