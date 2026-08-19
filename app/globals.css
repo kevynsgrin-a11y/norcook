@@ -129,6 +129,13 @@
   body {
     @apply bg-background text-foreground;
   }
+  /* Single focus contract for the whole site. Components that replace the
+     outline with a ring opt out with `focus:outline-none`, which wins from
+     the utilities layer. */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 }
 
 @layer utilities {

@@ -39,7 +39,13 @@ export function SiteHeader() {
           {REGIONS.map((region) => (
             <Link
               key={region.slug}
-              href={`/#${region.slug}`}
+              href={`/regions/${region.slug}`}
+              // The header is in view on every page, so leaving prefetch on
+              // would pull five hub route bundles down on every single load —
+              // measured at roughly 10 KB of script transfer site-wide. In the
+              // App Router `false` disables viewport *and* hover prefetching,
+              // so the first click pays a navigation; that is the trade.
+              prefetch={false}
               className="group flex flex-col text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
             >
               {region.name}
@@ -56,14 +62,14 @@ export function SiteHeader() {
             aria-label="Search recipes"
             className="hidden size-9 items-center justify-center rounded-full border border-border/70 text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:inline-flex"
           >
-            <Search className="size-4" />
+            <Search aria-hidden="true" className="size-4" />
           </Link>
           <Link
             href="/saved"
             aria-label="Saved recipes"
             className="hidden size-9 items-center justify-center rounded-full border border-border/70 text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:inline-flex"
           >
-            <Bookmark className="size-4" />
+            <Bookmark aria-hidden="true" className="size-4" />
           </Link>
           <ThemeToggle />
           <button
@@ -73,7 +79,11 @@ export function SiteHeader() {
             onClick={() => setOpen((v) => !v)}
             className="inline-flex size-9 items-center justify-center rounded-full border border-border/70 text-foreground/80 transition-colors hover:bg-secondary lg:hidden"
           >
-            {open ? <X className="size-4" /> : <Menu className="size-4" />}
+            {open ? (
+              <X aria-hidden="true" className="size-4" />
+            ) : (
+              <Menu aria-hidden="true" className="size-4" />
+            )}
           </button>
         </div>
       </div>
@@ -84,7 +94,7 @@ export function SiteHeader() {
             {REGIONS.map((region) => (
               <Link
                 key={region.slug}
-                href={`/#${region.slug}`}
+                href={`/regions/${region.slug}`}
                 onClick={() => setOpen(false)}
                 className="flex items-baseline justify-between border-b border-border/50 py-3 text-sm font-medium text-foreground/90 last:border-0"
               >
@@ -95,11 +105,31 @@ export function SiteHeader() {
               </Link>
             ))}
             <Link
+              href="/seasons/jul"
+              onClick={() => setOpen(false)}
+              className="flex items-baseline justify-between border-b border-border/50 py-3 text-sm font-medium text-foreground/90"
+            >
+              Norwegian Christmas food
+              <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                Season
+              </span>
+            </Link>
+            <Link
+              href="/seasons/host"
+              onClick={() => setOpen(false)}
+              className="flex items-baseline justify-between border-b border-border/50 py-3 text-sm font-medium text-foreground/90"
+            >
+              Autumn harvest
+              <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                Season
+              </span>
+            </Link>
+            <Link
               href="/saved"
               onClick={() => setOpen(false)}
               className="flex items-center gap-2 py-3 text-sm font-medium text-foreground/90"
             >
-              <Bookmark className="size-4" />
+              <Bookmark aria-hidden="true" className="size-4" />
               Saved recipes
             </Link>
           </nav>

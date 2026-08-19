@@ -11,12 +11,15 @@ import {
 } from 'lucide-react'
 import { RECIPES, getRecipe, getRegion } from '@/lib/recipes'
 import { getRecipeSafety } from '@/lib/recipe-safety'
-import { absoluteUrl } from '@/lib/site'
+import { getRecipeProvenance } from '@/lib/recipe-provenance'
+import { absoluteUrl, CONTENT_REVIEW_DATE } from '@/lib/site'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { RecommendedTools } from '@/components/recommended-tools'
 import { RecipeSafetyReview } from '@/components/recipe-safety-review'
+import { RecipeProvenanceBlock } from '@/components/recipe-provenance'
 import { RecipeViewTracker } from '@/components/recipe-view-tracker'
+import { SaveRecipeButton } from '@/components/save-recipe-button'
 
 export function generateStaticParams() {
   return RECIPES.map((r) => ({ slug: r.slug }))
@@ -62,6 +65,8 @@ export default async function RecipePage({
   const region = getRegion(recipe.region)
   const history = recipe.history ?? []
   const safety = getRecipeSafety(recipe.slug)
+  const provenance = getRecipeProvenance(recipe.slug)
+  const checkedOn = provenance?.checkedOn ?? CONTENT_REVIEW_DATE
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Recipe',
@@ -70,6 +75,12 @@ export default async function RecipePage({
     image: [absoluteUrl(recipe.image)],
     mainEntityOfPage: absoluteUrl(`/recipes/${recipe.slug}`),
     recipeCategory: region?.name,
+    // Freshness only, and dateModified only: `checkedOn` moves forward on every
+    // content check, so using it as datePublished would keep rewriting the
+    // publication date. No `author` node either — naming a Person or
+    // Organization with no named operator behind it would be a
+    // machine-readable falsehood.
+    dateModified: checkedOn,
     recipeIngredient: recipe.ingredients ?? [],
     recipeInstructions: (recipe.steps ?? []).map((text) => ({
       '@type': 'HowToStep',
@@ -80,7 +91,7 @@ export default async function RecipePage({
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <RecipeViewTracker slug={recipe.slug} region={recipe.region} />
         <script
           type="application/ld+json"
@@ -103,9 +114,13 @@ export default async function RecipePage({
           <div className="absolute inset-x-0 bottom-0">
             <div className="mx-auto max-w-4xl px-4 pb-12 sm:px-6">
               {region && (
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.2em] text-white backdrop-blur-md">
+                <Link
+                  href={`/regions/${region.slug}`}
+                  prefetch={false}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.2em] text-white backdrop-blur-md transition-colors hover:bg-white/20"
+                >
                   {region.name} · {region.label}
-                </span>
+                </Link>
               )}
               <h1 className="mt-4 text-balance font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-6xl">
                 {recipe.name}
@@ -116,13 +131,18 @@ export default async function RecipePage({
 
               <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/90">
                 <span className="inline-flex items-center gap-1.5">
-                  <Clock className="size-4" />
+                  <Clock aria-hidden="true" className="size-4" />
                   {recipe.cookingTime}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Flame className="size-4" />
+                  <Flame aria-hidden="true" className="size-4" />
                   {recipe.difficulty}
                 </span>
+                <SaveRecipeButton
+                  slug={recipe.slug}
+                  name={recipe.name}
+                  variant="labelled"
+                />
               </div>
             </div>
           </div>
@@ -133,7 +153,7 @@ export default async function RecipePage({
             href="/#recipes"
             className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            <ArrowLeft className="size-4" />
+            <ArrowLeft aria-hidden="true" className="size-4" />
             Back to the index
           </Link>
         </div>
@@ -162,7 +182,7 @@ export default async function RecipePage({
             {/* Ingredients + tools rail */}
             <div className="lg:sticky lg:top-24 lg:self-start">
               <h2 className="flex items-center gap-2 font-display text-xl font-bold tracking-tight text-foreground">
-                <ChefHat className="size-5 text-primary" />
+                <ChefHat aria-hidden="true" className="size-5 text-primary" />
                 Ingredients
               </h2>
               <ul className="mt-5 flex flex-col gap-3">
@@ -210,7 +230,7 @@ export default async function RecipePage({
                       key={i}
                       className="flex gap-3 rounded-xl border border-accent/40 bg-accent/10 p-5"
                     >
-                      <Lightbulb className="size-5 shrink-0 text-accent" />
+                      <Lightbulb aria-hidden="true" className="size-5 shrink-0 text-accent" />
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-wider text-accent">
                           Chef&apos;s Tip
@@ -226,6 +246,14 @@ export default async function RecipePage({
             </div>
           </div>
         </section>
+
+        <RecipeProvenanceBlock
+          checkedOn={checkedOn}
+          regionName={region?.name}
+          regionSlug={region?.slug}
+          provenance={provenance}
+          hasSafetyCallout={Boolean(safety)}
+        />
 
         {/* More from the index */}
         <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6">

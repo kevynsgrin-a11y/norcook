@@ -6,7 +6,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-card">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr_1fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <span className="font-display text-lg font-bold tracking-tight text-foreground">
               NORCOOK
@@ -29,10 +29,31 @@ export function SiteFooter() {
               {REGIONS.map((region) => (
                 <li key={region.slug}>
                   <Link
-                    href={`/#${region.slug}`}
+                    href={`/regions/${region.slug}`}
                     className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {region.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-foreground">
+              Seasons
+            </h2>
+            <ul className="mt-4 flex flex-col gap-2.5">
+              {[
+                { label: 'Norwegian Christmas food', href: '/seasons/jul' },
+                { label: 'Autumn harvest', href: '/seasons/host' },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {item.label}
                   </Link>
                 </li>
               ))}

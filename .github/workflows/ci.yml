@@ -55,6 +55,15 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 14
+      # Reviewed by a human before release and recorded in docs/release-record.md.
+      # Deliberately artifacts rather than a pixel diff: font and GPU variance
+      # across runners makes a hard diff a false-red generator that gets muted.
+      - if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-screenshots
+          path: screenshots/
+          retention-days: 14
 
   lighthouse:
     runs-on: ubuntu-latest

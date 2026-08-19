@@ -19,37 +19,37 @@ export type RecipeSafety = {
   sources: SafetySource[]
 }
 
-const FDA_PARASITE_SOURCE: SafetySource = {
+export const FDA_PARASITE_SOURCE: SafetySource = {
   label: '2022 Food Code §3-402.11 — Parasite Destruction',
   url: 'https://www.fda.gov/files/2024-12-20-fodecode2022-print-0743.pdf',
   authority: 'U.S. Food and Drug Administration',
 }
 
-const RISK_GROUP_SOURCE: SafetySource = {
+export const RISK_GROUP_SOURCE: SafetySource = {
   label: 'People at risk of food poisoning',
   url: 'https://www.foodsafety.gov/people-at-risk',
   authority: 'FoodSafety.gov',
 }
 
-const NORWAY_FISH_SOURCE: SafetySource = {
+export const NORWAY_FISH_SOURCE: SafetySource = {
   label: 'Local food — inland fish safety controls',
   url: 'https://www.mattilsynet.no/mat-og-drikke/matproduksjon/lokalmat/lokalmat--innlandsfisk',
   authority: 'Norwegian Food Safety Authority',
 }
 
-const NORWAY_RAKFISK_SOURCE: SafetySource = {
+export const NORWAY_RAKFISK_SOURCE: SafetySource = {
   label: 'Dietary advice for rakfisk',
   url: 'https://www.mattilsynet.no/mat-og-drikke/matproduksjon/fisk-og-sjomat/rakfisk--krev-god-styring-med-produksjonen/kostrad',
   authority: 'Norwegian Food Safety Authority',
 }
 
-const NORWAY_PREGNANCY_SOURCE: SafetySource = {
+export const NORWAY_PREGNANCY_SOURCE: SafetySource = {
   label: 'Fish and seafood during pregnancy',
   url: 'https://www.mattilsynet.no/mat-og-drikke/forbrukere/rad-og-advarsler-til-gravide/fisk-og-sjomat',
   authority: 'Norwegian Food Safety Authority',
 }
 
-const CDC_PRESERVATION_SOURCE: SafetySource = {
+export const CDC_PRESERVATION_SOURCE: SafetySource = {
   label: 'Botulism prevention for preserved and fermented food',
   url: 'https://www.cdc.gov/botulism/prevention/',
   authority: 'U.S. Centers for Disease Control and Prevention',

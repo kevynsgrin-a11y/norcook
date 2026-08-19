@@ -1327,4 +1327,14 @@ export function getRegion(slug: RegionSlug): Region | undefined {
   return REGIONS.find((r) => r.slug === slug)
 }
 
+export function getRecipesByRegion(slug: RegionSlug): Recipe[] {
+  return RECIPES.filter((recipe) => recipe.region === slug)
+}
+
+export function getRecipesBySlugs(slugs: readonly string[]): Recipe[] {
+  return slugs
+    .map((slug) => RECIPES.find((recipe) => recipe.slug === slug))
+    .filter((recipe): recipe is Recipe => Boolean(recipe))
+}
+
 export const TOTAL_RECIPES = 77
