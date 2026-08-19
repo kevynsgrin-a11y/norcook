@@ -16,7 +16,7 @@
     "check:images": "node scripts/check-image-budgets.mjs",
     "check:sitemap": "playwright test tests/e2e/site.spec.ts --grep \"sitemap\"",
     "optimize:images": "node scripts/optimize-images.mjs",
-    "audit:dependencies": "pnpm audit --audit-level=high",
+    "audit:dependencies": "pnpm audit --prod --audit-level=high",
     "test:e2e": "playwright test",
     "test:performance:mobile": "lhci autorun --config=lighthouserc.mobile.cjs",
     "test:performance:desktop": "lhci autorun --config=lighthouserc.desktop.cjs",
