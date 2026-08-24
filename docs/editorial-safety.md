@@ -14,10 +14,12 @@ safeguards, and links to public-health authorities. `pnpm check:content` blocks
 release if an entry or its source coverage disappears.
 
 The current status is **Qualified reviewer pending**. Before any page can claim
-qualified review, record the reviewer name and credentials, scope of review,
-evidence considered, date, decision, and next review date. Preservation
-instructions require a validated process; general editorial review is not a
-substitute.
+qualified review, add a complete, independently confirmed record to
+`lib/governance.ts`: reviewer name and credentials, recipe scope, evidence
+reference, date, decision, and next review date. The configuration rejects
+partial or placeholder records and applies a review only to the recipe slugs it
+explicitly lists. Preservation instructions require a validated process;
+general editorial review is not a substitute.
 
 ## Page provenance for ordinary recipes
 

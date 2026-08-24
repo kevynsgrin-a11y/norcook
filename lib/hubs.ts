@@ -45,6 +45,12 @@ export type Hub = {
   sources: HubSource[]
   /** Checked, not reviewed — no qualified reviewer has been named. */
   checkedOn: string
+  /**
+   * A reader-visible, materially updated date backed by the editorial record.
+   * Routine checks do not qualify: sitemap `lastmod` must be omitted until a
+   * real content change is documented here.
+   */
+  contentUpdatedOn?: string
   /** Rendered above the recipes when the hub touches safety-sensitive food. */
   safetyNote?: string
 }

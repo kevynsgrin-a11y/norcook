@@ -4,7 +4,7 @@
   "private": true,
   "packageManager": "pnpm@11.9.0",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.19.0"
   },
   "scripts": {
     "dev": "next dev",
@@ -18,8 +18,8 @@
     "optimize:images": "node scripts/optimize-images.mjs",
     "audit:dependencies": "pnpm audit --audit-level=high",
     "test:e2e": "playwright test",
-    "test:performance:mobile": "lhci autorun --config=lighthouserc.mobile.cjs",
-    "test:performance:desktop": "lhci autorun --config=lighthouserc.desktop.cjs",
+    "test:performance:mobile": "node scripts/run-lighthouse.mjs mobile",
+    "test:performance:desktop": "node scripts/run-lighthouse.mjs desktop",
     "capture:screenshots": "playwright test tests/e2e/screenshots.spec.ts",
     "release:check": "pnpm lint && pnpm typecheck && pnpm check:content && pnpm check:images && pnpm audit:dependencies && pnpm build && pnpm test:e2e"
   },
@@ -29,7 +29,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.16.0",
-    "next": "16.2.6",
+    "next": "16.2.11",
     "react": "^19",
     "react-dom": "^19",
     "tailwind-merge": "^3.3.1",
@@ -37,15 +37,16 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
-    "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.55.0",
     "@tailwindcss/postcss": "^4.2.0",
     "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "chrome-launcher": "^1.2.1",
     "eslint": "^9.39.0",
-    "eslint-config-next": "16.2.6",
-    "postcss": "^8.5",
+    "eslint-config-next": "16.2.11",
+    "lighthouse": "13.4.1",
+    "postcss": "^8.5.26",
     "sharp": "^0.35.3",
     "tailwindcss": "^4.2.0",
     "typescript": "5.7.3"

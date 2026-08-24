@@ -1,5 +1,11 @@
 import type { Metadata } from 'next'
 import { LegalPage, LegalSection } from '@/components/legal-page'
+import {
+  businessIdentity,
+  hasCompleteFoodSafetyReview,
+  legalOperator,
+  qualifiedFoodSafetyReviews,
+} from '@/lib/governance'
 
 export const metadata: Metadata = {
   title: 'Editorial and Food-Safety Policy',
@@ -8,6 +14,10 @@ export const metadata: Metadata = {
 }
 
 export default function EditorialPolicyPage() {
+  const reviewedRecipeCount = new Set(
+    qualifiedFoodSafetyReviews.flatMap((review) => review.recipeSlugs),
+  ).size
+
   return (
     <LegalPage
       eyebrow="Editorial standards"
@@ -60,12 +70,49 @@ export default function EditorialPolicyPage() {
       </LegalSection>
 
       <LegalSection title="Review ownership">
+        {hasCompleteFoodSafetyReview ? (
+          <p>
+            The published review register covers all safety-sensitive recipes
+            ({reviewedRecipeCount} recipes). Each relevant recipe displays the
+            reviewer’s name and credentials, scope, evidence reference, review
+            date, decision, and next review date. A review does not convert an
+            editorial recipe into a validated commercial process.
+          </p>
+        ) : (
+          <p>
+            A qualified food-safety owner has not been named for every
+            safety-sensitive recipe. A sensitive page must say “Qualified reviewer
+            pending,” and may not say “reviewed,” “safe,” or “validated” until a
+            named specialist records scope, evidence, date, decision, and next
+            review date for that recipe. The release content check enforces source
+            coverage for the current sensitive set.
+          </p>
+        )}
+      </LegalSection>
+
+      <LegalSection title="Accountability and publication gate">
         <p>
-          A qualified food-safety owner has not been named. A sensitive page may
-          say “qualified reviewer pending,” but it may not say “reviewed,” “safe,”
-          or “validated” until a named specialist records scope, evidence, date,
-          and decision. The release content check enforces source coverage for the
-          current sensitive set.
+          {legalOperator ? (
+            <>
+              The published legal operator is {legalOperator.legalName}. An
+              individual byline is still used only when a real author’s role and
+              accountability can be stated accurately.
+            </>
+          ) : businessIdentity ? (
+            <>
+              Norcook identifies {businessIdentity.legalName} as its legal entity,
+              but a complete legal-operator record remains unpublished. The site
+              therefore names neither an individual author nor an accountable
+              safety reviewer, and it remains an editorial archive rather than a
+              commercially launched service.
+            </>
+          ) : (
+            <>
+              No legal operator is published. The site therefore names neither an
+              individual author nor an accountable safety reviewer, and it remains
+              an editorial archive rather than a commercially launched service.
+            </>
+          )}
         </p>
       </LegalSection>
 

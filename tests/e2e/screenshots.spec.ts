@@ -1,6 +1,12 @@
 import path from 'node:path'
 import { test } from '@playwright/test'
 
+// Full-page visual capture is intentionally comprehensive (eight routes at
+// each viewport). It can exceed Playwright's default 30 seconds when sharing
+// local CPU with the functional suite, so give the review artifact a bounded,
+// explicit allowance instead of creating a false regression failure.
+test.setTimeout(60_000)
+
 /**
  * Capture-only spec backing `desktopMobileScreenshotsReviewed` in
  * docs/release-checklist.md. CI uploads `screenshots/` as an artifact for a

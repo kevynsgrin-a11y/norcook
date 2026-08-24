@@ -2,8 +2,7 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { Search } from 'lucide-react'
-import { TOTAL_RECIPES } from '@/lib/recipes'
+import { TOTAL_RECIPES } from '@/lib/recipe-taxonomy'
 
 export function Hero() {
   const [query, setQuery] = useState('')
@@ -29,10 +28,12 @@ export function Hero() {
       <Image
         src="/images/hero-fjord.webp"
         alt="A dramatic Norwegian fjord at golden hour, deep water winding between snow-dusted cliffs"
-        fill
+        width={1600}
+        height={1067}
         priority
+        fetchPriority="high"
         sizes="100vw"
-        className="object-cover"
+        className="absolute inset-0 size-full object-cover"
       />
       {/* Legibility scrim */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
@@ -57,7 +58,19 @@ export function Hero() {
           className="mt-10 flex w-full max-w-xl items-center gap-2 rounded-full border border-white/25 bg-white/10 p-2 pl-5 backdrop-blur-xl transition-shadow focus-within:ring-2 focus-within:ring-white/40"
           role="search"
         >
-          <Search className="size-5 shrink-0 text-white/70" />
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="size-5 shrink-0 text-white/70"
+          >
+            <circle cx="11" cy="11" r="6.5" />
+            <path d="m16 16 4 4" />
+          </svg>
           <input
             type="search"
             value={query}

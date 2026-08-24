@@ -1,51 +1,8 @@
 import { RECIPE_DETAILS } from './recipe-details'
+import type { RegionSlug } from './recipe-taxonomy'
 
-export type RegionSlug =
-  | 'sapmi'
-  | 'vestlandet'
-  | 'sorlandet'
-  | 'ostlandet'
-  | 'modern-viral'
-
-export type Region = {
-  slug: RegionSlug
-  name: string
-  label: string
-  blurb: string
-}
-
-export const REGIONS: Region[] = [
-  {
-    slug: 'sapmi',
-    name: 'Sápmi',
-    label: 'The North',
-    blurb: 'Arctic larders, reindeer herding and smoke-cured traditions.',
-  },
-  {
-    slug: 'vestlandet',
-    name: 'Vestlandet',
-    label: 'Western Fjords',
-    blurb: 'Deep-water seafood shaped by steep fjords and salt air.',
-  },
-  {
-    slug: 'sorlandet',
-    name: 'Sørlandet',
-    label: 'Southern Coast',
-    blurb: 'Sun-warmed skerries, shellfish and white wooden towns.',
-  },
-  {
-    slug: 'ostlandet',
-    name: 'Østlandet',
-    label: 'Eastern Valleys',
-    blurb: 'Hearty farm cooking from forests, lakes and long winters.',
-  },
-  {
-    slug: 'modern-viral',
-    name: 'Modern Viral Baking',
-    label: 'New Wave',
-    blurb: 'The cardamom-scented bakes that took over the internet.',
-  },
-]
+export { REGIONS, TOTAL_RECIPES, getRegion } from './recipe-taxonomy'
+export type { Region, RegionSlug } from './recipe-taxonomy'
 
 export type Recipe = {
   slug: string
@@ -1323,10 +1280,6 @@ export function getRecipe(slug: string): Recipe | undefined {
   return RECIPES.find((r) => r.slug === slug)
 }
 
-export function getRegion(slug: RegionSlug): Region | undefined {
-  return REGIONS.find((r) => r.slug === slug)
-}
-
 export function getRecipesByRegion(slug: RegionSlug): Recipe[] {
   return RECIPES.filter((recipe) => recipe.region === slug)
 }
@@ -1336,5 +1289,3 @@ export function getRecipesBySlugs(slugs: readonly string[]): Recipe[] {
     .map((slug) => RECIPES.find((recipe) => recipe.slug === slug))
     .filter((recipe): recipe is Recipe => Boolean(recipe))
 }
-
-export const TOTAL_RECIPES = 77

@@ -19,7 +19,10 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'pnpm start',
+    // Start Next directly so Playwright owns the actual server process. On
+    // Windows, a package-manager shim can outlive the test runner and leave a
+    // completed release gate appearing to hang.
+    command: 'node node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 3000',
     url: 'http://127.0.0.1:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

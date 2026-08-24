@@ -46,14 +46,37 @@ export function RecipeSafetyReview({ safety }: { safety: RecipeSafety }) {
 
         <div className="mt-5 border-t border-amber-500/25 pt-4">
           <p className="text-xs font-medium text-foreground">
-            Review status: {safety.status} · editorial safeguards added{' '}
-            <time dateTime={safety.reviewedOn}>{safety.reviewedOn}</time>
+            Review status: {safety.review.status} · editorial safeguards recorded{' '}
+            <time dateTime={safety.safeguardsRecordedOn}>{safety.safeguardsRecordedOn}</time>
           </p>
-          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-            A named, qualified food-safety owner has not yet signed off. Sources
-            below support the callout; they do not turn this page into a
-            validated commercial process.
-          </p>
+          {safety.review.status === 'Qualified reviewer pending' ? (
+            <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+              A named, qualified food-safety owner has not yet signed off. Sources
+              below support the callout; they do not turn this page into a
+              validated commercial process.
+            </p>
+          ) : (
+            <dl className="mt-2 grid gap-x-3 gap-y-1 text-xs leading-relaxed text-muted-foreground sm:grid-cols-[8rem_1fr]">
+              <dt className="font-medium text-foreground">Reviewer</dt>
+              <dd>
+                {safety.review.reviewerName} · {safety.review.credentials}
+              </dd>
+              <dt className="font-medium text-foreground">Scope</dt>
+              <dd>{safety.review.scope}</dd>
+              <dt className="font-medium text-foreground">Evidence</dt>
+              <dd>{safety.review.evidenceReference}</dd>
+              <dt className="font-medium text-foreground">Decision</dt>
+              <dd>{safety.review.decision}</dd>
+              <dt className="font-medium text-foreground">Reviewed</dt>
+              <dd>
+                <time dateTime={safety.review.reviewedOn}>{safety.review.reviewedOn}</time>
+              </dd>
+              <dt className="font-medium text-foreground">Next review</dt>
+              <dd>
+                <time dateTime={safety.review.nextReviewOn}>{safety.review.nextReviewOn}</time>
+              </dd>
+            </dl>
+          )}
           <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
             {safety.sources.map((source) => (
               <li key={source.url}>

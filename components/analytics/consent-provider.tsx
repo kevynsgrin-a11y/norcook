@@ -7,6 +7,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -19,6 +20,7 @@ type EventProperties = Record<string, string | number | boolean | null>
 
 type ConsentContextValue = {
   choice: ConsentChoice
+  isSettingsOpen: boolean
   choose: (choice: Exclude<ConsentChoice, 'unset'>) => void
   openSettings: () => void
   trackEvent: (name: string, properties?: EventProperties) => void
@@ -37,24 +39,65 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
   const [settingsOpen, setSettingsOpen] = useState(false)
   // Whatever opened the settings dialog gets focus back when it closes.
   const openerRef = useRef<HTMLElement | null>(null)
+  const returnFocusRef = useRef<HTMLElement | null>(null)
   const analyticsConfigured =
     process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === 'true'
 
-  const closeSettings = useCallback(() => {
-    setSettingsOpen(false)
-    if (openerRef.current) {
-      openerRef.current.focus()
-      openerRef.current = null
-      return
-    }
-    // No opener: the first-visit banner was answered, and it held focus. Hand
-    // focus to the main landmark rather than dropping the reader on <body>.
+  const dialogOpen = consentRead && (choice === 'unset' || settingsOpen)
+
+  const focusMain = useCallback(() => {
     const main = document.getElementById('main-content')
-    if (main) {
+    if (main instanceof HTMLElement) {
       main.setAttribute('tabindex', '-1')
       main.focus()
     }
   }, [])
+
+  // `aria-modal` is not sufficient to stop pointer/programmatic focus in every
+  // browser. Manage the page shell synchronously with the dialog lifecycle so
+  // it is restored before the focus-return effect below runs.
+  useLayoutEffect(() => {
+    if (!dialogOpen) return
+
+    const siteShell = document.getElementById('site-shell')
+    const hadInert = siteShell?.hasAttribute('inert') ?? false
+    const previousAriaHidden = siteShell?.getAttribute('aria-hidden') ?? null
+    const previousOverflow = document.body.style.overflow
+
+    if (siteShell) {
+      siteShell.setAttribute('inert', '')
+      siteShell.setAttribute('aria-hidden', 'true')
+    }
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      if (!siteShell) return
+      if (!hadInert) siteShell.removeAttribute('inert')
+      if (previousAriaHidden === null) siteShell.removeAttribute('aria-hidden')
+      else siteShell.setAttribute('aria-hidden', previousAriaHidden)
+    }
+  }, [dialogOpen])
+
+  // Focus is restored only after the dialog has unmounted and `#site-shell` is
+  // no longer inert. Returning it synchronously would target an inert opener.
+  useLayoutEffect(() => {
+    if (dialogOpen || !returnFocusRef.current) return
+
+    const target = returnFocusRef.current
+    returnFocusRef.current = null
+    if (target && document.contains(target)) target.focus()
+    else focusMain()
+  }, [dialogOpen, focusMain])
+
+  const closeSettings = useCallback(() => {
+    // The first-visit dialog has no dismiss path: Escape must not create an
+    // ambiguous consent state. This handler is used only for saved settings.
+    if (!settingsOpen) return
+    returnFocusRef.current = openerRef.current
+    openerRef.current = null
+    setSettingsOpen(false)
+  }, [settingsOpen])
 
   const openSettings = useCallback(() => {
     openerRef.current =
@@ -87,13 +130,18 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
       } catch {
         // Blocked storage: honour the choice for this page view only.
       }
+      // A first-visit choice has no opener, so return to the main landmark;
+      // a changed saved choice returns to the footer trigger that opened it.
+      returnFocusRef.current =
+        openerRef.current ?? document.getElementById('main-content')
+      openerRef.current = null
       setChoice(nextChoice)
-      closeSettings()
+      setSettingsOpen(false)
       if (nextChoice === 'analytics' && analyticsConfigured) {
         track('privacy_choice', { analytics: true })
       }
     },
-    [analyticsConfigured, closeSettings],
+    [analyticsConfigured],
   )
 
   const trackEvent = useCallback(
@@ -106,16 +154,16 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
   )
 
   const value = useMemo(
-    () => ({ choice, choose, openSettings, trackEvent }),
-    [choice, choose, openSettings, trackEvent],
+    () => ({ choice, isSettingsOpen: settingsOpen, choose, openSettings, trackEvent }),
+    [choice, settingsOpen, choose, openSettings, trackEvent],
   )
 
   return (
     <ConsentContext.Provider value={value}>
       {children}
       <ConsentBanner
-        open={consentRead && (choice === 'unset' || settingsOpen)}
-        modal={settingsOpen}
+        open={dialogOpen}
+        dismissible={settingsOpen}
         analyticsConfigured={analyticsConfigured}
         onChoose={choose}
         onDismiss={closeSettings}

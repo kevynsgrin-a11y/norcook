@@ -1,8 +1,6 @@
-'use client'
-
 import Link from 'next/link'
 import { ExternalLink } from 'lucide-react'
-import { useConsent } from '@/components/analytics/consent-provider'
+import { affiliatePublicationDisclosure } from '@/lib/governance'
 
 type Tool = { name: string; note: string; href?: string }
 
@@ -11,13 +9,15 @@ type Tool = { name: string; note: string; href?: string }
  * `href`, and no tool carries one today.
  *
  * Do NOT add an href until the legal operator, jurisdiction, partner terms and
- * consumer disclosures on /affiliate-disclosure are approved. Any href added
- * here renders as `rel="sponsored nofollow noopener"` with a visible label and
- * a link to that disclosure — those are the terms of using this component.
+ * consumer disclosures on /affiliate-disclosure are approved. Even then, the
+ * link stays inert unless the approved affiliate disclosure record is present;
+ * an active link renders as `rel="sponsored nofollow noopener"` with a visible
+ * label and a link to that disclosure.
  */
 export function RecommendedTools({ tools }: { tools: Tool[] }) {
-  const { trackEvent } = useConsent()
-  const hasAffiliateLinks = tools.some((tool) => Boolean(tool.href))
+  const hasAffiliateLinks = Boolean(affiliatePublicationDisclosure) && tools.some(
+    (tool) => Boolean(tool.href),
+  )
 
   return (
     <section
@@ -38,14 +38,11 @@ export function RecommendedTools({ tools }: { tools: Tool[] }) {
       <ul className="flex flex-col divide-y divide-border">
         {tools.map((tool) => (
           <li key={tool.name} className="py-3 first:pt-0 last:pb-0">
-            {tool.href ? (
+            {hasAffiliateLinks && tool.href ? (
               <a
                 href={tool.href}
                 target="_blank"
                 rel="sponsored nofollow noopener"
-                onClick={() =>
-                  trackEvent('affiliate_click', { tool_name: tool.name })
-                }
                 className="group flex items-start gap-3"
               >
                 <ToolContent tool={tool} linked />

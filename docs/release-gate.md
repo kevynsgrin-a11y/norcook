@@ -1,6 +1,9 @@
 # Reproducible release gate
 
-The supported local and CI runtime is Node 22 with pnpm 11.9.0.
+The supported local and CI runtime is Node 22.19.0 or later with pnpm 11.9.0.
+The performance gate uses the Playwright-pinned Chromium installed by the
+browser-install step below, unless `LIGHTHOUSE_CHROME_PATH` explicitly selects
+a managed browser.
 
 ```sh
 pnpm install --frozen-lockfile
@@ -51,7 +54,7 @@ reads as coverage that does not exist.
 | Mobile horizontal overflow on 3 route shapes | `tests/e2e/accessibility.spec.ts` |
 | Newsletter route contract while dormant | `tests/e2e/newsletter-api.spec.ts` |
 | Desktop and mobile screenshots for human review | `tests/e2e/screenshots.spec.ts` |
-| Transfer budgets and Core Web Vitals | `lighthouserc.{mobile,desktop}.cjs` |
+| Transfer budgets and Core Web Vitals | `scripts/run-lighthouse.mjs` + `performance-budget.json` |
 
 ## Performance budgets
 
@@ -65,13 +68,16 @@ reads as coverage that does not exist.
 - mobile LCP ≤ 3.5 s, CLS ≤ 0.1, TBT ≤ 600 ms;
 - desktop LCP ≤ 2.5 s, CLS ≤ 0.1, TBT ≤ 200 ms.
 
-Each of these transfer budgets is a real LHCI assertion in both configs.
-`performance-budget.json` is still passed as `collect.settings.budgetPath`, but
-that only makes Lighthouse *report* a budget audit — LHCI fails a run on
-`assert.assertions` alone, so anything meant to block a release has to be listed
-there too.
+The local runner reads `performance-budget.json` as the single source of truth
+for transfer limits and throws when any asserted limit is exceeded. It also
+asserts category scores, FCP, LCP, CLS, TBT, and zero third-party network
+requests.
 
-Lighthouse CI runs the homepage, a representative safety-sensitive recipe, and a
-region hub on both mobile and desktop profiles. Lab TBT is used as a
-responsiveness proxy; production INP still requires consented real-user
-measurement.
+The runner writes every JSON report, a selected representative report, and a
+manifest to `.lighthouseci/` for the CI artifact. It runs the homepage, a
+representative safety-sensitive recipe, and a region hub on both mobile and
+desktop profiles. Mobile uses three valid runs and enforces the median of each
+individual metric (rather than copying thresholds from an arbitrarily selected
+single report); a third-party request fails every individual run. Lab TBT is
+used as a responsiveness proxy; production INP still requires consented
+real-user measurement.

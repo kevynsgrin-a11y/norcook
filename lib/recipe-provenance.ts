@@ -1,3 +1,5 @@
+import { getRecipeSafety } from './recipe-safety'
+
 /**
  * Page-level provenance for ordinary (non-safety-sensitive) recipes.
  *
@@ -22,9 +24,46 @@ export type ProvenanceSource = {
 export type RecipeProvenance = {
   /** Overrides the site-wide CONTENT_REVIEW_DATE when a page was checked later. */
   checkedOn?: string
+  /**
+   * The date on which a reader-facing recipe, evidence, or structured-data fact
+   * materially changed. This is the only provenance date eligible for sitemap
+   * `lastmod` and Recipe `dateModified`; a routine check alone is not a change.
+   */
+  contentUpdatedOn?: string
   sources?: ProvenanceSource[]
   /** Adaptation, substitution, or an uncertainty worth stating outright. */
   note?: string
+  /**
+   * Optional facts for Recipe JSON-LD. Add a field only when it appears in an
+   * authoritative content record. In particular, never infer a yield, split a
+   * generic duration into prep/cook time, estimate nutrition, or invent a date
+   * or author.
+   */
+  structuredData?: RecipeStructuredData
+}
+
+export type RecipeNutritionFacts = {
+  calories?: string
+  carbohydrateContent?: string
+  fatContent?: string
+  fiberContent?: string
+  proteinContent?: string
+  saturatedFatContent?: string
+  sodiumContent?: string
+  sugarContent?: string
+}
+
+export type RecipeStructuredData = {
+  /** ISO 8601 calendar date from a publication record, never a guessed date. */
+  datePublished?: string
+  /** ISO 8601 duration from an explicit, tested prep-time record. */
+  prepTime?: string
+  /** ISO 8601 duration from an explicit, tested cook-time record. */
+  cookTime?: string
+  /** Exact visible yield from the authoritative recipe record. */
+  recipeYield?: string
+  /** Nutrition supplied by an authoritative calculation or label. */
+  nutrition?: RecipeNutritionFacts
 }
 
 export const RECIPE_PROVENANCE: Record<string, RecipeProvenance> = {
@@ -59,4 +98,27 @@ export const RECIPE_PROVENANCE: Record<string, RecipeProvenance> = {
 
 export function getRecipeProvenance(slug: string): RecipeProvenance | undefined {
   return RECIPE_PROVENANCE[slug]
+}
+
+/**
+ * Return a date only where the record demonstrates a reader-facing change.
+ * `checkedOn` deliberately does not participate: a periodic editorial check
+ * may leave a page unchanged. For safety-sensitive recipes,
+ * `safeguardsRecordedOn` is the date rendered as "editorial safeguards
+ * recorded", so it is a published
+ * evidence-freshness signal even while a qualified reviewer remains pending.
+ */
+export function getRecipeContentModifiedOn(slug: string): string | undefined {
+  const provenance = getRecipeProvenance(slug)
+  const safety = getRecipeSafety(slug)
+  const candidates = [provenance?.contentUpdatedOn, safety?.safeguardsRecordedOn]
+    .filter(isCalendarDate)
+    .sort()
+
+  return candidates[candidates.length - 1]
+}
+
+function isCalendarDate(value: string | undefined): value is string {
+  if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false
+  return !Number.isNaN(Date.parse(`${value}T00:00:00.000Z`))
 }

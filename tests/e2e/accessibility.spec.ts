@@ -30,9 +30,9 @@ test('scans the consent banner, which every other test seeds away', async ({
   page,
 }) => {
   await page.goto('/')
-  await expect(
-    page.getByRole('region', { name: 'Your privacy choice' }),
-  ).toBeVisible()
+  const dialog = page.getByRole('dialog', { name: 'Your privacy choice' })
+  await expect(dialog).toBeVisible()
+  await expect(dialog).toHaveAttribute('aria-modal', 'true')
   const results = await new AxeBuilder({ page }).withTags(WCAG).analyze()
   expect(results.violations).toEqual([])
 })
@@ -60,5 +60,43 @@ for (const route of ['/', '/regions/vestlandet', '/recipes/gravlaks']) {
       clientWidth: document.documentElement.clientWidth,
     }))
     expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.clientWidth)
+  })
+}
+
+for (const theme of ['light', 'dark'] as const) {
+  test(`keeps the hero header contrast-safe across responsive breakpoints in ${theme} mode`, async ({
+    page,
+  }) => {
+    await page.emulateMedia({ colorScheme: theme })
+    await page.addInitScript((savedTheme) => {
+      window.localStorage.setItem('norcook-consent-v1', 'essential')
+      window.localStorage.setItem('nordisk-theme', savedTheme)
+    }, theme)
+
+    await page.setViewportSize({ width: 320, height: 844 })
+    await page.goto('/')
+
+    for (const width of [320, 375, 390, 768, 1280]) {
+      await page.setViewportSize({ width, height: 844 })
+      await page.evaluate(
+        () => new Promise<void>((resolve) => window.requestAnimationFrame(() => resolve())),
+      )
+
+      const header = page.locator('header')
+      await expect(header).toBeVisible()
+      const background = await header.evaluate(
+        (element) => getComputedStyle(element).backgroundColor,
+      )
+      expect(background).not.toBe('rgba(0, 0, 0, 0)')
+      expect(background).not.toBe('transparent')
+
+      const results = await new AxeBuilder({ page })
+        .include('header')
+        .withTags(WCAG)
+        .analyze()
+      expect(
+        results.violations.filter((violation) => violation.id === 'color-contrast'),
+      ).toEqual([])
+    }
   })
 }

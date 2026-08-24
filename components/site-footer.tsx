@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { CookieSettingsButton } from '@/components/analytics/cookie-settings-button'
-import { REGIONS } from '@/lib/recipes'
+import { businessIdentity } from '@/lib/governance'
+import { REGIONS } from '@/lib/recipe-taxonomy'
 
 export function SiteFooter() {
   return (
@@ -86,7 +87,12 @@ export function SiteFooter() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Norcook. Legal operator details pending.
+            © {new Date().getFullYear()} Norcook.{' '}
+            {businessIdentity ? (
+              <>Legal entity: {businessIdentity.legalName}. Privacy contact details pending.</>
+            ) : (
+              <>Legal operator details pending.</>
+            )}
           </p>
           <div className="flex gap-5">
             <Link

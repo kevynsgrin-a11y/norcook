@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { LegalPage, LegalSection } from '@/components/legal-page'
+import { affiliatePublicationDisclosure, legalOperator } from '@/lib/governance'
 
 export const metadata: Metadata = {
   title: 'Affiliate Disclosure',
@@ -12,7 +13,7 @@ export default function AffiliateDisclosurePage() {
     <LegalPage
       eyebrow="Commercial disclosure"
       title="No hidden purchase links"
-      intro="Norcook currently has no configured affiliate purchase links. Product tools are editorial references until a real destination, commercial owner, and disclosure are added."
+      intro="Norcook currently has no configured affiliate purchase links. Product tools are editorial references until a real destination, legal operator, partner terms, and approved disclosure are added."
     >
       <LegalSection title="If affiliate links are enabled">
         <p>
@@ -32,11 +33,20 @@ export default function AffiliateDisclosurePage() {
       </LegalSection>
 
       <LegalSection title="Launch gate">
-        <p>
-          Affiliate links must remain disabled until the legal operator,
-          jurisdiction, partner terms, and required consumer disclosures are
-          approved and reflected on this page.
-        </p>
+        {legalOperator && affiliatePublicationDisclosure ? (
+          <p>
+            The approved commercial disclosure names the operator as{' '}
+            {legalOperator.legalName}, covers {affiliatePublicationDisclosure.partnerNames.join(', ')},
+            and states: {affiliatePublicationDisclosure.relationshipDisclosure}{' '}
+            Partner terms reference: {affiliatePublicationDisclosure.partnerTermsReference}.
+          </p>
+        ) : (
+          <p>
+            Affiliate links must remain disabled until the legal operator,
+            registered address, privacy contact, jurisdiction, partner terms, and
+            required consumer disclosures are approved and reflected on this page.
+          </p>
+        )}
       </LegalSection>
     </LegalPage>
   )

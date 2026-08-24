@@ -18,6 +18,7 @@ const [
   newsletterRoute,
   envExample,
   sitemap,
+  governance,
 ] = await Promise.all([
   read('lib', 'recipes.ts'),
   read('lib', 'recipe-safety.ts'),
@@ -31,6 +32,7 @@ const [
   read('app', 'api', 'newsletter', 'route.ts'),
   read('.env.example'),
   read('app', 'sitemap.ts'),
+  read('lib', 'governance.ts'),
 ])
 
 const safetySensitiveSlugs = [
@@ -65,6 +67,21 @@ const recipeCount = [...recipeBlock.matchAll(/^\s{4}slug: '/gm)].length
 if (recipeCount !== 77) failures.push(`Expected 77 recipes, found ${recipeCount}`)
 if (!safety.includes("status: 'Qualified reviewer pending'")) {
   failures.push('Safety content must expose its pending review status')
+}
+for (const required of [
+  'CONFIGURED_LEGAL_OPERATOR',
+  'isCompleteLegalOperator',
+  'CONFIGURED_FOOD_SAFETY_REVIEWS',
+  'isCompleteFoodSafetyReview',
+  'getQualifiedFoodSafetyReview',
+  'REQUIRED_SENSITIVE_RECIPE_SLUGS',
+]) {
+  if (!governance.includes(required)) {
+    failures.push(`Governance configuration must retain its ${required} guard`)
+  }
+}
+if (!safety.includes('getQualifiedFoodSafetyReview')) {
+  failures.push('Safety records must resolve qualified review through the governance gate')
 }
 if ((safety.match(/url: 'https:\/\//g) ?? []).length < 5) {
   failures.push('Safety content must retain authority source URLs')
@@ -216,13 +233,10 @@ if (!newsletterRoute.includes('emailHash')) {
 if (/console\.log\([^)]*\bemail\b[^)]*\)/.test(newsletterRoute.replace(/emailHash/g, ''))) {
   failures.push('The newsletter route must never log a raw email address')
 }
-const newsletterBody = newsletter.match(/JSON\.stringify\(\{[\s\S]*?\}\)/)?.[0] ?? ''
-for (const field of ['HONEYPOT_FIELD', 'CONSENT_VERSION']) {
-  // Rendering the honeypot input is not the same as transmitting it — a
-  // substring match anywhere in the file would pass while the trap was inert.
-  if (!newsletterBody.includes(field)) {
-    failures.push(`The newsletter form must send ${field} in its request body`)
-  }
+if (/name="email"|onSubmit=|JSON\.stringify\(/.test(newsletter)) {
+  failures.push(
+    'The dormant newsletter must not ship an email collection form or request body',
+  )
 }
 
 if (failures.length) {

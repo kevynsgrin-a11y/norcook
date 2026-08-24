@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { LegalPage, LegalSection } from '@/components/legal-page'
+import { businessIdentity, legalOperator } from '@/lib/governance'
 
 export const metadata: Metadata = {
   title: 'Terms of Use',
@@ -10,9 +11,9 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <LegalPage
-      eyebrow="Terms · Updated July 21, 2026"
+      eyebrow="Terms · Updated August 23, 2026"
       title="Use the archive carefully"
-      intro="These provisional terms explain the limits of Norcook’s editorial recipe archive. A legal operator and governing jurisdiction must still be named before commercial launch."
+      intro="These provisional terms explain the limits of Norcook’s editorial recipe archive. They remain provisional until a complete legal-operator record is published and the responsible operator approves them."
     >
       <LegalSection title="Editorial information, not professional advice">
         <p>
@@ -50,11 +51,31 @@ export default function TermsPage() {
       </LegalSection>
 
       <LegalSection title="Operator and governing law">
-        <p>
-          No company or jurisdiction is asserted here because neither has been
-          confirmed. These terms must be reviewed and replaced or completed by
-          the responsible legal operator before commercial launch.
-        </p>
+        {legalOperator ? (
+          <p>
+            Norcook identifies {legalOperator.legalName} as the legal operator at
+            {' '}{legalOperator.registeredAddress}. The stated governing
+            jurisdiction is {legalOperator.governingJurisdiction}. These terms
+            still require the operator’s formal legal approval before any
+            commercial launch.
+          </p>
+        ) : businessIdentity ? (
+          <p>
+            Norcook identifies {businessIdentity.legalName} as its legal entity.
+            Its published mailing address is {businessIdentity.mailingAddress}, and
+            its stated operating state is {businessIdentity.operatingState}. These
+            facts are not a complete legal-operator record: the registered address
+            (if distinct), governing jurisdiction, privacy contact, and data-rights
+            request procedure must be confirmed before commercial launch.
+          </p>
+        ) : (
+          <p>
+            No company, registered address, privacy contact, or jurisdiction is
+            asserted here because none has been confirmed for publication. These
+            terms must be reviewed and completed by the responsible legal operator
+            before commercial launch.
+          </p>
+        )}
       </LegalSection>
     </LegalPage>
   )

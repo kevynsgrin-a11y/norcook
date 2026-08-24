@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Clock, Gauge } from 'lucide-react'
 import type { Recipe } from '@/lib/recipes'
-import { getRegion } from '@/lib/recipes'
+import { getRegion } from '@/lib/recipe-taxonomy'
 import { SaveRecipeButton } from '@/components/save-recipe-button'
 
 export function RecipeCard({ recipe }: { recipe: Recipe }) {
@@ -28,7 +28,7 @@ export function RecipeCard({ recipe }: { recipe: Recipe }) {
             // prefetch five hub bundles just by being on screen. As in the
             // header, `false` also disables hover prefetch.
             prefetch={false}
-            className="absolute left-3 top-3 rounded-full bg-black/45 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur-md transition-colors hover:bg-black/70"
+            className="absolute left-3 top-3 rounded-full bg-black/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur-md transition-colors hover:bg-black/85"
           >
             {region.name}
           </Link>
