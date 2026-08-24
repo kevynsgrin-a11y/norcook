@@ -73,9 +73,14 @@ for (const theme of ['light', 'dark'] as const) {
       window.localStorage.setItem('nordisk-theme', savedTheme)
     }, theme)
 
+    await page.setViewportSize({ width: 320, height: 844 })
+    await page.goto('/')
+
     for (const width of [320, 375, 390, 768, 1280]) {
       await page.setViewportSize({ width, height: 844 })
-      await page.goto('/')
+      await page.evaluate(
+        () => new Promise<void>((resolve) => window.requestAnimationFrame(() => resolve())),
+      )
 
       const header = page.locator('header')
       await expect(header).toBeVisible()
