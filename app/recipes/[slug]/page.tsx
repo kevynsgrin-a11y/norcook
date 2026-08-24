@@ -11,18 +11,44 @@ import {
 } from 'lucide-react'
 import { RECIPES, getRecipe, getRegion } from '@/lib/recipes'
 import { getRecipeSafety } from '@/lib/recipe-safety'
-import { getRecipeProvenance } from '@/lib/recipe-provenance'
+import {
+  getRecipeContentModifiedOn,
+  getRecipeProvenance,
+} from '@/lib/recipe-provenance'
 import { absoluteUrl, CONTENT_REVIEW_DATE } from '@/lib/site'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { RecommendedTools } from '@/components/recommended-tools'
 import { RecipeSafetyReview } from '@/components/recipe-safety-review'
 import { RecipeProvenanceBlock } from '@/components/recipe-provenance'
-import { RecipeViewTracker } from '@/components/recipe-view-tracker'
 import { SaveRecipeButton } from '@/components/save-recipe-button'
 
 export function generateStaticParams() {
   return RECIPES.map((r) => ({ slug: r.slug }))
+}
+
+/**
+ * The only site-wide duration record is the visible `cookingTime` label. It is
+ * an overall time (often including a cure, smoke, or soak), not a defensible
+ * split between preparation and cooking, so emit only Recipe `totalTime`.
+ * This conversion preserves the published quantity and unit without guessing.
+ */
+function toIsoTotalTime(cookingTime: string): string | undefined {
+  const duration = cookingTime.replace(/\s+(?:cure|smoke|soak)$/, '')
+  const months = duration.match(/^(\d+)\s+month(?:s)?$/)?.[1]
+  if (months) return `P${months}M`
+
+  const weeks = duration.match(/^(\d+)\s+week(?:s)?$/)?.[1]
+  if (weeks) return `P${weeks}W`
+
+  const days = duration.match(/^(\d+)\s+day(?:s)?$/)?.[1]
+  if (days) return `P${days}D`
+
+  const hours = duration.match(/(\d+)\s+hr(?:s)?/)?.[1]
+  const minutes = duration.match(/(\d+)\s+min(?:s)?/)?.[1]
+  if (!hours && !minutes) return undefined
+
+  return `PT${hours ? `${hours}H` : ''}${minutes ? `${minutes}M` : ''}`
 }
 
 export async function generateMetadata({
@@ -66,24 +92,51 @@ export default async function RecipePage({
   const history = recipe.history ?? []
   const safety = getRecipeSafety(recipe.slug)
   const provenance = getRecipeProvenance(recipe.slug)
-  const checkedOn = provenance?.checkedOn ?? CONTENT_REVIEW_DATE
+  const contentModifiedOn = getRecipeContentModifiedOn(recipe.slug)
+  const checkedOn = contentModifiedOn ?? provenance?.checkedOn ?? CONTENT_REVIEW_DATE
+  const structuredData = provenance?.structuredData
+  const totalTime = toIsoTotalTime(recipe.cookingTime)
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Recipe',
+    '@id': absoluteUrl(`/recipes/${recipe.slug}#recipe`),
+    url: absoluteUrl(`/recipes/${recipe.slug}`),
     name: recipe.name,
     description: recipe.description,
     image: [absoluteUrl(recipe.image)],
-    mainEntityOfPage: absoluteUrl(`/recipes/${recipe.slug}`),
+    inLanguage: 'en',
+    recipeCuisine: 'Norwegian',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': absoluteUrl(`/recipes/${recipe.slug}`),
+    },
     recipeCategory: region?.name,
-    // Freshness only, and dateModified only: `checkedOn` moves forward on every
-    // content check, so using it as datePublished would keep rewriting the
-    // publication date. No `author` node either — naming a Person or
-    // Organization with no named operator behind it would be a
-    // machine-readable falsehood.
-    dateModified: checkedOn,
+    // The template deliberately has no default author, publication date,
+    // yield, split times, or nutrition. Those fields appear only when an
+    // authoritative recipe record supplies them. A routine check is not a
+    // modification, so it cannot manufacture `dateModified` either.
+    ...(contentModifiedOn ? { dateModified: contentModifiedOn } : {}),
+    ...(structuredData?.datePublished
+      ? { datePublished: structuredData.datePublished }
+      : {}),
+    ...(totalTime ? { totalTime } : {}),
+    ...(structuredData?.prepTime ? { prepTime: structuredData.prepTime } : {}),
+    ...(structuredData?.cookTime ? { cookTime: structuredData.cookTime } : {}),
+    ...(structuredData?.recipeYield
+      ? { recipeYield: structuredData.recipeYield }
+      : {}),
+    ...(structuredData?.nutrition
+      ? {
+          nutrition: {
+            '@type': 'NutritionInformation',
+            ...structuredData.nutrition,
+          },
+        }
+      : {}),
     recipeIngredient: recipe.ingredients ?? [],
-    recipeInstructions: (recipe.steps ?? []).map((text) => ({
+    recipeInstructions: (recipe.steps ?? []).map((text, position) => ({
       '@type': 'HowToStep',
+      position: position + 1,
       text,
     })),
   }
@@ -92,7 +145,6 @@ export default async function RecipePage({
     <>
       <SiteHeader />
       <main id="main-content">
-        <RecipeViewTracker slug={recipe.slug} region={recipe.region} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

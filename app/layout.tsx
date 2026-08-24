@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import { ConsentProvider } from '@/components/analytics/consent-provider'
 import { SkipLink } from '@/components/skip-link'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -65,6 +66,22 @@ const themeScript = `
 })();
 `
 
+const serviceWorkerRegistrationScript = `
+if ('serviceWorker' in navigator && window.isSecureContext) {
+  var registerServiceWorker = function () {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function () {
+      // Installability must never make the reading experience fail if a browser
+      // or privacy setting refuses service workers.
+    });
+  };
+
+  // An afterInteractive script can run either before or after the load event.
+  // Register immediately in the latter case so the worker is never skipped.
+  if (document.readyState === 'complete') registerServiceWorker();
+  else window.addEventListener('load', registerServiceWorker, { once: true });
+}
+`
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -76,13 +93,20 @@ export default function RootLayout({
       className="bg-background"
       suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
       <body className="font-sans antialiased">
-        <SkipLink />
+        <Script id="theme-bootstrap" strategy="beforeInteractive">
+          {themeScript}
+        </Script>
+        {process.env.NODE_ENV === 'production' && (
+          <Script id="service-worker-registration" strategy="afterInteractive">
+            {serviceWorkerRegistrationScript}
+          </Script>
+        )}
         <ConsentProvider>
-          <ThemeProvider>{children}</ThemeProvider>
+          <div id="site-shell">
+            <SkipLink />
+            <ThemeProvider>{children}</ThemeProvider>
+          </div>
         </ConsentProvider>
       </body>
     </html>

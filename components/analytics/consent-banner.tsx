@@ -8,39 +8,40 @@ const FOCUSABLE =
 
 export function ConsentBanner({
   open,
-  modal,
+  dismissible,
   analyticsConfigured,
   onChoose,
   onDismiss,
 }: {
   open: boolean
-  /** True when re-opened from the footer, where a dismissable dialog is correct.
-   *  The first-visit banner is deliberately non-modal: a visitor who has not yet
-   *  chosen should not be trapped before they have read anything. */
-  modal: boolean
+  /** A saved preference exists, so this re-opened dialog can be closed. */
+  dismissible: boolean
   analyticsConfigured: boolean
   onChoose: (choice: 'essential' | 'analytics') => void
   onDismiss: () => void
 }) {
   const panelRef = useRef<HTMLElement>(null)
 
-  // Move focus into the panel when it opens, and again when an already-visible
-  // first-visit banner is escalated to a dialog by the footer control — but not
-  // on every re-render, which would steal focus off whichever button the reader
-  // has tabbed to.
+  // The first-visit panel and the re-opened settings surface use the same modal
+  // contract: focus enters once, stays inside while open, and leaves only after
+  // an explicit choice or an intentional dismissal of saved settings.
   useEffect(() => {
     if (open) panelRef.current?.focus()
-  }, [open, modal])
+  }, [open])
 
   useEffect(() => {
-    if (!open || !modal) return
+    if (!open) return
     const panel = panelRef.current
     if (!panel) return
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        event.preventDefault()
-        onDismiss()
+        // Escape is available only after a preference exists. On the first
+        // visit it must not silently imply consent or hide the required choice.
+        if (dismissible) {
+          event.preventDefault()
+          onDismiss()
+        }
         return
       }
       if (event.key !== 'Tab') return
@@ -70,60 +71,78 @@ export function ConsentBanner({
 
     document.addEventListener('keydown', onKeyDown)
     return () => document.removeEventListener('keydown', onKeyDown)
-  }, [modal, onDismiss, open])
+  }, [dismissible, onDismiss, open])
 
   if (!open) return null
 
   return (
-    <section
-      ref={panelRef}
-      tabIndex={-1}
-      role={modal ? 'dialog' : 'region'}
-      aria-modal={modal || undefined}
-      aria-labelledby="consent-heading"
-      className="fixed inset-x-4 bottom-4 z-[70] mx-auto max-w-2xl rounded-2xl border border-border bg-card p-5 shadow-2xl shadow-black/20 sm:p-6"
-    >
-      <h2
-        id="consent-heading"
-        className="font-display text-lg font-bold text-foreground"
+    <div className="fixed inset-0 z-[70] flex items-end justify-center bg-black/55 p-4 sm:items-center sm:p-6">
+      <section
+        id="consent-dialog"
+        ref={panelRef}
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="consent-heading"
+        aria-describedby="consent-copy"
+        className="max-h-[calc(100dvh-2rem)] w-full max-w-2xl overflow-y-auto rounded-2xl border border-border bg-card p-5 shadow-2xl shadow-black/30 sm:max-h-[calc(100dvh-3rem)] sm:p-6"
       >
-        Your privacy choice
-      </h2>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-        Norcook uses local storage for theme, favourites, and this choice.
-        Optional analytics records privacy-limited product events only after
-        you opt in. Raw search text and email addresses are not sent as event
-        properties.
-      </p>
-      {!analyticsConfigured && (
-        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-          Analytics is currently disabled until the site operator and legal
-          jurisdiction are published.
+        <div className="flex items-start justify-between gap-4">
+          <h2
+            id="consent-heading"
+            className="font-display text-lg font-bold text-foreground"
+          >
+            Your privacy choice
+          </h2>
+          {dismissible && (
+            <button
+              type="button"
+              onClick={onDismiss}
+              className="shrink-0 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-foreground hover:bg-secondary"
+            >
+              Close settings
+            </button>
+          )}
+        </div>
+        <p
+          id="consent-copy"
+          className="mt-2 text-sm leading-relaxed text-muted-foreground"
+        >
+          Norcook uses local storage for theme, favourites, and this choice.
+          Optional analytics records privacy-limited product events only after
+          you opt in. Raw search text and email addresses are not sent as event
+          properties.
         </p>
-      )}
-      <div className="mt-4 flex flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-end">
-        <Link
-          href="/privacy"
-          className="px-3 py-2 text-center text-sm font-medium text-primary underline-offset-4 hover:underline"
-        >
-          Privacy details
-        </Link>
-        <button
-          type="button"
-          onClick={() => onChoose('essential')}
-          className="rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground hover:bg-secondary"
-        >
-          Essential only
-        </button>
-        <button
-          type="button"
-          onClick={() => onChoose('analytics')}
-          disabled={!analyticsConfigured}
-          className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          Allow analytics
-        </button>
-      </div>
-    </section>
+        {!analyticsConfigured && (
+          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+            Analytics is currently disabled until the site operator and legal
+            jurisdiction are published.
+          </p>
+        )}
+        <div className="mt-4 flex flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-end">
+          <Link
+            href="/privacy"
+            className="px-3 py-2.5 text-center text-sm font-medium text-primary underline-offset-4 hover:underline"
+          >
+            Privacy details
+          </Link>
+          <button
+            type="button"
+            onClick={() => onChoose('essential')}
+            className="rounded-full border border-border px-4 py-2.5 text-sm font-semibold text-foreground hover:bg-secondary"
+          >
+            Essential only
+          </button>
+          <button
+            type="button"
+            onClick={() => onChoose('analytics')}
+            disabled={!analyticsConfigured}
+            className="rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            Allow analytics
+          </button>
+        </div>
+      </section>
+    </div>
   )
 }

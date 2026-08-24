@@ -15,7 +15,10 @@ test('the skip link is the first stop and lands in the main landmark', async ({
 
   await page.keyboard.press('Enter')
   await expect(page).toHaveURL(/#main-content$/)
-  await expect(page.locator('#main-content')).toBeVisible()
+  const main = page.locator('#main-content')
+  await expect(main).toBeVisible()
+  await expect(main).toHaveAttribute('tabindex', '-1')
+  await expect(main).toBeFocused()
 })
 
 test('the cookie settings dialog manages focus', async ({ page }) => {
@@ -24,12 +27,13 @@ test('the cookie settings dialog manages focus', async ({ page }) => {
   })
   await page.goto('/')
 
-  const opener = page.getByRole('button', { name: 'Cookie Settings' })
+  const opener = page.locator('button[aria-controls="consent-dialog"]')
   await opener.click()
 
   const dialog = page.getByRole('dialog')
   await expect(dialog).toBeVisible()
   await expect(dialog).toBeFocused()
+  await expect(opener).toHaveAttribute('aria-expanded', 'true')
 
   // Tab cycles inside the dialog rather than escaping to the page behind it.
   for (let i = 0; i < 6; i += 1) await page.keyboard.press('Tab')
@@ -38,29 +42,53 @@ test('the cookie settings dialog manages focus', async ({ page }) => {
   await page.keyboard.press('Escape')
   await expect(page.getByRole('dialog')).toHaveCount(0)
   await expect(opener).toBeFocused()
+  await expect(opener).toHaveAttribute('aria-expanded', 'false')
 })
 
-test('the first-visit consent banner takes focus without trapping it', async ({
+test('the first-visit consent dialog traps focus without silently implying consent', async ({
   page,
 }) => {
   await page.goto('/')
-  const banner = page.getByRole('region', { name: 'Your privacy choice' })
-  await expect(banner).toBeVisible()
-  await expect(banner).toBeFocused()
+  const dialog = page.getByRole('dialog', { name: 'Your privacy choice' })
+  await expect(dialog).toBeVisible()
+  await expect(dialog).toBeFocused()
+  await expect(dialog).toHaveAttribute('aria-modal', 'true')
 
-  // No trap: Tab must be able to walk out of a banner the visitor has not
-  // answered, and Escape must not dismiss a choice they have not made.
+  // Escape must not dismiss a choice the visitor has not made.
   await page.keyboard.press('Escape')
-  await expect(banner).toBeVisible()
+  await expect(dialog).toBeVisible()
 
-  for (let i = 0; i < 5; i += 1) await page.keyboard.press('Tab')
-  await expect(banner.locator(':focus')).toHaveCount(0)
-  await expect(banner).toBeVisible()
+  // A first visit has two active actions plus the privacy link. Tab must cycle
+  // through those controls without reaching the background page.
+  for (let i = 0; i < 8; i += 1) {
+    await page.keyboard.press('Tab')
+    expect(
+      await dialog.evaluate(
+        (element) => element === document.activeElement || element.contains(document.activeElement),
+      ),
+    ).toBe(true)
+  }
 
   await page.getByRole('button', { name: 'Essential only' }).click()
-  await expect(
-    page.getByRole('region', { name: 'Your privacy choice' }),
-  ).toHaveCount(0)
+  await expect(page.getByRole('dialog')).toHaveCount(0)
+})
+
+test('the mobile navigation closes on Escape and returns focus to its trigger', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.addInitScript(() => {
+    window.localStorage.setItem('norcook-consent-v1', 'essential')
+  })
+  await page.goto('/')
+
+  const trigger = page.getByRole('button', { name: 'Toggle navigation menu' })
+  await trigger.click()
+  await expect(page.locator('#mobile-navigation')).toBeVisible()
+
+  await page.keyboard.press('Escape')
+  await expect(page.locator('#mobile-navigation')).toHaveCount(0)
+  await expect(trigger).toBeFocused()
 })
 
 test('interactive elements carry a visible focus indicator', async ({ page }) => {

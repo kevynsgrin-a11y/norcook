@@ -1,29 +1,32 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Bookmark, Menu, Search, X } from 'lucide-react'
-import { REGIONS } from '@/lib/recipes'
+import { REGIONS } from '@/lib/recipe-taxonomy'
 import { ThemeToggle } from '@/components/theme-toggle'
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    if (!open) return
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      event.preventDefault()
+      setOpen(false)
+      window.requestAnimationFrame(() => menuButtonRef.current?.focus())
+    }
+
+    document.addEventListener('keydown', closeOnEscape)
+    return () => document.removeEventListener('keydown', closeOnEscape)
+  }, [open])
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b transition-colors duration-300 ${
-        scrolled
-          ? 'glass border-border/60'
-          : 'border-transparent bg-transparent'
-      }`}
+      className="sticky top-0 z-50 w-full border-b border-border bg-background/95 shadow-sm backdrop-blur-xl"
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
@@ -46,7 +49,7 @@ export function SiteHeader() {
               // App Router `false` disables viewport *and* hover prefetching,
               // so the first click pays a navigation; that is the trade.
               prefetch={false}
-              className="group flex flex-col text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+              className="group flex flex-col text-sm font-medium text-foreground transition-colors hover:text-primary"
             >
               {region.name}
               <span className="text-[10px] font-normal uppercase tracking-wider text-muted-foreground">
@@ -60,24 +63,26 @@ export function SiteHeader() {
           <Link
             href="/#recipes"
             aria-label="Search recipes"
-            className="hidden size-9 items-center justify-center rounded-full border border-border/70 text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:inline-flex"
+            className="hidden size-9 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:bg-secondary sm:inline-flex"
           >
             <Search aria-hidden="true" className="size-4" />
           </Link>
           <Link
             href="/saved"
             aria-label="Saved recipes"
-            className="hidden size-9 items-center justify-center rounded-full border border-border/70 text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:inline-flex"
+            className="hidden size-9 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:bg-secondary sm:inline-flex"
           >
             <Bookmark aria-hidden="true" className="size-4" />
           </Link>
           <ThemeToggle />
           <button
             type="button"
+            ref={menuButtonRef}
             aria-label="Toggle navigation menu"
             aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex size-9 items-center justify-center rounded-full border border-border/70 text-foreground/80 transition-colors hover:bg-secondary lg:hidden"
+            className="inline-flex size-9 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:bg-secondary lg:hidden"
           >
             {open ? (
               <X aria-hidden="true" className="size-4" />
@@ -89,8 +94,12 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="glass border-t border-border/60 lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col px-4 py-2 sm:px-6">
+        <div className="border-t border-border bg-card shadow-lg lg:hidden">
+          <nav
+            id="mobile-navigation"
+            aria-label="Primary navigation"
+            className="mx-auto flex max-w-7xl flex-col px-4 py-2 sm:px-6"
+          >
             {REGIONS.map((region) => (
               <Link
                 key={region.slug}

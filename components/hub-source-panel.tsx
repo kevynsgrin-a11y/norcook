@@ -5,8 +5,9 @@ import type { HubSource } from '@/lib/hubs'
 /**
  * The evidence panel every hub carries. It reuses the wording discipline of the
  * recipe safety callout: a checked date, an explicit statement that checked is
- * not reviewed, and either real sources or an honest declaration that there are
- * none yet. It never says "reviewed", "safe" or "validated".
+ * not a qualified review, and either real sources or an honest declaration that
+ * there are none yet. Recipe-specific review records, if any, remain on the
+ * individual recipe rather than being implied by a hub page.
  */
 export function HubSourcePanel({
   sources,
@@ -35,8 +36,8 @@ export function HubSourcePanel({
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               Written by the Norcook editorial archive. No individual author is
-              named yet, and no qualified reviewer has signed this page off —
-              see the{' '}
+              named on this hub, and its source panel is not a qualified review
+              of any linked recipe — see the{' '}
               <Link
                 href="/editorial-policy"
                 className="font-medium text-primary underline-offset-4 hover:underline"

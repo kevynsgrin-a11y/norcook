@@ -1,3 +1,5 @@
+import { getQualifiedFoodSafetyReview } from '@/lib/governance'
+
 export type SafetySource = {
   label: string
   url: string
@@ -12,8 +14,21 @@ export type RecipeSafety = {
     | 'Ready-to-eat cured meat'
     | 'Refrigerated pickled fish'
     | 'Fermented fish'
-  status: 'Qualified reviewer pending'
-  reviewedOn: string
+  safeguardsRecordedOn: string
+  review:
+    | {
+        status: 'Qualified reviewer pending'
+      }
+    | {
+        status: 'Qualified review recorded'
+        reviewerName: string
+        credentials: string
+        scope: string
+        evidenceReference: string
+        reviewedOn: string
+        decision: string
+        nextReviewOn: string
+      }
   summary: string
   safeguards: string[]
   sources: SafetySource[]
@@ -55,14 +70,35 @@ export const CDC_PRESERVATION_SOURCE: SafetySource = {
   authority: 'U.S. Centers for Disease Control and Prevention',
 }
 
-const sharedStatus = {
-  status: 'Qualified reviewer pending' as const,
-  reviewedOn: '2026-07-21',
+function reviewForRecipe(slug: string): RecipeSafety['review'] {
+  const review = getQualifiedFoodSafetyReview(slug)
+
+  if (!review) {
+    return { status: 'Qualified reviewer pending' }
+  }
+
+  return {
+    status: 'Qualified review recorded',
+    reviewerName: review.reviewerName,
+    credentials: review.credentials,
+    scope: review.scope,
+    evidenceReference: review.evidenceReference,
+    reviewedOn: review.reviewedOn,
+    decision: review.decision,
+    nextReviewOn: review.nextReviewOn,
+  }
+}
+
+function sharedStatus(slug: string) {
+  return {
+    safeguardsRecordedOn: '2026-07-21',
+    review: reviewForRecipe(slug),
+  }
 }
 
 export const RECIPE_SAFETY: Record<string, RecipeSafety> = {
   fenalar: {
-    ...sharedStatus,
+    ...sharedStatus('fenalar'),
     category: 'Home curing',
     summary:
       'The former home-curing method was withdrawn. This page now uses professionally produced fenalår and does not provide a validated preservation process.',
@@ -74,7 +110,7 @@ export const RECIPE_SAFETY: Record<string, RecipeSafety> = {
     sources: [CDC_PRESERVATION_SOURCE, RISK_GROUP_SOURCE],
   },
   gravlaks: {
-    ...sharedStatus,
+    ...sharedStatus('gravlaks'),
     category: 'Raw cured fish',
     summary:
       'Salt and sugar curing does not cook fish or reliably destroy parasites or Listeria.',
@@ -86,7 +122,7 @@ export const RECIPE_SAFETY: Record<string, RecipeSafety> = {
     sources: [FDA_PARASITE_SOURCE, NORWAY_PREGNANCY_SOURCE, RISK_GROUP_SOURCE],
   },
   'rokt-roye': {
-    ...sharedStatus,
+    ...sharedStatus('rokt-roye'),
     category: 'Cold-smoked fish',
     summary:
       'Cold smoking adds flavour but is not a kill step for Listeria or all other pathogens.',
@@ -98,7 +134,7 @@ export const RECIPE_SAFETY: Record<string, RecipeSafety> = {
     sources: [NORWAY_PREGNANCY_SOURCE, RISK_GROUP_SOURCE],
   },
   spekemat: {
-    ...sharedStatus,
+    ...sharedStatus('spekemat'),
     category: 'Ready-to-eat cured meat',
     summary:
       'This is a serving guide for commercially produced cured meats, not a home-curing process.',
@@ -110,7 +146,7 @@ export const RECIPE_SAFETY: Record<string, RecipeSafety> = {
     sources: [RISK_GROUP_SOURCE, CDC_PRESERVATION_SOURCE],
   },
   sursild: {
-    ...sharedStatus,
+    ...sharedStatus('sursild'),
     category: 'Refrigerated pickled fish',
     summary:
       'This recipe starts with commercially salted herring and is a refrigerated pickle, not a shelf-stable canning method.',
@@ -122,7 +158,7 @@ export const RECIPE_SAFETY: Record<string, RecipeSafety> = {
     sources: [CDC_PRESERVATION_SOURCE, RISK_GROUP_SOURCE],
   },
   rakfisk: {
-    ...sharedStatus,
+    ...sharedStatus('rakfisk'),
     category: 'Fermented fish',
     summary:
       'Rakfisk production requires controlled salt, temperature, hygiene, and verification for botulism and Listeria hazards.',

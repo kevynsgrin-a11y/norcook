@@ -8,9 +8,9 @@ import type { RecipeProvenance } from '@/lib/recipe-provenance'
  * checked, what backs it, and what was adapted — and says outright when a
  * recipe has no page-level source yet rather than implying one.
  *
- * "Checked" is deliberate and load-bearing. Per /editorial-policy a page may
- * not claim it was "reviewed", "safe" or "validated" until a named specialist
- * records scope, evidence and decision, and no such specialist has been named.
+ * "Checked" is deliberate and load-bearing. It means editorial checking only;
+ * any recipe-specific qualified review is disclosed in that recipe's safety
+ * callout, with its scope, evidence, date, and decision.
  */
 export function RecipeProvenanceBlock({
   checkedOn,
@@ -62,8 +62,9 @@ export function RecipeProvenanceBlock({
 
           <dt className="font-semibold text-foreground">Content last checked</dt>
           <dd className="leading-relaxed text-muted-foreground">
-            <time dateTime={checkedOn}>{checkedOn}</time> — checked, not
-            reviewed: no qualified reviewer has signed this page off.
+            <time dateTime={checkedOn}>{checkedOn}</time> — “checked” records an
+            editorial check, not a qualified review. Where one exists, the
+            recipe-specific review record appears in the food-safety callout.
           </dd>
 
           {regionName && regionSlug && (

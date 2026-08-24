@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
-import { REGIONS } from '@/lib/recipes'
+import { REGIONS } from '@/lib/recipe-taxonomy'
 
 export function RegionsSection() {
   return (

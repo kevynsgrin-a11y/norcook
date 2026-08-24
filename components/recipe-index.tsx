@@ -1,18 +1,59 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import { RECIPES, REGIONS, TOTAL_RECIPES, type RegionSlug } from '@/lib/recipes'
-import { useConsent } from '@/components/analytics/consent-provider'
+import type { Recipe } from '@/lib/recipes'
+import { REGIONS, TOTAL_RECIPES, type RegionSlug } from '@/lib/recipe-taxonomy'
 import { RecipeCard } from '@/components/recipe-card'
 
 type Filter = 'all' | RegionSlug
+type RecipePreview = Pick<
+  Recipe,
+  | 'slug'
+  | 'name'
+  | 'region'
+  | 'description'
+  | 'image'
+  | 'cookingTime'
+  | 'difficulty'
+  | 'mainIngredients'
+>
+
 const PAGE_SIZE = 12
 
-export function RecipeIndex() {
+let recipeCorpusPromise: Promise<RecipePreview[]> | undefined
+
+function toRecipePreview(recipe: Recipe): RecipePreview {
+  return {
+    slug: recipe.slug,
+    name: recipe.name,
+    region: recipe.region,
+    description: recipe.description,
+    image: recipe.image,
+    cookingTime: recipe.cookingTime,
+    difficulty: recipe.difficulty,
+    mainIngredients: recipe.mainIngredients,
+  }
+}
+
+function loadRecipeCorpus() {
+  recipeCorpusPromise ??= import('@/lib/recipes').then(({ RECIPES }) =>
+    RECIPES.map(toRecipePreview),
+  )
+  return recipeCorpusPromise
+}
+
+/**
+ * The initial payload is deliberately limited to the twelve cards the reader
+ * can see. The complete recipe corpus is fetched only when a reader searches,
+ * filters, or asks to reveal more, keeping the home page's initial JavaScript
+ * and RSC payload focused on the visible experience.
+ */
+export function RecipeIndex({ initialRecipes }: { initialRecipes: RecipePreview[] }) {
   const [filter, setFilter] = useState<Filter>('all')
   const [query, setQuery] = useState('')
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
-  const { trackEvent } = useConsent()
+  const [recipeCorpus, setRecipeCorpus] = useState<RecipePreview[] | null>(null)
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
 
   // Preselect a region when arriving via a #region hash from the nav.
   useEffect(() => {
@@ -50,10 +91,32 @@ export function RecipeIndex() {
     }
   }, [])
 
+  const hasQuery = Boolean(query.trim())
+  const needsFullCorpus = filter !== 'all' || hasQuery
+
+  useEffect(() => {
+    if (!needsFullCorpus || recipeCorpus) return
+
+    let isCurrent = true
+
+    void loadRecipeCorpus()
+      .then((recipes) => {
+        if (isCurrent) setRecipeCorpus(recipes)
+      })
+
+    return () => {
+      isCurrent = false
+    }
+  }, [needsFullCorpus, recipeCorpus])
+
   const filtered = useMemo(
     () => {
+      // Do not show a false zero-result state while an interaction loads the
+      // remaining recipe corpus.
+      if (needsFullCorpus && !recipeCorpus) return []
+
       const normalizedQuery = query.trim().toLocaleLowerCase()
-      return RECIPES.filter((recipe) => {
+      return (recipeCorpus ?? initialRecipes).filter((recipe) => {
         const matchesRegion = filter === 'all' || recipe.region === filter
         const haystack = [
           recipe.name,
@@ -65,22 +128,37 @@ export function RecipeIndex() {
         return matchesRegion && (!normalizedQuery || haystack.includes(normalizedQuery))
       })
     },
-    [filter, query],
+    [filter, initialRecipes, needsFullCorpus, query, recipeCorpus],
   )
 
   const visibleRecipes = filtered.slice(0, visibleCount)
-
-  useEffect(() => {
-    if (!query.trim()) return
-    trackEvent('search_submit', {
-      query_length: query.trim().length,
-      result_count: filtered.length,
-    })
-  }, [filtered.length, query, trackEvent])
+  const isLoadingCorpus = isLoadingMore || (needsFullCorpus && !recipeCorpus)
+  const hasMoreToShow = recipeCorpus
+    ? visibleCount < filtered.length
+    : !needsFullCorpus && initialRecipes.length < TOTAL_RECIPES
+  const nextPageSize = recipeCorpus
+    ? Math.min(PAGE_SIZE, filtered.length - visibleCount)
+    : Math.min(PAGE_SIZE, TOTAL_RECIPES - visibleCount)
 
   function selectFilter(nextFilter: Filter) {
     setFilter(nextFilter)
     setVisibleCount(PAGE_SIZE)
+  }
+
+  async function showMore() {
+    if (recipeCorpus) {
+      setVisibleCount((count) => count + PAGE_SIZE)
+      return
+    }
+
+    setIsLoadingMore(true)
+    try {
+      const recipes = await loadRecipeCorpus()
+      setRecipeCorpus(recipes)
+      setVisibleCount((count) => count + PAGE_SIZE)
+    } finally {
+      setIsLoadingMore(false)
+    }
   }
 
   return (
@@ -99,7 +177,7 @@ export function RecipeIndex() {
           </p>
         </div>
         <p className="shrink-0 text-sm text-muted-foreground">
-          <span className="font-semibold text-foreground">{RECIPES.length}</span>{' '}
+          <span className="font-semibold text-foreground">{TOTAL_RECIPES}</span>{' '}
           of {TOTAL_RECIPES} published
         </p>
       </div>
@@ -127,7 +205,15 @@ export function RecipeIndex() {
 
       {query && (
         <p className="mb-6 text-sm text-muted-foreground" aria-live="polite">
-          {filtered.length} {filtered.length === 1 ? 'result' : 'results'} for “{query}”
+          {needsFullCorpus && !recipeCorpus
+            ? `Searching the full index for “${query}”`
+            : `${filtered.length} ${filtered.length === 1 ? 'result' : 'results'} for “${query}”`}
+        </p>
+      )}
+
+      {needsFullCorpus && !recipeCorpus && (
+        <p className="mb-6 text-sm text-muted-foreground" aria-live="polite">
+          Loading the full recipe index…
         </p>
       )}
 
@@ -137,7 +223,7 @@ export function RecipeIndex() {
         ))}
       </div>
 
-      {filtered.length === 0 && (
+      {!isLoadingCorpus && !(needsFullCorpus && !recipeCorpus) && filtered.length === 0 && (
         <div className="rounded-xl border border-border bg-card p-8 text-center">
           <p className="font-medium text-foreground">No matching recipes yet.</p>
           <button
@@ -155,18 +241,21 @@ export function RecipeIndex() {
         </div>
       )}
 
-      {visibleCount < filtered.length && (
+      {hasMoreToShow && (
         <div className="mt-10 text-center">
           <button
             type="button"
-            onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
-            className="rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+            onClick={showMore}
+            disabled={isLoadingCorpus}
+            className="rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary disabled:cursor-wait disabled:opacity-70"
           >
-            Show {Math.min(PAGE_SIZE, filtered.length - visibleCount)} more
+            {isLoadingCorpus ? 'Loading full index…' : `Show ${nextPageSize} more`}
           </button>
-          <p className="mt-2 text-xs text-muted-foreground">
-            Showing {visibleRecipes.length} of {filtered.length}
-          </p>
+          {recipeCorpus && (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Showing {visibleRecipes.length} of {filtered.length}
+            </p>
+          )}
         </div>
       )}
     </section>
