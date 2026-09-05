@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { LegalPage, LegalSection } from '@/components/legal-page'
+import { ImageOpsFigure } from '@/components/imageops-visual'
 import {
   businessIdentity,
   hasCompleteFoodSafetyReview,
@@ -46,6 +47,7 @@ export default function EditorialPolicyPage() {
         </p>
       </LegalSection>
 
+      <ImageOpsFigure id="culture" />
       <LegalSection title="Page provenance">
         <p>
           Every recipe carries an evidence block: who stands behind the page,

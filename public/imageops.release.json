@@ -1,0 +1,201 @@
+{
+  "format": "2eyes-source-placement-v1",
+  "releaseId": "norcook-images-20260905-1",
+  "origin": "https://www.norcook.app",
+  "repository": "kevynsgrin-a11y/norcook",
+  "branch": "main",
+  "host": {
+    "provider": "vercel",
+    "project": "nordic-culinary-platform",
+    "root": "."
+  },
+  "assets": [
+    {
+      "id": "hero",
+      "file": "hero-poster-still.webp",
+      "url": "/assets/img/hero-poster-still.webp",
+      "width": 1373,
+      "height": 1146,
+      "grade": "A",
+      "alt": "Illustrative Norwegian fjord in mist, with a waterside cabin",
+      "caption": "AI-created landscape illustration",
+      "routes": [
+        "/"
+      ],
+      "role": "homepage-hero",
+      "mime": "image/webp",
+      "bytes": 152608,
+      "sha256": "78b9bf5796f517ca403983f6707e150b31118358d91b4686fe04c1f9f2c07a62"
+    },
+    {
+      "id": "coast",
+      "file": "five.webp",
+      "url": "/assets/img/five.webp",
+      "width": 1536,
+      "height": 1024,
+      "grade": "A",
+      "alt": "A quiet coastal landing with rope, stone and mountains across the water",
+      "caption": "Illustrative coastal landscape, not a map of the five regions",
+      "routes": [
+        "/"
+      ],
+      "role": "regions-introduction",
+      "mime": "image/webp",
+      "bytes": 285926,
+      "sha256": "1ff4c411c15bc7651777e450d48469953752d3a55353f8c94b7be95972384385"
+    },
+    {
+      "id": "shelf",
+      "file": "cook-s-shelf-atmosphere.webp",
+      "url": "/assets/img/cook-s-shelf-atmosphere.webp",
+      "width": 1536,
+      "height": 1024,
+      "grade": "A",
+      "alt": "Rolling pin, baking tray, mixing bowl and cardamom on a kitchen shelf",
+      "caption": "AI-created baking-tool still life",
+      "routes": [
+        "/regions/modern-viral"
+      ],
+      "role": "baking-collection-tools",
+      "mime": "image/webp",
+      "bytes": 107128,
+      "sha256": "4da9de76b61c555aa1afadb924c997f4ea1d50355333b0929e1af290e575596e"
+    },
+    {
+      "id": "culture",
+      "file": "provenance-and-living-culture-panels.webp",
+      "url": "/assets/img/provenance-and-living-culture-panels.webp",
+      "width": 1536,
+      "height": 1024,
+      "grade": "A",
+      "alt": "Coastal grass and rock beside dark water",
+      "caption": "AI-created editorial landscape; not documentation of a source or review",
+      "routes": [
+        "/editorial-policy"
+      ],
+      "role": "editorial-context",
+      "mime": "image/webp",
+      "bytes": 343588,
+      "sha256": "fd499735e313acd55d321ceb6240a37a2e6cedfe843d4117cb136c701c5bd1f3"
+    },
+    {
+      "id": "salmon",
+      "file": "ingredient.webp",
+      "url": "/assets/img/ingredient.webp",
+      "width": 1536,
+      "height": 1024,
+      "grade": "A",
+      "alt": "Raw salmon fillet with dill and salt, before curing",
+      "caption": "Ingredient illustration, not finished gravlaks or evidence of a safe curing process",
+      "routes": [
+        "/recipes/gravlaks"
+      ],
+      "role": "recipe-ingredient",
+      "mime": "image/webp",
+      "bytes": 186008,
+      "sha256": "67094940f3065b257cff5d0a591a56139b644f90931724e6db7d38493e1c9f18"
+    },
+    {
+      "id": "buns",
+      "file": "signature-dish-hero-series.webp",
+      "url": "/assets/img/signature-dish-hero-series.webp",
+      "width": 1536,
+      "height": 1024,
+      "grade": "A",
+      "alt": "Illustrative spiral cinnamon buns with pearl sugar cooling on a rack",
+      "caption": "AI-created serving illustration; your finished bake may differ",
+      "routes": [
+        "/recipes/skillingsboller"
+      ],
+      "role": "recipe-hero-and-index-card",
+      "mime": "image/webp",
+      "bytes": 242026,
+      "sha256": "016dfeebc92791f99ece4e30079c665c394f7ccb35b40aed5508cc6f210e06cd"
+    },
+    {
+      "id": "serving",
+      "file": "related.webp",
+      "url": "/assets/img/related.webp",
+      "width": 1672,
+      "height": 941,
+      "grade": "A",
+      "alt": "Cinnamon buns on a wooden board with coffee and berries alongside",
+      "caption": "Illustrative serving scene; coffee and berries are optional accompaniments",
+      "routes": [
+        "/recipes/skillingsboller"
+      ],
+      "role": "recipe-serving",
+      "mime": "image/webp",
+      "bytes": 198220,
+      "sha256": "2f129140ae4c959936ccf0dec111317249dc99df2a4a92590df417a4752d0f22"
+    },
+    {
+      "id": "apple",
+      "file": "seasonal-food.webp",
+      "url": "/assets/img/seasonal-food.webp",
+      "width": 1536,
+      "height": 1024,
+      "grade": "A",
+      "alt": "Illustrative apple cake topped with a fan of apple slices",
+      "caption": "AI-created serving illustration; your finished bake may differ",
+      "routes": [
+        "/recipes/eplekake"
+      ],
+      "role": "recipe-hero-and-index-card",
+      "mime": "image/webp",
+      "bytes": 171128,
+      "sha256": "2fc45eeb91e582d92a07baddbd634f73ee9e5fb9dcaace199cea7d960763cb6e"
+    },
+    {
+      "id": "baking",
+      "file": "the-nordic-baking-guide-cover.webp",
+      "url": "/assets/img/the-nordic-baking-guide-cover.webp",
+      "width": 1085,
+      "height": 1449,
+      "grade": "A",
+      "alt": "Knotted spiced buns and coffee on a wooden table",
+      "caption": "Illustrative artwork for the baking collection",
+      "routes": [
+        "/regions/modern-viral"
+      ],
+      "role": "baking-collection-art",
+      "mime": "image/webp",
+      "bytes": 167966,
+      "sha256": "e805821c5bd14042f8e5e8d5e25dcfb2f76ebcf167f6d3b66047ebea7e4a9ac3"
+    },
+    {
+      "id": "saved",
+      "file": "saved-recipes.webp",
+      "url": "/assets/img/saved-recipes.webp",
+      "width": 1402,
+      "height": 1122,
+      "grade": "A",
+      "alt": "Closed recipe notebook, coffee and apples on a kitchen table",
+      "caption": "Your saved recipes stay on this device; the notebook is illustrative artwork",
+      "routes": [
+        "/saved"
+      ],
+      "role": "saved-collection-art",
+      "mime": "image/webp",
+      "bytes": 204924,
+      "sha256": "1703259aa8ee7ebd0e5c5401a03c2fcdad586b0719e2b3e0c9ef203d86d50204"
+    },
+    {
+      "id": "shaping",
+      "file": "technique-micro.mp4",
+      "url": "/assets/video/technique-micro.mp4",
+      "width": 1366,
+      "height": 768,
+      "grade": "A",
+      "alt": "Hands shaping a strip of dough into a knot",
+      "caption": "AI-created dough-shaping illustration, not a complete recipe demonstration. Follow the written method above.",
+      "routes": [
+        "/recipes/kanelsnurrer"
+      ],
+      "role": "recipe-technique-illustration",
+      "mime": "video/mp4",
+      "bytes": 919769,
+      "sha256": "6cf8770c5f80c4fdc8601d3ad5a26e7aa402ed2532422a1f2a0fda279bfe9411"
+    }
+  ]
+}
