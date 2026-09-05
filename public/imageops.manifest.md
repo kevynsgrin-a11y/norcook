@@ -1,6 +1,6 @@
 # ImageOps Asset Manifest - norcook
 
-Generated: 2026-09-02T16:12:09.721Z
+Generated: 2026-09-04T17:25:13.742Z
 Total assets: 11
 
 Each KV Path is the source of truth in ImageOps; Deploy Location is where the file belongs on the live site.
