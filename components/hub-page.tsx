@@ -8,6 +8,7 @@ import { SiteFooter } from '@/components/site-footer'
 import { RecipeCard } from '@/components/recipe-card'
 import { HubGlossary } from '@/components/hub-glossary'
 import { HubSourcePanel } from '@/components/hub-source-panel'
+import { ImageOpsFigure } from '@/components/imageops-visual'
 
 /** Shared shell for every hub, so region and season pages cannot drift apart. */
 export function HubPage({
@@ -88,6 +89,15 @@ export function HubPage({
             ))}
           </div>
         </section>
+
+        {path === '/regions/modern-viral' && (
+          <section className="mx-auto max-w-4xl px-4 sm:px-6" aria-label="Baking collection imagery">
+            <div className="grid items-start gap-6 sm:grid-cols-2">
+              <ImageOpsFigure id="shelf" />
+              <ImageOpsFigure id="baking" />
+            </div>
+          </section>
+        )}
 
         {hub.safetyNote && (
           <section

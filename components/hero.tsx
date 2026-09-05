@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import { ImageOpsImage } from '@/components/imageops-visual'
 import { useState } from 'react'
 import { TOTAL_RECIPES } from '@/lib/recipe-taxonomy'
 
@@ -25,13 +25,9 @@ export function Hero() {
 
   return (
     <section className="relative -mt-16 flex min-h-[92vh] items-center justify-center overflow-hidden">
-      <Image
-        src="/images/hero-fjord.webp"
-        alt="A dramatic Norwegian fjord at golden hour, deep water winding between snow-dusted cliffs"
-        width={1600}
-        height={1067}
+      <ImageOpsImage
+        id="hero"
         priority
-        fetchPriority="high"
         sizes="100vw"
         className="absolute inset-0 size-full object-cover"
       />

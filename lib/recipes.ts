@@ -37,7 +37,7 @@ const BASE_RECIPES: Recipe[] = [
     region: 'modern-viral',
     description:
       'The Bergen cinnamon bun that broke the internet — an airy cardamom dough coiled around a molten butter-sugar core.',
-    image: '/images/dish-skillingsbolle.png',
+    image: '/assets/img/signature-dish-hero-series.webp',
     cookingTime: '2 hr 30 min',
     difficulty: 'Moderate',
     mainIngredients: ['Wheat flour', 'Cardamom', 'Butter', 'Cinnamon', 'Pearl sugar'],
@@ -745,7 +745,7 @@ const BASE_RECIPES: Recipe[] = [
     region: 'sorlandet',
     description:
       'A moist southern apple cake spiced with cinnamon, its top set with tender fruit and a sugar crust.',
-    image: '/images/recipes/eplekake.png',
+    image: '/assets/img/seasonal-food.webp',
     cookingTime: '1 hr 5 min',
     difficulty: 'Easy',
     mainIngredients: ['Apples', 'Butter', 'Cinnamon', 'Flour', 'Sugar'],

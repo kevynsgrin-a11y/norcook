@@ -30,6 +30,7 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm check:content
       - run: pnpm check:images
+      - run: pnpm check:visuals
       - run: pnpm audit:dependencies
       - run: pnpm build
 

@@ -22,6 +22,7 @@ import { RecommendedTools } from '@/components/recommended-tools'
 import { RecipeSafetyReview } from '@/components/recipe-safety-review'
 import { RecipeProvenanceBlock } from '@/components/recipe-provenance'
 import { SaveRecipeButton } from '@/components/save-recipe-button'
+import { ImageOpsFigure } from '@/components/imageops-visual'
 
 export function generateStaticParams() {
   return RECIPES.map((r) => ({ slug: r.slug }))
@@ -155,6 +156,7 @@ export default async function RecipePage({
         <section className="relative -mt-16 h-[70vh] min-h-[480px] w-full overflow-hidden">
           <Image
             src={recipe.image || '/images/recipe-header.webp'}
+            data-imageops-asset={recipe.image.startsWith('/assets/') ? recipe.image.split('/').pop() : undefined}
             alt={recipe.name}
             fill
             priority
@@ -211,6 +213,11 @@ export default async function RecipePage({
         </div>
 
         {safety && <RecipeSafetyReview safety={safety} />}
+        {['skillingsboller', 'eplekake'].includes(recipe.slug) && (
+          <p className="mx-auto max-w-4xl px-4 text-sm text-muted-foreground sm:px-6">
+            Hero image: AI-created serving illustration; your finished bake may differ.
+          </p>
+        )}
 
         {/* Cultural Context & History */}
         <section className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
@@ -248,6 +255,7 @@ export default async function RecipePage({
                   </li>
                 ))}
               </ul>
+              {recipe.slug === 'gravlaks' && <ImageOpsFigure id="salmon" />}
 
               {recipe.tools && recipe.tools.length > 0 && (
                 <div className="mt-8">
@@ -273,6 +281,7 @@ export default async function RecipePage({
                   </li>
                 ))}
               </ol>
+              {recipe.slug === 'kanelsnurrer' && <ImageOpsFigure id="shaping" />}
 
               {/* Chef's Tips callouts */}
               {recipe.chefTips && recipe.chefTips.length > 0 && (
@@ -298,6 +307,12 @@ export default async function RecipePage({
             </div>
           </div>
         </section>
+
+        {recipe.slug === 'skillingsboller' && (
+          <section className="mx-auto max-w-4xl px-4 sm:px-6" aria-label="Serving illustration">
+            <ImageOpsFigure id="serving" />
+          </section>
+        )}
 
         <RecipeProvenanceBlock
           checkedOn={checkedOn}
