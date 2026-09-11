@@ -2,12 +2,26 @@
   "source": "TrueAPI portfolio ingredient dictionary (USDA FoodData Central)",
   "attribution": "Nutrition data: USDA FoodData Central",
   "sourceUrl": "https://fdc.nal.usda.gov",
-  "fetchedAt": "2026-09-11T09:55:34.372Z",
+  "fetchedAt": "2026-09-11T11:50:28.949Z",
   "coverage": {
-    "resolved": 103,
+    "resolved": 191,
     "total": 408
   },
   "entries": {
+    "alderwood": {
+      "display": "Alderwood",
+      "fdcId": 1960149,
+      "name": "ALDERWOOD SMOKED SEA SALT, ALDERWOOD",
+      "dataType": "Branded",
+      "confidence": 0.9,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sodium_mg": 38000
+      }
+    },
     "almond": {
       "display": "Almond",
       "fdcId": 2707533,
@@ -81,6 +95,24 @@
         "sugar_g": 10.4,
         "fiber_g": 3.2,
         "potassium_mg": 110
+      }
+    },
+    "arctic char": {
+      "display": "Arctic char",
+      "fdcId": 1894087,
+      "name": "ARCTIC CHAR PREMIUM SKIN FILLETS, HONEY & CHIPOTLE",
+      "dataType": "Branded",
+      "confidence": 0.89,
+      "per100g": {
+        "protein_g": 20.2,
+        "fat_g": 3.88,
+        "carbs_g": 3.88,
+        "kcal": 140,
+        "sugar_g": 2.33,
+        "fiber_g": 0,
+        "calcium_mg": 31,
+        "iron_mg": 0.56,
+        "sodium_mg": 271
       }
     },
     "bacon": {
@@ -158,6 +190,25 @@
         "sodium_mg": 0
       }
     },
+    "barley or wheat flour": {
+      "display": "barley or wheat flour",
+      "fdcId": 169739,
+      "name": "Barley flour or meal",
+      "dataType": "SR Legacy",
+      "confidence": 0.64,
+      "per100g": {
+        "sugar_g": 0.8,
+        "fiber_g": 10.1,
+        "iron_mg": 2.68,
+        "sodium_mg": 4,
+        "protein_g": 10.5,
+        "calcium_mg": 32,
+        "potassium_mg": 309,
+        "fat_g": 1.6,
+        "carbs_g": 74.5,
+        "kcal": 345
+      }
+    },
     "bay leaf": {
       "display": "bay leaf",
       "fdcId": 2103259,
@@ -186,6 +237,19 @@
         "kcal": 0,
         "sugar_g": 0,
         "sodium_mg": 0
+      }
+    },
+    "beaten egg": {
+      "display": "beaten egg",
+      "fdcId": 747997,
+      "name": "Eggs, Grade A, Large, egg white",
+      "dataType": "Foundation",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 10.7,
+        "fat_g": 0,
+        "kcal": 55,
+        "carbs_g": 2.36
       }
     },
     "beef": {
@@ -221,6 +285,62 @@
         "sodium_mg": 363
       }
     },
+    "beef chuck": {
+      "display": "beef chuck",
+      "fdcId": 2705825,
+      "name": "Beef, steak, chuck",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 25.97,
+        "fat_g": 13.43,
+        "carbs_g": 0.21,
+        "kcal": 225,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 13,
+        "iron_mg": 3.23,
+        "potassium_mg": 308,
+        "sodium_mg": 380
+      }
+    },
+    "beef meatballs": {
+      "display": "Beef meatballs",
+      "fdcId": 2626055,
+      "name": "BEEF MEATBALLS",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 15.8,
+        "fat_g": 26.3,
+        "carbs_g": 3.51,
+        "kcal": 316,
+        "sugar_g": 0,
+        "fiber_g": 1.8,
+        "calcium_mg": 70,
+        "iron_mg": 1.89,
+        "sodium_mg": 526
+      }
+    },
+    "beef or mutton": {
+      "display": "beef or mutton",
+      "fdcId": 2706521,
+      "name": "Lamb or mutton loaf",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.6,
+      "per100g": {
+        "protein_g": 14.05,
+        "fat_g": 11.58,
+        "carbs_g": 7.44,
+        "kcal": 192,
+        "sugar_g": 4.69,
+        "fiber_g": 0.3,
+        "calcium_mg": 50,
+        "iron_mg": 1.29,
+        "potassium_mg": 210,
+        "sodium_mg": 467
+      }
+    },
     "beef stock": {
       "display": "beef stock",
       "fdcId": 2139774,
@@ -238,6 +358,79 @@
         "iron_mg": 0.04,
         "potassium_mg": 24,
         "sodium_mg": 208
+      }
+    },
+    "beef suet": {
+      "display": "beef suet",
+      "fdcId": 577476,
+      "name": "MARKETS OF MEIJER, BEEF SUET",
+      "dataType": "Branded",
+      "confidence": 0.74,
+      "per100g": {
+        "carbs_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "protein_g": 1.79,
+        "fat_g": 94.6,
+        "kcal": 857,
+        "sugar_g": 0,
+        "sodium_mg": 9
+      }
+    },
+    "beetroot": {
+      "display": "Beetroot",
+      "fdcId": 2321499,
+      "name": "BEETROOT CHIPS, BEETROOT",
+      "dataType": "Branded",
+      "confidence": 0.9,
+      "per100g": {
+        "protein_g": 10.7,
+        "fat_g": 25,
+        "carbs_g": 57.1,
+        "kcal": 500,
+        "sugar_g": 35.7,
+        "fiber_g": 10.7,
+        "calcium_mg": 57,
+        "iron_mg": 3.57,
+        "potassium_mg": 1710,
+        "sodium_mg": 357
+      }
+    },
+    "birch smoke": {
+      "display": "Birch smoke",
+      "fdcId": 1772377,
+      "name": "BIRCH BEER, BIRCH",
+      "dataType": "Branded",
+      "confidence": 0.75,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 13,
+        "kcal": 51,
+        "sugar_g": 13,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "sodium_mg": 10
+      }
+    },
+    "biscuit base": {
+      "display": "Biscuit base",
+      "fdcId": 2707971,
+      "name": "Marie biscuit",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 7.05,
+        "fat_g": 10.58,
+        "carbs_g": 70.54,
+        "kcal": 406,
+        "sugar_g": 21.16,
+        "fiber_g": 3.5,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "potassium_mg": 307,
+        "sodium_mg": 370
       }
     },
     "black pepper": {
@@ -273,6 +466,62 @@
         "sodium_mg": 0
       }
     },
+    "blanched almond": {
+      "display": "blanched almond",
+      "fdcId": 2399834,
+      "name": "BLANCHED ALMOND MEAL FLOUR, BLANCHED ALMOND",
+      "dataType": "Branded",
+      "confidence": 0.87,
+      "per100g": {
+        "protein_g": 21.4,
+        "fat_g": 53.6,
+        "carbs_g": 17.9,
+        "kcal": 643,
+        "sugar_g": 3.57,
+        "fiber_g": 10.7,
+        "calcium_mg": 236,
+        "iron_mg": 3.29,
+        "potassium_mg": 661,
+        "sodium_mg": 18
+      }
+    },
+    "blood": {
+      "display": "Blood",
+      "fdcId": 2706173,
+      "name": "Blood sausage",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 14.6,
+        "fat_g": 34.5,
+        "carbs_g": 1.29,
+        "kcal": 379,
+        "sugar_g": 1.29,
+        "fiber_g": 0,
+        "calcium_mg": 6,
+        "iron_mg": 6.4,
+        "potassium_mg": 38,
+        "sodium_mg": 680
+      }
+    },
+    "blue mussels": {
+      "display": "Blue mussels",
+      "fdcId": 577676,
+      "name": "ORGANIC BLUE MUSSELS",
+      "dataType": "Branded",
+      "confidence": 0.72,
+      "per100g": {
+        "fiber_g": 0,
+        "calcium_mg": 20,
+        "iron_mg": 5.4,
+        "protein_g": 12,
+        "fat_g": 2.2,
+        "carbs_g": 4,
+        "kcal": 90,
+        "sugar_g": 0,
+        "sodium_mg": 290
+      }
+    },
     "boiled": {
       "display": "boiled",
       "fdcId": 2707513,
@@ -290,6 +539,63 @@
         "iron_mg": 1.01,
         "potassium_mg": 180,
         "sodium_mg": 751
+      }
+    },
+    "boiled cod": {
+      "display": "boiled cod",
+      "fdcId": 2710629,
+      "name": "Cape Cod",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0.08,
+        "carbs_g": 10.18,
+        "kcal": 98,
+        "sugar_g": 8.94,
+        "fiber_g": 0,
+        "calcium_mg": 2,
+        "iron_mg": 0.08,
+        "potassium_mg": 11,
+        "sodium_mg": 2
+      }
+    },
+    "boiled lamb or mutton": {
+      "display": "boiled lamb or mutton",
+      "fdcId": 2706521,
+      "name": "Lamb or mutton loaf",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.65,
+      "per100g": {
+        "protein_g": 14.05,
+        "fat_g": 11.58,
+        "carbs_g": 7.44,
+        "kcal": 192,
+        "sugar_g": 4.69,
+        "fiber_g": 0.3,
+        "calcium_mg": 50,
+        "iron_mg": 1.29,
+        "potassium_mg": 210,
+        "sodium_mg": 467
+      }
+    },
+    "boiled salted meat": {
+      "display": "Boiled salted meat",
+      "fdcId": 171633,
+      "name": "Frankfurter, meat and poultry, cooked, boiled",
+      "dataType": "SR Legacy",
+      "confidence": 0.6,
+      "per100g": {
+        "calcium_mg": 107,
+        "carbs_g": 4.96,
+        "kcal": 298,
+        "fiber_g": 0,
+        "iron_mg": 1.12,
+        "sugar_g": 2.7,
+        "fat_g": 26.3,
+        "potassium_mg": 323,
+        "protein_g": 10.3,
+        "sodium_mg": 914
       }
     },
     "boiling water": {
@@ -360,6 +666,92 @@
         "sodium_mg": 358
       }
     },
+    "brown butter": {
+      "display": "Brown butter",
+      "fdcId": 719322,
+      "name": "BROWN BUTTER",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 100,
+        "carbs_g": 0,
+        "kcal": 867,
+        "sugar_g": 0,
+        "sodium_mg": 0
+      }
+    },
+    "brown cheese": {
+      "display": "Brown cheese",
+      "fdcId": 2709484,
+      "name": "Potato, hash brown, from fresh, with cheese",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 5.1,
+        "fat_g": 15.49,
+        "carbs_g": 16.18,
+        "kcal": 223,
+        "sugar_g": 1.12,
+        "fiber_g": 1.4,
+        "calcium_mg": 113,
+        "iron_mg": 0.57,
+        "potassium_mg": 354,
+        "sodium_mg": 389
+      }
+    },
+    "brown crab": {
+      "display": "Brown crab",
+      "fdcId": 2706843,
+      "name": "Crab salad made with imitation crab",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.89,
+      "per100g": {
+        "protein_g": 4.07,
+        "fat_g": 16.28,
+        "carbs_g": 8.66,
+        "kcal": 197,
+        "sugar_g": 3.65,
+        "fiber_g": 0.6,
+        "calcium_mg": 19,
+        "iron_mg": 0.24,
+        "potassium_mg": 116,
+        "sodium_mg": 530
+      }
+    },
+    "brown sugar": {
+      "display": "brown sugar",
+      "fdcId": 1630185,
+      "name": "BROWN SUGAR",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 100,
+        "kcal": 375,
+        "sugar_g": 100,
+        "sodium_mg": 0
+      }
+    },
+    "brunost": {
+      "display": "Brunost",
+      "fdcId": 2286226,
+      "name": "BRUNOST COLLECTION CARAMORE",
+      "dataType": "Branded",
+      "confidence": 0.9,
+      "per100g": {
+        "protein_g": 10.7,
+        "fat_g": 28.6,
+        "carbs_g": 46.4,
+        "kcal": 500,
+        "sugar_g": 46.4,
+        "fiber_g": 0,
+        "calcium_mg": 500,
+        "iron_mg": 0,
+        "sodium_mg": 286
+      }
+    },
     "butter": {
       "display": "butter",
       "fdcId": 2542726,
@@ -372,6 +764,25 @@
         "carbs_g": 0,
         "kcal": 714,
         "sodium_mg": 0
+      }
+    },
+    "buttermilk": {
+      "display": "buttermilk",
+      "fdcId": 2705393,
+      "name": "Buttermilk",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.2,
+      "per100g": {
+        "protein_g": 3.46,
+        "fat_g": 1.08,
+        "carbs_g": 4.81,
+        "kcal": 43,
+        "sugar_g": 5.36,
+        "fiber_g": 0,
+        "calcium_mg": 120,
+        "iron_mg": 0.01,
+        "potassium_mg": 158,
+        "sodium_mg": 92
       }
     },
     "cabbage": {
@@ -391,6 +802,24 @@
         "fiber_g": 1.6,
         "iron_mg": 2.5,
         "sodium_mg": 498
+      }
+    },
+    "capers": {
+      "display": "capers",
+      "fdcId": 2412103,
+      "name": "CAPERS",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 6.67,
+        "kcal": 27,
+        "sugar_g": 0,
+        "fiber_g": 6.7,
+        "calcium_mg": 0,
+        "iron_mg": 1.2,
+        "sodium_mg": 2670
       }
     },
     "caraway": {
@@ -422,6 +851,20 @@
         "kcal": 0
       }
     },
+    "cardamom": {
+      "display": "Cardamom",
+      "fdcId": 579066,
+      "name": "CARDAMOM",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "fat_g": 0,
+        "carbs_g": 0,
+        "sodium_mg": 0,
+        "protein_g": 0,
+        "kcal": 0
+      }
+    },
     "carrot": {
       "display": "carrot",
       "fdcId": 170500,
@@ -441,6 +884,77 @@
         "potassium_mg": 2540
       }
     },
+    "carrots": {
+      "display": "carrots",
+      "fdcId": 2413282,
+      "name": "CARROTS",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 1.28,
+        "fat_g": 0,
+        "carbs_g": 8.97,
+        "kcal": 38,
+        "sugar_g": 6.41,
+        "fiber_g": 2.6,
+        "calcium_mg": 26,
+        "iron_mg": 0.51,
+        "potassium_mg": 321,
+        "sodium_mg": 77
+      }
+    },
+    "caster sugar": {
+      "display": "caster sugar",
+      "fdcId": 2710262,
+      "name": "Sugar substitute and sugar blend",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.89,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0.31,
+        "carbs_g": 99.35,
+        "kcal": 399,
+        "sugar_g": 99.22,
+        "fiber_g": 0,
+        "calcium_mg": 1,
+        "iron_mg": 0.05,
+        "potassium_mg": 2,
+        "sodium_mg": 1
+      }
+    },
+    "caster sugar and ground cinnamon": {
+      "display": "caster sugar and ground cinnamon",
+      "fdcId": 2452618,
+      "name": "SUGAR & CINNAMON GROUND, SUGAR & CINNAMON",
+      "dataType": "Branded",
+      "confidence": 0.51,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 85.7,
+        "kcal": 429,
+        "sugar_g": 85.7,
+        "sodium_mg": 0
+      }
+    },
+    "cheese": {
+      "display": "cheese",
+      "fdcId": 1943515,
+      "name": "CHEESE",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 21.1,
+        "fat_g": 24.6,
+        "carbs_g": 2.46,
+        "kcal": 331,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "sodium_mg": 599
+      }
+    },
     "chives": {
       "display": "Chives",
       "fdcId": 2673992,
@@ -457,6 +971,42 @@
         "calcium_mg": 0,
         "iron_mg": 0,
         "sodium_mg": 0
+      }
+    },
+    "chives to finish": {
+      "display": "chives to finish",
+      "fdcId": 2673992,
+      "name": "CHIVES",
+      "dataType": "Branded",
+      "confidence": 0.86,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "sodium_mg": 0
+      }
+    },
+    "chopped tomatoes": {
+      "display": "chopped tomatoes",
+      "fdcId": 520301,
+      "name": "CHOPPED TOMATOES",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "calcium_mg": 15,
+        "iron_mg": 1.11,
+        "protein_g": 1.23,
+        "fat_g": 0.2,
+        "carbs_g": 3.23,
+        "kcal": 22,
+        "sugar_g": 3.23,
+        "fiber_g": 1,
+        "sodium_mg": 88
       }
     },
     "cinnamon": {
@@ -494,6 +1044,54 @@
         "calcium_mg": 50,
         "iron_mg": 5.22,
         "sodium_mg": 270
+      }
+    },
+    "cloudberries": {
+      "display": "Cloudberries",
+      "fdcId": 169802,
+      "name": "Cloudberries, raw (Alaska Native)",
+      "dataType": "SR Legacy",
+      "confidence": 1.05,
+      "per100g": {
+        "fat_g": 0.8,
+        "carbs_g": 8.6,
+        "kcal": 51,
+        "calcium_mg": 18,
+        "protein_g": 2.4,
+        "iron_mg": 0.7
+      }
+    },
+    "cloves": {
+      "display": "cloves",
+      "fdcId": 2128958,
+      "name": "CLOVES GROUND",
+      "dataType": "Branded",
+      "confidence": 0.88,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "sodium_mg": 0
+      }
+    },
+    "coarse salt": {
+      "display": "coarse salt",
+      "fdcId": 2381860,
+      "name": "SALTED BUTTER WITH COARSE SALT, COARSE SALT",
+      "dataType": "Branded",
+      "confidence": 0.94,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 57.1,
+        "carbs_g": 0,
+        "kcal": 500,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "potassium_mg": 0,
+        "sodium_mg": 571
       }
     },
     "coconut": {
@@ -551,6 +1149,41 @@
         "sodium_mg": 418
       }
     },
+    "cod liver": {
+      "display": "Cod liver",
+      "fdcId": 2139069,
+      "name": "COD LIVER",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 9.09,
+        "fat_g": 38.2,
+        "carbs_g": 1.82,
+        "kcal": 382,
+        "sugar_g": 0,
+        "fiber_g": 7.3,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "sodium_mg": 300
+      }
+    },
+    "cod roe": {
+      "display": "Cod roe",
+      "fdcId": 2027362,
+      "name": "PREPARED SHREDDED SALMON AND COD ROE",
+      "dataType": "Branded",
+      "confidence": 0.74,
+      "per100g": {
+        "protein_g": 25,
+        "fat_g": 25,
+        "carbs_g": 25,
+        "kcal": 375,
+        "sugar_g": 25,
+        "fiber_g": 25,
+        "calcium_mg": 500,
+        "sodium_mg": 1620
+      }
+    },
     "coffee": {
       "display": "Coffee",
       "fdcId": 2091869,
@@ -567,6 +1200,79 @@
         "calcium_mg": 48,
         "iron_mg": 0,
         "sodium_mg": 101
+      }
+    },
+    "cognac": {
+      "display": "Cognac",
+      "fdcId": 2474639,
+      "name": "ICE CREAM COGNAC WITH GINGERBREAD, COGNAC WITH GINGERBREAD",
+      "dataType": "Branded",
+      "confidence": 1.24,
+      "per100g": {
+        "protein_g": 3.23,
+        "fat_g": 16.9,
+        "carbs_g": 29.8,
+        "kcal": 282,
+        "sugar_g": 21.8,
+        "fiber_g": 0,
+        "calcium_mg": 123,
+        "iron_mg": 0,
+        "potassium_mg": 177,
+        "sodium_mg": 121
+      }
+    },
+    "cold milk": {
+      "display": "cold milk",
+      "fdcId": 167702,
+      "name": "Oil, flaxseed, cold pressed",
+      "dataType": "SR Legacy",
+      "confidence": 0.5,
+      "per100g": {
+        "sugar_g": 0,
+        "protein_g": 0.11,
+        "iron_mg": 0,
+        "sodium_mg": 0,
+        "fat_g": 100,
+        "carbs_g": 0,
+        "kcal": 884,
+        "calcium_mg": 1,
+        "potassium_mg": 0,
+        "fiber_g": 0
+      }
+    },
+    "cooked cod": {
+      "display": "Cooked cod",
+      "fdcId": 175178,
+      "name": "Fish, cod, Pacific, cooked",
+      "dataType": "SR Legacy",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 20.4,
+        "iron_mg": 0.16,
+        "sodium_mg": 134,
+        "fat_g": 0.25,
+        "carbs_g": 0,
+        "kcal": 84,
+        "calcium_mg": 17,
+        "potassium_mg": 372
+      }
+    },
+    "cornflour": {
+      "display": "cornflour",
+      "fdcId": 2496401,
+      "name": "FERMENTED CORNFLOUR",
+      "dataType": "Branded",
+      "confidence": 0.75,
+      "per100g": {
+        "protein_g": 3.57,
+        "fat_g": 0,
+        "carbs_g": 82.1,
+        "kcal": 357,
+        "sugar_g": 0,
+        "fiber_g": 3.6,
+        "calcium_mg": 143,
+        "iron_mg": 0,
+        "sodium_mg": 0
       }
     },
     "cream": {
@@ -588,6 +1294,43 @@
         "fiber_g": 0
       }
     },
+    "crisp apple": {
+      "display": "crisp apple",
+      "fdcId": 2708023,
+      "name": "Crisp, apple",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 2.81,
+        "fat_g": 9.59,
+        "carbs_g": 30.18,
+        "kcal": 215,
+        "sugar_g": 15.82,
+        "fiber_g": 2.7,
+        "calcium_mg": 15,
+        "iron_mg": 1,
+        "potassium_mg": 119,
+        "sodium_mg": 119
+      }
+    },
+    "crusty bread": {
+      "display": "Crusty bread",
+      "fdcId": 2055728,
+      "name": "CRUSTY GARLIC BREAD LOAF",
+      "dataType": "Branded",
+      "confidence": 0.74,
+      "per100g": {
+        "protein_g": 8.51,
+        "fat_g": 9.57,
+        "carbs_g": 44.7,
+        "kcal": 298,
+        "sugar_g": 2.13,
+        "fiber_g": 2.1,
+        "calcium_mg": 43,
+        "iron_mg": 2.3,
+        "sodium_mg": 532
+      }
+    },
     "cucumber": {
       "display": "cucumber",
       "fdcId": 2709821,
@@ -605,6 +1348,57 @@
         "iron_mg": 0.07,
         "potassium_mg": 137,
         "sodium_mg": 236
+      }
+    },
+    "cured ham": {
+      "display": "Cured ham",
+      "fdcId": 167909,
+      "name": "HORMEL, Cure 81 Ham",
+      "dataType": "SR Legacy",
+      "confidence": 0.5,
+      "per100g": {
+        "carbs_g": 0.21,
+        "sugar_g": 0,
+        "iron_mg": 0.8,
+        "protein_g": 18.4,
+        "sodium_mg": 1040,
+        "fat_g": 3.59,
+        "calcium_mg": 4,
+        "potassium_mg": 319,
+        "kcal": 106
+      }
+    },
+    "curry powder": {
+      "display": "curry powder",
+      "fdcId": 2524154,
+      "name": "CURRY POWDER",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sodium_mg": 0
+      }
+    },
+    "dark chocolate": {
+      "display": "dark chocolate",
+      "fdcId": 2460230,
+      "name": "DARK CHOCOLATE",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 13.2,
+        "fat_g": 42.1,
+        "carbs_g": 39.5,
+        "kcal": 526,
+        "sugar_g": 21,
+        "fiber_g": 10.5,
+        "calcium_mg": 139,
+        "iron_mg": 7.89,
+        "potassium_mg": 571,
+        "sodium_mg": 26
       }
     },
     "dijon": {
@@ -637,6 +1431,44 @@
         "fiber_g": 1,
         "iron_mg": 0.23,
         "kcal": 12
+      }
+    },
+    "dried thyme": {
+      "display": "dried thyme",
+      "fdcId": 170938,
+      "name": "Spices, thyme, dried",
+      "dataType": "SR Legacy",
+      "confidence": 0.5,
+      "per100g": {
+        "fat_g": 7.43,
+        "carbs_g": 63.9,
+        "kcal": 276,
+        "calcium_mg": 1890,
+        "potassium_mg": 814,
+        "protein_g": 9.11,
+        "iron_mg": 124,
+        "sodium_mg": 55,
+        "fiber_g": 37,
+        "sugar_g": 1.71
+      }
+    },
+    "dry yeast": {
+      "display": "dry yeast",
+      "fdcId": 175043,
+      "name": "Leavening agents, yeast, baker's, active dry",
+      "dataType": "SR Legacy",
+      "confidence": 0.5,
+      "per100g": {
+        "fat_g": 7.61,
+        "carbs_g": 41.2,
+        "kcal": 325,
+        "calcium_mg": 30,
+        "potassium_mg": 955,
+        "protein_g": 40.4,
+        "fiber_g": 26.9,
+        "iron_mg": 2.17,
+        "sodium_mg": 51,
+        "sugar_g": 0
       }
     },
     "egg": {
@@ -676,6 +1508,25 @@
         "sodium_mg": 357
       }
     },
+    "egg whites": {
+      "display": "egg whites",
+      "fdcId": 2059170,
+      "name": "EGG WHITES",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 10.9,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 54,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "potassium_mg": 163,
+        "sodium_mg": 163
+      }
+    },
     "egg yolk": {
       "display": "egg yolk",
       "fdcId": 748236,
@@ -707,6 +1558,44 @@
         "sodium_mg": 107
       }
     },
+    "fast-action yeast": {
+      "display": "fast-action yeast",
+      "fdcId": 2710005,
+      "name": "Yeast",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 40.44,
+        "fat_g": 7.61,
+        "carbs_g": 41.22,
+        "kcal": 325,
+        "sugar_g": 0,
+        "fiber_g": 26.9,
+        "calcium_mg": 30,
+        "iron_mg": 2.17,
+        "potassium_mg": 955,
+        "sodium_mg": 51
+      }
+    },
+    "fennel": {
+      "display": "fennel",
+      "fdcId": 2709907,
+      "name": "Fennel bulb, cooked",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 1.42,
+        "fat_g": 3.22,
+        "carbs_g": 8.32,
+        "kcal": 62,
+        "sugar_g": 4.48,
+        "fiber_g": 3.5,
+        "calcium_mg": 56,
+        "iron_mg": 0.84,
+        "potassium_mg": 472,
+        "sodium_mg": 202
+      }
+    },
     "fine sea salt": {
       "display": "fine sea salt",
       "fdcId": 2130543,
@@ -719,6 +1608,24 @@
         "carbs_g": 0,
         "kcal": 0,
         "sodium_mg": 39300
+      }
+    },
+    "fish balls": {
+      "display": "fish balls",
+      "fdcId": 2090458,
+      "name": "FISH BALLS",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 13.3,
+        "fat_g": 7.78,
+        "carbs_g": 12.2,
+        "kcal": 178,
+        "sugar_g": 3.33,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "sodium_mg": 556
       }
     },
     "flour": {
@@ -736,6 +1643,20 @@
         "sodium_mg": 0
       }
     },
+    "fresh parsley": {
+      "display": "fresh parsley",
+      "fdcId": 2072227,
+      "name": "FRESH CHOPPED PARSLEY",
+      "dataType": "Branded",
+      "confidence": 0.71,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sodium_mg": 0
+      }
+    },
     "garlic": {
       "display": "garlic",
       "fdcId": 1662203,
@@ -749,6 +1670,58 @@
         "kcal": 167,
         "calcium_mg": 667,
         "sodium_mg": 0
+      }
+    },
+    "ginger": {
+      "display": "ginger",
+      "fdcId": 2127806,
+      "name": "GINGER",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "sodium_mg": 0
+      }
+    },
+    "grated coconut": {
+      "display": "grated coconut",
+      "fdcId": 170580,
+      "name": "Nuts, coconut cream, raw (liquid expressed from grated meat)",
+      "dataType": "SR Legacy",
+      "confidence": 0.9,
+      "per100g": {
+        "fiber_g": 2.2,
+        "protein_g": 3.63,
+        "iron_mg": 2.28,
+        "sodium_mg": 4,
+        "fat_g": 34.7,
+        "carbs_g": 6.65,
+        "kcal": 330,
+        "calcium_mg": 11,
+        "potassium_mg": 325
+      }
+    },
+    "gravy": {
+      "display": "Gravy",
+      "fdcId": 2707145,
+      "name": "Gravy, beef",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.02,
+      "per100g": {
+        "protein_g": 3.75,
+        "fat_g": 2.36,
+        "carbs_g": 4.81,
+        "kcal": 53,
+        "sugar_g": 0.21,
+        "fiber_g": 0.4,
+        "calcium_mg": 6,
+        "iron_mg": 0.7,
+        "potassium_mg": 81,
+        "sodium_mg": 633
       }
     },
     "green cabbage": {
@@ -789,6 +1762,39 @@
         "sodium_mg": 0
       }
     },
+    "ground allspice": {
+      "display": "ground allspice",
+      "fdcId": 402666,
+      "name": "GROUND ALLSPICE",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "fat_g": 0,
+        "carbs_g": 0,
+        "sodium_mg": 0,
+        "protein_g": 0,
+        "kcal": 0
+      }
+    },
+    "ground almonds": {
+      "display": "ground almonds",
+      "fdcId": 2705854,
+      "name": "Beef, ground",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 25.55,
+        "fat_g": 16.82,
+        "carbs_g": 0,
+        "kcal": 261,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 24,
+        "iron_mg": 2.47,
+        "potassium_mg": 302,
+        "sodium_mg": 381
+      }
+    },
     "ground beef": {
       "display": "ground beef",
       "fdcId": 1942314,
@@ -805,6 +1811,20 @@
         "sodium_mg": 67
       }
     },
+    "ground cardamom": {
+      "display": "ground cardamom",
+      "fdcId": 384273,
+      "name": "GROUND CARDAMOM",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "fat_g": 0,
+        "carbs_g": 0,
+        "sodium_mg": 0,
+        "protein_g": 0,
+        "kcal": 0
+      }
+    },
     "ground cloves": {
       "display": "ground cloves",
       "fdcId": 579072,
@@ -819,6 +1839,25 @@
         "kcal": 0
       }
     },
+    "ground ginger": {
+      "display": "ground ginger",
+      "fdcId": 170926,
+      "name": "Spices, ginger, ground",
+      "dataType": "SR Legacy",
+      "confidence": 0.5,
+      "per100g": {
+        "sugar_g": 3.39,
+        "protein_g": 8.98,
+        "fiber_g": 14.1,
+        "iron_mg": 19.8,
+        "sodium_mg": 27,
+        "fat_g": 4.24,
+        "carbs_g": 71.6,
+        "kcal": 335,
+        "calcium_mg": 114,
+        "potassium_mg": 1320
+      }
+    },
     "ground nutmeg": {
       "display": "ground nutmeg",
       "fdcId": 384464,
@@ -831,6 +1870,25 @@
         "sodium_mg": 0,
         "protein_g": 0,
         "kcal": 0
+      }
+    },
+    "ground pork": {
+      "display": "ground pork",
+      "fdcId": 2030503,
+      "name": "GROUND PORK",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 14.3,
+        "fat_g": 27.7,
+        "carbs_g": 0.89,
+        "kcal": 312,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 18,
+        "iron_mg": 0.96,
+        "potassium_mg": 179,
+        "sodium_mg": 652
       }
     },
     "halibut": {
@@ -849,6 +1907,25 @@
         "calcium_mg": 24,
         "iron_mg": 1.06,
         "sodium_mg": 53
+      }
+    },
+    "hard-boiled egg": {
+      "display": "hard-boiled egg",
+      "fdcId": 173424,
+      "name": "Egg, whole, cooked, hard-boiled",
+      "dataType": "SR Legacy",
+      "confidence": 0.5,
+      "per100g": {
+        "sugar_g": 1.12,
+        "fiber_g": 0,
+        "kcal": 155,
+        "protein_g": 12.6,
+        "iron_mg": 1.19,
+        "sodium_mg": 124,
+        "calcium_mg": 50,
+        "potassium_mg": 126,
+        "fat_g": 10.6,
+        "carbs_g": 1.12
       }
     },
     "heavy cream": {
@@ -905,6 +1982,25 @@
         "calcium_mg": 0,
         "iron_mg": 0,
         "sodium_mg": 114
+      }
+    },
+    "icing sugar": {
+      "display": "icing sugar",
+      "fdcId": 2710318,
+      "name": "Italian Ice, no sugar added",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 5.92,
+        "kcal": 24,
+        "sugar_g": 1.52,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0.67,
+        "potassium_mg": 11,
+        "sodium_mg": 10
       }
     },
     "juniper berries": {
@@ -977,6 +2073,24 @@
         "iron_mg": 0,
         "potassium_mg": 0,
         "sodium_mg": 0
+      }
+    },
+    "lemon": {
+      "display": "lemon",
+      "fdcId": 2038425,
+      "name": "LEMON",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 30,
+        "carbs_g": 6.67,
+        "kcal": 300,
+        "sugar_g": 3.33,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "sodium_mg": 800
       }
     },
     "lemon juice": {
@@ -1162,6 +2276,58 @@
         "sodium_mg": 1100
       }
     },
+    "mutton": {
+      "display": "mutton",
+      "fdcId": 167634,
+      "name": "Mutton, cooked, roasted (Navajo)",
+      "dataType": "SR Legacy",
+      "confidence": 1.01,
+      "per100g": {
+        "carbs_g": 0.08,
+        "kcal": 234,
+        "fat_g": 11.1,
+        "calcium_mg": 10,
+        "potassium_mg": 409,
+        "protein_g": 33.4,
+        "iron_mg": 4.76,
+        "sodium_mg": 135
+      }
+    },
+    "nutmeg": {
+      "display": "nutmeg",
+      "fdcId": 172335,
+      "name": "Oil, nutmeg butter",
+      "dataType": "SR Legacy",
+      "confidence": 0.9,
+      "per100g": {
+        "protein_g": 0,
+        "fiber_g": 0,
+        "iron_mg": 0,
+        "sodium_mg": 0,
+        "calcium_mg": 0,
+        "potassium_mg": 0,
+        "fat_g": 100,
+        "carbs_g": 0,
+        "kcal": 884,
+        "sugar_g": 0
+      }
+    },
+    "oil": {
+      "display": "oil",
+      "fdcId": 474641,
+      "name": "OIL",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "carbs_g": 0,
+        "fiber_g": 0,
+        "protein_g": 0,
+        "fat_g": 93.3,
+        "kcal": 867,
+        "sugar_g": 0,
+        "sodium_mg": 833
+      }
+    },
     "olive oil": {
       "display": "olive oil",
       "fdcId": 2710186,
@@ -1197,6 +2363,59 @@
         "calcium_mg": 16,
         "iron_mg": 3.52,
         "sodium_mg": 430
+      }
+    },
+    "onions": {
+      "display": "onions",
+      "fdcId": 2709795,
+      "name": "Onions, raw",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0.86,
+        "fat_g": 0.08,
+        "carbs_g": 8.46,
+        "kcal": 38,
+        "sugar_g": 5.8,
+        "fiber_g": 1.7,
+        "calcium_mg": 17,
+        "iron_mg": 0.24,
+        "potassium_mg": 171,
+        "sodium_mg": 1
+      }
+    },
+    "pan drippings": {
+      "display": "pan drippings",
+      "fdcId": 2710165,
+      "name": "Animal fat or drippings",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 2.23,
+        "fat_g": 92.18,
+        "carbs_g": 0,
+        "kcal": 841,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 5,
+        "iron_mg": 0.23,
+        "potassium_mg": 21,
+        "sodium_mg": 604
+      }
+    },
+    "parsley": {
+      "display": "Parsley",
+      "fdcId": 2670943,
+      "name": "PARSLEY",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "sodium_mg": 0
       }
     },
     "peeled shrimp": {
@@ -1254,6 +2473,25 @@
         "sodium_mg": 378
       }
     },
+    "pork fat": {
+      "display": "pork fat",
+      "fdcId": 2706192,
+      "name": "Pork sausage, reduced fat",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.9,
+      "per100g": {
+        "protein_g": 20.94,
+        "fat_g": 20.32,
+        "carbs_g": 0.15,
+        "kcal": 267,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 19,
+        "iron_mg": 1.91,
+        "potassium_mg": 328,
+        "sodium_mg": 698
+      }
+    },
     "pork loin": {
       "display": "pork loin",
       "fdcId": 168320,
@@ -1270,6 +2508,44 @@
         "calcium_mg": 4,
         "potassium_mg": 310,
         "sodium_mg": 358
+      }
+    },
+    "potato": {
+      "display": "potato",
+      "fdcId": 2709510,
+      "name": "Potato patty",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 3.89,
+        "fat_g": 11.32,
+        "carbs_g": 13.49,
+        "kcal": 171,
+        "sugar_g": 1.48,
+        "fiber_g": 1.5,
+        "calcium_mg": 33,
+        "iron_mg": 0.75,
+        "potassium_mg": 219,
+        "sodium_mg": 219
+      }
+    },
+    "potato starch": {
+      "display": "potato starch",
+      "fdcId": 2671914,
+      "name": "POTATO STARCH",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 83.3,
+        "kcal": 333,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 17,
+        "iron_mg": 0,
+        "potassium_mg": 58,
+        "sodium_mg": 0
       }
     },
     "potatoes": {
@@ -1304,6 +2580,25 @@
         "kcal": 0,
         "sugar_g": 0,
         "sodium_mg": 0
+      }
+    },
+    "raisins": {
+      "display": "raisins",
+      "fdcId": 2709212,
+      "name": "Raisins",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.2,
+      "per100g": {
+        "protein_g": 3.3,
+        "fat_g": 0.25,
+        "carbs_g": 79.32,
+        "kcal": 299,
+        "sugar_g": 65.18,
+        "fiber_g": 4.5,
+        "calcium_mg": 62,
+        "iron_mg": 1.79,
+        "potassium_mg": 744,
+        "sodium_mg": 26
       }
     },
     "raspberries": {
@@ -1388,6 +2683,25 @@
         "calcium_mg": 14,
         "iron_mg": 0,
         "sodium_mg": 0
+      }
+    },
+    "red wine": {
+      "display": "red wine",
+      "fdcId": 172240,
+      "name": "Vinegar, red wine",
+      "dataType": "SR Legacy",
+      "confidence": 0.89,
+      "per100g": {
+        "fat_g": 0,
+        "carbs_g": 0.27,
+        "kcal": 19,
+        "sugar_g": 0,
+        "calcium_mg": 6,
+        "potassium_mg": 39,
+        "protein_g": 0.04,
+        "fiber_g": 0,
+        "iron_mg": 0.45,
+        "sodium_mg": 8
       }
     },
     "rhubarb": {
@@ -1568,6 +2882,24 @@
         "sodium_mg": 39300
       }
     },
+    "salt and pepper": {
+      "display": "salt and pepper",
+      "fdcId": 2626438,
+      "name": "SALT AND PEPPER",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "sodium_mg": 30000
+      }
+    },
     "salt cod": {
       "display": "Salt cod",
       "fdcId": 1459823,
@@ -1603,6 +2935,24 @@
         "calcium_mg": 500,
         "iron_mg": 9,
         "sodium_mg": 1000
+      }
+    },
+    "shallot": {
+      "display": "shallot",
+      "fdcId": 2376111,
+      "name": "YOGURT SHALLOT DIP WITH LABNEH & SHALLOTS, LABNEH & SHALLOTS",
+      "dataType": "Branded",
+      "confidence": 0.71,
+      "per100g": {
+        "protein_g": 3.57,
+        "fat_g": 14.3,
+        "carbs_g": 7.14,
+        "kcal": 179,
+        "sugar_g": 3.57,
+        "fiber_g": 3.6,
+        "calcium_mg": 71,
+        "iron_mg": 0,
+        "potassium_mg": 250
       }
     },
     "shrimp": {
@@ -1679,6 +3029,24 @@
         "sodium_mg": 0
       }
     },
+    "suet": {
+      "display": "Suet",
+      "fdcId": 577476,
+      "name": "MARKETS OF MEIJER, BEEF SUET",
+      "dataType": "Branded",
+      "confidence": 0.74,
+      "per100g": {
+        "carbs_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "protein_g": 1.79,
+        "fat_g": 94.6,
+        "kcal": 857,
+        "sugar_g": 0,
+        "sodium_mg": 9
+      }
+    },
     "sugar": {
       "display": "sugar",
       "fdcId": 2707988,
@@ -1728,6 +3096,14 @@
         "sodium_mg": 0
       }
     },
+    "tomato": {
+      "display": "Tomato",
+      "fdcId": 2293024,
+      "name": "TOMATO",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {}
+    },
     "vanilla": {
       "display": "vanilla",
       "fdcId": 173471,
@@ -1745,6 +3121,43 @@
         "iron_mg": 0.12,
         "sodium_mg": 9,
         "sugar_g": 12.6
+      }
+    },
+    "vanilla custard": {
+      "display": "Vanilla custard",
+      "fdcId": 2705682,
+      "name": "Custard",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 5.08,
+        "fat_g": 3.64,
+        "carbs_g": 10.97,
+        "kcal": 97,
+        "sugar_g": 10.89,
+        "fiber_g": 0,
+        "calcium_mg": 117,
+        "iron_mg": 0.3,
+        "potassium_mg": 158,
+        "sodium_mg": 84
+      }
+    },
+    "vanilla sugar": {
+      "display": "vanilla sugar",
+      "fdcId": 170264,
+      "name": "Ice creams, BREYERS, No Sugar Added, Vanilla",
+      "dataType": "SR Legacy",
+      "confidence": 0.9,
+      "per100g": {
+        "fat_g": 6.2,
+        "carbs_g": 21.9,
+        "kcal": 143,
+        "sugar_g": 6.09,
+        "calcium_mg": 133,
+        "protein_g": 3.68,
+        "fiber_g": 0.5,
+        "iron_mg": 0.09,
+        "sodium_mg": 66
       }
     },
     "venison": {
@@ -1800,6 +3213,24 @@
         "sodium_mg": 8
       }
     },
+    "well chilled": {
+      "display": "well chilled",
+      "fdcId": 175096,
+      "name": "Beverages, water, tap, well",
+      "dataType": "SR Legacy",
+      "confidence": 0.5,
+      "per100g": {
+        "fiber_g": 0,
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "calcium_mg": 3,
+        "potassium_mg": 0,
+        "iron_mg": 0,
+        "sodium_mg": 5
+      }
+    },
     "white bread": {
       "display": "White bread",
       "fdcId": 2056941,
@@ -1817,6 +3248,133 @@
         "iron_mg": 2.16,
         "potassium_mg": 100,
         "sodium_mg": 460
+      }
+    },
+    "white pepper": {
+      "display": "white pepper",
+      "fdcId": 170933,
+      "name": "Spices, pepper, white",
+      "dataType": "SR Legacy",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 10.4,
+        "iron_mg": 14.3,
+        "sodium_mg": 5,
+        "fat_g": 2.12,
+        "carbs_g": 68.6,
+        "kcal": 296,
+        "calcium_mg": 265,
+        "potassium_mg": 73,
+        "fiber_g": 26.2
+      }
+    },
+    "white wine": {
+      "display": "white wine",
+      "fdcId": 2710689,
+      "name": "Wine, white",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 0.07,
+        "fat_g": 0,
+        "carbs_g": 2.6,
+        "kcal": 82,
+        "sugar_g": 0.96,
+        "fiber_g": 0,
+        "calcium_mg": 9,
+        "iron_mg": 0.27,
+        "potassium_mg": 71,
+        "sodium_mg": 5
+      }
+    },
+    "whole black peppercorns": {
+      "display": "whole black peppercorns",
+      "fdcId": 399185,
+      "name": "WHOLE BLACK PEPPERCORNS",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "fat_g": 0,
+        "carbs_g": 0,
+        "sodium_mg": 0,
+        "protein_g": 0,
+        "kcal": 0
+      }
+    },
+    "whole milk": {
+      "display": "whole milk",
+      "fdcId": 2620729,
+      "name": "WHOLE MILK",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 3.33,
+        "fat_g": 3.33,
+        "carbs_g": 5,
+        "kcal": 62,
+        "sugar_g": 5,
+        "fiber_g": 0,
+        "calcium_mg": 104,
+        "iron_mg": 0,
+        "potassium_mg": 88,
+        "sodium_mg": 52
+      }
+    },
+    "wild mushrooms": {
+      "display": "wild mushrooms",
+      "fdcId": 2710053,
+      "name": "Fried mushrooms",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.5,
+      "per100g": {
+        "protein_g": 4.63,
+        "fat_g": 12.91,
+        "carbs_g": 21.9,
+        "kcal": 222,
+        "sugar_g": 1.27,
+        "fiber_g": 1.6,
+        "calcium_mg": 27,
+        "iron_mg": 1.62,
+        "potassium_mg": 217,
+        "sodium_mg": 317
+      }
+    },
+    "yeast": {
+      "display": "yeast",
+      "fdcId": 2710005,
+      "name": "Yeast",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.2,
+      "per100g": {
+        "protein_g": 40.44,
+        "fat_g": 7.61,
+        "carbs_g": 41.22,
+        "kcal": 325,
+        "sugar_g": 0,
+        "fiber_g": 26.9,
+        "calcium_mg": 30,
+        "iron_mg": 2.17,
+        "potassium_mg": 955,
+        "sodium_mg": 51
+      }
+    },
+    "yellow split peas": {
+      "display": "yellow split peas",
+      "fdcId": 2406579,
+      "name": "YELLOW SPLIT PEAS",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 20,
+        "fat_g": 0,
+        "carbs_g": 62.9,
+        "kcal": 257,
+        "sugar_g": 2.86,
+        "fiber_g": 22.9,
+        "calcium_mg": 0,
+        "iron_mg": 4.86,
+        "potassium_mg": 800,
+        "sodium_mg": 14
       }
     }
   }
