@@ -1,0 +1,5255 @@
+{
+  "bundle": "ingredient-dictionary",
+  "source": "USDA FoodData Central (foods/search)",
+  "fetchedAt": "2026-09-11T09:55:34.372Z",
+  "note": "Subset of the TrueAPI portfolio ingredient dictionary for norcook (entries tagged in sites[]). Refresh: DICTIONARY_PATH=<updated bundle> node scripts/build-nutrition.mjs",
+  "entries": {
+    "alderwood": {
+      "display": "Alderwood",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "almond": {
+      "display": "Almond",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2707533,
+      "name": "Almond butter",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.9,
+      "per100g": {
+        "protein_g": 20.67,
+        "fat_g": 52.72,
+        "carbs_g": 21.11,
+        "kcal": 641,
+        "sugar_g": 4.4,
+        "fiber_g": 9.6,
+        "calcium_mg": 263,
+        "iron_mg": 4.08,
+        "potassium_mg": 741,
+        "sodium_mg": 232
+      },
+      "resolved": true
+    },
+    "almond potatoes": {
+      "display": "Almond potatoes",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "almonds": {
+      "display": "Almonds",
+      "sites": [
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2433310,
+      "name": "ALMONDS",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 20,
+        "fat_g": 50,
+        "carbs_g": 20,
+        "kcal": 603,
+        "sugar_g": 3.33,
+        "fiber_g": 13.3,
+        "calcium_mg": 367,
+        "iron_mg": 4.2,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "apple": {
+      "display": "apple",
+      "sites": [
+        "colombia-by-fire",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 454004,
+      "name": "APPLE",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "calcium_mg": 0,
+        "iron_mg": 0.23,
+        "sodium_mg": 0,
+        "protein_g": 0,
+        "carbs_g": 14.3,
+        "kcal": 52,
+        "sugar_g": 10.4,
+        "fiber_g": 3.2,
+        "potassium_mg": 110,
+        "fat_g": 0.65
+      },
+      "resolved": true
+    },
+    "apples": {
+      "display": "Apples",
+      "sites": [
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "fdcId": 577833,
+      "name": "APPLES",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "fat_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0.23,
+        "sodium_mg": 0,
+        "protein_g": 0,
+        "carbs_g": 14.3,
+        "kcal": 52,
+        "sugar_g": 10.4,
+        "fiber_g": 3.2,
+        "potassium_mg": 110
+      },
+      "resolved": true
+    },
+    "arctic char": {
+      "display": "Arctic char",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "bacon": {
+      "display": "bacon",
+      "sites": [
+        "colombia-by-fire",
+        "gochujang",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 1886337,
+      "name": "BACON",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 26.7,
+        "fat_g": 40,
+        "carbs_g": 0,
+        "kcal": 467,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 2.4,
+        "sodium_mg": 1730
+      },
+      "resolved": true
+    },
+    "baking powder": {
+      "display": "baking powder",
+      "sites": [
+        "Bangersandmash",
+        "colombia-by-fire",
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "silk-spice-archive",
+        "skillet",
+        "Soup-Imitation",
+        "taquiza-recipe-platform",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2427024,
+      "name": "BAKING POWDER",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "potassium_mg": 0,
+        "sodium_mg": 10800
+      },
+      "resolved": true
+    },
+    "bark removed": {
+      "display": "bark removed",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "barley": {
+      "display": "Barley",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2708361,
+      "name": "Barley",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 2.2,
+        "fat_g": 2.74,
+        "carbs_g": 27.23,
+        "kcal": 139,
+        "sugar_g": 0.28,
+        "fiber_g": 3.7,
+        "calcium_mg": 11,
+        "iron_mg": 1.28,
+        "potassium_mg": 90,
+        "sodium_mg": 199
+      },
+      "resolved": true
+    },
+    "barley flour": {
+      "display": "Barley flour",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2667706,
+      "name": "BARLEY FLOUR",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 10,
+        "fat_g": 1.67,
+        "carbs_g": 80,
+        "kcal": 367,
+        "sugar_g": 0,
+        "fiber_g": 10,
+        "calcium_mg": 27,
+        "iron_mg": 3.33,
+        "potassium_mg": 327,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "barley or wheat flour": {
+      "display": "barley or wheat flour",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "bay leaf": {
+      "display": "bay leaf",
+      "sites": [
+        "Bangersandmash",
+        "hongkitchen",
+        "modern-heritage-kitchen",
+        "norcook",
+        "silk-spice-archive",
+        "taquiza-recipe-platform"
+      ],
+      "fdcId": 2103259,
+      "name": "BAY LEAF",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "bay leaves": {
+      "display": "bay leaves",
+      "sites": [
+        "Bangersandmash",
+        "colombia-by-fire",
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "silk-spice-archive",
+        "taquiza-recipe-platform",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2642856,
+      "name": "BAY LEAVES",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "beaten egg": {
+      "display": "beaten egg",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "beef": {
+      "display": "beef",
+      "sites": [
+        "colombia-by-fire",
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2056092,
+      "name": "BEEF",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 20,
+        "fat_g": 5.88,
+        "carbs_g": 0,
+        "kcal": 129,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 4.24,
+        "sodium_mg": 212
+      },
+      "resolved": true
+    },
+    "beef broth": {
+      "display": "beef broth",
+      "sites": [
+        "colombia-by-fire",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2076911,
+      "name": "BEEF BROTH",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0.82,
+        "fat_g": 0,
+        "carbs_g": 0.41,
+        "kcal": 4,
+        "sugar_g": 0,
+        "sodium_mg": 363
+      },
+      "resolved": true
+    },
+    "beef chuck": {
+      "display": "beef chuck",
+      "sites": [
+        "colombia-by-fire",
+        "gochujang",
+        "medina",
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "beef meatballs": {
+      "display": "Beef meatballs",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "beef or mutton": {
+      "display": "beef or mutton",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "beef soup meat": {
+      "display": "beef soup meat",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "beef stock": {
+      "display": "beef stock",
+      "sites": [
+        "Bangersandmash",
+        "gochujang",
+        "hongkitchen",
+        "norcook",
+        "silk-spice-archive",
+        "skillet",
+        "the-neon-griddle"
+      ],
+      "fdcId": 2139774,
+      "name": "BEEF STOCK",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 1.22,
+        "fat_g": 0,
+        "carbs_g": 0.82,
+        "kcal": 8,
+        "sugar_g": 0.41,
+        "fiber_g": 0,
+        "calcium_mg": 4,
+        "iron_mg": 0.04,
+        "potassium_mg": 24,
+        "sodium_mg": 208
+      },
+      "resolved": true
+    },
+    "beef suet": {
+      "display": "beef suet",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "beetroot": {
+      "display": "Beetroot",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "bicarbonate of soda": {
+      "display": "bicarbonate of soda",
+      "sites": [
+        "Bangersandmash",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "birch smoke": {
+      "display": "Birch smoke",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "birch sticks": {
+      "display": "Birch sticks",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "biscuit base": {
+      "display": "Biscuit base",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "black olives and crusty bread": {
+      "display": "Black olives and crusty bread",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "black pepper": {
+      "display": "black pepper",
+      "sites": [
+        "hongkitchen",
+        "kbbqguide",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "silk-spice-archive",
+        "taquiza-recipe-platform",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2157235,
+      "name": "BLACK PEPPER",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 167,
+        "kcal": 0,
+        "sugar_g": 0,
+        "fiber_g": 41.7,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "black peppercorns": {
+      "display": "black peppercorns",
+      "sites": [
+        "Bangersandmash",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "taquiza-recipe-platform"
+      ],
+      "fdcId": 2546173,
+      "name": "BLACK PEPPERCORNS",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "blanched almond": {
+      "display": "blanched almond",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "blood": {
+      "display": "Blood",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "blue mussels": {
+      "display": "Blue mussels",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "boiled": {
+      "display": "boiled",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2707513,
+      "name": "Peanuts, boiled",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.75,
+      "per100g": {
+        "protein_g": 13.5,
+        "fat_g": 22.01,
+        "carbs_g": 21.26,
+        "kcal": 318,
+        "sugar_g": 2.47,
+        "fiber_g": 8.8,
+        "calcium_mg": 55,
+        "iron_mg": 1.01,
+        "potassium_mg": 180,
+        "sodium_mg": 751
+      },
+      "resolved": true
+    },
+    "boiled and sliced": {
+      "display": "boiled and sliced",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "boiled cod": {
+      "display": "boiled cod",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "boiled cod fillet": {
+      "display": "boiled cod fillet",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "boiled lamb or mutton": {
+      "display": "boiled lamb or mutton",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "boiled potatoes": {
+      "display": "Boiled potatoes",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "boiled potatoes and fried bacon bits": {
+      "display": "Boiled potatoes and fried bacon bits",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "boiled potatoes and grated carrots": {
+      "display": "Boiled potatoes and grated carrots",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "boiled salted meat": {
+      "display": "Boiled salted meat",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "boiling water": {
+      "display": "boiling water",
+      "sites": [
+        "hongkitchen",
+        "medina",
+        "norcook",
+        "silk-spice-archive",
+        "skillet"
+      ],
+      "fdcId": 171662,
+      "name": "Cereals, oats, instant, fortified, plain, prepared with water (boiling water added or microwaved)",
+      "dataType": "SR Legacy",
+      "confidence": 0.73,
+      "per100g": {
+        "sugar_g": 0.46,
+        "calcium_mg": 80,
+        "potassium_mg": 61,
+        "fat_g": 1.36,
+        "carbs_g": 11.7,
+        "kcal": 68,
+        "fiber_g": 1.7,
+        "iron_mg": 5.96,
+        "sodium_mg": 49,
+        "protein_g": 2.37
+      },
+      "resolved": true
+    },
+    "bone stock": {
+      "display": "Bone stock",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "bread": {
+      "display": "Bread",
+      "sites": [
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2058078,
+      "name": "BREAD",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 3.57,
+        "fat_g": 0,
+        "carbs_g": 32.1,
+        "kcal": 146,
+        "sugar_g": 0,
+        "fiber_g": 3.6,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "sodium_mg": 354
+      },
+      "resolved": true
+    },
+    "breadcrumbs": {
+      "display": "breadcrumbs",
+      "sites": [
+        "colombia-by-fire",
+        "medina",
+        "norcook",
+        "skillet",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2290286,
+      "name": "BREADCRUMBS, ORIGINAL",
+      "dataType": "Branded",
+      "confidence": 0.9,
+      "per100g": {
+        "fat_g": 0,
+        "kcal": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0
+      },
+      "resolved": true
+    },
+    "breadcrumbs soaked in 100 ml milk": {
+      "display": "breadcrumbs soaked in 100 ml milk",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "broth": {
+      "display": "broth",
+      "sites": [
+        "colombia-by-fire",
+        "modern-heritage-kitchen",
+        "norcook"
+      ],
+      "fdcId": 498006,
+      "name": "BROTH",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "fat_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "protein_g": 0.42,
+        "carbs_g": 0.42,
+        "kcal": 2,
+        "sugar_g": 0.42,
+        "sodium_mg": 358
+      },
+      "resolved": true
+    },
+    "brown butter": {
+      "display": "Brown butter",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "brown cheese": {
+      "display": "Brown cheese",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "brown crab": {
+      "display": "Brown crab",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "brown goat\\'s cheese": {
+      "display": "brown goat\\'s cheese",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "brown sugar": {
+      "display": "brown sugar",
+      "sites": [
+        "colombia-by-fire",
+        "hongkitchen",
+        "kbbqguide",
+        "modern-heritage-kitchen",
+        "norcook",
+        "silk-spice-archive",
+        "skillet",
+        "taquiza-recipe-platform",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "brunost": {
+      "display": "Brunost",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "bundle of birch twigs": {
+      "display": "bundle of birch twigs",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "butter": {
+      "display": "butter",
+      "sites": [
+        "Bangersandmash",
+        "colombia-by-fire",
+        "gochujang",
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "recipe-reel",
+        "skillet",
+        "taquiza-recipe-platform",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2542726,
+      "name": "BUTTER",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 78.6,
+        "carbs_g": 0,
+        "kcal": 714,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "butter for cooking": {
+      "display": "butter for cooking",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "butter pastry": {
+      "display": "Butter pastry",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "buttermilk": {
+      "display": "buttermilk",
+      "sites": [
+        "Bangersandmash",
+        "norcook",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cabbage": {
+      "display": "cabbage",
+      "sites": [
+        "hongkitchen",
+        "medina",
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "fdcId": 170392,
+      "name": "Cabbage, kimchi",
+      "dataType": "SR Legacy",
+      "confidence": 0.9,
+      "per100g": {
+        "fat_g": 0.5,
+        "carbs_g": 2.4,
+        "kcal": 15,
+        "sugar_g": 1.06,
+        "calcium_mg": 33,
+        "potassium_mg": 151,
+        "protein_g": 1.1,
+        "fiber_g": 1.6,
+        "iron_mg": 2.5,
+        "sodium_mg": 498
+      },
+      "resolved": true
+    },
+    "candied peel": {
+      "display": "Candied peel",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "capers": {
+      "display": "capers",
+      "sites": [
+        "amore-a-tavola-ui",
+        "colombia-by-fire",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "the-neon-griddle"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "caraway": {
+      "display": "caraway",
+      "sites": [
+        "medina",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2670757,
+      "name": "CARAWAY",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "caraway seeds": {
+      "display": "caraway seeds",
+      "sites": [
+        "medina",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 579075,
+      "name": "CARAWAY SEEDS",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "fat_g": 0,
+        "carbs_g": 0,
+        "sodium_mg": 0,
+        "protein_g": 0,
+        "kcal": 0
+      },
+      "resolved": true
+    },
+    "cardamom": {
+      "display": "Cardamom",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "carrot": {
+      "display": "carrot",
+      "sites": [
+        "amore-a-tavola-ui",
+        "colombia-by-fire",
+        "gochujang",
+        "hongkitchen",
+        "kbbqguide",
+        "norcook",
+        "Rollcraft-sushi",
+        "skillet",
+        "virality-food-app"
+      ],
+      "fdcId": 170500,
+      "name": "Carrot, dehydrated",
+      "dataType": "SR Legacy",
+      "confidence": 0.89,
+      "per100g": {
+        "sugar_g": 38.8,
+        "protein_g": 8.1,
+        "fiber_g": 23.6,
+        "iron_mg": 3.93,
+        "sodium_mg": 275,
+        "fat_g": 1.49,
+        "carbs_g": 79.6,
+        "kcal": 341,
+        "calcium_mg": 212,
+        "potassium_mg": 2540
+      },
+      "resolved": true
+    },
+    "carrot and 1 onion": {
+      "display": "carrot and 1 onion",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "carrots": {
+      "display": "carrots",
+      "sites": [
+        "colombia-by-fire",
+        "gochujang",
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "the-neon-griddle"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "carrots and 1 onion": {
+      "display": "carrots and 1 onion",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "caster sugar": {
+      "display": "caster sugar",
+      "sites": [
+        "amore-a-tavola-ui",
+        "Bangersandmash",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "caster sugar and ground cinnamon": {
+      "display": "caster sugar and ground cinnamon",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "chanterelles or other forest mushrooms": {
+      "display": "chanterelles or other forest mushrooms",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cheese": {
+      "display": "cheese",
+      "sites": [
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "chives": {
+      "display": "Chives",
+      "sites": [
+        "norcook",
+        "skillet",
+        "the-neon-griddle"
+      ],
+      "fdcId": 2673992,
+      "name": "CHIVES",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "chives to finish": {
+      "display": "chives to finish",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "chopped tarragon": {
+      "display": "chopped tarragon",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "chopped tomatoes": {
+      "display": "chopped tomatoes",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cinnamon": {
+      "display": "cinnamon",
+      "sites": [
+        "colombia-by-fire",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2670917,
+      "name": "CINNAMON",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "potassium_mg": 0,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "cleaned": {
+      "display": "cleaned",
+      "sites": [
+        "hongkitchen",
+        "norcook"
+      ],
+      "fdcId": 2622503,
+      "name": "CLEANED OCTOPUS",
+      "dataType": "Branded",
+      "confidence": 0.9,
+      "per100g": {
+        "protein_g": 14,
+        "fat_g": 0,
+        "carbs_g": 0.5,
+        "kcal": 60,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 50,
+        "iron_mg": 5.22,
+        "sodium_mg": 270
+      },
+      "resolved": true
+    },
+    "clear spiced mutton and beef broth": {
+      "display": "clear spiced mutton and beef broth",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cloudberries": {
+      "display": "Cloudberries",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cloves": {
+      "display": "cloves",
+      "sites": [
+        "colombia-by-fire",
+        "modern-heritage-kitchen",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "coarse salt": {
+      "display": "coarse salt",
+      "sites": [
+        "colombia-by-fire",
+        "kbbqguide",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "silk-spice-archive",
+        "skillet",
+        "taquiza-recipe-platform",
+        "the-neon-griddle"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "coconut": {
+      "display": "Coconut",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2167906,
+      "name": "COCONUT",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 3.57,
+        "fat_g": 35.7,
+        "carbs_g": 46.4,
+        "kcal": 500,
+        "sugar_g": 42.9,
+        "fiber_g": 3.6,
+        "calcium_mg": 0,
+        "iron_mg": 1.93,
+        "sodium_mg": 261
+      },
+      "resolved": true
+    },
+    "coconut oil": {
+      "display": "coconut oil",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2710182,
+      "name": "Coconut oil",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 99.1,
+        "carbs_g": 0.84,
+        "kcal": 895,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 1,
+        "iron_mg": 0.05,
+        "potassium_mg": 0,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "cod": {
+      "display": "Cod",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2099857,
+      "name": "COD",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 12.4,
+        "fat_g": 2.94,
+        "carbs_g": 5.29,
+        "kcal": 100,
+        "sugar_g": 0,
+        "fiber_g": 0.6,
+        "calcium_mg": 35,
+        "iron_mg": 0.85,
+        "sodium_mg": 418
+      },
+      "resolved": true
+    },
+    "cod liver": {
+      "display": "Cod liver",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cod roe": {
+      "display": "Cod roe",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "coffee": {
+      "display": "Coffee",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2091869,
+      "name": "COFFEE",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 2.38,
+        "fat_g": 23.8,
+        "carbs_g": 21.4,
+        "kcal": 310,
+        "sugar_g": 19,
+        "fiber_g": 0,
+        "calcium_mg": 48,
+        "iron_mg": 0,
+        "sodium_mg": 101
+      },
+      "resolved": true
+    },
+    "cognac": {
+      "display": "Cognac",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cold boiled potatoes": {
+      "display": "cold boiled potatoes",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cold milk": {
+      "display": "cold milk",
+      "sites": [
+        "colombia-by-fire",
+        "modern-heritage-kitchen",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cold rice porridge": {
+      "display": "cold rice porridge",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cooked cod": {
+      "display": "Cooked cod",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cooked egg yolk": {
+      "display": "Cooked egg yolk",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cornflour": {
+      "display": "cornflour",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cream": {
+      "display": "Cream",
+      "sites": [
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "fdcId": 170857,
+      "name": "Cream, fluid, light (coffee cream or table cream)",
+      "dataType": "SR Legacy",
+      "confidence": 0.9,
+      "per100g": {
+        "protein_g": 2.96,
+        "sodium_mg": 72,
+        "iron_mg": 0.05,
+        "fat_g": 19.1,
+        "sugar_g": 3.67,
+        "calcium_mg": 91,
+        "potassium_mg": 136,
+        "carbs_g": 3.66,
+        "kcal": 195,
+        "fiber_g": 0
+      },
+      "resolved": true
+    },
+    "cream and a ladle of the reserved steaming broth": {
+      "display": "cream and a ladle of the reserved steaming broth",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "crisp apple": {
+      "display": "crisp apple",
+      "sites": [
+        "kbbqguide",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "crisp flatbread": {
+      "display": "Crisp flatbread",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "crushed cardamom seeds": {
+      "display": "crushed cardamom seeds",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "crushed juniper berries and black pepper": {
+      "display": "Crushed juniper berries and black pepper",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "crushed white peppercorns": {
+      "display": "crushed white peppercorns",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "crusty bread": {
+      "display": "Crusty bread",
+      "sites": [
+        "norcook",
+        "silk-spice-archive",
+        "skillet",
+        "the-neon-griddle"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cucumber": {
+      "display": "cucumber",
+      "sites": [
+        "hongkitchen",
+        "modern-heritage-kitchen",
+        "norcook",
+        "Rollcraft-sushi",
+        "skillet",
+        "virality-food-app"
+      ],
+      "fdcId": 2709821,
+      "name": "Cucumber salad made with cucumber and vinegar",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.9,
+      "per100g": {
+        "protein_g": 0.5,
+        "fat_g": 0.13,
+        "carbs_g": 6.79,
+        "kcal": 34,
+        "sugar_g": 5.33,
+        "fiber_g": 0.5,
+        "calcium_mg": 14,
+        "iron_mg": 0.07,
+        "potassium_mg": 137,
+        "sodium_mg": 236
+      },
+      "resolved": true
+    },
+    "cured ham": {
+      "display": "Cured ham",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "cured lamb": {
+      "display": "Cured lamb",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "curry powder": {
+      "display": "curry powder",
+      "sites": [
+        "hongkitchen",
+        "norcook",
+        "silk-spice-archive"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "dark chocolate": {
+      "display": "dark chocolate",
+      "sites": [
+        "gochujang",
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "dark or golden syrup": {
+      "display": "dark or golden syrup",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "dijon": {
+      "display": "Dijon",
+      "sites": [
+        "norcook",
+        "the-neon-griddle"
+      ],
+      "fdcId": 1132945,
+      "name": "DIJON MUSTARD, DIJON",
+      "dataType": "Branded",
+      "confidence": 0.9,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sodium_mg": 1100
+      },
+      "resolved": true
+    },
+    "dill": {
+      "display": "Dill",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 324653,
+      "name": "Pickles, cucumber, dill or kosher dill",
+      "dataType": "Foundation",
+      "confidence": 1.25,
+      "per100g": {
+        "sodium_mg": 808,
+        "calcium_mg": 54,
+        "potassium_mg": 112,
+        "fat_g": 0.43,
+        "carbs_g": 1.99,
+        "protein_g": 0.48,
+        "fiber_g": 1,
+        "iron_mg": 0.23,
+        "kcal": 12
+      },
+      "resolved": true
+    },
+    "dill sprigs": {
+      "display": "dill sprigs",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "double cream": {
+      "display": "double cream",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "double cream and a spoonful of rowanberry jelly": {
+      "display": "double cream and a spoonful of rowanberry jelly",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "dried thyme": {
+      "display": "dried thyme",
+      "sites": [
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "taquiza-recipe-platform"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "dried yeast": {
+      "display": "dried yeast",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "dry breadcrumbs or crushed rusks": {
+      "display": "dry breadcrumbs or crushed rusks",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "dry white wine": {
+      "display": "dry white wine",
+      "sites": [
+        "amore-a-tavola-ui",
+        "modern-heritage-kitchen",
+        "norcook",
+        "silk-spice-archive",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "dry yeast": {
+      "display": "dry yeast",
+      "sites": [
+        "medina",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "dry-cured": {
+      "display": "dry-cured",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "egg": {
+      "display": "egg",
+      "sites": [
+        "colombia-by-fire",
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2575290,
+      "name": "EGG",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 6.41,
+        "fat_g": 28.8,
+        "carbs_g": 57.7,
+        "kcal": 513,
+        "sugar_g": 54.5,
+        "fiber_g": 3.2,
+        "calcium_mg": 128,
+        "iron_mg": 0,
+        "sodium_mg": 176
+      },
+      "resolved": true
+    },
+    "egg beaten with a splash of milk": {
+      "display": "egg beaten with a splash of milk",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "egg white": {
+      "display": "egg white",
+      "sites": [
+        "hongkitchen",
+        "norcook"
+      ],
+      "fdcId": 2707334,
+      "name": "Egg white sandwich",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.89,
+      "per100g": {
+        "protein_g": 9.41,
+        "fat_g": 3.62,
+        "carbs_g": 24.1,
+        "kcal": 166,
+        "sugar_g": 2.16,
+        "fiber_g": 1.8,
+        "calcium_mg": 89,
+        "iron_mg": 2.13,
+        "potassium_mg": 130,
+        "sodium_mg": 357
+      },
+      "resolved": true
+    },
+    "egg whites": {
+      "display": "egg whites",
+      "sites": [
+        "colombia-by-fire",
+        "norcook",
+        "skillet",
+        "the-neon-griddle"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "egg yolk": {
+      "display": "egg yolk",
+      "sites": [
+        "Bangersandmash",
+        "hongkitchen",
+        "medina",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 748236,
+      "name": "Eggs, Grade A, Large, egg yolk",
+      "dataType": "Foundation",
+      "confidence": 0.73,
+      "per100g": {
+        "fat_g": 28.8,
+        "protein_g": 16.2,
+        "carbs_g": 1.02,
+        "kcal": 334
+      },
+      "resolved": true
+    },
+    "egg yolks": {
+      "display": "egg yolks",
+      "sites": [
+        "amore-a-tavola-ui",
+        "colombia-by-fire",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "eggs": {
+      "display": "eggs",
+      "sites": [
+        "Bangersandmash",
+        "colombia-by-fire",
+        "gochujang",
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "Rollcraft-sushi",
+        "taquiza-recipe-platform",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2498468,
+      "name": "EGGS",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 3.57,
+        "fat_g": 35.7,
+        "carbs_g": 57.1,
+        "kcal": 571,
+        "sugar_g": 53.6,
+        "fiber_g": 0,
+        "calcium_mg": 71,
+        "iron_mg": 1.29,
+        "sodium_mg": 107
+      },
+      "resolved": true
+    },
+    "fast-action yeast": {
+      "display": "fast-action yeast",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fenalår and morrpølse": {
+      "display": "fenalår and morrpølse",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fennel": {
+      "display": "fennel",
+      "sites": [
+        "hongkitchen",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fine sea salt": {
+      "display": "fine sea salt",
+      "sites": [
+        "Bangersandmash",
+        "kbbqguide",
+        "norcook",
+        "silk-spice-archive",
+        "skillet",
+        "taquiza-recipe-platform"
+      ],
+      "fdcId": 2130543,
+      "name": "FINE SEA SALT",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sodium_mg": 39300
+      },
+      "resolved": true
+    },
+    "firm white fish": {
+      "display": "firm white fish",
+      "sites": [
+        "colombia-by-fire",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fish ball broth": {
+      "display": "fish ball broth",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fish balls": {
+      "display": "fish balls",
+      "sites": [
+        "hongkitchen",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fjord shrimp": {
+      "display": "Fjord shrimp",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "flaked": {
+      "display": "flaked",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "flatbread": {
+      "display": "Flatbread",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "flatbrød": {
+      "display": "Flatbrød",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "flour": {
+      "display": "flour",
+      "sites": [
+        "colombia-by-fire",
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2671058,
+      "name": "FLOUR",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 6.67,
+        "fat_g": 0,
+        "carbs_g": 70,
+        "kcal": 333,
+        "iron_mg": 3.6,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "fresh beef or pork blood": {
+      "display": "fresh beef or pork blood",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fresh berries": {
+      "display": "fresh berries",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fresh blood": {
+      "display": "fresh blood",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fresh blue mussels": {
+      "display": "fresh blue mussels",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fresh cod": {
+      "display": "Fresh cod",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fresh cod cutlets": {
+      "display": "fresh cod cutlets",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fresh cod fillets": {
+      "display": "fresh cod fillets",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fresh dill": {
+      "display": "Fresh dill",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fresh live brown crabs": {
+      "display": "fresh live brown crabs",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fresh live lobster": {
+      "display": "fresh live lobster",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fresh mackerel fillets": {
+      "display": "fresh mackerel fillets",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fresh or frozen cloudberries": {
+      "display": "fresh or frozen cloudberries",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fresh parsley": {
+      "display": "fresh parsley",
+      "sites": [
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "the-neon-griddle"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fresh shell-on coldwater shrimp": {
+      "display": "fresh shell-on coldwater shrimp",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fresh yeast": {
+      "display": "fresh yeast",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "freshly ground cardamom": {
+      "display": "freshly ground cardamom",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fried bacon": {
+      "display": "fried bacon",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "frozen shaved reindeer": {
+      "display": "frozen shaved reindeer",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "fruit juice": {
+      "display": "Fruit juice",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "game stock": {
+      "display": "Game stock",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "garlic": {
+      "display": "garlic",
+      "sites": [
+        "colombia-by-fire",
+        "gochujang",
+        "hongkitchen",
+        "kbbqguide",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "recipe-reel",
+        "Rollcraft-sushi",
+        "skillet",
+        "taquiza-recipe-platform",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 1662203,
+      "name": "GARLIC",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 33.3,
+        "kcal": 167,
+        "calcium_mg": 667,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "gelatine": {
+      "display": "gelatine",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "ginger": {
+      "display": "ginger",
+      "sites": [
+        "gochujang",
+        "hongkitchen",
+        "medina",
+        "norcook",
+        "virality-food-app"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "ginger and cloves": {
+      "display": "ginger and cloves",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "golden syrup": {
+      "display": "golden syrup",
+      "sites": [
+        "Bangersandmash",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "golden syrup or sugar": {
+      "display": "golden syrup or sugar",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "good fish stock": {
+      "display": "good fish stock",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "good-quality mayonnaise": {
+      "display": "good-quality mayonnaise",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "grated coconut": {
+      "display": "grated coconut",
+      "sites": [
+        "colombia-by-fire",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "gravy": {
+      "display": "Gravy",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "green cabbage": {
+      "display": "green cabbage",
+      "sites": [
+        "kbbqguide",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2384822,
+      "name": "GREEN CABBAGE",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 1.18,
+        "fat_g": 0,
+        "carbs_g": 5.88,
+        "kcal": 24,
+        "sugar_g": 3.53,
+        "fiber_g": 2.4,
+        "calcium_mg": 40,
+        "iron_mg": 0.47,
+        "potassium_mg": 171,
+        "sodium_mg": 18
+      },
+      "resolved": true
+    },
+    "green pea purée and boiled potatoes": {
+      "display": "green pea purée and boiled potatoes",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "green peas": {
+      "display": "green peas",
+      "sites": [
+        "hongkitchen",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2406466,
+      "name": "GREEN PEAS",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 4.49,
+        "fat_g": 0,
+        "carbs_g": 13.5,
+        "kcal": 67,
+        "sugar_g": 4.49,
+        "fiber_g": 4.5,
+        "calcium_mg": 0,
+        "iron_mg": 1.24,
+        "potassium_mg": 101,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "grilled asparagus and boiled potatoes": {
+      "display": "Grilled asparagus and boiled potatoes",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "ground": {
+      "display": "ground",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "ground allspice": {
+      "display": "ground allspice",
+      "sites": [
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "taquiza-recipe-platform"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "ground almonds": {
+      "display": "ground almonds",
+      "sites": [
+        "Bangersandmash",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "ground anise or fennel seeds": {
+      "display": "ground anise or fennel seeds",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "ground beef": {
+      "display": "ground beef",
+      "sites": [
+        "colombia-by-fire",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "silk-spice-archive",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 1942314,
+      "name": "GROUND BEEF",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 17,
+        "fat_g": 26.8,
+        "carbs_g": 0,
+        "kcal": 312,
+        "calcium_mg": 18,
+        "iron_mg": 1.61,
+        "sodium_mg": 67
+      },
+      "resolved": true
+    },
+    "ground cardamom": {
+      "display": "ground cardamom",
+      "sites": [
+        "medina",
+        "norcook",
+        "silk-spice-archive"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "ground cloves": {
+      "display": "ground cloves",
+      "sites": [
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook"
+      ],
+      "fdcId": 579072,
+      "name": "GROUND CLOVES",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "fat_g": 0,
+        "carbs_g": 0,
+        "sodium_mg": 0,
+        "protein_g": 0,
+        "kcal": 0
+      },
+      "resolved": true
+    },
+    "ground ginger": {
+      "display": "ground ginger",
+      "sites": [
+        "Bangersandmash",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "ground nutmeg": {
+      "display": "ground nutmeg",
+      "sites": [
+        "medina",
+        "norcook"
+      ],
+      "fdcId": 384464,
+      "name": "GROUND NUTMEG",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "fat_g": 0,
+        "carbs_g": 0,
+        "sodium_mg": 0,
+        "protein_g": 0,
+        "kcal": 0
+      },
+      "resolved": true
+    },
+    "ground pork": {
+      "display": "ground pork",
+      "sites": [
+        "hongkitchen",
+        "kbbqguide",
+        "norcook",
+        "silk-spice-archive"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "ground suet": {
+      "display": "ground suet",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "gáhkku bread": {
+      "display": "Gáhkku bread",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "gáhkku flatbread": {
+      "display": "Gáhkku flatbread",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "halibut": {
+      "display": "halibut",
+      "sites": [
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook"
+      ],
+      "fdcId": 2100197,
+      "name": "HALIBUT",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 20.6,
+        "fat_g": 1.76,
+        "carbs_g": 0,
+        "kcal": 106,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 24,
+        "iron_mg": 1.06,
+        "sodium_mg": 53
+      },
+      "resolved": true
+    },
+    "ham broth or water": {
+      "display": "ham broth or water",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "hard-boiled egg": {
+      "display": "hard-boiled egg",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "hard-boiled egg yolks": {
+      "display": "hard-boiled egg yolks",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "heavy cream": {
+      "display": "heavy cream",
+      "sites": [
+        "colombia-by-fire",
+        "gochujang",
+        "modern-heritage-kitchen",
+        "norcook",
+        "silk-spice-archive",
+        "skillet",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2384647,
+      "name": "HEAVY CREAM",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 40,
+        "carbs_g": 6.67,
+        "kcal": 400,
+        "sugar_g": 6.67,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "potassium_mg": 0,
+        "sodium_mg": 33
+      },
+      "resolved": true
+    },
+    "heavy whipping cream": {
+      "display": "Heavy Whipping Cream",
+      "sites": [
+        "modern-heritage-kitchen",
+        "norcook",
+        "the-neon-griddle"
+      ],
+      "fdcId": 2433599,
+      "name": "HEAVY WHIPPING CREAM",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 40,
+        "carbs_g": 0,
+        "kcal": 400,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 80,
+        "iron_mg": 0,
+        "potassium_mg": 100,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "herb butter": {
+      "display": "Herb butter",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "hog casings": {
+      "display": "Hog casings",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "hot black coffee": {
+      "display": "Hot black coffee",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "icing": {
+      "display": "Icing",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 1912464,
+      "name": "ICING",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 25.7,
+        "carbs_g": 65.7,
+        "kcal": 486,
+        "sugar_g": 62.9,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "sodium_mg": 114
+      },
+      "resolved": true
+    },
+    "icing sugar": {
+      "display": "icing sugar",
+      "sites": [
+        "Bangersandmash",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "icing sugar whisked with a little water": {
+      "display": "icing sugar whisked with a little water",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "juniper": {
+      "display": "Juniper",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "juniper berries": {
+      "display": "juniper berries",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 1851575,
+      "name": "SCRUMPTIOUS PANTRY, TOMATO CATSUP, EARTHY WITH ROSEMARY AND JUNIPER BERRIES, EARTHY WITH ROSEMARY AND JUNIPER BERRIES",
+      "dataType": "Branded",
+      "confidence": 0.93,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 12.5,
+        "kcal": 62,
+        "sugar_g": 6.25,
+        "fiber_g": 0,
+        "sodium_mg": 375
+      },
+      "resolved": true
+    },
+    "kept well chilled": {
+      "display": "kept well chilled",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "klippfisk": {
+      "display": "klippfisk",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "krumkake cones": {
+      "display": "Krumkake cones",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "lamb": {
+      "display": "lamb",
+      "sites": [
+        "hongkitchen",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2628046,
+      "name": "LAMB",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 17,
+        "fat_g": 20.5,
+        "carbs_g": 0,
+        "kcal": 259,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 1.45,
+        "sodium_mg": 76
+      },
+      "resolved": true
+    },
+    "lamb leg": {
+      "display": "Lamb leg",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "lamb ribs": {
+      "display": "Lamb ribs",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "lard": {
+      "display": "lard",
+      "sites": [
+        "Bangersandmash",
+        "colombia-by-fire",
+        "hongkitchen",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "taquiza-recipe-platform",
+        "the-neon-griddle"
+      ],
+      "fdcId": 2710166,
+      "name": "Lard",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 100,
+        "carbs_g": 0,
+        "kcal": 902,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "potassium_mg": 0,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "lard or vegetable oil": {
+      "display": "Lard or Vegetable Oil",
+      "sites": [
+        "modern-heritage-kitchen",
+        "norcook"
+      ],
+      "fdcId": 2710166,
+      "name": "Lard",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.88,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 100,
+        "carbs_g": 0,
+        "kcal": 902,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "potassium_mg": 0,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "large bunch dill": {
+      "display": "large bunch dill",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "leek": {
+      "display": "leek",
+      "sites": [
+        "medina",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "leg or loin": {
+      "display": "leg or loin",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "leipäjuusto cheese": {
+      "display": "Leipäjuusto cheese",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "lemon": {
+      "display": "lemon",
+      "sites": [
+        "amore-a-tavola-ui",
+        "medina",
+        "norcook",
+        "recipe-reel",
+        "Rollcraft-sushi",
+        "skillet",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "lemon juice": {
+      "display": "lemon juice",
+      "sites": [
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "Rollcraft-sushi",
+        "taquiza-recipe-platform",
+        "the-neon-griddle"
+      ],
+      "fdcId": 2438529,
+      "name": "LEMON JUICE",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "lemon wedges": {
+      "display": "Lemon wedges",
+      "sites": [
+        "medina",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "lingonberries": {
+      "display": "Lingonberries",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "lingonberries and fresh parsley": {
+      "display": "lingonberries and fresh parsley",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "lingonberry": {
+      "display": "Lingonberry",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "lingonberry jam and boiled peas": {
+      "display": "Lingonberry jam and boiled peas",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "lobster": {
+      "display": "Lobster",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "lye": {
+      "display": "Lye",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "macaroni": {
+      "display": "Macaroni",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2657989,
+      "name": "MACARONI",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 12.5,
+        "fat_g": 1.79,
+        "carbs_g": 73.2,
+        "kcal": 357,
+        "sugar_g": 0,
+        "fiber_g": 3.6,
+        "calcium_mg": 18,
+        "iron_mg": 3.57,
+        "potassium_mg": 196,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "mackerel": {
+      "display": "Mackerel",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2068438,
+      "name": "MACKEREL",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 25,
+        "fat_g": 5.36,
+        "carbs_g": 0,
+        "kcal": 161,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 71,
+        "iron_mg": 1.93,
+        "sodium_mg": 518
+      },
+      "resolved": true
+    },
+    "marzipan": {
+      "display": "Marzipan",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2612441,
+      "name": "CLASSIC MARZIPAN DARK CHOCOLATE FILLED WITH MARZIPAN, CLASSIC MARZIPAN",
+      "dataType": "Branded",
+      "confidence": 1.23,
+      "per100g": {
+        "protein_g": 10.7,
+        "fat_g": 35.7,
+        "carbs_g": 46.4,
+        "kcal": 571,
+        "sugar_g": 39.3,
+        "fiber_g": 7.1,
+        "calcium_mg": 107,
+        "iron_mg": 7.14,
+        "potassium_mg": 464,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "mashed": {
+      "display": "mashed",
+      "sites": [
+        "hongkitchen",
+        "norcook"
+      ],
+      "fdcId": 170699,
+      "name": "Fast foods, potato, mashed",
+      "dataType": "SR Legacy",
+      "confidence": 0.74,
+      "per100g": {
+        "protein_g": 1.65,
+        "fiber_g": 1.3,
+        "iron_mg": 0.31,
+        "sodium_mg": 306,
+        "fat_g": 2.82,
+        "carbs_g": 14.6,
+        "kcal": 89,
+        "sugar_g": 0.5,
+        "calcium_mg": 18,
+        "potassium_mg": 286
+      },
+      "resolved": true
+    },
+    "mayonnaise": {
+      "display": "mayonnaise",
+      "sites": [
+        "colombia-by-fire",
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "Rollcraft-sushi",
+        "silk-spice-archive",
+        "skillet",
+        "Soup-Imitation",
+        "taquiza-recipe-platform",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2009400,
+      "name": "MAYONNAISE",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 78.6,
+        "carbs_g": 0,
+        "kcal": 786,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "sodium_mg": 536
+      },
+      "resolved": true
+    },
+    "meat broth or water": {
+      "display": "meat broth or water",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "melted butter and chopped flat-leaf parsley": {
+      "display": "Melted butter and chopped flat-leaf parsley",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "meringue": {
+      "display": "Meringue",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "milk": {
+      "display": "milk",
+      "sites": [
+        "colombia-by-fire",
+        "gochujang",
+        "medina",
+        "norcook",
+        "skillet",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 1909132,
+      "name": "MILK",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 3.39,
+        "fat_g": 2.12,
+        "carbs_g": 5.08,
+        "kcal": 55,
+        "sugar_g": 5.08,
+        "fiber_g": 0,
+        "calcium_mg": 127,
+        "iron_mg": 0,
+        "sodium_mg": 55
+      },
+      "resolved": true
+    },
+    "milk or buttermilk": {
+      "display": "milk or buttermilk",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "minced pork": {
+      "display": "minced pork",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "molasses": {
+      "display": "molasses",
+      "sites": [
+        "colombia-by-fire",
+        "norcook"
+      ],
+      "fdcId": 2710283,
+      "name": "Molasses",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0.1,
+        "carbs_g": 74.73,
+        "kcal": 290,
+        "sugar_g": 74.72,
+        "fiber_g": 0,
+        "calcium_mg": 205,
+        "iron_mg": 4.72,
+        "potassium_mg": 1464,
+        "sodium_mg": 37
+      },
+      "resolved": true
+    },
+    "mountain trout": {
+      "display": "Mountain trout",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "multekrem": {
+      "display": "Multekrem",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "mushrooms": {
+      "display": "Mushrooms",
+      "sites": [
+        "norcook",
+        "skillet",
+        "the-neon-griddle"
+      ],
+      "fdcId": 2433755,
+      "name": "MUSHROOMS",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0.88,
+        "fat_g": 0,
+        "carbs_g": 1.76,
+        "kcal": 7,
+        "sugar_g": 0,
+        "fiber_g": 1.3,
+        "calcium_mg": 4,
+        "iron_mg": 0.44,
+        "potassium_mg": 48,
+        "sodium_mg": 119
+      },
+      "resolved": true
+    },
+    "mustard": {
+      "display": "Mustard",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2710085,
+      "name": "Mustard",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 4.25,
+        "fat_g": 3.38,
+        "carbs_g": 5.3,
+        "kcal": 69,
+        "sugar_g": 1.42,
+        "fiber_g": 4.3,
+        "calcium_mg": 63,
+        "iron_mg": 1.59,
+        "potassium_mg": 150,
+        "sodium_mg": 1100
+      },
+      "resolved": true
+    },
+    "mustard seeds": {
+      "display": "mustard seeds",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "mutton": {
+      "display": "mutton",
+      "sites": [
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "mutton or ham broth": {
+      "display": "mutton or ham broth",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "mutton or lamb on the bone": {
+      "display": "mutton or lamb on the bone",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "nutmeg": {
+      "display": "nutmeg",
+      "sites": [
+        "medina",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "oil": {
+      "display": "oil",
+      "sites": [
+        "colombia-by-fire",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "olive oil": {
+      "display": "olive oil",
+      "sites": [
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "silk-spice-archive",
+        "taquiza-recipe-platform",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2710186,
+      "name": "Olive oil",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 100,
+        "carbs_g": 0,
+        "kcal": 900,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 1,
+        "iron_mg": 0.56,
+        "potassium_mg": 1,
+        "sodium_mg": 2
+      },
+      "resolved": true
+    },
+    "on or off": {
+      "display": "on or off",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "onion": {
+      "display": "onion",
+      "sites": [
+        "amore-a-tavola-ui",
+        "colombia-by-fire",
+        "gochujang",
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "fdcId": 2438059,
+      "name": "ONION",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 10.9,
+        "fat_g": 0.78,
+        "carbs_g": 59.4,
+        "kcal": 289,
+        "sugar_g": 7.03,
+        "fiber_g": 2.3,
+        "calcium_mg": 16,
+        "iron_mg": 3.52,
+        "sodium_mg": 430
+      },
+      "resolved": true
+    },
+    "onions": {
+      "display": "onions",
+      "sites": [
+        "medina",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "pan drippings": {
+      "display": "pan drippings",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "parsley": {
+      "display": "Parsley",
+      "sites": [
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "pearl sugar": {
+      "display": "Pearl sugar",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "pearl sugar and one beaten egg": {
+      "display": "Pearl sugar and one beaten egg",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "peeled shrimp": {
+      "display": "peeled shrimp",
+      "sites": [
+        "colombia-by-fire",
+        "norcook",
+        "silk-spice-archive"
+      ],
+      "fdcId": 2639764,
+      "name": "PEELED SHRIMP",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 6.76,
+        "fat_g": 0.59,
+        "carbs_g": 0.29,
+        "kcal": 35,
+        "sugar_g": 0,
+        "fiber_g": 0.9,
+        "calcium_mg": 18,
+        "iron_mg": 0.53,
+        "sodium_mg": 35
+      },
+      "resolved": true
+    },
+    "pepper": {
+      "display": "pepper",
+      "sites": [
+        "colombia-by-fire",
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 1889244,
+      "name": "PEPPER",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 66.7,
+        "kcal": 333,
+        "sugar_g": 0,
+        "fiber_g": 33.3,
+        "calcium_mg": 437,
+        "iron_mg": 28.9,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "pepper and a pinch of sugar": {
+      "display": "pepper and a pinch of sugar",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "pepper and ground nutmeg": {
+      "display": "pepper and ground nutmeg",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "per bun": {
+      "display": "per bun",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "pickled beet liquid": {
+      "display": "pickled beet liquid",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "pickled beets": {
+      "display": "pickled beets",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "pickled herring": {
+      "display": "Pickled herring",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "pickled herring fillets": {
+      "display": "pickled herring fillets",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "pin-boned": {
+      "display": "pin-boned",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "pita or gáhkku flatbread": {
+      "display": "Pita or gáhkku flatbread",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "plain flour": {
+      "display": "plain flour",
+      "sites": [
+        "amore-a-tavola-ui",
+        "Bangersandmash",
+        "medina",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "pork belly": {
+      "display": "pork belly",
+      "sites": [
+        "colombia-by-fire",
+        "gochujang",
+        "hongkitchen",
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "fdcId": 2526071,
+      "name": "Pork Belly Skins",
+      "dataType": "Branded",
+      "confidence": 0.86,
+      "per100g": {
+        "protein_g": 7,
+        "fat_g": 66,
+        "carbs_g": 0,
+        "kcal": 621,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 22,
+        "iron_mg": 0.46,
+        "potassium_mg": 124,
+        "sodium_mg": 378
+      },
+      "resolved": true
+    },
+    "pork belly ribs": {
+      "display": "pork belly ribs",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "pork fat": {
+      "display": "pork fat",
+      "sites": [
+        "colombia-by-fire",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "pork loin": {
+      "display": "pork loin",
+      "sites": [
+        "hongkitchen",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 168320,
+      "name": "HORMEL ALWAYS TENDER, Boneless Pork Loin, Fresh Pork",
+      "dataType": "SR Legacy",
+      "confidence": 0.73,
+      "per100g": {
+        "carbs_g": 0.76,
+        "fat_g": 7.18,
+        "sugar_g": 0.08,
+        "protein_g": 19,
+        "iron_mg": 0.6,
+        "kcal": 145,
+        "calcium_mg": 4,
+        "potassium_mg": 310,
+        "sodium_mg": 358
+      },
+      "resolved": true
+    },
+    "pork roast with rind": {
+      "display": "pork roast with rind",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "potato": {
+      "display": "potato",
+      "sites": [
+        "gochujang",
+        "medina",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "potato mash": {
+      "display": "Potato mash",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "potato salad": {
+      "display": "Potato salad",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "potato starch": {
+      "display": "potato starch",
+      "sites": [
+        "gochujang",
+        "hongkitchen",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "potatoes": {
+      "display": "potatoes",
+      "sites": [
+        "colombia-by-fire",
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "virality-food-app"
+      ],
+      "fdcId": 1864190,
+      "name": "POTATOES",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 7.41,
+        "fat_g": 1.85,
+        "carbs_g": 74.1,
+        "kcal": 352,
+        "sugar_g": 14.8,
+        "fiber_g": 3.7,
+        "calcium_mg": 222,
+        "iron_mg": 1.33,
+        "potassium_mg": 1040,
+        "sodium_mg": 2220
+      },
+      "resolved": true
+    },
+    "pre-cooked": {
+      "display": "pre-cooked",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "prepared": {
+      "display": "prepared",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "prepared fermented rakfisk fillets": {
+      "display": "Prepared fermented rakfisk fillets",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "prepared horseradish": {
+      "display": "prepared horseradish",
+      "sites": [
+        "norcook",
+        "silk-spice-archive"
+      ],
+      "fdcId": 2434776,
+      "name": "PREPARED HORSERADISH",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "prepared lutefisk": {
+      "display": "prepared lutefisk",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "professionally produced": {
+      "display": "professionally produced",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "ptarmigan": {
+      "display": "Ptarmigan",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "raisins": {
+      "display": "raisins",
+      "sites": [
+        "colombia-by-fire",
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "raspberries": {
+      "display": "raspberries",
+      "sites": [
+        "Bangersandmash",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2009907,
+      "name": "RASPBERRIES",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0.7,
+        "fat_g": 0,
+        "carbs_g": 26.1,
+        "kcal": 106,
+        "sugar_g": 21.8,
+        "fiber_g": 4.2,
+        "calcium_mg": 14,
+        "iron_mg": 0.76,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "raspberry jam": {
+      "display": "raspberry jam",
+      "sites": [
+        "Bangersandmash",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 594992,
+      "name": "RASPBERRY JAM",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "fat_g": 0,
+        "protein_g": 0,
+        "carbs_g": 65,
+        "kcal": 250,
+        "sugar_g": 65
+      },
+      "resolved": true
+    },
+    "raw egg yolks": {
+      "display": "raw egg yolks",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "raw potato": {
+      "display": "Raw potato",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "raw potatoes": {
+      "display": "raw potatoes",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "ready-to-eat fenalår": {
+      "display": "ready-to-eat fenalår",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "reconstituted": {
+      "display": "reconstituted",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "red bell peppers": {
+      "display": "red bell peppers",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "red berries": {
+      "display": "Red berries",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "red cabbage": {
+      "display": "Red cabbage",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2406937,
+      "name": "RED CABBAGE",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 1.54,
+        "fat_g": 0,
+        "carbs_g": 11.5,
+        "kcal": 54,
+        "sugar_g": 7.69,
+        "fiber_g": 2.3,
+        "calcium_mg": 31,
+        "iron_mg": 0.28,
+        "sodium_mg": 523
+      },
+      "resolved": true
+    },
+    "red chilli": {
+      "display": "red chilli",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2029555,
+      "name": "RED CHILLI IN BRINE",
+      "dataType": "Branded",
+      "confidence": 0.9,
+      "per100g": {
+        "protein_g": 3.33,
+        "fat_g": 0,
+        "carbs_g": 6.67,
+        "kcal": 67,
+        "calcium_mg": 67,
+        "iron_mg": 1.2,
+        "sodium_mg": 167
+      },
+      "resolved": true
+    },
+    "red onion": {
+      "display": "Red onion",
+      "sites": [
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 1581588,
+      "name": "RED ONION",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0.68,
+        "fat_g": 0,
+        "carbs_g": 6.76,
+        "kcal": 30,
+        "sugar_g": 3.38,
+        "fiber_g": 1.4,
+        "calcium_mg": 14,
+        "iron_mg": 0,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "red onions": {
+      "display": "Red onions",
+      "sites": [
+        "norcook",
+        "skillet",
+        "the-neon-griddle"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "red wine": {
+      "display": "red wine",
+      "sites": [
+        "colombia-by-fire",
+        "gochujang",
+        "norcook",
+        "skillet",
+        "the-neon-griddle"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "redcurrant": {
+      "display": "Redcurrant",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "reindeer": {
+      "display": "Reindeer",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "reindeer meat": {
+      "display": "Reindeer meat",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "reindeer roast": {
+      "display": "reindeer roast",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "reindeer saddle": {
+      "display": "Reindeer saddle",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "rennet": {
+      "display": "rennet",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "reserved from the can": {
+      "display": "reserved from the can",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "rhubarb": {
+      "display": "Rhubarb",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2709268,
+      "name": "Rhubarb",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0.81,
+        "fat_g": 0.22,
+        "carbs_g": 17.45,
+        "kcal": 73,
+        "sugar_g": 14.4,
+        "fiber_g": 1.6,
+        "calcium_mg": 73,
+        "iron_mg": 0.2,
+        "potassium_mg": 233,
+        "sodium_mg": 4
+      },
+      "resolved": true
+    },
+    "rice pudding": {
+      "display": "Rice pudding",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "rich": {
+      "display": "rich",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 173182,
+      "name": "Beverages, rich chocolate, powder",
+      "dataType": "SR Legacy",
+      "confidence": 0.75,
+      "per100g": {
+        "fat_g": 0,
+        "sugar_g": 81.8,
+        "calcium_mg": 909,
+        "potassium_mg": 0,
+        "fiber_g": 0,
+        "iron_mg": 16.4,
+        "sodium_mg": 636,
+        "protein_g": 0,
+        "carbs_g": 93,
+        "kcal": 372
+      },
+      "resolved": true
+    },
+    "rind on": {
+      "display": "rind on",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "root vegetables": {
+      "display": "Root vegetables",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2433761,
+      "name": "ROOT VEGETABLES",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 1.18,
+        "fat_g": 0,
+        "carbs_g": 22.4,
+        "kcal": 94,
+        "sugar_g": 2.35,
+        "fiber_g": 4.7,
+        "calcium_mg": 66,
+        "iron_mg": 1.18,
+        "potassium_mg": 288,
+        "sodium_mg": 24
+      },
+      "resolved": true
+    },
+    "rosemary sprig": {
+      "display": "rosemary sprig",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "round wafers": {
+      "display": "Round wafers",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "royal icing": {
+      "display": "Royal icing",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 1929917,
+      "name": "ROYAL ICING",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 87.9,
+        "kcal": 364,
+        "sugar_g": 84.8,
+        "sodium_mg": 30
+      },
+      "resolved": true
+    },
+    "russet potatoes": {
+      "display": "russet potatoes",
+      "sites": [
+        "colombia-by-fire",
+        "norcook",
+        "skillet",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2060240,
+      "name": "RUSSET POTATOES",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 2.03,
+        "fat_g": 0,
+        "carbs_g": 17.6,
+        "kcal": 74,
+        "sugar_g": 0.68,
+        "fiber_g": 1.4,
+        "calcium_mg": 14,
+        "iron_mg": 0.73,
+        "potassium_mg": 419,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "rutabaga": {
+      "display": "Rutabaga",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 577891,
+      "name": "RUTABAGA",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "fat_g": 0,
+        "calcium_mg": 40,
+        "iron_mg": 0.36,
+        "protein_g": 1,
+        "carbs_g": 8,
+        "kcal": 40,
+        "sugar_g": 6,
+        "fiber_g": 3,
+        "sodium_mg": 3
+      },
+      "resolved": true
+    },
+    "rutabaga mash": {
+      "display": "Rutabaga mash",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "rye flour": {
+      "display": "Rye flour",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 1857447,
+      "name": "RYE FLOUR",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 10,
+        "fat_g": 3.33,
+        "carbs_g": 73.3,
+        "kcal": 300,
+        "sugar_g": 0,
+        "fiber_g": 16.7,
+        "calcium_mg": 0,
+        "iron_mg": 2.4,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "sachet dried yeast": {
+      "display": "sachet dried yeast",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "salmon fillet": {
+      "display": "Salmon fillet",
+      "sites": [
+        "norcook",
+        "Rollcraft-sushi",
+        "silk-spice-archive",
+        "skillet",
+        "virality-food-app"
+      ],
+      "fdcId": 1923159,
+      "name": "SALMON FILLET",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 22.1,
+        "fat_g": 7.08,
+        "carbs_g": 0,
+        "kcal": 150,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0.64,
+        "sodium_mg": 62
+      },
+      "resolved": true
+    },
+    "salt": {
+      "display": "salt",
+      "sites": [
+        "amore-a-tavola-ui",
+        "colombia-by-fire",
+        "hongkitchen",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "Rollcraft-sushi",
+        "silk-spice-archive",
+        "skillet",
+        "Soup-Imitation",
+        "taquiza-recipe-platform",
+        "virality-food-app"
+      ],
+      "fdcId": 2162651,
+      "name": "SALT",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 1330,
+        "kcal": 0,
+        "sodium_mg": 39300
+      },
+      "resolved": true
+    },
+    "salt and black pepper": {
+      "display": "Salt and black pepper",
+      "sites": [
+        "norcook",
+        "skillet",
+        "taquiza-recipe-platform"
+      ],
+      "fdcId": 2553722,
+      "name": "SALT & BLACK PEPPER IODIZED, SALT & BLACK PEPPER",
+      "dataType": "Branded",
+      "confidence": 0.91,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 0,
+        "iron_mg": 0,
+        "potassium_mg": 0,
+        "sodium_mg": 39300
+      },
+      "resolved": true
+    },
+    "salt and pepper": {
+      "display": "salt and pepper",
+      "sites": [
+        "colombia-by-fire",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "salt cod": {
+      "display": "Salt cod",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 1459823,
+      "name": "SALT COD",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 26.8,
+        "fat_g": 0.89,
+        "carbs_g": 0,
+        "kcal": 107,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 179,
+        "iron_mg": 1.14,
+        "potassium_mg": 0,
+        "sodium_mg": 6640
+      },
+      "resolved": true
+    },
+    "salt herring": {
+      "display": "Salt herring",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "salt per litre of cooking water": {
+      "display": "salt per litre of cooking water",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "salt per litre of water": {
+      "display": "salt per litre of water",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "salted and smoked sheep\\'s head": {
+      "display": "salted and smoked sheep\\'s head",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "salted herring fillets": {
+      "display": "salted herring fillets",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "salted meat": {
+      "display": "Salted meat",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "salted mutton ribs": {
+      "display": "salted mutton ribs",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "salted pork or bacon": {
+      "display": "salted pork or bacon",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "salted smoked ham or mutton": {
+      "display": "salted smoked ham or mutton",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "scored for crackling": {
+      "display": "scored for crackling",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "scrambled egg": {
+      "display": "Scrambled egg",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "sea salt": {
+      "display": "sea salt",
+      "sites": [
+        "Bangersandmash",
+        "medina",
+        "norcook",
+        "Rollcraft-sushi",
+        "taquiza-recipe-platform"
+      ],
+      "fdcId": 2665262,
+      "name": "SEA SALT",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 25,
+        "fat_g": 25,
+        "carbs_g": 25,
+        "kcal": 500,
+        "sugar_g": 0,
+        "fiber_g": 25,
+        "calcium_mg": 500,
+        "iron_mg": 9,
+        "sodium_mg": 1000
+      },
+      "resolved": true
+    },
+    "selection of cured meats: spekeskinke": {
+      "display": "selection of cured meats: spekeskinke",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "separated": {
+      "display": "separated",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "shallot": {
+      "display": "shallot",
+      "sites": [
+        "hongkitchen",
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "sheep\\'s head": {
+      "display": "Sheep\\'s head",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "shredded coconut": {
+      "display": "shredded coconut",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "shrimp": {
+      "display": "shrimp",
+      "sites": [
+        "colombia-by-fire",
+        "hongkitchen",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "fdcId": 1899566,
+      "name": "SHRIMP",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 11.8,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 47,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 71,
+        "iron_mg": 0.42,
+        "sodium_mg": 494
+      },
+      "resolved": true
+    },
+    "skin on": {
+      "display": "skin on",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "skinned": {
+      "display": "skinned",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "skjenning": {
+      "display": "Skjenning",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "sliced almonds": {
+      "display": "Sliced almonds",
+      "sites": [
+        "modern-heritage-kitchen",
+        "norcook"
+      ],
+      "fdcId": 2593873,
+      "name": "SLICED ALMONDS",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 21.2,
+        "fat_g": 51.5,
+        "carbs_g": 18.2,
+        "kcal": 545,
+        "sugar_g": 6.06,
+        "fiber_g": 12.1,
+        "calcium_mg": 182,
+        "iron_mg": 3.27,
+        "potassium_mg": 424,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "small onion": {
+      "display": "small onion",
+      "sites": [
+        "colombia-by-fire",
+        "medina",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "small potatoes": {
+      "display": "small potatoes",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "smoked arctic char fillet": {
+      "display": "smoked Arctic char fillet",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "smoked ham hock": {
+      "display": "Smoked Ham Hock",
+      "sites": [
+        "modern-heritage-kitchen",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "smoked pork": {
+      "display": "Smoked pork",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "smoked reindeer": {
+      "display": "Smoked reindeer",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "soddboller": {
+      "display": "soddboller",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "soft butter": {
+      "display": "soft butter",
+      "sites": [
+        "medina",
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "sour cream": {
+      "display": "sour cream",
+      "sites": [
+        "colombia-by-fire",
+        "norcook",
+        "silk-spice-archive",
+        "skillet",
+        "the-neon-griddle"
+      ],
+      "fdcId": 2288876,
+      "name": "SOUR CREAM",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 3.33,
+        "fat_g": 16.7,
+        "carbs_g": 6.67,
+        "kcal": 200,
+        "sugar_g": 3.33,
+        "fiber_g": 0,
+        "calcium_mg": 133,
+        "iron_mg": 0,
+        "potassium_mg": 167,
+        "sodium_mg": 50
+      },
+      "resolved": true
+    },
+    "sour cream and new potatoes": {
+      "display": "Sour cream and new potatoes",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "sponge": {
+      "display": "Sponge",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "stockfish": {
+      "display": "Stockfish",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "strained": {
+      "display": "strained",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "strawberries": {
+      "display": "strawberries",
+      "sites": [
+        "colombia-by-fire",
+        "kbbqguide",
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2377355,
+      "name": "STRAWBERRIES",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0.71,
+        "fat_g": 0,
+        "carbs_g": 9.29,
+        "kcal": 36,
+        "sugar_g": 4.29,
+        "calcium_mg": 14,
+        "iron_mg": 0.79,
+        "potassium_mg": 150,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "strawberry jam and brown cheese": {
+      "display": "strawberry jam and brown cheese",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "strong wheat flour": {
+      "display": "strong wheat flour",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "suet": {
+      "display": "Suet",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "sugar": {
+      "display": "sugar",
+      "sites": [
+        "amore-a-tavola-ui",
+        "colombia-by-fire",
+        "gochujang",
+        "hongkitchen",
+        "kbbqguide",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "Rollcraft-sushi",
+        "silk-spice-archive",
+        "skillet",
+        "taquiza-recipe-platform",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2707988,
+      "name": "Cookie, sugar or plain, sugar free",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.23,
+      "per100g": {
+        "protein_g": 10.34,
+        "fat_g": 31.03,
+        "carbs_g": 50.52,
+        "kcal": 523,
+        "sugar_g": 0,
+        "fiber_g": 3.4,
+        "calcium_mg": 0,
+        "iron_mg": 2.48,
+        "potassium_mg": 202,
+        "sodium_mg": 448
+      },
+      "resolved": true
+    },
+    "sugar and cinnamon": {
+      "display": "sugar and cinnamon",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "sugar and ground cinnamon": {
+      "display": "Sugar and ground cinnamon",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "sugar glaze": {
+      "display": "Sugar glaze",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "suovas": {
+      "display": "suovas",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "sweet applesauce": {
+      "display": "sweet applesauce",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "syrup": {
+      "display": "Syrup",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2150456,
+      "name": "SYRUP",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 102,
+        "kcal": 400,
+        "sugar_g": 56.7,
+        "sodium_mg": 83
+      },
+      "resolved": true
+    },
+    "thick": {
+      "display": "thick",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "thick custard": {
+      "display": "thick custard",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "thick halibut steaks": {
+      "display": "thick halibut steaks",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "thyme": {
+      "display": "thyme",
+      "sites": [
+        "Bangersandmash",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "fdcId": 2670766,
+      "name": "THYME",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0,
+        "kcal": 0,
+        "sugar_g": 0,
+        "sodium_mg": 0
+      },
+      "resolved": true
+    },
+    "to serve: eggesmør": {
+      "display": "To serve: eggesmør",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "tomato": {
+      "display": "Tomato",
+      "sites": [
+        "norcook",
+        "skillet",
+        "the-neon-griddle",
+        "virality-food-app"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "trout": {
+      "display": "Trout",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "vanilla": {
+      "display": "vanilla",
+      "sites": [
+        "colombia-by-fire",
+        "hongkitchen",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "the-neon-griddle"
+      ],
+      "fdcId": 173471,
+      "name": "Vanilla extract",
+      "dataType": "SR Legacy",
+      "confidence": 0.89,
+      "per100g": {
+        "calcium_mg": 11,
+        "potassium_mg": 148,
+        "fat_g": 0.06,
+        "carbs_g": 12.6,
+        "kcal": 288,
+        "protein_g": 0.06,
+        "fiber_g": 0,
+        "iron_mg": 0.12,
+        "sodium_mg": 9,
+        "sugar_g": 12.6
+      },
+      "resolved": true
+    },
+    "vanilla cream": {
+      "display": "Vanilla cream",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "vanilla custard": {
+      "display": "Vanilla custard",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "vanilla sugar": {
+      "display": "vanilla sugar",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "venison": {
+      "display": "Venison",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "fdcId": 2705916,
+      "name": "Venison sausage",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 0.9,
+      "per100g": {
+        "protein_g": 20.23,
+        "fat_g": 25.08,
+        "carbs_g": 0,
+        "kcal": 312,
+        "sugar_g": 0,
+        "fiber_g": 0,
+        "calcium_mg": 17,
+        "iron_mg": 2.43,
+        "potassium_mg": 287,
+        "sodium_mg": 829
+      },
+      "resolved": true
+    },
+    "venison roast": {
+      "display": "venison roast",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "vinegar": {
+      "display": "vinegar",
+      "sites": [
+        "colombia-by-fire",
+        "hongkitchen",
+        "modern-heritage-kitchen",
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "fdcId": 2709351,
+      "name": "Vinegar",
+      "dataType": "Survey (FNDDS)",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 0.93,
+        "kcal": 21,
+        "sugar_g": 0.4,
+        "fiber_g": 0,
+        "calcium_mg": 7,
+        "iron_mg": 0.2,
+        "potassium_mg": 73,
+        "sodium_mg": 5
+      },
+      "resolved": true
+    },
+    "vossakorv": {
+      "display": "Vossakorv",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "vossakorv and mashed swede": {
+      "display": "vossakorv and mashed swede",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "vossakorv sausage": {
+      "display": "vossakorv sausage",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "warm pea purée": {
+      "display": "Warm pea purée",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "warmed": {
+      "display": "warmed",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "water": {
+      "display": "water",
+      "sites": [
+        "Bangersandmash",
+        "colombia-by-fire",
+        "hongkitchen",
+        "kbbqguide",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "Rollcraft-sushi",
+        "silk-spice-archive",
+        "skillet",
+        "taquiza-recipe-platform",
+        "virality-food-app"
+      ],
+      "fdcId": 2047057,
+      "name": "WATER",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 10.8,
+        "kcal": 42,
+        "sugar_g": 10.8,
+        "sodium_mg": 8
+      },
+      "resolved": true
+    },
+    "well chilled": {
+      "display": "well chilled",
+      "sites": [
+        "modern-heritage-kitchen",
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "wheat flour": {
+      "display": "Wheat flour",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "whipping cream": {
+      "display": "whipping cream",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "white bread": {
+      "display": "White bread",
+      "sites": [
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "fdcId": 2056941,
+      "name": "WHITE BREAD",
+      "dataType": "Branded",
+      "confidence": 1.05,
+      "per100g": {
+        "protein_g": 8,
+        "fat_g": 3,
+        "carbs_g": 48,
+        "kcal": 260,
+        "sugar_g": 6,
+        "fiber_g": 2,
+        "calcium_mg": 120,
+        "iron_mg": 2.16,
+        "potassium_mg": 100,
+        "sodium_mg": 460
+      },
+      "resolved": true
+    },
+    "white cabbage": {
+      "display": "White cabbage",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "white fish": {
+      "display": "White fish",
+      "sites": [
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "white pepper": {
+      "display": "white pepper",
+      "sites": [
+        "hongkitchen",
+        "norcook",
+        "Rollcraft-sushi",
+        "silk-spice-archive",
+        "skillet",
+        "the-neon-griddle"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "white wine": {
+      "display": "white wine",
+      "sites": [
+        "colombia-by-fire",
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "white wine vinegar": {
+      "display": "white wine vinegar",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "whole allspice": {
+      "display": "whole allspice",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "whole black peppercorns": {
+      "display": "whole black peppercorns",
+      "sites": [
+        "norcook",
+        "silk-spice-archive"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "whole fresh mountain trout": {
+      "display": "whole fresh mountain trout",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "whole milk": {
+      "display": "whole milk",
+      "sites": [
+        "amore-a-tavola-ui",
+        "Bangersandmash",
+        "colombia-by-fire",
+        "gochujang",
+        "medina",
+        "modern-heritage-kitchen",
+        "norcook",
+        "silk-spice-archive",
+        "Soup-Imitation",
+        "taquiza-recipe-platform",
+        "the-neon-griddle"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "whole willow grouse": {
+      "display": "whole willow grouse",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "wholemeal or rye flour": {
+      "display": "wholemeal or rye flour",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "wild mushrooms": {
+      "display": "wild mushrooms",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "yeast": {
+      "display": "yeast",
+      "sites": [
+        "hongkitchen",
+        "medina",
+        "norcook",
+        "skillet",
+        "virality-food-app"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "yellow peas": {
+      "display": "Yellow peas",
+      "sites": [
+        "norcook"
+      ],
+      "resolved": false,
+      "confidence": 0
+    },
+    "yellow split peas": {
+      "display": "yellow split peas",
+      "sites": [
+        "norcook",
+        "skillet"
+      ],
+      "resolved": false,
+      "confidence": 0
+    }
+  }
+}

@@ -19,6 +19,7 @@ const [
   envExample,
   sitemap,
   governance,
+  nutritionArtifactRaw,
 ] = await Promise.all([
   read('lib', 'recipes.ts'),
   read('lib', 'recipe-safety.ts'),
@@ -33,6 +34,7 @@ const [
   read('.env.example'),
   read('app', 'sitemap.ts'),
   read('lib', 'governance.ts'),
+  read('lib', 'data', 'ingredient-nutrition.json'),
 ])
 
 const safetySensitiveSlugs = [
@@ -239,6 +241,53 @@ if (/name="email"|onSubmit=|JSON\.stringify\(/.test(newsletter)) {
   )
 }
 
+// --- Ingredient nutrition artifact (TrueAPI dictionary join) -----------------
+
+// The nutrition artifact is a committed build-time product of the portfolio
+// ingredient dictionary; it must always carry provenance and only resolved
+// entries, so nothing on a page can render an invented number.
+let nutritionArtifact
+try {
+  nutritionArtifact = JSON.parse(nutritionArtifactRaw)
+} catch {
+  failures.push('lib/data/ingredient-nutrition.json must be valid JSON')
+}
+if (nutritionArtifact) {
+  if (typeof nutritionArtifact.fetchedAt !== 'string' || !nutritionArtifact.fetchedAt) {
+    failures.push('Nutrition artifact must carry a fetchedAt snapshot stamp')
+  }
+  if (nutritionArtifact.sourceUrl !== 'https://fdc.nal.usda.gov') {
+    failures.push('Nutrition artifact must attribute USDA FoodData Central')
+  }
+  const nutritionEntries = Object.entries(nutritionArtifact.entries ?? {})
+  if (!nutritionEntries.length) {
+    failures.push('Nutrition artifact must contain at least one resolved entry')
+  }
+  for (const [key, entry] of nutritionEntries) {
+    if (!entry || typeof entry.per100g !== 'object' || entry.per100g === null) {
+      failures.push(`Nutrition entry "${key}" must carry per100g data`)
+      break
+    }
+    if (entry.fdcId === undefined || entry.name === undefined || entry.dataType === undefined) {
+      failures.push(`Nutrition entry "${key}" must carry FoodData Central provenance`)
+      break
+    }
+  }
+  if (
+    nutritionArtifact.coverage?.resolved !== nutritionEntries.length ||
+    typeof nutritionArtifact.coverage?.total !== 'number' ||
+    nutritionArtifact.coverage.total < nutritionEntries.length
+  ) {
+    failures.push('Nutrition artifact coverage counts must match its entries')
+  }
+  if (!recipes.includes('nutritionForIngredientLine')) {
+    failures.push('lib/recipes.ts must join ingredient nutrition through lib/nutrition')
+  }
+  if (!recipePage.includes('NUTRITION_ATTRIBUTION') || !recipePage.includes('NUTRITION_SOURCE_URL')) {
+    failures.push('Recipe pages must attribute USDA FoodData Central where its numbers show')
+  }
+}
+
 if (failures.length) {
   console.error(failures.join('\n'))
   process.exit(1)
@@ -246,5 +295,6 @@ if (failures.length) {
 
 console.log(
   `Content checks pass: ${recipeCount} recipes, ${safetySensitiveSlugs.length} safety records, ` +
-    `${regionSlugs.length} region hubs, ${seasonSlugLists.length} season hubs.`,
+    `${regionSlugs.length} region hubs, ${seasonSlugLists.length} season hubs, ` +
+    `${nutritionArtifact?.coverage?.resolved ?? 0}/${nutritionArtifact?.coverage?.total ?? 0} ingredient names nutrition-resolved.`,
 )

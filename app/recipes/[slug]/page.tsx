@@ -23,6 +23,26 @@ import { RecipeSafetyReview } from '@/components/recipe-safety-review'
 import { RecipeProvenanceBlock } from '@/components/recipe-provenance'
 import { SaveRecipeButton } from '@/components/save-recipe-button'
 import { ImageOpsFigure } from '@/components/imageops-visual'
+import {
+  NUTRITION_ATTRIBUTION,
+  NUTRITION_FETCHED_AT,
+  NUTRITION_SOURCE_URL,
+  type Per100gNutrition,
+} from '@/lib/nutrition'
+
+/** Modest muted per-100g nutrient line for one verified ingredient. */
+function Per100gLine({ per100g }: { per100g: Per100gNutrition }) {
+  const fmt = (value: number | undefined, unit: string) =>
+    value === undefined || value === null ? null : `${Math.round(value * 10) / 10} ${unit}`
+  const parts = [
+    fmt(per100g.kcal, 'kcal'),
+    fmt(per100g.protein_g, 'g protein'),
+    fmt(per100g.fat_g, 'g fat'),
+    fmt(per100g.carbs_g, 'g carbs'),
+  ].filter(Boolean)
+  if (parts.length === 0) return null
+  return <span className="block text-xs text-muted-foreground">{parts.join(' · ')} per 100 g</span>
+}
 
 export function generateStaticParams() {
   return RECIPES.map((r) => ({ slug: r.slug }))
@@ -245,16 +265,37 @@ export default async function RecipePage({
                 Ingredients
               </h2>
               <ul className="mt-5 flex flex-col gap-3">
-                {recipe.ingredients?.map((ing) => (
-                  <li
-                    key={ing}
-                    className="flex items-start gap-3 border-b border-border pb-3 text-sm leading-relaxed text-foreground/85 last:border-0"
-                  >
-                    <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-accent" />
-                    {ing}
-                  </li>
-                ))}
+                {recipe.ingredients?.map((ing) => {
+                  const nutrition = recipe.ingredientNutrition?.[ing]
+                  return (
+                    <li
+                      key={ing}
+                      className="flex items-start gap-3 border-b border-border pb-3 text-sm leading-relaxed text-foreground/85 last:border-0"
+                    >
+                      <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-accent" />
+                      <span>
+                        {ing}
+                        {nutrition ? <Per100gLine per100g={nutrition.per100g} /> : null}
+                      </span>
+                    </li>
+                  )
+                })}
               </ul>
+              {recipe.ingredientNutrition && Object.keys(recipe.ingredientNutrition).length > 0 ? (
+                <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+                  Per-100 g values shown for ingredients verified against{' '}
+                  <a
+                    href={NUTRITION_SOURCE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2 hover:text-foreground"
+                  >
+                    {NUTRITION_ATTRIBUTION}
+                  </a>
+                  {NUTRITION_FETCHED_AT ? ` (snapshot ${NUTRITION_FETCHED_AT.slice(0, 10)})` : ''}.
+                  Ingredients not yet verified show no nutrition line.
+                </p>
+              ) : null}
               {recipe.slug === 'gravlaks' && <ImageOpsFigure id="salmon" />}
 
               {recipe.tools && recipe.tools.length > 0 && (
