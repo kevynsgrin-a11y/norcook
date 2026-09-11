@@ -2,7 +2,7 @@
   "source": "TrueAPI portfolio ingredient dictionary (USDA FoodData Central)",
   "attribution": "Nutrition data: USDA FoodData Central",
   "sourceUrl": "https://fdc.nal.usda.gov",
-  "fetchedAt": "2026-09-11T17:23:19.789Z",
+  "fetchedAt": "2026-09-11T20:06:54.469Z",
   "coverage": {
     "resolved": 268,
     "total": 408
