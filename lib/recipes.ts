@@ -1,4 +1,5 @@
 import { RECIPE_DETAILS } from './recipe-details'
+import { nutritionForIngredientLine, type IngredientNutrition } from './nutrition'
 import type { RegionSlug } from './recipe-taxonomy'
 
 export { REGIONS, TOTAL_RECIPES, getRegion } from './recipe-taxonomy'
@@ -19,6 +20,13 @@ export type Recipe = {
   steps?: string[]
   chefTips?: string[]
   tools?: { name: string; note: string; href?: string }[]
+  /**
+   * Per-100g nutrition for the ingredient lines verified against USDA
+   * FoodData Central, keyed by the ingredient line as written. Joined at
+   * build time from the committed TrueAPI ingredient dictionary — lines
+   * without a verified match are simply absent (never invented numbers).
+   */
+  ingredientNutrition?: Record<string, IngredientNutrition>
 }
 
 /**
@@ -1269,11 +1277,20 @@ const BASE_RECIPES: Recipe[] = [
 
 export const RECIPES: Recipe[] = BASE_RECIPES.map((recipe) => {
   const detail = RECIPE_DETAILS[recipe.slug]
-  const optimizedRecipe = {
-    ...recipe,
-    image: recipe.image.replace(/\.png$/, '.webp'),
+  const merged = detail
+    ? { ...recipe, ...detail, image: recipe.image.replace(/\.png$/, '.webp') }
+    : { ...recipe, image: recipe.image.replace(/\.png$/, '.webp') }
+  // Build-time nutrition join (single enriched record for every surface):
+  // map each ingredient line to its verified per-100g values, if any.
+  // Refresh with: DICTIONARY_PATH=<updated bundle> node scripts/build-nutrition.mjs
+  const ingredientNutrition: Record<string, IngredientNutrition> = {}
+  for (const line of merged.ingredients ?? []) {
+    const nutrition = nutritionForIngredientLine(line)
+    if (nutrition) ingredientNutrition[line] = nutrition
   }
-  return detail ? { ...optimizedRecipe, ...detail } : optimizedRecipe
+  return Object.keys(ingredientNutrition).length
+    ? { ...merged, ingredientNutrition }
+    : merged
 })
 
 export function getRecipe(slug: string): Recipe | undefined {
