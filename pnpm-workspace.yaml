@@ -1,5 +1,20 @@
+packages:
+  - .
+
 allowBuilds:
-  sharp: set this to true or false
-  unrs-resolver: set this to true or false
+  msw: false
+  sharp: true
+  unrs-resolver: true
+
 overrides:
-  sharp: ">=0.35.4"
+  browserslist: 4.28.7
+  hono: 4.12.25
+  'brace-expansion@<1.1.18': 1.1.18
+  'brace-expansion@>=4.0.0 <5.0.9': 5.0.9
+  fast-uri: 3.1.4
+  ip-address: 10.3.1
+  js-yaml: 4.3.1
+  nanoid: 3.3.18
+  postcss: 8.5.26
+  sharp: 0.35.4
+  tmp: 0.2.7
