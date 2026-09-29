@@ -3,11 +3,12 @@
 // The fenalar override deliberately does not use the word "Recipe": that
 // page is a serving guide for professionally produced fenalår (the home-cure
 // method was withdrawn 2026-07-21) and the title must not claim otherwise.
-const SITE = 'Norcook'
-
+// Titles carry no brand suffix here — app/layout.tsx appends "— Norcook"
+// via its title template, and the SERP budget is ~60 characters (the first
+// deploy doubled the suffix; this keeps titles single-branded).
 type SeoRecipe = { slug: string; name: string; description: string }
 
-// slug -> title fragment before ` | ${SITE}`.
+// slug -> title text (brand appended by the layout template).
 const TITLE_OVERRIDES: Record<string, string> = {
   // GSC Sep: "fenalår" 12, "fenalar" 9, "fenalår recipe" 9, "fenalår
   // oppskrift" 8 — serving guide phrasing, no "Recipe" claim (header note).
@@ -30,8 +31,7 @@ const DESCRIPTION_OVERRIDES: Record<string, string> = {
 }
 
 export function recipeSeoTitle(recipe: SeoRecipe): string {
-  const base = TITLE_OVERRIDES[recipe.slug] ?? `${recipe.name} Recipe`
-  return `${base} | ${SITE}`
+  return TITLE_OVERRIDES[recipe.slug] ?? `${recipe.name} Recipe`
 }
 
 export function recipeSeoDescription(recipe: SeoRecipe): string {
