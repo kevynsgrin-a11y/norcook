@@ -16,6 +16,7 @@ import {
   getRecipeProvenance,
 } from '@/lib/recipe-provenance'
 import { absoluteUrl, CONTENT_REVIEW_DATE } from '@/lib/site'
+import { recipeSeoDescription, recipeSeoTitle } from '@/lib/seo'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { RecommendedTools } from '@/components/recommended-tools'
@@ -80,21 +81,23 @@ export async function generateMetadata({
   const { slug } = await params
   const recipe = getRecipe(slug)
   if (!recipe) return { title: 'Recipe not found' }
+  const title = recipeSeoTitle(recipe)
+  const description = recipeSeoDescription(recipe)
   return {
-    title: recipe.name,
-    description: recipe.description,
+    title,
+    description,
     alternates: { canonical: `/recipes/${recipe.slug}` },
     openGraph: {
       type: 'article',
       url: `/recipes/${recipe.slug}`,
-      title: recipe.name,
-      description: recipe.description,
+      title,
+      description,
       images: [{ url: recipe.image, alt: recipe.name }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: recipe.name,
-      description: recipe.description,
+      title,
+      description,
       images: [recipe.image],
     },
   }
@@ -169,7 +172,7 @@ export default async function RecipePage({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+            __html: JSON.stringify(jsonLd).replace(/</g, '\u003c'),
           }}
         />
         {/* Massive header image */}
