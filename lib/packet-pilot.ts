@@ -51,10 +51,19 @@ export function renderPilotArticle(): string {
     /<figure data-shot="CARD"><img[^>]*><\/figure>/,
     `<figure data-shot="CARD"><img src="${PILOT_HERO}" width="1024" height="1024" style="aspect-ratio:1/1" alt="${heroAlt}" fetchpriority="high" decoding="async"></figure>`
   )
-  // Real-only media: unmapped shot placeholders are stripped as whole tags.
+  // Real-only media: unmapped shot placeholders are stripped as whole tags;
+  // shot-slot figures left without an image are removed whole (their captions
+  // are composer spec). Steps are figure-wrapped content WITHOUT imgs and
+  // must never be touched — cleanup targets data-shot/pre-card-glamour only.
   body = body.replace(/<img src="\/assets\/recipes\/"[^>]*>/g, '')
+  body = body.replace(/<figure data-shot="[^"]*"[^>]*>(?:(?!<img[\s\S])[\s\S])*?<\/figure>/g, '')
+  body = body.replace(/<figure data-block="pre-card-glamour"[^>]*>(?:(?!<img[\s\S])[\s\S])*?<\/figure>/g, '')
   if (body.includes('src="/assets/recipes/"'))
     throw new Error('pilot packet drift: placeholder survived full-tag strip')
+  if (/<figcaption>[^<]*must match the card/i.test(body))
+    throw new Error('pilot packet drift: composer spec caption leaked')
+  if (!/<figure data-block="step"/.test(body))
+    throw new Error('pilot packet drift: step figures missing after cleanup')
   const heroHits = body.split(PILOT_HERO).length - 1
   if (heroHits !== 2)
     throw new Error(`pilot packet drift: expected hero+card twice, got ${heroHits}`)
