@@ -18,6 +18,8 @@ import {
 import { absoluteUrl, CONTENT_REVIEW_DATE } from '@/lib/site'
 import { recipeSeoDescription, recipeSeoTitle } from '@/lib/seo'
 import { SiteHeader } from '@/components/site-header'
+import { PILOT_CSS, PILOT_SLUG, renderPilotArticle } from '@/lib/packet-pilot'
+import { PacketPrintHandler } from '@/components/packet-print'
 import { SiteFooter } from '@/components/site-footer'
 import { RecommendedTools } from '@/components/recommended-tools'
 import { RecipeSafetyReview } from '@/components/recipe-safety-review'
@@ -79,6 +81,19 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
+
+  // Recipe Finalz presentation-packet pilot (markup contract v1)
+  if (slug === PILOT_SLUG) {
+    return (
+      <>
+        <SiteHeader />
+        <style dangerouslySetInnerHTML={{ __html: PILOT_CSS }} />
+        <main id="main-content" dangerouslySetInnerHTML={{ __html: renderPilotArticle() }} />
+        <PacketPrintHandler />
+        <SiteFooter />
+      </>
+    )
+  }
   const recipe = getRecipe(slug)
   if (!recipe) return { title: 'Recipe not found' }
   const title = recipeSeoTitle(recipe)
