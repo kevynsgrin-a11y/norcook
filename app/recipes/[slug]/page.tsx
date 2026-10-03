@@ -18,7 +18,7 @@ import {
 import { absoluteUrl, CONTENT_REVIEW_DATE } from '@/lib/site'
 import { recipeSeoDescription, recipeSeoTitle } from '@/lib/seo'
 import { SiteHeader } from '@/components/site-header'
-import { PILOT_CSS, PILOT_HERO, PILOT_SLUG, pilotJsonld, renderPilotArticle } from '@/lib/packet-pilot'
+import { PILOT_HERO, PILOT_SLUG, pilotJsonld, renderPilotArticle } from '@/lib/packet-pilot'
 import { PacketPrintHandler } from '@/components/packet-print'
 import { SiteFooter } from '@/components/site-footer'
 import { RecommendedTools } from '@/components/recommended-tools'
@@ -137,7 +137,6 @@ export default async function RecipePage({
     return (
       <>
         <SiteHeader />
-        <style dangerouslySetInnerHTML={{ __html: PILOT_CSS }} />
         <main id="main-content" dangerouslySetInnerHTML={{ __html: renderPilotArticle() }} />
         <PacketPrintHandler />
         <SiteFooter />
