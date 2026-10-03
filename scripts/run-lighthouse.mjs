@@ -189,16 +189,46 @@ async function runLighthouse(url) {
   throw new Error(`${url} did not produce a valid Lighthouse trace: ${lastFailure}`)
 }
 
-function assertAtLeast(label, actual, minimum) {
-  if (typeof actual !== 'number' || actual < minimum) {
-    throw new Error(`${label}: expected at least ${minimum}, received ${actual ?? 'missing'}`)
-  }
+// Audits below Lighthouse's 0.9 "good" threshold are the ones that dragged a
+// category under its gate; surface them (with a bounded excerpt of details)
+// instead of leaving the reader to guess from the score alone.
+const FAILING_AUDIT_SCORE = 0.9
+const MAX_DETAIL_ITEMS = 3
+
+function describeDetailItem(item) {
+  const label =
+    item.url ??
+    item.source?.url ??
+    item.sourceUrl ??
+    item.label ??
+    item.value ??
+    item.text ??
+    item.description
+  const text = typeof label === 'string' ? label : JSON.stringify(label)
+  return text.length > 160 ? `${text.slice(0, 157)}...` : text
 }
 
-function assertAtMost(label, actual, maximum) {
-  if (typeof actual !== 'number' || actual > maximum) {
-    throw new Error(`${label}: expected at most ${maximum}, received ${actual ?? 'missing'}`)
-  }
+function failingAuditLines(medianReport, categoryId) {
+  const category = medianReport.categories[categoryId]
+  if (!category) return []
+
+  return category.auditRefs
+    .map((ref) => medianReport.audits[ref.id])
+    .filter(
+      (audit) => audit && typeof audit.score === 'number' && audit.score < FAILING_AUDIT_SCORE,
+    )
+    .map((audit) => {
+      const items = Array.isArray(audit.details?.items)
+        ? audit.details.items.slice(0, MAX_DETAIL_ITEMS)
+        : []
+      const detailLines = items.map(
+        (item) => `      · ${describeDetailItem(item)}`,
+      )
+      return [
+        `    - ${audit.id} "${audit.title}" (score ${audit.score})`,
+        ...detailLines,
+      ].join('\n')
+    })
 }
 
 function getAuditNumber(lhr, auditId) {
@@ -222,23 +252,19 @@ function getTransferSize(lhr, resourceType) {
   return item.transferSize
 }
 
-function assertNoThirdPartyRequests(lhr, url) {
+function thirdPartyRequests(lhr, url) {
   const items = lhr.audits['network-requests']?.details?.items
   if (!Array.isArray(items)) {
     throw new Error(`${url} Lighthouse report is missing network request data`)
   }
 
   const firstPartyOrigin = new URL(url).origin
-  const thirdPartyUrls = items
+  return items
     .map((item) => item.url)
     .filter((requestUrl) => {
       if (typeof requestUrl !== 'string' || !requestUrl.startsWith('http')) return false
       return new URL(requestUrl).origin !== firstPartyOrigin
     })
-
-  if (thirdPartyUrls.length > 0) {
-    throw new Error(`${url} loaded third-party requests: ${thirdPartyUrls.join(', ')}`)
-  }
 }
 
 function median(values) {
@@ -252,36 +278,83 @@ function assertReleaseBudgets(reports, url, resourceBudgets) {
     audits: {},
     transferSizes: {},
   }
+  const failures = []
+  const medianReport = reports.length === 1 ? reports[0] : computeMedianRun(reports)
+
+  const collect = (message, auditLines = []) => {
+    failures.push(message)
+    console.error(`  FAIL ${message}`)
+    for (const line of auditLines) console.error(line)
+  }
 
   for (const [category, minimum] of Object.entries(profile.categoryMinimums)) {
-    const value = median(
-      reports.map((report) => {
-        const score = report.categories[category]?.score
-        if (typeof score !== 'number') {
-          throw new Error(`${url} report is missing category ${category}`)
-        }
-        return score
-      }),
-    )
-    assertAtLeast(`${url} category ${category}`, value, minimum)
+    const scores = reports.map((report) => report.categories[category]?.score)
+    if (scores.some((score) => typeof score !== 'number')) {
+      collect(`${url} report is missing category ${category}`)
+      continue
+    }
+
+    const value = median(scores)
     metricMedians.categoryScores[category] = value
+    if (value < minimum) {
+      collect(
+        `${url} category ${category}: expected at least ${minimum}, received ${value}`,
+        failingAuditLines(medianReport, category),
+      )
+    }
   }
 
   for (const [auditId, maximum] of Object.entries(profile.auditMaximums)) {
-    const value = median(reports.map((report) => getAuditNumber(report, auditId)))
-    assertAtMost(`${url} audit ${auditId}`, value, maximum)
+    let value
+    try {
+      value = median(reports.map((report) => getAuditNumber(report, auditId)))
+    } catch (error) {
+      collect(error instanceof Error ? error.message : String(error))
+      continue
+    }
+
     metricMedians.audits[auditId] = value
+    if (value > maximum) {
+      collect(`${url} audit ${auditId}: expected at most ${maximum}, received ${value}`)
+    }
   }
 
   for (const [resourceType, maximum] of Object.entries(resourceBudgets)) {
-    const value = median(reports.map((report) => getTransferSize(report, resourceType)))
-    assertAtMost(`${url} ${resourceType} transfer size`, value, maximum)
+    let value
+    try {
+      value = median(reports.map((report) => getTransferSize(report, resourceType)))
+    } catch (error) {
+      collect(error instanceof Error ? error.message : String(error))
+      continue
+    }
+
     metricMedians.transferSizes[resourceType] = value
+    if (value > maximum) {
+      collect(
+        `${url} ${resourceType} transfer size: expected at most ${maximum}, received ${value}`,
+      )
+    }
   }
 
   // A third-party request is never an acceptable outlier for this property;
   // enforce it on every valid sample rather than only on the median.
-  reports.forEach((report) => assertNoThirdPartyRequests(report, url))
+  for (const report of reports) {
+    try {
+      const thirdPartyUrls = thirdPartyRequests(report, url)
+      if (thirdPartyUrls.length > 0) {
+        collect(`${url} loaded third-party requests: ${thirdPartyUrls.join(', ')}`)
+      }
+    } catch (error) {
+      collect(error instanceof Error ? error.message : String(error))
+    }
+  }
+
+  if (failures.length > 0) {
+    throw new Error(
+      `Release budgets failed for ${url} — ${failures.length} assertion${failures.length === 1 ? '' : 's'}:\n` +
+        failures.map((failure) => `  - ${failure}`).join('\n'),
+    )
+  }
 
   return metricMedians
 }
