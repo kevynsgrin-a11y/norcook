@@ -8,6 +8,17 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+        'max-video-preview': -1,
+      },
+    },
   title: {
     default: `${SITE_NAME} — Norway Through Food`,
     template: `%s — ${SITE_NAME}`,
