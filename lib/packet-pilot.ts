@@ -58,6 +58,18 @@ export function renderPilotArticle(): string {
   const heroHits = body.split(PILOT_HERO).length - 1
   if (heroHits !== 2)
     throw new Error(`pilot packet drift: expected hero+card twice, got ${heroHits}`)
+  // The approved technique micro-video (disclosed-AI, reviewed placement)
+  // stays on the page — inserted ahead of the recipe card, where the e2e
+  // imageops contract expects it.
+  const VIDEO =
+    '<figure data-block="technique-video" style="margin:20px 0">' +
+    '<video src="/assets/video/technique-micro.mp4" width="1366" height="768" data-imageops-asset="technique-micro.mp4" aria-label="Hands shaping a strip of dough into a knot" controls muted playsInline preload="none" style="width:100%;height:auto"></video>' +
+    '<figcaption>AI-created dough-shaping illustration, not a complete recipe demonstration. Follow the written method above.</figcaption>' +
+    '</figure>'
+  const CARD_ANCHOR = '<section class="rpc-card"'
+  if (!body.includes(CARD_ANCHOR))
+    throw new Error('pilot packet drift: recipe card anchor missing')
+  body = body.replace(CARD_ANCHOR, VIDEO + CARD_ANCHOR)
   // Recipe JSON-LD from the packet, after the article per site convention.
   const ld = `<script type="application/ld+json">${JSON.stringify(pilotJsonld()).replace(/</g, '\\u003c')}</script>`
   return body + ld
