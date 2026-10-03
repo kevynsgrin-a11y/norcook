@@ -106,6 +106,7 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased">
         {/* ga4: portfolio measurement stream (React hoists to head) */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga -- pre-existing raw GA bootstrap; migrate to @next/third-parties as its own chore */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2124GQ3ST" />
         <script dangerouslySetInnerHTML={{ __html: "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-K2124GQ3ST');" }} />
         <Script id="theme-bootstrap" strategy="beforeInteractive">

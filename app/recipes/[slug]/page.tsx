@@ -81,19 +81,6 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-
-  // Recipe Finalz presentation-packet pilot (markup contract v1)
-  if (slug === PILOT_SLUG) {
-    return (
-      <>
-        <SiteHeader />
-        <style dangerouslySetInnerHTML={{ __html: PILOT_CSS }} />
-        <main id="main-content" dangerouslySetInnerHTML={{ __html: renderPilotArticle() }} />
-        <PacketPrintHandler />
-        <SiteFooter />
-      </>
-    )
-  }
   const recipe = getRecipe(slug)
   if (!recipe) return { title: 'Recipe not found' }
   const title = recipeSeoTitle(recipe)
@@ -124,6 +111,19 @@ export default async function RecipePage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
+
+  // Recipe Finalz presentation-packet pilot (markup contract v1)
+  if (slug === PILOT_SLUG) {
+    return (
+      <>
+        <SiteHeader />
+        <style dangerouslySetInnerHTML={{ __html: PILOT_CSS }} />
+        <main id="main-content" dangerouslySetInnerHTML={{ __html: renderPilotArticle() }} />
+        <PacketPrintHandler />
+        <SiteFooter />
+      </>
+    )
+  }
   const recipe = getRecipe(slug)
   if (!recipe) notFound()
 
