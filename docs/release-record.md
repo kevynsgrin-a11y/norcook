@@ -34,3 +34,7 @@ The mobile thresholds remain LCP ≤ 3.5 s, TBT ≤ 600 ms, and CLS ≤ 0.1. Eve
 ## Deployment decision
 
 The technical remediation is safe to deploy because the unresolved factual items fail closed: no newsletter signup, optional analytics, affiliate linking, or qualified food-safety endorsement can turn on without a complete approved record. Do not represent the site as fully launch-ready until the external-input rows above are completed.
+
+## Analytics stream removal (2026-10-03)
+
+GA4 stream G-K2124GQ3ST was removed from the layout: the site CSP (script-src `'self' 'unsafe-inline'`) blocked the googletagmanager.com loader, so the tag never collected data and only failed Lighthouse best-practices console/inspector audits. It may return only with the CSP and the third-party request budget updated together.
