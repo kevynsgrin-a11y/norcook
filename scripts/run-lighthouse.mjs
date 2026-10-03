@@ -204,7 +204,10 @@ function describeDetailItem(item) {
     item.value ??
     item.text ??
     item.description
-  const text = typeof label === 'string' ? label : JSON.stringify(label)
+  // JSON.stringify(undefined) returns undefined, and some Lighthouse detail
+  // items carry none of the label fields — fall back to the whole item so the
+  // excerpt can never crash the gate it is reporting for.
+  const text = typeof label === 'string' ? label : JSON.stringify(label ?? item)
   return text.length > 160 ? `${text.slice(0, 157)}...` : text
 }
 
