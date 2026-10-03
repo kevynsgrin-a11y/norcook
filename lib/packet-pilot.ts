@@ -14,9 +14,9 @@
 import packetJson from '../content/packets/kanelsnurrer.json'
 
 export const PILOT_SLUG = 'kanelsnurrer'
+export const PILOT_HERO = '/images/recipes/kanelsnurrer.webp' // 1024 × 1024
 
 /** The site's own real photograph, already served at this path. */
-const PILOT_HERO = '/images/recipes/kanelsnurrer.webp' // 1024 × 1024
 const ORIGIN = 'https://www.norcook.app'
 
 interface Packet {
@@ -77,20 +77,22 @@ export function renderPilotArticle(): string {
 
 export const PILOT_CSS = `
 /* ---- Recipe packet pilot (kanelsnurrer) --------------------------------- */
+/* Site tokens are oklch() colors (Tailwind 4) — use them directly; never
+   wrap in hsl(), which computes to nothing against oklch values. */
 .rpc-container{max-width:780px;margin:0 auto;padding:0 4px 8px}
 [data-block]{margin:20px 0}
-.rpc-meta{color:hsl(var(--muted-foreground,215 16% 45%));font-size:15px;margin:4px 0 0}
-[data-block="jump-bar"]{position:sticky;top:0;z-index:20;display:flex;gap:16px;flex-wrap:wrap;background:hsl(var(--background,0 0% 100%) / .96);border-block:1px solid hsl(var(--border,30 20% 85%));padding:10px 2px;font-size:14px}
+.rpc-meta{color:var(--muted-foreground);font-size:15px;margin:4px 0 0}
+[data-block="jump-bar"]{position:sticky;top:0;z-index:20;display:flex;gap:16px;flex-wrap:wrap;background:color-mix(in oklch, var(--background) 96%, transparent);border-block:1px solid var(--border);padding:10px 2px;font-size:14px}
 [data-block="jump-bar"] a,[data-block="jump-bar"] button{color:inherit;font:inherit;text-decoration:underline;text-underline-offset:3px;background:none;border:0;padding:0;cursor:pointer}
 [data-block="hero"] img{width:100%;height:auto;display:block;border-radius:10px;object-fit:cover}
-[data-block] figcaption{color:hsl(var(--muted-foreground,215 16% 45%));font-size:13.5px;margin-top:6px}
-.rpc-card{background:hsl(var(--card,0 0% 100%));border:1.5px solid hsl(var(--border,30 20% 85%));border-radius:12px;padding:16px 20px}
+[data-block] figcaption{color:var(--muted-foreground);font-size:13.5px;margin-top:6px}
+.rpc-card{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:16px 20px}
 .rpc-card figure img{width:170px;height:170px;object-fit:cover;border-radius:8px;float:right;margin:0 0 10px 14px}
 .rpc-times{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;margin:8px 0}
-[data-block="step"]{border-left:3px solid hsl(var(--border,30 20% 85%));padding-left:14px}
-.checkpoint{background:hsl(var(--muted,30 20% 95%));border-radius:8px;padding:8px 12px;font-size:14.5px}
-.chef-note{border:1px dashed hsl(var(--border,30 20% 70%));border-radius:8px;padding:10px 12px;font-size:14.5px}
+[data-block="step"]{border-left:3px solid var(--border);padding-left:14px}
+.checkpoint{background:var(--muted);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.chef-note{border:1px dashed var(--border);border-radius:8px;padding:10px 12px;font-size:14.5px}
 [data-block="troubleshooting"] table{width:100%;border-collapse:collapse;font-size:14.5px}
-[data-block="troubleshooting"] th,[data-block="troubleshooting"] td{border:1px solid hsl(var(--border,30 20% 88%));padding:6px 8px;text-align:left;vertical-align:top}
+[data-block="troubleshooting"] th,[data-block="troubleshooting"] td{border:1px solid var(--border);padding:6px 8px;text-align:left;vertical-align:top}
 @media print{[data-block="jump-bar"]{display:none}}
 `

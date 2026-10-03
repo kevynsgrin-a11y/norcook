@@ -18,7 +18,7 @@ import {
 import { absoluteUrl, CONTENT_REVIEW_DATE } from '@/lib/site'
 import { recipeSeoDescription, recipeSeoTitle } from '@/lib/seo'
 import { SiteHeader } from '@/components/site-header'
-import { PILOT_CSS, PILOT_SLUG, renderPilotArticle } from '@/lib/packet-pilot'
+import { PILOT_CSS, PILOT_HERO, PILOT_SLUG, pilotJsonld, renderPilotArticle } from '@/lib/packet-pilot'
 import { PacketPrintHandler } from '@/components/packet-print'
 import { SiteFooter } from '@/components/site-footer'
 import { RecommendedTools } from '@/components/recommended-tools'
@@ -81,6 +81,26 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
+
+  // Pilot route: metadata follows the packet (real hero, packet title/desc).
+  if (slug === PILOT_SLUG) {
+    const ld = pilotJsonld()
+    const desc = String(ld.description ?? '').replace(/s+/g, ' ').slice(0, 185)
+    const title = String(ld.name ?? 'Kanelsnurrer')
+    return {
+      title,
+      description: desc,
+      alternates: { canonical: `/recipes/${slug}` },
+      openGraph: {
+        type: 'article',
+        url: `/recipes/${slug}`,
+        title,
+        description: desc,
+        images: [{ url: PILOT_HERO, alt: title }],
+      },
+      twitter: { card: 'summary_large_image', title, description: desc, images: [PILOT_HERO] },
+    }
+  }
   const recipe = getRecipe(slug)
   if (!recipe) return { title: 'Recipe not found' }
   const title = recipeSeoTitle(recipe)
