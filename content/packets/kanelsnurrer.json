@@ -1,0 +1,690 @@
+{
+  "meta": {
+    "composer_version": "1.0.0",
+    "site": "norcook",
+    "domain": "norcook.app",
+    "slug": "kanelsnurrer",
+    "recipe_path": "recipes/norcook/modern-viral/kanelsnurrer.md",
+    "content_sha256": "15441d478e743d7b43085ca11cd40029785501a746bef96670b2bdf3723c412a",
+    "archetype": "narrative-first",
+    "generated_at": "2026-10-03T13:01:02.220Z"
+  },
+  "manifest": {
+    "archetype": "narrative-first",
+    "archetype_status": "suggested",
+    "archetype_fallback": null,
+    "pre_card_words_before_relocation": 1276,
+    "pre_card_words": 1276,
+    "pre_card_ceiling": 1800,
+    "relocations": [],
+    "blocks": [
+      {
+        "id": "header",
+        "source": null,
+        "words": 0,
+        "images": [],
+        "ad_safe_after": false,
+        "locked": false,
+        "relocated": false
+      },
+      {
+        "id": "jump-bar",
+        "source": null,
+        "words": 0,
+        "images": [],
+        "ad_safe_after": false,
+        "locked": true,
+        "relocated": false
+      },
+      {
+        "id": "hero",
+        "source": null,
+        "words": 0,
+        "images": [
+          "HERO"
+        ],
+        "ad_safe_after": true,
+        "locked": false,
+        "relocated": false
+      },
+      {
+        "id": "intro",
+        "source": "headnote",
+        "words": 146,
+        "images": [
+          "ALT-1"
+        ],
+        "ad_safe_after": true,
+        "locked": false,
+        "relocated": false
+      },
+      {
+        "id": "at-a-glance",
+        "source": "atAGlance",
+        "words": 51,
+        "images": [],
+        "ad_safe_after": true,
+        "locked": false,
+        "relocated": false
+      },
+      {
+        "id": "ingredient-notes",
+        "source": "ingredientGroups",
+        "words": 124,
+        "images": [
+          "MISE"
+        ],
+        "ad_safe_after": true,
+        "locked": false,
+        "relocated": false
+      },
+      {
+        "id": "before-you-cook",
+        "source": "beforeYouCook",
+        "words": 121,
+        "images": [],
+        "ad_safe_after": true,
+        "locked": false,
+        "relocated": false
+      },
+      {
+        "id": "step-1",
+        "source": "methodSteps[0]",
+        "words": 87,
+        "images": [
+          "PROC-1"
+        ],
+        "ad_safe_after": true,
+        "locked": "step-n",
+        "relocated": false
+      },
+      {
+        "id": "step-2",
+        "source": "methodSteps[1]",
+        "words": 132,
+        "images": [
+          "PROC-2"
+        ],
+        "ad_safe_after": true,
+        "locked": "step-n",
+        "relocated": false
+      },
+      {
+        "id": "step-3",
+        "source": "methodSteps[2]",
+        "words": 118,
+        "images": [
+          "PROC-3"
+        ],
+        "ad_safe_after": true,
+        "locked": "step-n",
+        "relocated": false
+      },
+      {
+        "id": "step-4",
+        "source": "methodSteps[3]",
+        "words": 139,
+        "images": [
+          "PROC-4"
+        ],
+        "ad_safe_after": true,
+        "locked": "step-n",
+        "relocated": false
+      },
+      {
+        "id": "step-5",
+        "source": "methodSteps[4]",
+        "words": 108,
+        "images": [
+          "PROC-5"
+        ],
+        "ad_safe_after": true,
+        "locked": "step-n",
+        "relocated": false
+      },
+      {
+        "id": "step-6",
+        "source": "methodSteps[5]",
+        "words": 79,
+        "images": [
+          "PROC-6"
+        ],
+        "ad_safe_after": true,
+        "locked": "step-n",
+        "relocated": false
+      },
+      {
+        "id": "step-7",
+        "source": "methodSteps[6]",
+        "words": 105,
+        "images": [
+          "PROC-7"
+        ],
+        "ad_safe_after": true,
+        "locked": "step-n",
+        "relocated": false
+      },
+      {
+        "id": "doneness",
+        "source": "doneness",
+        "words": 66,
+        "images": [
+          "TEXTURE"
+        ],
+        "ad_safe_after": true,
+        "locked": false,
+        "relocated": false
+      },
+      {
+        "id": "pre-card-glamour",
+        "source": null,
+        "words": 0,
+        "images": [
+          "GLAMOUR-2"
+        ],
+        "ad_safe_after": true,
+        "locked": false,
+        "relocated": false
+      },
+      {
+        "id": "recipe-card",
+        "source": "ingredientGroups",
+        "words": 124,
+        "images": [
+          "CARD"
+        ],
+        "ad_safe_after": false,
+        "locked": "card-groups",
+        "relocated": false
+      },
+      {
+        "id": "finish-plate",
+        "source": "finishAndPlate",
+        "words": 89,
+        "images": [
+          "PLATED"
+        ],
+        "ad_safe_after": true,
+        "locked": false,
+        "relocated": false
+      },
+      {
+        "id": "troubleshooting",
+        "source": "troubleshooting",
+        "words": 85,
+        "images": [],
+        "ad_safe_after": true,
+        "locked": false,
+        "relocated": false
+      },
+      {
+        "id": "storage-variations",
+        "source": "storage",
+        "words": 138,
+        "images": [],
+        "ad_safe_after": true,
+        "locked": false,
+        "relocated": false
+      },
+      {
+        "id": "related",
+        "source": null,
+        "words": 0,
+        "images": [],
+        "ad_safe_after": true,
+        "locked": false,
+        "relocated": false
+      }
+    ]
+  },
+  "shotlist": {
+    "shots": [
+      {
+        "status": "unshot",
+        "shot_id": "HERO",
+        "type": "hero",
+        "anchor_block": "hero",
+        "aspect": "21:9",
+        "count": 1,
+        "must_show": "Finished dish on profile, matching site style tokens.",
+        "source_policy": "real-preferred",
+        "optional": false,
+        "derived": [
+          "1x1",
+          "4x3",
+          "16x9",
+          "2x3-pin"
+        ]
+      },
+      {
+        "status": "unshot",
+        "shot_id": "ALT-1",
+        "type": "alternate-angle",
+        "anchor_block": "intro",
+        "aspect": "4:5",
+        "count": 1,
+        "must_show": "Finished dish from the opposite orientation of the hero.",
+        "source_policy": "real-or-disclosed-ai",
+        "optional": true
+      },
+      {
+        "status": "unshot",
+        "shot_id": "MISE",
+        "type": "mise-en-place",
+        "anchor_block": "ingredient-notes",
+        "aspect": "4:3",
+        "count": 1,
+        "must_show": "All component groups laid out: The soft dough; The filling; The glaze. Must match the card's ingredient list.",
+        "source_policy": "real",
+        "optional": false
+      },
+      {
+        "shot_id": "PROC-1",
+        "type": "process",
+        "anchor_block": "step-1",
+        "aspect": "4:3",
+        "count": 1,
+        "must_show": "Step 1 — checkpoint: The milk mixture is fluid and mildly warm, without a hot rim on the saucepan.",
+        "source_policy": "real",
+        "optional": false,
+        "has_checkpoint": true
+      },
+      {
+        "shot_id": "PROC-2",
+        "type": "process",
+        "anchor_block": "step-2",
+        "aspect": "4:3",
+        "count": 1,
+        "must_show": "Step 2 — checkpoint: Dough is supple and slightly tacky, with enough stretch to be rolled thinly without breaking.",
+        "source_policy": "real",
+        "optional": false,
+        "has_checkpoint": true
+      },
+      {
+        "shot_id": "PROC-3",
+        "type": "process",
+        "anchor_block": "step-3",
+        "aspect": "4:3",
+        "count": 1,
+        "must_show": "Step 3 — checkpoint: The dough is visibly aerated, and the filling holds a soft spoon mark rather than separating into oily liquid.",
+        "source_policy": "real",
+        "optional": false,
+        "has_checkpoint": true
+      },
+      {
+        "shot_id": "PROC-4",
+        "type": "process",
+        "anchor_block": "step-4",
+        "aspect": "4:3",
+        "count": 1,
+        "must_show": "Step 4 — checkpoint: The folded sheet has even thickness and twelve consistent strips with filling enclosed between two dough faces.",
+        "source_policy": "real",
+        "optional": false,
+        "has_checkpoint": true
+      },
+      {
+        "shot_id": "PROC-5",
+        "type": "process",
+        "anchor_block": "step-5",
+        "aspect": "4:3",
+        "count": 1,
+        "must_show": "Step 5 — checkpoint: Each knot has visible bands and an anchored underside; the dough does not split or squeeze out pools of filling.",
+        "source_policy": "real",
+        "optional": false,
+        "has_checkpoint": true
+      },
+      {
+        "shot_id": "PROC-6",
+        "type": "process",
+        "anchor_block": "step-6",
+        "aspect": "4:3",
+        "count": 1,
+        "must_show": "Step 6 — checkpoint: The knots look fuller and feel pillowy, while their cinnamon bands remain recognizable.",
+        "source_policy": "real",
+        "optional": false,
+        "has_checkpoint": true
+      },
+      {
+        "shot_id": "PROC-7",
+        "type": "process",
+        "anchor_block": "step-7",
+        "aspect": "4:3",
+        "count": 1,
+        "must_show": "Step 7 — checkpoint: The center is tender and set, with distinct cinnamon bands and no scorched butter smell.",
+        "source_policy": "real",
+        "optional": false,
+        "has_checkpoint": true
+      },
+      {
+        "status": "unshot",
+        "shot_id": "TEXTURE",
+        "type": "texture-closeup",
+        "anchor_block": "doneness",
+        "aspect": "4:5",
+        "count": 1,
+        "must_show": "- Dough stretches thinly before shaping and has visibly expanded during its first rise. - The folded sheet holds an even layer of filling from center to corner.",
+        "source_policy": "real",
+        "optional": false
+      },
+      {
+        "status": "unshot",
+        "shot_id": "PLATED",
+        "type": "plated",
+        "anchor_block": "finish-plate",
+        "aspect": "4:5",
+        "count": 1,
+        "must_show": "Place the cooled warm knots on a plain serving board or small plates. Their twisted bands supply the finish; no sugar coating is needed for this formula.",
+        "source_policy": "real-preferred",
+        "optional": false
+      },
+      {
+        "status": "unshot",
+        "shot_id": "GLAMOUR-2",
+        "type": "pre-card-glamour",
+        "anchor_block": "pre-card-glamour",
+        "aspect": "21:9",
+        "count": 1,
+        "must_show": "Hero-grade serving shot immediately before the card.",
+        "source_policy": "real-or-disclosed-ai",
+        "optional": true
+      },
+      {
+        "status": "unshot",
+        "shot_id": "CARD",
+        "type": "card-image",
+        "anchor_block": "recipe-card",
+        "aspect": "1:1",
+        "count": 1,
+        "must_show": "Same master as HERO or GLAMOUR-2, 1:1 crop.",
+        "source_policy": "derived-crop",
+        "optional": false
+      }
+    ],
+    "bands": {
+      "total": [
+        9,
+        12
+      ],
+      "process": [
+        4,
+        7
+      ],
+      "label": "standard",
+      "process_available": 7,
+      "process_band": "4–7",
+      "note": null
+    },
+    "required_total": 12,
+    "optional_total": 2
+  },
+  "jsonld": {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": "Kanelsnurrer",
+    "description": "Kanelsnurrer show their cinnamon in narrow twisted bands. Their shape gives more browned edges than a simple sliced spiral, while the middle stays soft.",
+    "author": {
+      "@type": "Organization",
+      "name": "Norcook"
+    },
+    "recipeCuisine": "Norwegian",
+    "recipeCategory": "modern-viral",
+    "keywords": "Norwegian, modern-viral",
+    "recipeYield": "Makes 12 knots",
+    "prepTime": "PT50M",
+    "cookTime": "PT20M",
+    "totalTime": "PT3H",
+    "recipeIngredient": [
+      "500 g (about 4 cups) white wheat flour, plus up to 15 g (2 tablespoons) for rolling",
+      "75 g (⅓ cup plus 1 tablespoon) granulated sugar",
+      "2 g (1 teaspoon) ground cardamom",
+      "3 g (½ teaspoon) fine salt",
+      "7 g (2¼ teaspoons) instant dry baking yeast",
+      "75 g (5 tablespoons plus 1 teaspoon) unsalted butter",
+      "300 ml (1¼ cups) whole milk",
+      "75 g (5 tablespoons plus 1 teaspoon) unsalted butter, softened",
+      "50 g (4 tablespoons) granulated sugar",
+      "12 g (2 tablespoons) ground cinnamon",
+      "50 g (1 large) egg without shell, beaten"
+    ],
+    "recipeInstructions": [
+      {
+        "@type": "HowToStep",
+        "name": "Step 1",
+        "text": "Cool the melted butter before mixing. Melt the dough butter over low heat for 1–2 minutes and remove from the burner. Stir in the milk over 1 minute. Let the mixture stand for 5–10 minutes if necessary until only mildly warm; check 26–30 °C (79–86 °F). Mixing cool milk into the butter reduces its temperature, but still measure if it began very hot. Do not pour a hot fat-and-milk mixture over yeast. Checkpoint: The milk mixture is fluid and mildly warm, without a hot rim on the saucepan."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Step 2",
+        "text": "Knead for stretch. Combine flour, sugar, cardamom, salt, and instant yeast. Pour in the milk mixture and stir 2–3 minutes until the flour is wet. Knead at low to medium-low speed for 10–12 minutes, or by hand for 12–15 minutes. The dough should become smooth and softly elastic as gluten develops. Lift a small piece and stretch it gently; it should form a thin translucent patch before breaking. Rest 5 minutes and knead 2–3 minutes more if it tears immediately. Checkpoint: Dough is supple and slightly tacky, with enough stretch to be rolled thinly without breaking."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Step 3",
+        "text": "Let the dough expand. Cover in the mixing bowl and leave at room temperature for 60–90 minutes. Begin checking at 60 minutes and extend in 15-minute intervals if necessary. It should approach twice its original volume and feel light when handled. Meanwhile stir filling butter, sugar, and cinnamon for 1–2 minutes into a uniform paste. Keep the paste at cool room temperature, where it spreads without dripping. Checkpoint: The dough is visibly aerated, and the filling holds a soft spoon mark rather than separating into oily liquid."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Step 4",
+        "text": "Fold an even rectangle. Dust the bench with only enough reserved flour to prevent sticking. Press the dough gently, then roll to approximately 48 × 30 cm (19 × 12 inches). Spread filling over the full surface in a thin layer, including the corners. Lift one long edge to meet the other, producing a rectangle approximately 48 × 15 cm (19 × 6 inches). Press lightly to settle the layers. Mark twelve strips across the long dimension, each about 4 cm (1½ inches) wide, and cut straight through both layers. Checkpoint: The folded sheet has even thickness and twelve consistent strips with filling enclosed between two dough faces."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Step 5",
+        "text": "Twist and secure each knot. Take a strip and gently lengthen it to around 22–25 cm (9–10 inches) if it stretches easily. Give it two or three loose twists. Drape one end across two fingers held together, wrap the strip around them, then lift the loop off your fingers and tuck the remaining end through the middle and underneath. Work over 10–15 minutes for the batch. Put six knots on each tray with at least 5 cm (2 inches) between them, placing the tucked tail against the paper. Checkpoint: Each knot has visible bands and an anchored underside; the dough does not split or squeeze out pools of filling."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Step 6",
+        "text": "Proof and brush. Cover loosely for 30–45 minutes. Preheat the oven to 225 °C (435 °F) during the final 20 minutes. Test an unfilled outer patch gently: it should return slowly after a light press, leaving a slight indentation. Give tightly springing knots another 10 minutes. Brush beaten egg thinly over the exposed dough for 1–2 minutes, keeping the brush from dragging across delicate filling seams. Checkpoint: The knots look fuller and feel pillowy, while their cinnamon bands remain recognizable."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Step 7",
+        "text": "Bake through the central fold. Bake one tray for 10–12 minutes, beginning checks at 10 minutes. The dough should be golden and glossy, with a lightly browned underside. Open a representative knot if uncertain: its center should show cooked, springy crumb instead of sticky flour paste. Extend 2–3 minutes as needed, shielding dark tops loosely with foil. Bake the second tray in the same way. Cool on a rack for 15–20 minutes. Safety: keep raw dough and egg glaze away from ready-to-eat food; do not sample either before baking. Checkpoint: The center is tender and set, with distinct cinnamon bands and no scorched butter smell."
+      }
+    ],
+    "image": [
+      "/assets/recipes/kanelsnurrer/hero-1x1-1200x1200.jpg",
+      "/assets/recipes/kanelsnurrer/hero-4x3-1200x900.jpg",
+      "/assets/recipes/kanelsnurrer/hero-16x9-1200x675.jpg"
+    ]
+  },
+  "jsonld_notes": [
+    "prepTime approximated from \"50 minutes, plus 1½–2 hours rising\" (truncated from \"50 minutes, plus 1½–2 hours rising\")",
+    "totalTime approximated from \"About 3–3¾ hours, including brief cooling\" (truncated from \"About 3–3¾ hours, including brief cooling\")",
+    "aggregateRating omitted — no visible ratings on page (schema must match the visible page).",
+    "nutrition omitted — corpus does not carry per-recipe nutrition yet.",
+    "HowToStep.image omitted until real process photos are mapped (never AI step images)."
+  ],
+  "asset_base": "/assets/recipes/kanelsnurrer/",
+  "skeleton": "<article class=\"rpc-container\" data-rpc=\"content\">\n<header data-block=\"header\"><h1>Kanelsnurrer</h1><p class=\"rpc-meta\">Norwegian · Moderate · Makes 12 knots</p></header>\n<nav data-block=\"jump-bar\" data-lock=\"jump\" aria-label=\"Recipe navigation\"><a href=\"#rpc-card\">Jump to Recipe</a> <a href=\"#rpc-method\">Method</a> <a href=\"#rpc-troubleshooting\">Troubleshooting</a> <a href=\"#rpc-storage\">Storage</a> <button type=\"button\" data-action=\"print\">Print</button></nav>\n<figure data-block=\"hero\"><img src=\"/assets/recipes/\" width=\"1200\" height=\"514\" style=\"aspect-ratio:21/9\" alt=\"Finished dish on profile, matching site style tokens.\" fetchpriority=\"high\"><figcaption>Kanelsnurrer</figcaption></figure>\n<div data-block=\"intro\">Kanelsnurrer show their cinnamon in narrow twisted bands. Their shape gives more browned edges than a simple sliced spiral, while the middle stays soft. This norcook version uses milk and melted butter in the dough, with a restrained cardamom note and a separate soft butter filling. The knot is easier to make when the folded dough has even thickness and the strips remain cool enough to lift. Twist gently; tightening a strip until it tears sacrifices the layers you have just made. Wrap it around two fingers, then secure its loose end underneath. The tucked tail keeps the shape together as it rises and opens in the oven. Proof by expansion and a slow fingertip return, since a cool room can lengthen the printed schedule. A finished knot needs no icing. Its glossy top, cinnamon seams, and tender central fold are enough for the coffee table.</div>\n<div data-block=\"at-a-glance\"><table><thead><tr><th>Detail</th><th>Plan</th></tr></thead><tbody><tr><td>Active work</td><td>About 50 minutes</td></tr><tr><td>First rise</td><td>60–90 minutes, guided by expansion</td></tr><tr><td>Second rise</td><td>30–45 minutes</td></tr><tr><td>Technique</td><td>Folded filling; strip twisting; secure underside</td></tr><tr><td>Make ahead</td><td>Bake, cool completely, and freeze</td></tr></tbody></table></div>\n<div data-block=\"ingredient-notes\"><p>Quantities live in the <a href=\"#rpc-card\">recipe card</a>.</p><section><h3>The soft dough</h3><p>Milk supplies moisture for a flexible strip that can hold a knot.</p></section><section><h3>The filling</h3><p>An even thin layer gives cinnamon to every folded band.</p></section><section><h3>The glaze</h3><p>A light egg coat gives the exposed dough a glossy finish.</p></section><figure data-shot=\"MISE\"><img src=\"/assets/recipes/\" width=\"1200\" height=\"900\" style=\"aspect-ratio:4/3\" alt=\"All component groups laid out: The soft dough; The filling; The glaze. Must match the card's ingredient list.\" loading=\"lazy\"><figcaption>All component groups laid out: The soft dough; The filling; The glaze. Must match the card's ingredient list.</figcaption></figure></div>\n<div data-block=\"before-you-cook\">Set out a large mixing bowl, rolling pin, ruler, sharp knife or pizza wheel, and two paper-lined baking trays. Use a dough hook if available, or knead by hand. Choose ordinary white wheat flour with enough strength for yeast baking; cake flour makes fragile strips. Keep filling butter soft and opaque. Melt only the dough portion. This recipe specifies instant yeast because packet weights and yeast types differ between markets. Check that the product is for bread, not baking powder. The single-tray oven schedule assumes conventional heat and a center rack; consult a fan oven's guidance before starting. Keep the egg in the refrigerator until glazing. Have a cool bench ready, since warm filling is much harder to control during twisting.</div>\n<figure data-block=\"step\" data-step=\"1\" data-lock=\"step-1\" id=\"rpc-method\"><img src=\"/assets/recipes/\" width=\"1200\" height=\"900\" style=\"aspect-ratio:4/3\" alt=\"Step 1 — checkpoint: The milk mixture is fluid and mildly warm, without a hot rim on the saucepan.\" loading=\"lazy\"><figcaption><strong>Step 1.</strong> Cool the melted butter before mixing. Melt the dough butter over low heat for 1–2 minutes and remove from the burner. Stir in the milk over 1 minute. Let the mixture stand for 5–10 minutes if necessary until only mildly warm; check 26–30 °C (79–86 °F). Mixing cool milk into the butter reduces its temperature, but still measure if it began very hot. Do not pour a hot fat-and-milk mixture over yeast. <em>Checkpoint — The milk mixture is fluid and mildly warm, without a hot rim on the saucepan.</em></figcaption></figure>\n<figure data-block=\"step\" data-step=\"2\" data-lock=\"step-2\"><img src=\"/assets/recipes/\" width=\"1200\" height=\"900\" style=\"aspect-ratio:4/3\" alt=\"Step 2 — checkpoint: Dough is supple and slightly tacky, with enough stretch to be rolled thinly without breaking.\" loading=\"lazy\"><figcaption><strong>Step 2.</strong> Knead for stretch. Combine flour, sugar, cardamom, salt, and instant yeast. Pour in the milk mixture and stir 2–3 minutes until the flour is wet. Knead at low to medium-low speed for 10–12 minutes, or by hand for 12–15 minutes. The dough should become smooth and softly elastic as gluten develops. Lift a small piece and stretch it gently; it should form a thin translucent patch before breaking. Rest 5 minutes and knead 2–3 minutes more if it tears immediately. <em>Checkpoint — Dough is supple and slightly tacky, with enough stretch to be rolled thinly without breaking.</em> <small>Chef’s Note — Do not use the rolling flour to make this soft dough feel dry. Kneading and a short rest help a sticky surface more than repeated flour additions, which tighten the crumb and make the strips resist twisting.</small></figcaption></figure>\n<figure data-block=\"step\" data-step=\"3\" data-lock=\"step-3\"><img src=\"/assets/recipes/\" width=\"1200\" height=\"900\" style=\"aspect-ratio:4/3\" alt=\"Step 3 — checkpoint: The dough is visibly aerated, and the filling holds a soft spoon mark rather than separating into oily liquid.\" loading=\"lazy\"><figcaption><strong>Step 3.</strong> Let the dough expand. Cover in the mixing bowl and leave at room temperature for 60–90 minutes. Begin checking at 60 minutes and extend in 15-minute intervals if necessary. It should approach twice its original volume and feel light when handled. Meanwhile stir filling butter, sugar, and cinnamon for 1–2 minutes into a uniform paste. Keep the paste at cool room temperature, where it spreads without dripping. <em>Checkpoint — The dough is visibly aerated, and the filling holds a soft spoon mark rather than separating into oily liquid.</em> <small>Chef’s Note — The source's unspecified yeast packet is replaced by a weighed instant dose here. Rely on the rise test rather than increasing the dose just because your kitchen needs longer than one hour.</small></figcaption></figure>\n<figure data-block=\"step\" data-step=\"4\" data-lock=\"step-4\"><img src=\"/assets/recipes/\" width=\"1200\" height=\"900\" style=\"aspect-ratio:4/3\" alt=\"Step 4 — checkpoint: The folded sheet has even thickness and twelve consistent strips with filling enclosed between two dough faces.\" loading=\"lazy\"><figcaption><strong>Step 4.</strong> Fold an even rectangle. Dust the bench with only enough reserved flour to prevent sticking. Press the dough gently, then roll to approximately 48 × 30 cm (19 × 12 inches). Spread filling over the full surface in a thin layer, including the corners. Lift one long edge to meet the other, producing a rectangle approximately 48 × 15 cm (19 × 6 inches). Press lightly to settle the layers. Mark twelve strips across the long dimension, each about 4 cm (1½ inches) wide, and cut straight through both layers. <em>Checkpoint — The folded sheet has even thickness and twelve consistent strips with filling enclosed between two dough faces.</em> <small>Chef’s Note — These wider strips make twelve substantial knots. The live page's narrower strip measurement does not specify its rectangle or yield; changing strip width changes bun size, so keep this version's dimensions together.</small></figcaption></figure>\n<figure data-block=\"step\" data-step=\"5\" data-lock=\"step-5\"><img src=\"/assets/recipes/\" width=\"1200\" height=\"900\" style=\"aspect-ratio:4/3\" alt=\"Step 5 — checkpoint: Each knot has visible bands and an anchored underside; the dough does not split or squeeze out pools of filling.\" loading=\"lazy\"><figcaption><strong>Step 5.</strong> Twist and secure each knot. Take a strip and gently lengthen it to around 22–25 cm (9–10 inches) if it stretches easily. Give it two or three loose twists. Drape one end across two fingers held together, wrap the strip around them, then lift the loop off your fingers and tuck the remaining end through the middle and underneath. Work over 10–15 minutes for the batch. Put six knots on each tray with at least 5 cm (2 inches) between them, placing the tucked tail against the paper. <em>Checkpoint — Each knot has visible bands and an anchored underside; the dough does not split or squeeze out pools of filling.</em></figcaption></figure>\n<figure data-block=\"step\" data-step=\"6\" data-lock=\"step-6\"><img src=\"/assets/recipes/\" width=\"1200\" height=\"900\" style=\"aspect-ratio:4/3\" alt=\"Step 6 — checkpoint: The knots look fuller and feel pillowy, while their cinnamon bands remain recognizable.\" loading=\"lazy\"><figcaption><strong>Step 6.</strong> Proof and brush. Cover loosely for 30–45 minutes. Preheat the oven to 225 °C (435 °F) during the final 20 minutes. Test an unfilled outer patch gently: it should return slowly after a light press, leaving a slight indentation. Give tightly springing knots another 10 minutes. Brush beaten egg thinly over the exposed dough for 1–2 minutes, keeping the brush from dragging across delicate filling seams. <em>Checkpoint — The knots look fuller and feel pillowy, while their cinnamon bands remain recognizable.</em></figcaption></figure>\n<figure data-block=\"step\" data-step=\"7\" data-lock=\"step-7\"><img src=\"/assets/recipes/\" width=\"1200\" height=\"900\" style=\"aspect-ratio:4/3\" alt=\"Step 7 — checkpoint: The center is tender and set, with distinct cinnamon bands and no scorched butter smell.\" loading=\"lazy\"><figcaption><strong>Step 7.</strong> Bake through the central fold. Bake one tray for 10–12 minutes, beginning checks at 10 minutes. The dough should be golden and glossy, with a lightly browned underside. Open a representative knot if uncertain: its center should show cooked, springy crumb instead of sticky flour paste. Extend 2–3 minutes as needed, shielding dark tops loosely with foil. Bake the second tray in the same way. Cool on a rack for 15–20 minutes. **Safety —** keep raw dough and egg glaze away from ready-to-eat food; do not sample either before baking. <em>Checkpoint — The center is tender and set, with distinct cinnamon bands and no scorched butter smell.</em></figcaption></figure>\n<div data-block=\"doneness\"><h2>Doneness &amp; Quality Checkpoints</h2><ul><li>Dough stretches thinly before shaping and has visibly expanded during its first rise.</li><li>The folded sheet holds an even layer of filling from center to corner.</li><li>Knots retain their underside tuck through proofing and baking.</li><li>A light press after proofing returns slowly; the dough is soft rather than tightly elastic.</li><li>Golden tops and colored bases accompany a fully set central fold.</li></ul><figure data-shot=\"TEXTURE\"><img src=\"/assets/recipes/\" width=\"1200\" height=\"1500\" style=\"aspect-ratio:4/5\" alt=\"- Dough stretches thinly before shaping and has visibly expanded during its first rise. - The folded sheet holds an even layer of filling from center to corner.\" loading=\"lazy\"><figcaption>- Dough stretches thinly before shaping and has visibly expanded during its first rise. - The folded sheet holds an even layer of filling from center to corner.</figcaption></figure></div>\n<figure data-block=\"pre-card-glamour\"><img src=\"/assets/recipes/\" width=\"1200\" height=\"514\" style=\"aspect-ratio:21/9\" alt=\"Hero-grade serving shot immediately before the card.\" loading=\"lazy\"></figure>\n<section class=\"rpc-card\" data-block=\"recipe-card\" id=\"rpc-card\" data-lock=\"card\"><figure data-shot=\"CARD\"><img src=\"/assets/recipes/\" width=\"1200\" height=\"1200\" style=\"aspect-ratio:1/1\" alt=\"Same master as HERO or GLAMOUR-2, 1:1 crop.\" fetchpriority=\"high\"></figure><h2>Kanelsnurrer</h2><p class=\"rpc-times\">Prep: 50 minutes, plus 1½–2 hours rising · Cook: 20–24 minutes for two trays · Total: About 3–3¾ hours, including brief cooling · Makes 12 knots</p><h3>Ingredients</h3><div data-lock=\"ingredient-group\"><h4>The soft dough</h4><ul><li>500 g (about 4 cups) white wheat flour, plus up to 15 g (2 tablespoons) for rolling</li><li>75 g (⅓ cup plus 1 tablespoon) granulated sugar</li><li>2 g (1 teaspoon) ground cardamom</li><li>3 g (½ teaspoon) fine salt</li><li>7 g (2¼ teaspoons) instant dry baking yeast</li><li>75 g (5 tablespoons plus 1 teaspoon) unsalted butter</li><li>300 ml (1¼ cups) whole milk</li></ul></div><div data-lock=\"ingredient-group\"><h4>The filling</h4><ul><li>75 g (5 tablespoons plus 1 teaspoon) unsalted butter, softened</li><li>50 g (4 tablespoons) granulated sugar</li><li>12 g (2 tablespoons) ground cinnamon</li></ul></div><div data-lock=\"ingredient-group\"><h4>The glaze</h4><ul><li>50 g (1 large) egg without shell, beaten</li></ul></div><h3>Instructions</h3><ol data-lock=\"instructions\"><li>Cool the melted butter before mixing. Melt the dough butter over low heat for 1–2 minutes and remove from the burner. Stir in the milk over 1 minute. Let the mixture stand for 5–10 minutes if necessary until only mildly warm; check 26–30 °C (79–86 °F). Mixing cool milk into the butter reduces its temperature, but still measure if it began very hot. Do not pour a hot fat-and-milk mixture over yeast. <em>Checkpoint — The milk mixture is fluid and mildly warm, without a hot rim on the saucepan.</em></li><li>Knead for stretch. Combine flour, sugar, cardamom, salt, and instant yeast. Pour in the milk mixture and stir 2–3 minutes until the flour is wet. Knead at low to medium-low speed for 10–12 minutes, or by hand for 12–15 minutes. The dough should become smooth and softly elastic as gluten develops. Lift a small piece and stretch it gently; it should form a thin translucent patch before breaking. Rest 5 minutes and knead 2–3 minutes more if it tears immediately. <em>Checkpoint — Dough is supple and slightly tacky, with enough stretch to be rolled thinly without breaking.</em></li><li>Let the dough expand. Cover in the mixing bowl and leave at room temperature for 60–90 minutes. Begin checking at 60 minutes and extend in 15-minute intervals if necessary. It should approach twice its original volume and feel light when handled. Meanwhile stir filling butter, sugar, and cinnamon for 1–2 minutes into a uniform paste. Keep the paste at cool room temperature, where it spreads without dripping. <em>Checkpoint — The dough is visibly aerated, and the filling holds a soft spoon mark rather than separating into oily liquid.</em></li><li>Fold an even rectangle. Dust the bench with only enough reserved flour to prevent sticking. Press the dough gently, then roll to approximately 48 × 30 cm (19 × 12 inches). Spread filling over the full surface in a thin layer, including the corners. Lift one long edge to meet the other, producing a rectangle approximately 48 × 15 cm (19 × 6 inches). Press lightly to settle the layers. Mark twelve strips across the long dimension, each about 4 cm (1½ inches) wide, and cut straight through both layers. <em>Checkpoint — The folded sheet has even thickness and twelve consistent strips with filling enclosed between two dough faces.</em></li><li>Twist and secure each knot. Take a strip and gently lengthen it to around 22–25 cm (9–10 inches) if it stretches easily. Give it two or three loose twists. Drape one end across two fingers held together, wrap the strip around them, then lift the loop off your fingers and tuck the remaining end through the middle and underneath. Work over 10–15 minutes for the batch. Put six knots on each tray with at least 5 cm (2 inches) between them, placing the tucked tail against the paper. <em>Checkpoint — Each knot has visible bands and an anchored underside; the dough does not split or squeeze out pools of filling.</em></li><li>Proof and brush. Cover loosely for 30–45 minutes. Preheat the oven to 225 °C (435 °F) during the final 20 minutes. Test an unfilled outer patch gently: it should return slowly after a light press, leaving a slight indentation. Give tightly springing knots another 10 minutes. Brush beaten egg thinly over the exposed dough for 1–2 minutes, keeping the brush from dragging across delicate filling seams. <em>Checkpoint — The knots look fuller and feel pillowy, while their cinnamon bands remain recognizable.</em></li><li>Bake through the central fold. Bake one tray for 10–12 minutes, beginning checks at 10 minutes. The dough should be golden and glossy, with a lightly browned underside. Open a representative knot if uncertain: its center should show cooked, springy crumb instead of sticky flour paste. Extend 2–3 minutes as needed, shielding dark tops loosely with foil. Bake the second tray in the same way. Cool on a rack for 15–20 minutes. **Safety —** keep raw dough and egg glaze away from ready-to-eat food; do not sample either before baking. <em>Checkpoint — The center is tender and set, with distinct cinnamon bands and no scorched butter smell.</em></li></ol></section>\n<div data-block=\"finish-plate\"><h2>Finish &amp; Plate</h2><p>Place the cooled warm knots on a plain serving board or small plates. Their twisted bands supply the finish; no sugar coating is needed for this formula. Break one through its thickest fold to check the crumb before bringing out the tray. Serve with coffee, tea, or a glass of milk. Keep cooling knots spaced on the rack so warm vapor can escape, and move them to a basket only when they will be eaten promptly. The best bite combines a soft middle with a lightly crisp cinnamon edge.</p><figure data-shot=\"PLATED\"><img src=\"/assets/recipes/\" width=\"1200\" height=\"1500\" style=\"aspect-ratio:4/5\" alt=\"Place the cooled warm knots on a plain serving board or small plates. Their twisted bands supply the finish; no sugar coating is needed for this formula.\" loading=\"lazy\"><figcaption>Place the cooled warm knots on a plain serving board or small plates. Their twisted bands supply the finish; no sugar coating is needed for this formula.</figcaption></figure></div>\n<div data-block=\"troubleshooting\" id=\"rpc-troubleshooting\"><h2>Troubleshooting</h2><table><thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr data-lock=\"trouble-row\"><td>Strips tear while twisting</td><td>Dough insufficiently kneaded or pulled too firmly</td><td>Rest the strips 5 minutes and handle gently; improve the stretch test next time.</td></tr><tr data-lock=\"trouble-row\"><td>Knots unwind</td><td>Tail left on top or loosely attached</td><td>Tuck the end through and underneath so the tray anchors it during rising.</td></tr><tr data-lock=\"trouble-row\"><td>Filling runs out</td><td>Soft butter overheated</td><td>Keep the bench cool; chill an oily folded sheet briefly before cutting.</td></tr><tr data-lock=\"trouble-row\"><td>Center gummy</td><td>Large uneven knots or short bake</td><td>Test the thickest fold and extend baking with tops shielded as needed.</td></tr></tbody></table></div>\n<div data-block=\"storage-variations\" id=\"rpc-storage\"><h2>Storage, Make-Ahead &amp; Variations</h2><p>Cool completely before sealing. Keep airtight at room temperature for 1–2 days, or freeze individually for up to 2 months. Thaw wrapped, then warm at 150 °C (300 °F) for 6–8 minutes. A loose foil cover protects dark tops. Halve the formula by weight for six knots, retaining the rectangle's thickness and the same final bun size. Brown sugar may replace the filling sugar at the same weight for a deeper flavor; its texture differs, so stir it thoroughly with the butter. Fresh yeast requires a deliberate conversion and its own mixing instructions, rather than substitution packet for packet. If shaping several trays for a larger batch, keep waiting dough covered and cool enough that its butter remains in place. These knots are best on baking day; freezing cooled extras preserves softness better than keeping them uncovered overnight.</p></div>\n<div data-block=\"related\" data-rpc=\"related-placeholder\"><!-- site-generated related recipes --></div>\n</article>",
+  "packet": {
+    "source": {
+      "path": "recipes/norcook/modern-viral/kanelsnurrer.md",
+      "sha256": "15441d478e743d7b43085ca11cd40029785501a746bef96670b2bdf3723c412a"
+    },
+    "frontmatter": {
+      "title": "Kanelsnurrer",
+      "site": "norcook",
+      "cuisine": "Norwegian",
+      "category": "modern-viral",
+      "tier": "B",
+      "difficulty": "Moderate",
+      "serves": "Makes 12 knots",
+      "prep": "50 minutes, plus 1½–2 hours rising",
+      "cook": "20–24 minutes for two trays",
+      "total": "About 3–3¾ hours, including brief cooling",
+      "canonical_master": true,
+      "techniques": []
+    },
+    "headnote": "Kanelsnurrer show their cinnamon in narrow twisted bands. Their shape gives more browned edges than a simple sliced spiral, while the middle stays soft. This norcook version uses milk and melted butter in the dough, with a restrained cardamom note and a separate soft butter filling. The knot is easier to make when the folded dough has even thickness and the strips remain cool enough to lift. Twist gently; tightening a strip until it tears sacrifices the layers you have just made. Wrap it around two fingers, then secure its loose end underneath. The tucked tail keeps the shape together as it rises and opens in the oven. Proof by expansion and a slow fingertip return, since a cool room can lengthen the printed schedule. A finished knot needs no icing. Its glossy top, cinnamon seams, and tender central fold are enough for the coffee table.",
+    "atAGlance": "| Detail | Plan |\n|---|---|\n| Active work | About 50 minutes |\n| First rise | 60–90 minutes, guided by expansion |\n| Second rise | 30–45 minutes |\n| Technique | Folded filling; strip twisting; secure underside |\n| Make ahead | Bake, cool completely, and freeze |",
+    "ingredientGroups": [
+      {
+        "name": "The soft dough",
+        "why": "Milk supplies moisture for a flexible strip that can hold a knot.",
+        "items": [
+          {
+            "line": "500 g (about 4 cups) white wheat flour, plus up to 15 g (2 tablespoons) for rolling",
+            "note": null
+          },
+          {
+            "line": "75 g (⅓ cup plus 1 tablespoon) granulated sugar",
+            "note": null
+          },
+          {
+            "line": "2 g (1 teaspoon) ground cardamom",
+            "note": null
+          },
+          {
+            "line": "3 g (½ teaspoon) fine salt",
+            "note": null
+          },
+          {
+            "line": "7 g (2¼ teaspoons) instant dry baking yeast",
+            "note": null
+          },
+          {
+            "line": "75 g (5 tablespoons plus 1 teaspoon) unsalted butter",
+            "note": null
+          },
+          {
+            "line": "300 ml (1¼ cups) whole milk",
+            "note": null
+          }
+        ]
+      },
+      {
+        "name": "The filling",
+        "why": "An even thin layer gives cinnamon to every folded band.",
+        "items": [
+          {
+            "line": "75 g (5 tablespoons plus 1 teaspoon) unsalted butter, softened",
+            "note": null
+          },
+          {
+            "line": "50 g (4 tablespoons) granulated sugar",
+            "note": null
+          },
+          {
+            "line": "12 g (2 tablespoons) ground cinnamon",
+            "note": null
+          }
+        ]
+      },
+      {
+        "name": "The glaze",
+        "why": "A light egg coat gives the exposed dough a glossy finish.",
+        "items": [
+          {
+            "line": "50 g (1 large) egg without shell, beaten",
+            "note": null
+          }
+        ]
+      }
+    ],
+    "beforeYouCook": "Set out a large mixing bowl, rolling pin, ruler, sharp knife or pizza wheel, and two paper-lined baking trays. Use a dough hook if available, or knead by hand. Choose ordinary white wheat flour with enough strength for yeast baking; cake flour makes fragile strips. Keep filling butter soft and opaque. Melt only the dough portion. This recipe specifies instant yeast because packet weights and yeast types differ between markets. Check that the product is for bread, not baking powder. The single-tray oven schedule assumes conventional heat and a center rack; consult a fan oven's guidance before starting. Keep the egg in the refrigerator until glazing. Have a cool bench ready, since warm filling is much harder to control during twisting.",
+    "methodSteps": [
+      {
+        "n": 1,
+        "text": "Cool the melted butter before mixing. Melt the dough butter over low heat for 1–2 minutes and remove from the burner. Stir in the milk over 1 minute. Let the mixture stand for 5–10 minutes if necessary until only mildly warm; check 26–30 °C (79–86 °F). Mixing cool milk into the butter reduces its temperature, but still measure if it began very hot. Do not pour a hot fat-and-milk mixture over yeast.",
+        "checkpoint": "The milk mixture is fluid and mildly warm, without a hot rim on the saucepan.",
+        "chefsNote": null,
+        "safety": false
+      },
+      {
+        "n": 2,
+        "text": "Knead for stretch. Combine flour, sugar, cardamom, salt, and instant yeast. Pour in the milk mixture and stir 2–3 minutes until the flour is wet. Knead at low to medium-low speed for 10–12 minutes, or by hand for 12–15 minutes. The dough should become smooth and softly elastic as gluten develops. Lift a small piece and stretch it gently; it should form a thin translucent patch before breaking. Rest 5 minutes and knead 2–3 minutes more if it tears immediately.",
+        "checkpoint": "Dough is supple and slightly tacky, with enough stretch to be rolled thinly without breaking.",
+        "chefsNote": "Do not use the rolling flour to make this soft dough feel dry. Kneading and a short rest help a sticky surface more than repeated flour additions, which tighten the crumb and make the strips resist twisting.",
+        "safety": false
+      },
+      {
+        "n": 3,
+        "text": "Let the dough expand. Cover in the mixing bowl and leave at room temperature for 60–90 minutes. Begin checking at 60 minutes and extend in 15-minute intervals if necessary. It should approach twice its original volume and feel light when handled. Meanwhile stir filling butter, sugar, and cinnamon for 1–2 minutes into a uniform paste. Keep the paste at cool room temperature, where it spreads without dripping.",
+        "checkpoint": "The dough is visibly aerated, and the filling holds a soft spoon mark rather than separating into oily liquid.",
+        "chefsNote": "The source's unspecified yeast packet is replaced by a weighed instant dose here. Rely on the rise test rather than increasing the dose just because your kitchen needs longer than one hour.",
+        "safety": false
+      },
+      {
+        "n": 4,
+        "text": "Fold an even rectangle. Dust the bench with only enough reserved flour to prevent sticking. Press the dough gently, then roll to approximately 48 × 30 cm (19 × 12 inches). Spread filling over the full surface in a thin layer, including the corners. Lift one long edge to meet the other, producing a rectangle approximately 48 × 15 cm (19 × 6 inches). Press lightly to settle the layers. Mark twelve strips across the long dimension, each about 4 cm (1½ inches) wide, and cut straight through both layers.",
+        "checkpoint": "The folded sheet has even thickness and twelve consistent strips with filling enclosed between two dough faces.",
+        "chefsNote": "These wider strips make twelve substantial knots. The live page's narrower strip measurement does not specify its rectangle or yield; changing strip width changes bun size, so keep this version's dimensions together.",
+        "safety": false
+      },
+      {
+        "n": 5,
+        "text": "Twist and secure each knot. Take a strip and gently lengthen it to around 22–25 cm (9–10 inches) if it stretches easily. Give it two or three loose twists. Drape one end across two fingers held together, wrap the strip around them, then lift the loop off your fingers and tuck the remaining end through the middle and underneath. Work over 10–15 minutes for the batch. Put six knots on each tray with at least 5 cm (2 inches) between them, placing the tucked tail against the paper.",
+        "checkpoint": "Each knot has visible bands and an anchored underside; the dough does not split or squeeze out pools of filling.",
+        "chefsNote": null,
+        "safety": false
+      },
+      {
+        "n": 6,
+        "text": "Proof and brush. Cover loosely for 30–45 minutes. Preheat the oven to 225 °C (435 °F) during the final 20 minutes. Test an unfilled outer patch gently: it should return slowly after a light press, leaving a slight indentation. Give tightly springing knots another 10 minutes. Brush beaten egg thinly over the exposed dough for 1–2 minutes, keeping the brush from dragging across delicate filling seams.",
+        "checkpoint": "The knots look fuller and feel pillowy, while their cinnamon bands remain recognizable.",
+        "chefsNote": null,
+        "safety": false
+      },
+      {
+        "n": 7,
+        "text": "Bake through the central fold. Bake one tray for 10–12 minutes, beginning checks at 10 minutes. The dough should be golden and glossy, with a lightly browned underside. Open a representative knot if uncertain: its center should show cooked, springy crumb instead of sticky flour paste. Extend 2–3 minutes as needed, shielding dark tops loosely with foil. Bake the second tray in the same way. Cool on a rack for 15–20 minutes. **Safety —** keep raw dough and egg glaze away from ready-to-eat food; do not sample either before baking.",
+        "checkpoint": "The center is tender and set, with distinct cinnamon bands and no scorched butter smell.",
+        "chefsNote": null,
+        "safety": false
+      }
+    ],
+    "doneness": "- Dough stretches thinly before shaping and has visibly expanded during its first rise.\n- The folded sheet holds an even layer of filling from center to corner.\n- Knots retain their underside tuck through proofing and baking.\n- A light press after proofing returns slowly; the dough is soft rather than tightly elastic.\n- Golden tops and colored bases accompany a fully set central fold.",
+    "finishAndPlate": "Place the cooled warm knots on a plain serving board or small plates. Their twisted bands supply the finish; no sugar coating is needed for this formula. Break one through its thickest fold to check the crumb before bringing out the tray. Serve with coffee, tea, or a glass of milk. Keep cooling knots spaced on the rack so warm vapor can escape, and move them to a basket only when they will be eaten promptly. The best bite combines a soft middle with a lightly crisp cinnamon edge.",
+    "troubleshooting": [
+      {
+        "symptom": "Strips tear while twisting",
+        "cause": "Dough insufficiently kneaded or pulled too firmly",
+        "fix": "Rest the strips 5 minutes and handle gently; improve the stretch test next time."
+      },
+      {
+        "symptom": "Knots unwind",
+        "cause": "Tail left on top or loosely attached",
+        "fix": "Tuck the end through and underneath so the tray anchors it during rising."
+      },
+      {
+        "symptom": "Filling runs out",
+        "cause": "Soft butter overheated",
+        "fix": "Keep the bench cool; chill an oily folded sheet briefly before cutting."
+      },
+      {
+        "symptom": "Center gummy",
+        "cause": "Large uneven knots or short bake",
+        "fix": "Test the thickest fold and extend baking with tops shielded as needed."
+      }
+    ],
+    "storage": "Cool completely before sealing. Keep airtight at room temperature for 1–2 days, or freeze individually for up to 2 months. Thaw wrapped, then warm at 150 °C (300 °F) for 6–8 minutes. A loose foil cover protects dark tops. Halve the formula by weight for six knots, retaining the rectangle's thickness and the same final bun size. Brown sugar may replace the filling sugar at the same weight for a deeper flavor; its texture differs, so stir it thoroughly with the butter. Fresh yeast requires a deliberate conversion and its own mixing instructions, rather than substitution packet for packet. If shaping several trays for a larger batch, keep waiting dough covered and cool enough that its butter remains in place. These knots are best on baking day; freezing cooled extras preserves softness better than keeping them uncovered overnight."
+  },
+  "iqs": {
+    "score": 98,
+    "verdict": "ship",
+    "hard_gates": {
+      "A_structure": {
+        "pass": true,
+        "issues": []
+      },
+      "B_sizing": {
+        "pass": true,
+        "issues": []
+      },
+      "E_card": {
+        "pass": true,
+        "issues": []
+      },
+      "I_schema": {
+        "pass": true,
+        "issues": []
+      }
+    },
+    "soft_notes": [
+      "image-bearing blocks outnumber text blocks before the card — weakens ad-slot rhythm"
+    ],
+    "hard_failures": []
+  }
+}
