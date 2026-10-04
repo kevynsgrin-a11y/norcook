@@ -19,6 +19,11 @@ const TITLE_OVERRIDES: Record<string, string> = {
   fiskesuppe: 'Bergensk Fiskesuppe — Norwegian Fish Soup',
   // GSC Sep: "finnbiff recipe" 7
   finnbiff: 'Finnbiff Recipe — Norwegian Reindeer Stew',
+  // DFS Oct 4: "sodd" #11 (590 vol); GSC 28d page pos 7.9 (35i).
+  sodd: 'Sodd Recipe — Norwegian Celebration Meatball Soup',
+  // DFS Oct 4: "skillingsboller" #18 (260 vol), "skillingsboller
+  // recipe" #19 (40 vol) — recipe-dish, so "Recipe" stays in the title.
+  skillingsboller: 'Skillingsboller Recipe — Bergen Cinnamon Buns',
 }
 
 const DESCRIPTION_OVERRIDES: Record<string, string> = {
@@ -28,6 +33,10 @@ const DESCRIPTION_OVERRIDES: Record<string, string> = {
     'Bidos, the Sámi celebration stew of reindeer meat and root vegetables in a rich broth — Norway’s northern classic, explained.',
   fiskesuppe:
     'Bergen’s famous fish soup — bergensk fiskesuppe — a creamy, saffron-tinted broth loaded with fresh coastal fish.',
+  sodd:
+    'Sodd, Norway’s celebration soup — a clear, fragrant broth of mutton and beef meatballs with potatoes and root vegetables.',
+  skillingsboller:
+    'Skillingsboller, the Bergen cinnamon bun — airy cardamom dough coiled around a molten butter-and-sugar core. The viral bakery recipe.',
 }
 
 export function recipeSeoTitle(recipe: SeoRecipe): string {
