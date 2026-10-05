@@ -24,6 +24,11 @@ const TITLE_OVERRIDES: Record<string, string> = {
   // DFS Oct 4: "skillingsboller" #18 (260 vol), "skillingsboller
   // recipe" #19 (40 vol) — recipe-dish, so "Recipe" stays in the title.
   skillingsboller: 'Skillingsboller Recipe — Bergen Cinnamon Buns',
+  // Batch B Oct 4 (12-mo GSC): sursild 181i pos 9.8, plukkfisk 176i pos
+  // 8.8, multekrem 146i pos 10.1 — all on bare default titles.
+  sursild: 'Sursild Recipe — Norwegian Pickled Herring',
+  plukkfisk: 'Plukkfisk Recipe — Norwegian Fish & Potato Hash',
+  multekrem: 'Multekrem Recipe — Norwegian Cloudberry Cream',
 }
 
 const DESCRIPTION_OVERRIDES: Record<string, string> = {
@@ -37,6 +42,12 @@ const DESCRIPTION_OVERRIDES: Record<string, string> = {
     'Sodd, Norway’s celebration soup — a clear, fragrant broth of mutton and beef meatballs with potatoes and root vegetables.',
   skillingsboller:
     'Skillingsboller, the Bergen cinnamon bun — airy cardamom dough coiled around a molten butter-and-sugar core. The viral bakery recipe.',
+  sursild:
+    'Sursild, Norway’s pickled herring — a bright sweet-sour brine with onion, bay and peppercorns. The koldtbord anchor, made at home.',
+  plukkfisk:
+    'Plukkfisk, the west-coast fish and potato hash — poached fish “plucked” into cream, browned, finished with crisp bacon.',
+  multekrem:
+    'Multekrem, Sápmi’s cloud-and-cream dessert — amber cloudberries folded through softly whipped, lightly sweetened cream.',
 }
 
 export function recipeSeoTitle(recipe: SeoRecipe): string {
